@@ -52,7 +52,7 @@ local thePrimalMenaceConfig = {
 }
 
 monster.description = "The Primal Menace"
-monster.experience = 0
+monster.experience = 1000000
 monster.outfit = {
 	lookType = 1566,
 	lookHead = 0,
@@ -68,8 +68,8 @@ monster.events = {
 	"ThePrimeOrdealBossDeath",
 }
 
-monster.health = 400000
-monster.maxHealth = 400000
+monster.health = 300000
+monster.maxHealth = 300000
 monster.race = "blood"
 monster.corpse = 39530
 monster.speed = 180
@@ -110,7 +110,38 @@ monster.voices = {
 	chance = 10,
 }
 
-monster.loot = {}
+monster.loot = {
+	{ name = "crystal coin", chance = 100000, maxCount = 60 },
+	{ name = "ultimate mana potion", chance = 32653, maxCount = 14 },
+	{ name = "ultimate health potion", chance = 30612, maxCount = 14 },
+	{ name = "bullseye potion", chance = 24490, maxCount = 5 },
+	{ name = "berserk potion", chance = 22449, maxCount = 5 },
+	{ name = "mastermind potion", chance = 18367, maxCount = 5 },
+	{ id = 49271, chance = 18367, maxCount = 5 }, -- transcendence potion
+	{ name = "giant amethyst", chance = 6122 },
+	{ name = "giant ruby", chance = 4082 },
+	{ name = "giant emerald", chance = 4082 },
+	{ name = "giant sapphire", chance = 2041 },
+	{ name = "giant topaz", chance = 2041 },
+	{ name = "fiery tear", chance = 1000 },
+	{ name = "arboreal tome", chance = 250 },
+	{ name = "arboreal crown", chance = 250 },
+	{ name = "spiritthorn armor", id = 39147, chance = 250 },
+	{ name = "spiritthorn helmet", id = 39148, chance = 250 },
+	{ name = "ethereal coned hat", id = 50188, chance = 250 },
+	{ name = "alicorn headguard", chance = 250 },
+	{ name = "alicorn quiver", chance = 250 },
+	{ name = "arcanomancer regalia", chance = 250 },
+	{ name = "arcanomancer folio", chance = 250 },
+	{ id = 39183, chance = 250 }, -- name = "charged arcanomancer sigil"
+	{ id = 39186, chance = 250 }, -- name = "charged arboreal ring"
+	{ id = 39180, chance = 250 }, -- name = "charged alicorn ring"
+	{ id = 39177, chance = 250 }, -- name = "charged spiritthorn ring"
+	{ id = 50147, chance = 250 }, -- name = "charged ethereal ring"
+	{ name = "portable flame", chance = 250 },
+	{ name = "firefighting axe", chance = 250 },
+}
+
 
 monster.attacks = {
 	{ name = "melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -763 },

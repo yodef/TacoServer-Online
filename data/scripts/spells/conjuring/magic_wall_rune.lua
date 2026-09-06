@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(3147, 3180, 3)
+	return creature:conjureItem(3147, 3180, 10)
 end
 
 spell:name("Magic Wall Rune")
@@ -15,5 +15,5 @@ spell:mana(750)
 spell:soul(5)
 spell:isAggressive(false)
 spell:isPremium(true)
-
+spell:needLearn(false)
 spell:register()

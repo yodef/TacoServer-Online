@@ -21,9 +21,7 @@ npcConfig.outfit = {
 
 npcConfig.flags = {
 	floorchange = false,
-	profession = "normal",
 }
-npcConfig.speechBubble = SPEECHBUBBLE_NORMAL
 
 local config = {
 	bet = {
@@ -32,9 +30,9 @@ local config = {
 		win = 180, -- 170% high/low
 		winNum = 500, -- 300% numbers
 	},
-	playerPosition = Position(32352, 32226, 7), -- NpcPos(x-2) player must stay on this position to talk with npc
-	dicerCounter = Position(32352, 32225, 7), --	NpcPos(x-1, y-1) 	counter position
-	diePos = Position(32354, 32225, 7), --NpcPos(y-1)
+	playerPosition = Position(32355, 32244, 7), -- NpcPos(x-2) player must stay on this position to talk with npc
+	dicerCounter = Position(32355, 32245, 7), --	NpcPos(x-1, y-1) 	counter position
+	diePos = Position(32354, 32245, 7), --NpcPos(y-1)
 }
 
 local keywordHandler = KeywordHandler:new()

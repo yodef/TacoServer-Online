@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(3147, 3149, 2)
+	return creature:conjureItem(3147, 3149, 20)
 end
 
 spell:name("Energy Bomb Rune")
@@ -15,5 +15,5 @@ spell:mana(880)
 spell:soul(5)
 spell:isAggressive(false)
 spell:isPremium(true)
-
+spell:needLearn(false)
 spell:register()

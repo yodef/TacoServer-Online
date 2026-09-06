@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(0, 3147, 1)
+	return creature:conjureItem(0, 3147, 5)
 end
 
 spell:name("Blank Rune")
@@ -13,5 +13,6 @@ spell:groupCooldown(2 * 1000)
 spell:level(20)
 spell:mana(50)
 spell:soul(1)
-
+spell:needLearn(false)
+spell:isAggressive(false)
 spell:register()

@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Alptramun")
 local monster = {}
 
 monster.description = "Alptramun"
-monster.experience = 55000
+monster.experience = 155000
 monster.outfit = {
 	lookType = 1143,
 	lookHead = 0,
@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0,
 }
 
-monster.health = 320000
-monster.maxHealth = 320000
+monster.health = 220000
+monster.maxHealth = 220000
 monster.race = "blood"
 monster.corpse = 30155
 monster.speed = 125

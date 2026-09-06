@@ -21,9 +21,7 @@ npcConfig.outfit = {
 
 npcConfig.flags = {
 	floorchange = false,
-	profession = "trader",
 }
-npcConfig.speechBubble = SPEECHBUBBLE_TRADE
 
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
@@ -62,6 +60,7 @@ local config = {
 		mount = 2000,
 		trophy = 3000,
 		furniture = 4000,
+		misc = 5000,
 	},
 	outifts = {
 		[1] = {
@@ -71,10 +70,24 @@ local config = {
 				female = 1283,
 			},
 			points = {
-				base = 100000,
+				base = 10000,
 				addons = {
-					first = 35000,
-					second = 35000,
+					first = 8000,
+					second = 10000,
+				},
+			},
+		},
+		[2] = {
+			name = "Lion of War",
+			looktype = {
+				male = 1206,
+				female = 1207,
+			},
+			points = {
+				base = 10000,
+				addons = {
+					first = 8000,
+					second = 10000,
 				},
 			},
 		},
@@ -83,49 +96,54 @@ local config = {
 		[1] = {
 			name = "Antelope",
 			id = 163,
-			points = 145000,
+			points = 10000,
+		},
+		[2] = {
+			name = "Phant",
+			id = 182,
+			points = 8000,
 		},
 	},
 	trophies = {
 		[1] = {
 			name = "gozzler trophy",
 			id = 32751,
-			points = 3000,
+			points = 500,
 		},
 		[2] = {
 			name = "bronze hunter trophy",
 			id = 32754,
-			points = 3000,
+			points = 1000,
 		},
 		[3] = {
 			name = "sea serpent trophy",
 			id = 32752,
-			points = 15000,
+			points = 2000,
 		},
 		[4] = {
 			name = "silver hunter trophy",
 			id = 32755,
-			points = 15000,
+			points = 10000,
 		},
 		[5] = {
 			name = "many faces trophy",
 			id = 36749,
-			points = 50000,
+			points = 5000,
 		},
 		[6] = {
 			name = "hellflayer trophy",
 			id = 32753,
-			points = 80000,
+			points = 5000,
 		},
 		[7] = {
 			name = "gold hunter trophy",
 			id = 32756,
-			points = 80000,
+			points = 25000,
 		},
 		[8] = {
 			name = "brachiodemon trophy",
 			id = 36748,
-			points = 80000,
+			points = 8000,
 		},
 	},
 	furniture = {
@@ -137,7 +155,87 @@ local config = {
 		[1] = {
 			name = "falcon pet",
 			id = 36750,
-			points = 135000,
+			points = 5000,
+		},
+	},
+	misc = {
+		[1] = {
+			name = "tibia coin scroll",
+			id = 14758,
+			amount = 1,
+			points = 6000,
+		},
+		[2] = {
+			name = "100 platinum token",
+			id = 22723,
+			amount = 100,
+			points = 5000,
+		},
+		[3] = {
+			name = "music box",
+			id = 16244,
+			amount = 1,
+			points = 5000,
+		},
+		[4] = {
+			name = "kooldown-aid",
+			id = 36723,
+			amount = 1,
+			points = 300,
+		},
+		[5] = {
+			name = "strike enhancement",
+			id = 36724,
+			amount = 1,
+			points = 300,
+		},
+		[6] = {
+			name = "stamina extension",
+			id = 36725,
+			amount = 1,
+			points = 200,
+		},
+		[7] = {
+			name = "charm upgrade",
+			id = 36726,
+			amount = 1,
+			points = 200,
+		},
+		[8] = {
+			name = "wealth duplex",
+			id = 36727,
+			amount = 1,
+			points = 500,
+		},
+		[9] = {
+			name = "bestiary betterment",
+			id = 36728,
+			amount = 1,
+			points = 200,
+		},
+		[10] = {
+			name = "bronze epic key",
+			id = 20272,
+			amount = 1,
+			points = 100,
+		},
+		[11] = {
+			name = "silver epic key",
+			id = 20270,
+			amount = 1,
+			points = 300,
+		},
+		[12] = {
+			name = "golden epic key",
+			id = 20273,
+			amount = 1,
+			points = 800,
+		},
+		[13] = {
+			name = "platinum epic key",
+			id = 20271,
+			amount = 1,
+			points = 1500,
 		},
 	},
 }
@@ -202,12 +300,13 @@ local function getOfferByName(name, offer, topic)
 					value = offerTable.points,
 					mountId = offerTable.id,
 				}
-			elseif topic == config.topics.trophy or topic == config.topics.furniture then
+			elseif topic == config.topics.trophy or topic == config.topics.furniture or topic == config.topics.misc then
 				return {
 					offerId = index,
 					name = offerTable.name,
 					offerTopic = topic,
 					value = offerTable.points,
+					amount = offerTable.amount,
 					itemId = offerTable.id,
 				}
 			end
@@ -243,12 +342,13 @@ local function getOfferByIndex(offerIndex, offer, topic)
 					value = offerTable.points,
 					mountId = offerTable.id,
 				}
-			elseif topic == config.topics.trophy or topic == config.topics.furniture then
+			elseif topic == config.topics.trophy or topic == config.topics.furniture or topic == config.topics.misc then
 				return {
 					offerId = index,
 					name = offerTable.name,
 					offerTopic = topic,
 					value = offerTable.points,
+					amount = offerTable.amount,
 					itemId = offerTable.id,
 				}
 			end
@@ -285,7 +385,7 @@ local function processItemInboxPurchase(player, name, id)
 
 	local inbox = player:getStoreInbox()
 	local inboxItems = inbox:getItems()
-	if inbox and #inboxItems < inbox:getMaxCapacity() then
+	if inbox and #inboxItems <= inbox:getMaxCapacity() then
 		local decoKit = inbox:addItem(ITEM_DECORATION_KIT, 1)
 		if decoKit then
 			decoKit:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "You bought this item with the Walter Jaeger.\nUnwrap it in your own house to create a <" .. name .. ">.")
@@ -293,7 +393,7 @@ local function processItemInboxPurchase(player, name, id)
 			return true
 		end
 	else
-		player:sendTextMessage(MESSAGE_LOOK, "Please make sure you have free slots in your store inbox.")
+		player:sendTextMessage(MESSAGE_INFO_DESCR, "Please make sure you have free slots in your store inbox.")
 	end
 
 	return false
@@ -308,7 +408,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	end
 	if MsgContains(message, "rewards") then
 		npcHandler:say({
-			"Finishing prey hunting tasks will give you hunting task points (HTP). These can be exchanged for items of the following categories: {outfit}, {mount}, {trophies} and {furniture}. ...",
+			"Finishing prey hunting tasks will give you hunting task points (HTP). These can be exchanged for items of the following categories: {outfit}, {mount}, {trophies}, {special} and {furniture}. ...",
 			"Please note, that all items will be put into your Store inbox!",
 		}, npc, creature, 100)
 		npcHandler:setTopic(playerId, 1)
@@ -361,6 +461,14 @@ local function creatureSayCallback(npc, creature, type, message)
 				npcHandler:say("I offer you the " .. getOffersString(config.furniture, true) .. ".", npc, creature)
 				npcHandler:setTopic(playerId, config.topics.furniture)
 			end
+		elseif MsgContains(message, "special") then
+			if config == nil or config.misc == nil or #config.misc == 0 then
+				npcHandler:say("ERROR NPC WalterJaeger> Yodef: Encontraste un bug. Copia y mandame este mensaje. Disculpa la molestia <3", npc, creature)
+				npcHandler:setTopic(playerId, 0)
+			else
+				npcHandler:say("I offer " .. getOffersString(config.misc, true) .. ".", npc, creature)
+				npcHandler:setTopic(playerId, config.topics.misc)
+			end
 		end
 
 		-- Offer topics
@@ -400,6 +508,26 @@ local function creatureSayCallback(npc, creature, type, message)
 					if player:getTaskHuntingPoints() >= offerTable.value then
 						if processItemInboxPurchase(player, offerTable.name, offerTable.itemId) and player:removeTaskHuntingPoints(offerTable.value) then
 							npcHandler:say("Here you have it.", npc, creature)
+						else
+							npcHandler:say("Sorry, but you don't have enough slots on your inbox or capacity.", npc, creature)
+						end
+					else
+						npcHandler:say("Sorry, but you don't have enough hunting task points.", npc, creature)
+					end
+				else
+					return true
+				end
+			end
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == config.topics.misc then
+			if config ~= nil and config.misc ~= nil and #config.misc > 0 then
+				local offerTable = getOfferByName(message, config.misc, npcHandler:getTopic(playerId))
+				if offerTable ~= nil then
+					if player:getTaskHuntingPoints() >= offerTable.value then
+					--processItemInboxPurchase(player, offerTable.name, offerTable.itemId, offerTable.amount) and
+						if  player:removeTaskHuntingPoints(offerTable.value) then
+							player:addItem(offerTable.itemId, offerTable.amount)
+							npcHandler:say("Enjoy it!", npc, creature)
 						else
 							npcHandler:say("Sorry, but you don't have enough slots on your inbox or capacity.", npc, creature)
 						end

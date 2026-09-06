@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(3147, 3174, 10)
+	return creature:conjureItem(3147, 3174, 20)
 end
 
 spell:name("Light Magic Missile Rune")
@@ -14,5 +14,5 @@ spell:level(15)
 spell:mana(120)
 spell:soul(1)
 spell:isAggressive(false)
-
+spell:needLearn(false)
 spell:register()

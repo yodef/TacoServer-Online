@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Izcandar the Banished")
 local monster = {}
 
 monster.description = "Izcandar the Banished"
-monster.experience = 55000
+monster.experience = 155000
 monster.outfit = {
 	lookType = 1137,
 	lookHead = 19,
@@ -18,8 +18,8 @@ monster.bosstiary = {
 	bossRace = RARITY_NEMESIS,
 }
 
-monster.health = 320000
-monster.maxHealth = 320000
+monster.health = 220000
+monster.maxHealth = 220000
 monster.race = "blood"
 monster.corpse = 6068
 monster.speed = 125

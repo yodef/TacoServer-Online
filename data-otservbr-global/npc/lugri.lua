@@ -19,11 +19,16 @@ npcConfig.outfit = {
 	lookAddons = 3,
 }
 
+
 npcConfig.flags = {
-	floorchange = false,
-	profession = "trader",
+	floorchange = false
 }
-npcConfig.speechBubble = SPEECHBUBBLE_TRADE
+
+npcConfig.voices = {
+	interval = 15000,
+	chance = 50,
+	{text = 'Come see my Addons bro!'}
+}
 
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
@@ -52,162 +57,157 @@ npcType.onCloseChannel = function(npc, creature)
 	npcHandler:onCloseChannel(npc, creature)
 end
 
-local function creatureSayCallback(npc, creature, type, message)
-	local player = Player(creature)
-	local playerId = player:getId()
+addoninfo = {
+['first citizen addon'] = {cost = 0, items = {{5878,100}}, outfit_female = 136, outfit_male = 128, addon = 1, storageID = Storage.Quest.U7_8.AddonBackpack},
+['second citizen addon'] = {cost = 0, items = {{5890,50}, {5902,25}, {3374,1}}, outfit_female = 136, outfit_male = 128, addon = 2, storageID = Storage.Quest.U7_8.AddonHat},
 
-	if not npcHandler:checkInteraction(npc, creature) then
+['first hunter addon'] = {cost = 0, items = {{5876,100}, {5948,100}, {5891,5}, {5887,1}, {5889,1}, {5888,1}}, outfit_female = 137, outfit_male = 129, addon = 1, storageID = Storage.Quest.U7_8.AddonHat},
+['second hunter addon'] = {cost = 0, items = {{5875,1}}, outfit_female = 137, outfit_male = 129, addon = 2, storageID = Storage.Quest.U7_8.AddonGlove},
+
+['first knight addon'] = {cost = 0, items = {{5880,100}, {5892,1}}, outfit_female = 139, outfit_male = 131, addon = 1, storageID = Storage.Quest.U7_8.AddonSword},
+['second knight addon'] = {cost = 0, items = {{5893,100}, {5924,1}, {5885,1}, {5887,1}}, outfit_female = 139, outfit_male = 131, addon = 2, storageID = Storage.Quest.U7_8.AddonHelmet},
+
+['first mage addon'] = {cost = 0, items = {{3074,1}, {3075,1}, {3072,1}, {3073,1}, {3071,1}, {3066,1}, {3070,1}, {3069,1}, {3065,1}, {3067,1}, {5904,10}, {3077,20}, {5809,1}}, outfit_female = 138, outfit_male = 130, addon = 1, storageID = Storage.Quest.U7_8.AddonWand},
+['second mage addon'] = {cost = 0, items = {{5903,1}}, outfit_female = 138, outfit_male = 130, addon = 2, storageID = Storage.Quest.U7_8.AddonHatCloak},
+
+['first summoner addon'] = {cost = 0, items = {{5958,1}}, outfit_female = 141, outfit_male = 133, addon = 1, storageID = Storage.Quest.U7_8.AddonBelt},
+['second summoner addon'] = {cost = 0, items = {{5894,70}, {5911,20}, {5883,40}, {5922,35}, {5886,10}, {5881,60}, {5882,40}, {5904,15}, {5905,30}}, outfit_female = 141, outfit_male = 133, addon = 2, storageID = Storage.Quest.U7_8.AddonWandTimer},
+
+
+['first barbarian addon'] = {cost = 0, items = {{5880,100}, {5892,1}, {5893,50}, {5876,50}}, outfit_female = 147, outfit_male = 143, addon = 1, storageID = 51032},
+['second barbarian addon'] = {cost = 0, items = {{5884,1}, {5885,1}, {5910,50}, {5911,50}, {5886,10}}, outfit_female = 147, outfit_male = 143, addon = 2, storageID = 51033},
+
+['first druid addon'] = {cost = 0, items = {{5896,50}, {5897,50}}, outfit_female = 148, outfit_male = 144, addon = 1, storageID = Storage.Quest.U7_8.DruidHatAddon},
+['second druid addon'] = {cost = 0, items = {{5906,100}}, outfit_female = 148, outfit_male = 144, addon = 2, storageID = Storage.Quest.U7_8.DruidBodyAddon},
+
+['first nobleman addon'] = {cost = 150000, items = {}, outfit_female = 140, outfit_male = 132, addon = 1, storageID = Storage.Quest.U7_8.NoblemanFirstAddon},
+['second nobleman addon'] = {cost = 150000, items = {}, outfit_female = 140, outfit_male = 132, addon = 2, storageID = Storage.Quest.U7_8.NoblemanSecondAddon},
+
+['first oriental addon'] = {cost = 0, items = {{5945,1}}, outfit_female = 150, outfit_male = 146, addon = 1, storageID = Storage.Quest.U7_8.FirstOrientalAddon},
+['second oriental addon'] = {cost = 0, items = {{5883,100}, {5895,100}, {5891,2}, {5912,100}}, outfit_female = 150, outfit_male = 146, addon = 2, storageID = Storage.Quest.U7_8.SecondOrientalAddon},
+
+['first warrior addon'] = {cost = 0, items = {{5925,100}, {5899,100}, {5884,1}, {5919,1}}, outfit_female = 142, outfit_male = 134, addon = 1, storageID = Storage.Quest.U7_8.WarriorShoulderAddon},
+['second warrior addon'] = {cost = 0, items = {{5880,100}, {5887,1}}, outfit_female = 142, outfit_male = 134, addon = 2, storageID = Storage.Quest.U7_8.WarriorSwordAddon},
+
+['first wizard addon'] = {cost = 0, items = {{5922,50}}, outfit_female = 149, outfit_male = 145, addon = 1, storageID = 51034},
+['second wizard addon'] = {cost = 0, items = {{3436,1}, {3386,1}, {3382,1}, {3006,1}}, outfit_female = 149, outfit_male = 145, addon = 2, storageID = 51035},
+
+['first assassin addon'] = {cost = 0, items = {{5912,50}, {5910,50}, {5911,50}, {5913,50}, {5914,50}, {5909,50}, {5886,10}}, outfit_female = 156, outfit_male = 152, addon = 1, storageID = Storage.Quest.U7_8.AssassinFirstAddon},
+['second assassin addon'] = {cost = 0, items = {{5804,1}, {5930,1}}, outfit_female = 156, outfit_male = 152, addon = 2, storageID = Storage.Quest.U7_8.AssassinSecondAddon},
+
+['first beggar addon'] = {cost = 0, items = {{5878,50}, {5921,30}, {5913,20}, {5894,10}, {5883,100}}, outfit_female = 157, outfit_male = 153, addon = 1, storageID = Storage.Quest.U7_8.BeggarFirstAddonDoor},
+['second beggar addon'] = {cost = 0, items = {{6107,1}}, outfit_female = 157, outfit_male = 153, addon = 2, storageID = Storage.Quest.U7_8.BeggarSecondAddon},
+
+['first pirate addon'] = {cost = 0, items = {{6098,100}, {6126,100}, {6097,100}}, outfit_female = 155, outfit_male = 151, addon = 1, storageID = Storage.Quest.U7_8.PirateSabreAddon},
+['second pirate addon'] = {cost = 0, items = {{6101,1}, {6102,1}, {6100,1}, {6099,1}}, outfit_female = 155, outfit_male = 151, addon = 2, storageID = Storage.Quest.U7_8.PirateHatAddon},
+['first shaman addon'] = {cost = 0, items = {{3348,5}, {3403,5}}, outfit_female = 158, outfit_male = 154, addon = 1, storageID = 51036},
+['second shaman addon'] = {cost = 0, items = {{5014,1}, {3002,5}}, outfit_female = 158, outfit_male = 154, addon = 2, storageID = 51037},
+['first norseman addon'] = {cost = 0, items = {{7290,5}}, outfit_female = 252, outfit_male = 251, addon = 1, storageID = 51038},
+['second norseman addon'] = {cost = 0, items = {{7290,10}}, outfit_female = 252, outfit_male = 251, addon = 2, storageID = 51039},
+['first festive addon'] = {cost = 0, items = {{25088,3}}, outfit_female = 929, outfit_male = 931, addon = 1, storageID = 51040},
+['second festive addon'] = {cost = 0, items = {{25089,50}}, outfit_female = 929, outfit_male = 931, addon = 2, storageID = 51041},
+['first battle mage addon'] = {cost = 0, items = {{28792,5}}, outfit_female = 1070, outfit_male = 1069, addon = 1, storageID = 51042},
+['second battle mage addon'] = {cost = 0, items = {{28793,20}}, outfit_female = 1070, outfit_male = 1069, addon = 2, storageID = 51043}
+}
+local o = {'citizen', 'hunter', 'knight', 'mage', 'nobleman', 'summoner', 'warrior', 'barbarian', 'druid', 'wizard', 'oriental', 'pirate', 'assassin', 'beggar', 'shaman', 'norseman', 'festive', 'battle mage'}
+local rtnt = {}
+local function creatureSayCallback(npc, creature, type, message)
+local talkUser = creature
+local player = Player(creature)
+local playerId = player:getId()
+
+local talkState = {}
+    if not npcHandler:checkInteraction(npc, creature) then
 		return false
 	end
 
-	if MsgContains(message, "outfit") or MsgContains(message, "addon") then
-		if player:getStorageValue(Storage.Quest.U7_8.WizardOutfits) < 1 then
-			npcHandler:say("This skull shows that you are a true follower of Zathroth and the glorious gods of darkness. Are you willing to prove your loyalty?", npc, creature)
-			npcHandler:setTopic(playerId, 1)
-		end
-	elseif MsgContains(message, "shield") or MsgContains(message, "medusa shield") then
-		if player:getStorageValue(Storage.Quest.U7_8.WizardOutfits) == 1 then
-			npcHandler:say("Is it your true wish to sacrifice a medusa shield to Zathroth?", npc, creature)
-			npcHandler:setTopic(playerId, 3)
-		end
-	elseif MsgContains(message, "mail") or MsgContains(message, "dragon scale mail") then
-		if player:getStorageValue(Storage.Quest.U7_8.WizardOutfits) == 2 then
-			npcHandler:say("Is it your true wish to sacrifice a dragon scale mail to Zathroth?", npc, creature)
-			npcHandler:setTopic(playerId, 4)
-		end
-	elseif MsgContains(message, "legs") or MsgContains(message, "crown legs") then
-		if player:getStorageValue(Storage.Quest.U7_8.WizardOutfits) == 3 then
-			npcHandler:say("Is it your true wish to sacrifice crown legs to Zathroth?", npc, creature)
-			npcHandler:setTopic(playerId, 5)
-		end
-	elseif MsgContains(message, "ring") or MsgContains(message, "ring of the sky") then
-		if player:getStorageValue(Storage.Quest.U7_8.WizardOutfits) == 4 then
-			npcHandler:say("Is it your true wish to sacrifice a ring of the sky to Zathroth?", npc, creature)
-			npcHandler:setTopic(playerId, 6)
-		end
-
-		------------Task Part-------------
-	elseif MsgContains(message, "task") then
-		if player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.LugriNecromancers) < 0 and player:getLevel() >= 60 then
-			npcHandler:say({
-				"What? Who are you to imply I need help from a worm like you? ...",
-				"I don't need help. But if you desperately wish to do something to earn the favour of Zathroth, feel free. Don't expect any reward though. ...",
-				"Do you want to help and serve Zathroth out of your own free will, without demanding payment or recognition?",
-			}, npc, creature)
-			npcHandler:setTopic(playerId, 7)
-		elseif player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.LugriNecromancers) == 0 then
-			if player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.MonsterKillCount.NecromancerCount) >= 4000 then
-				npcHandler:say({
-					"You've slain a mere " .. player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.MonsterKillCount.NecromancerCount) .. " necromancers and priestesses. Still, you've shown some dedication. Maybe that means you can kill one of those so-called 'leaders' too. ...",
-					"Deep under Drefia, a necromancer called Necropharus is hiding in the Halls of Sacrifice. I'll place a spell on you with which you will be able to pass his weak protective gate. ...",
-					"Know that this will be your only chance to enter his room. If you leave it or die, you won't be able to return. We'll see if you really dare enter those halls.",
-				}, npc, creature)
-				player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.LugriNecromancers, 1)
-				player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.BossKillCount.NecropharusCount, 0)
-			else
-				npcHandler:say("Come back when you have slain 4000 necromancers and priestesses!", npc, creature)
-			end
-		elseif player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.LugriNecromancers) == 2 then
-			npcHandler:say({
-				"Hrm. So you had the guts to enter that room. Well, it's all fake magic anyway and no real threat. ...",
-				"What are you looking at me for? Waiting for something? I told you that there was no reward. Despite being allowed to stand before me without being squashed like a bug. Get out of my sight!",
-			}, npc, creature)
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.LugriNecromancers, 4)
-		elseif player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.LugriNecromancers) == 3 then
-			if player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.MonsterKillCount.NecromancerCount) >= 1000 then
-				npcHandler:say("Good job!", npc, creature)
-				player:addExperience(40000, true)
-				player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.LugriNecromancers, 4)
-			else
-				npcHandler:say("Come back when you have slain 1000 necromancers and priestesses!", npc, creature)
-			end
-		elseif player:getStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.LugriNecromancers) == 4 then
-			npcHandler:say("You can't live without serving, can you? Although you are quite annoying, you're still somewhat useful. Continue killing Necromancers and Priestesses for me. 1000 are enough this time. What do you say?", npc, creature)
-			npcHandler:setTopic(playerId, 8)
-		end
-	elseif MsgContains(message, "yes") then
-		if npcHandler:getTopic(playerId) == 1 then
-			npcHandler:say("It will be a hard task which requires many sacrifices. Do you still want to proceed?", npc, creature)
-			npcHandler:setTopic(playerId, 2)
-		elseif npcHandler:getTopic(playerId) == 2 then
-			npcHandler:say("Good decision, |PLAYERNAME|. Your first sacrifice will be a medusa shield. Bring it to me and do give it happily.", npc, creature)
-			player:setStorageValue(Storage.Quest.U7_8.WizardOutfits, 1)
-			player:setStorageValue(Storage.OutfitQuest.DefaultStart, 1) --this for default start of Outfit and Addon Quests
-			npcHandler:setTopic(playerId, 0)
-		elseif npcHandler:getTopic(playerId) == 3 then
-			if player:removeItem(3436, 1) then
-				npcHandler:say("Good. I accept your sacrifice. The second sacrifice I require from you is a dragon scale mail. Bring it to me and do give it happily.", npc, creature)
-				player:setStorageValue(Storage.Quest.U7_8.WizardOutfits, 2)
-				npcHandler:setTopic(playerId, 0)
-			else
-				npcHandler:say("You don't have it...", npc, creature)
-			end
-		elseif npcHandler:getTopic(playerId) == 4 then
-			if player:removeItem(3386, 1) then
-				npcHandler:say("Good. I accept your sacrifice. The third sacrifice I require from you are crown legs. Bring them to me and do give them happily.", npc, creature)
-				player:setStorageValue(Storage.Quest.U7_8.WizardOutfits, 3)
-				npcHandler:setTopic(playerId, 0)
-			else
-				npcHandler:say("You don't have it...", npc, creature)
-			end
-		elseif npcHandler:getTopic(playerId) == 5 then
-			if player:removeItem(3382, 1) then
-				npcHandler:say("Good. I accept your sacrifice. The last sacrifice I require from you is a ring of the sky. Bring it to me and do give it happily.", npc, creature)
-				player:setStorageValue(Storage.Quest.U7_8.WizardOutfits, 4)
-				npcHandler:setTopic(playerId, 0)
-			else
-				npcHandler:say("You don't have it...", npc, creature)
-			end
-		elseif npcHandler:getTopic(playerId) == 6 then
-			if player:removeItem(3006, 1) then
-				npcHandler:say("Good. I accept your sacrifice. You have proven that you are a true follower of Zathroth and do not hesitate to sacrifice worldly goods. Thus, I will reward you with this headgear. ", npc, creature)
-				player:setStorageValue(Storage.Quest.U7_8.WizardOutfits, 5)
-				player:addOutfitAddon(145, 2)
-				player:addOutfitAddon(149, 2)
-				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
-				npcHandler:setTopic(playerId, 0)
-			else
-				npcHandler:say("You don't have it...", npc, creature)
-			end
-		elseif npcHandler:getTopic(playerId) == 7 then
-			npcHandler:say({
-				"You do? I mean - wise decision. Let me explain. By now, Tibia has been overrun by numerous followers of different cults and beliefs. The true Necromancers died or left Tibia long ago, shortly after their battle was lost. ...",
-				"What is left are mainly pseudo-dark pretenders, the old wisdom and power being far beyond their grasp. They think they have the right to tap that dark power, but they don't. ...",
-				"I want you to eliminate them. As many as you can. All of the upstart necromancer orders, and those priestesses. And as I said, don't expect a reward - this is what has to be done to cleanse Tibia of its false dark prophets.",
-			}, npc, creature)
-			player:setStorageValue(JOIN_STOR, 1)
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.MonsterKillCount.NecromancerCount, 0)
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.NecromancerCount, 0)
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.PriestessCount, 0)
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.BloodPriestCount, 0)
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.BloodHandCount, 0)
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.ShadowPupilCount, 0)
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.LugriNecromancers, 0)
-		elseif npcHandler:getTopic(playerId) == 8 then
-			npcHandler:say("Good. Then go.", npc, creature)
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.MonsterKillCount.NecromancerCount, 0)
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.NecromancerCount, 0)
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.PriestessCount, 0)
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.BloodPriestCount, 0)
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.BloodHandCount, 0)
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.AltKillCount.ShadowPupilCount, 0)
-			player:setStorageValue(Storage.Quest.U8_5.KillingInTheNameOf.LugriNecromancers, 3)
-		end
-	elseif MsgContains(message, "no") then
-		if npcHandler:getTopic(playerId) > 1 then
-			npcHandler:say("Then no.", npc, creature)
-			npcHandler:setTopic(playerId, 0)
-		end
-	end
-	return true
+    if addoninfo[message] ~= nil then
+        local itemsTable = addoninfo[message].items
+        local items_list = ''
+        if (getPlayerStorageValue(creature, addoninfo[message].storageID) ~= -1) then
+                npcHandler:say('You already have this addon!', npc, creature)
+                npcHandler:resetNpc(creature)
+                return true
+        elseif table.maxn(itemsTable) > 0 then
+            for i = 1, table.maxn(itemsTable) do
+                local item = itemsTable[i]
+                items_list = items_list .. item[2] .. ' ' .. ItemType(item[1]):getName()
+                if i ~= table.maxn(itemsTable) then
+                    items_list = items_list .. ', '
+                end
+            end
+        end
+        local text = ''
+        if (addoninfo[message].cost > 0) then
+            text = addoninfo[message].cost .. ' gp'
+        elseif table.maxn(addoninfo[message].items) then
+            text = items_list
+        elseif (addoninfo[message].cost > 0) and table.maxn(addoninfo[message].items) then
+            text = items_list .. ' and ' .. addoninfo[message].cost .. ' gp'
+        end
+        npcHandler:say('For ' .. message .. ' you will need ' .. text .. '. Do you have it all with you?', npc, creature)
+        rtnt = message
+        talkState[talkUser] = addoninfo[message].storageID
+        npcHandler:setTopic(playerId, 2)
+        return true
+    elseif npcHandler:getTopic(playerId) == 2 then
+        if MsgContains(message, "yes") then
+            local items_number = 0
+            if table.maxn(addoninfo[rtnt].items) > 0 then
+                for i = 1, table.maxn(addoninfo[rtnt].items) do
+                    local item = addoninfo[rtnt].items[i]
+                    if (getPlayerItemCount(creature,item[1]) >= item[2]) then
+                        items_number = items_number + 1
+                    end
+                end
+            end
+            if(getPlayerMoney(creature) >= addoninfo[rtnt].cost) and (items_number == table.maxn(addoninfo[rtnt].items)) then
+                doPlayerRemoveMoney(creature, addoninfo[rtnt].cost)
+                if table.maxn(addoninfo[rtnt].items) > 0 then
+                    for i = 1, table.maxn(addoninfo[rtnt].items) do
+                        local item = addoninfo[rtnt].items[i]
+                        doPlayerRemoveItem(creature,item[1],item[2])
+                    end
+                end
+                doPlayerAddOutfit(creature, addoninfo[rtnt].outfit_male, addoninfo[rtnt].addon)
+                doPlayerAddOutfit(creature, addoninfo[rtnt].outfit_female, addoninfo[rtnt].addon)
+                setPlayerStorageValue(creature,addoninfo[rtnt].storageID,1)
+                npcHandler:say('Here you are.', npc, creature)
+            else
+                npcHandler:say('You do not have needed items!', npc, creature)
+            end
+            rtnt = nil
+            talkState[talkUser] = 0
+            npcHandler:resetNpc(creature)
+            return true
+        end
+    elseif MsgContains(message, "addon") then
+        npcHandler:say('I can give you {first} or {second} addons for {' .. table.concat(o, "}, {") .. '} outfits.', npc, creature)
+        rtnt = nil
+        talkState[talkUser] = 0
+        npcHandler:resetNpc(creature)
+        return true
+    elseif MsgContains(message, "help") then
+        npcHandler:say('You must say \'first NAME addon\', for the first addon or \'second NAME addon\' for the second.', npc, creature)
+        rtnt = nil
+        talkState[talkUser] = 0
+        npcHandler:resetNpc(creature)
+        return true
+    else
+        if talkState[talkUser] ~= nil then
+            if talkState[talkUser] > 0 then
+            npcHandler:say('Come back when you get these items.', npc, creature)
+            rtnt = nil
+            talkState[talkUser] = 0
+            npcHandler:resetNpc(creature)
+            return true
+            end
+        end
+    end
+    return true
 end
 
-npcHandler:setMessage(MESSAGE_GREET, "What is it that you {want}, |PLAYERNAME|?")
-npcHandler:setMessage(MESSAGE_FAREWELL, "Bye.")
-npcHandler:setMessage(MESSAGE_WALKAWAY, "Bye.")
-
+npcHandler:setMessage(MESSAGE_GREET, 'Welcome |PLAYERNAME|! If you want some addons, just ask me! Do you want to see my {addons}, or are you decided? If you are decided, just ask me like this: {first citizen addon}')
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new(), npcConfig.name, true, true, true)
-
--- npcType registering the npcConfig table
 npcType:register(npcConfig)

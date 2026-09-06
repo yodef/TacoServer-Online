@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("The Baron from Below")
 local monster = {}
 
 monster.description = "The Baron From Below"
-monster.experience = 50000
+monster.experience = 250000
 monster.outfit = {
 	lookType = 1045,
 	lookHead = 0,
@@ -18,8 +18,8 @@ monster.events = {
 	"TheBaronFromBelowThink",
 }
 
-monster.health = 350000
-monster.maxHealth = 350000
+monster.health = 250000
+monster.maxHealth = 250000
 monster.race = "blood"
 monster.corpse = 27633
 monster.speed = 120
@@ -114,6 +114,8 @@ monster.loot = {
 	{ name = "spellbook of warding", chance = 2080 },
 	{ name = "gnome sword", chance = 4170 },
 	{ name = "gnome armor", chance = 3390 },
+	{ name = "gnome helmet", chance = 3390 },
+	{ name = "gnomish cuirass", chance = 3390 },
 }
 
 monster.attacks = {

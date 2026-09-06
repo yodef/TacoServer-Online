@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(0, 3447, 10, CONST_ME_MAGIC_BLUE)
+	return creature:conjureItem(0, 3447, 25, CONST_ME_MAGIC_BLUE)
 end
 
 spell:name("Conjure Arrow")
@@ -17,5 +17,5 @@ spell:mana(100)
 spell:soul(1)
 spell:isSelfTarget(true)
 spell:isAggressive(false)
-
+spell:needLearn(false)
 spell:register()

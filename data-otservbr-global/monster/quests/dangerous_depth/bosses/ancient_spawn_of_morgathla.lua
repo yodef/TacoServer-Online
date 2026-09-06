@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Ancient Spawn of Morgathla")
 local monster = {}
 
 monster.description = "Ancient Spawn Of Morgathla"
-monster.experience = 70000
+monster.experience = 500000
 monster.outfit = {
 	lookType = 1055,
 	lookHead = 0,
@@ -18,8 +18,8 @@ monster.bosstiary = {
 	bossRace = RARITY_ARCHFOE,
 }
 
-monster.health = 900000
-monster.maxHealth = 900000
+monster.health = 700000
+monster.maxHealth = 700000
 monster.race = "blood"
 monster.corpse = 21004
 monster.speed = 135
@@ -83,9 +83,18 @@ monster.loot = {
 	{ id = 7412, chance = 900 }, -- butcher's axe
 	{ id = 3381, chance = 770 }, -- crown armor
 	{ id = 21176, chance = 1420 }, -- execowtioner axe
+	{ id = 21176, chance = 1420 }, -- execowtioner axe
 	{ id = 3318, chance = 770 }, -- knight axe
 	{ id = 7413, chance = 390 }, -- titan axe
 	{ id = 7401, chance = 520 }, -- minotaur trophy
+	{ name = "gnome sword", chance = 4170 },
+	{ name = "gnome armor", chance = 3390 },
+	{ name = "gnome shield", chance = 5080 },
+	{ name = "gnome helmet", chance = 3390 },
+	{ name = "magma coat", chance = 3390 },
+	{ name = "gnome legs", chance = 3390 },
+	{ name = "gnomish cuirass", chance = 3390 },
+	{ name = "depth claws", chance = 3890 },
 }
 
 monster.attacks = {
@@ -95,22 +104,22 @@ monster.attacks = {
 }
 
 monster.defenses = {
-	defense = 190,
-	armor = 190,
+	defense = 50,
+	armor = 50,
 	--	mitigation = ???,
 }
 
 monster.elements = {
-	{ type = COMBAT_PHYSICALDAMAGE, percent = 0 },
-	{ type = COMBAT_ENERGYDAMAGE, percent = 0 },
-	{ type = COMBAT_EARTHDAMAGE, percent = 0 },
-	{ type = COMBAT_FIREDAMAGE, percent = 0 },
+	{ type = COMBAT_PHYSICALDAMAGE, percent = -10 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = -10 },
+	{ type = COMBAT_EARTHDAMAGE, percent = -10 },
+	{ type = COMBAT_FIREDAMAGE, percent = -10 },
 	{ type = COMBAT_LIFEDRAIN, percent = 0 },
 	{ type = COMBAT_MANADRAIN, percent = 0 },
 	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
-	{ type = COMBAT_ICEDAMAGE, percent = 0 },
-	{ type = COMBAT_HOLYDAMAGE, percent = 0 },
-	{ type = COMBAT_DEATHDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = -10 },
+	{ type = COMBAT_HOLYDAMAGE, percent = -10 },
+	{ type = COMBAT_DEATHDAMAGE, percent = -10 },
 }
 
 monster.immunities = {

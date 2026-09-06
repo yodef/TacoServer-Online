@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Plagueroot")
 local monster = {}
 
 monster.description = "Plagueroot"
-monster.experience = 55000
+monster.experience = 155000
 monster.outfit = {
 	lookType = 1121,
 	lookHead = 0,
@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0,
 }
 
-monster.health = 320000
-monster.maxHealth = 320000
+monster.health = 220000
+monster.maxHealth = 220000
 monster.race = "venom"
 monster.corpse = 30022
 monster.speed = 85

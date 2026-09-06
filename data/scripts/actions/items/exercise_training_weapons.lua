@@ -2,26 +2,26 @@ local exhaustionTime = 10
 
 local exerciseWeaponsTable = {
 	-- MELE
-	[50292] = { skill = SKILL_FIST },
-	[50293] = { skill = SKILL_FIST },
-	[50294] = { skill = SKILL_FIST },
-	[50295] = { skill = SKILL_FIST },
-	[28540] = { skill = SKILL_SWORD },
-	[28552] = { skill = SKILL_SWORD },
-	[35279] = { skill = SKILL_SWORD },
-	[35285] = { skill = SKILL_SWORD },
-	[28553] = { skill = SKILL_AXE },
-	[28541] = { skill = SKILL_AXE },
-	[35280] = { skill = SKILL_AXE },
-	[35286] = { skill = SKILL_AXE },
-	[28554] = { skill = SKILL_CLUB },
-	[28542] = { skill = SKILL_CLUB },
-	[35281] = { skill = SKILL_CLUB },
-	[35287] = { skill = SKILL_CLUB },
-	[44064] = { skill = SKILL_SHIELD },
-	[44065] = { skill = SKILL_SHIELD },
-	[44066] = { skill = SKILL_SHIELD },
-	[44067] = { skill = SKILL_SHIELD },
+	[50292] = { skill = SKILL_FIST, effect = CONST_ANI_SMALLSTONE, allowFarUse = true  },
+	[50293] = { skill = SKILL_FIST, effect = CONST_ANI_SMALLSTONE, allowFarUse = true  },
+	[50294] = { skill = SKILL_FIST, effect = CONST_ANI_SMALLSTONE, allowFarUse = true  },
+	[50295] = { skill = SKILL_FIST, effect = CONST_ANI_SMALLSTONE, allowFarUse = true  },
+	[28540] = { skill = SKILL_SWORD, effect = CONST_ANI_WHIRLWINDSWORD, allowFarUse = true  },
+	[28552] = { skill = SKILL_SWORD, effect = CONST_ANI_WHIRLWINDSWORD, allowFarUse = true  },
+	[35279] = { skill = SKILL_SWORD, effect = CONST_ANI_WHIRLWINDSWORD, allowFarUse = true  },
+	[35285] = { skill = SKILL_SWORD, effect = CONST_ANI_WHIRLWINDSWORD, allowFarUse = true  },
+	[28553] = { skill = SKILL_AXE, effect = CONST_ANI_WHIRLWINDAXE, allowFarUse = true  },
+	[28541] = { skill = SKILL_AXE, effect = CONST_ANI_WHIRLWINDAXE, allowFarUse = true  },
+	[35280] = { skill = SKILL_AXE, effect = CONST_ANI_WHIRLWINDAXE, allowFarUse = true  },
+	[35286] = { skill = SKILL_AXE, effect = CONST_ANI_WHIRLWINDAXE, allowFarUse = true  },
+	[28554] = { skill = SKILL_CLUB, effect = CONST_ANI_WHIRLWINDCLUB, allowFarUse = true  },
+	[28542] = { skill = SKILL_CLUB, effect = CONST_ANI_WHIRLWINDCLUB, allowFarUse = true  },
+	[35281] = { skill = SKILL_CLUB, effect = CONST_ANI_WHIRLWINDCLUB, allowFarUse = true  },
+	[35287] = { skill = SKILL_CLUB, effect = CONST_ANI_WHIRLWINDCLUB, allowFarUse = true  },
+	[44064] = { skill = SKILL_SHIELD, effect = CONST_ANI_LARGEROCK, allowFarUse = true  },
+	[44065] = { skill = SKILL_SHIELD, effect = CONST_ANI_LARGEROCK, allowFarUse = true  },
+	[44066] = { skill = SKILL_SHIELD, effect = CONST_ANI_LARGEROCK, allowFarUse = true  },
+	[44067] = { skill = SKILL_SHIELD, effect = CONST_ANI_LARGEROCK, allowFarUse = true  },
 	-- ROD
 	[28544] = { skill = SKILL_MAGLEVEL, effect = CONST_ANI_SMALLICE, allowFarUse = true },
 	[28556] = { skill = SKILL_MAGLEVEL, effect = CONST_ANI_SMALLICE, allowFarUse = true },
@@ -76,11 +76,11 @@ local function exerciseTrainingEvent(playerId, tilePosition, weaponId, dummyId)
 	end
 
 	local playerPosition = player:getPosition()
-	if not playerPosition:isProtectionZoneTile() then
-		player:sendTextMessage(MESSAGE_FAILURE, "You are no longer in a protection zone, the training has stopped.")
-		leaveExerciseTraining(playerId)
-		return false
-	end
+	--if not playerPosition:isProtectionZoneTile() then
+	--	player:sendTextMessage(MESSAGE_FAILURE, "You are no longer in a protection zone, the training has stopped.")
+	--	leaveExerciseTraining(playerId)
+--		return false
+--	end
 
 	local trainingData = _G.OnExerciseTraining[playerId]
 	local weapon = trainingData and trainingData.weapon
@@ -169,10 +169,10 @@ function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, 
 			return true
 		end
 
-		if not playerPos:isProtectionZoneTile() then
-			player:sendTextMessage(MESSAGE_FAILURE, "You need to be in a protection zone.")
-			return true
-		end
+		--if not playerPos:isProtectionZoneTile() then
+		--	player:sendTextMessage(MESSAGE_FAILURE, "You need to be in a protection zone.")
+		--	return true
+		--end
 
 		local playerHouse = player:getTile():getHouse()
 		local targetPos = target:getPosition()

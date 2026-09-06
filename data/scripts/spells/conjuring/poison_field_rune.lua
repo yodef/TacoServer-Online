@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(3147, 3172, 3)
+	return creature:conjureItem(3147, 3172, 15)
 end
 
 spell:name("Poison Field Rune")
@@ -14,5 +14,5 @@ spell:level(14)
 spell:mana(200)
 spell:soul(1)
 spell:isAggressive(false)
-
+spell:needLearn(false)
 spell:register()

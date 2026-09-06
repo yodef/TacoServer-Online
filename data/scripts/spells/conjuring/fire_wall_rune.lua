@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(3147, 3190, 4)
+	return creature:conjureItem(3147, 3190, 20)
 end
 
 spell:name("Fire Wall Rune")
@@ -14,5 +14,5 @@ spell:level(33)
 spell:mana(780)
 spell:soul(4)
 spell:isAggressive(false)
-
+spell:needLearn(false)
 spell:register()

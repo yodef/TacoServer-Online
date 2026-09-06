@@ -59,10 +59,10 @@ local function creatureSayCallback(npc, creature, type, message)
 	local player = Player(creature)
 	local playerId = player:getId()
 
-	if not isDateWithinEvent() then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You can only discuss the First Dragon between January 14 and February 12.")
-		return true
-	end
+	--if not isDateWithinEvent() then
+	--	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You can only discuss the First Dragon between January 14 and February 12.")
+	--	return true
+	--end
 
 	if MsgContains(message, "first dragon") then
 		npcHandler:say("The First Dragon? The first of all of us? The Son of Garsharak? I'm surprised you heard about him. It is such a long time that he wandered Tibia. Yet, there are some {rumours}.", npc, creature)

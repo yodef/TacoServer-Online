@@ -420,7 +420,7 @@ function dangerousDepthCrystals.onUse(player, item, fromPosition, target, toPosi
 	local targetPosition = target:getPosition()
 
 	if targetPosition == WarzoneIV and target:getId() == geodeId then -- Warzone 4 BOSS!!!
-		if Game.getStorageValue(Storage.Quest.U11_50.DangerousDepths.Geodes.WarzoneIV) < 30 then
+		if Game.getStorageValue(Storage.Quest.U11_50.DangerousDepths.Geodes.WarzoneIV) < 3 then
 			targetPosition:sendMagicEffect(CONST_ME_HITAREA)
 			item:remove(1)
 			if Game.getStorageValue(Storage.Quest.U11_50.DangerousDepths.Geodes.WarzoneIV) < 0 then
@@ -455,7 +455,7 @@ function dangerousDepthCrystals.onUse(player, item, fromPosition, target, toPosi
 	end
 
 	if targetPosition == WarzoneV and target:getId() == geodeId then -- Warzone 5 BOSS!!!
-		if Game.getStorageValue(Storage.Quest.U11_50.DangerousDepths.Geodes.WarzoneV) < 30 then
+		if Game.getStorageValue(Storage.Quest.U11_50.DangerousDepths.Geodes.WarzoneV) < 3 then
 			targetPosition:sendMagicEffect(CONST_ME_HITAREA)
 			item:remove(1)
 			if Game.getStorageValue(Storage.Quest.U11_50.DangerousDepths.Geodes.WarzoneV) < 0 then
@@ -490,7 +490,7 @@ function dangerousDepthCrystals.onUse(player, item, fromPosition, target, toPosi
 	end
 
 	if targetPosition == WarzoneVI and target:getId() == geodeId then -- Warzone 6 BOSS!!!
-		if Game.getStorageValue(Storage.Quest.U11_50.DangerousDepths.Geodes.WarzoneVI) < 30 then
+		if Game.getStorageValue(Storage.Quest.U11_50.DangerousDepths.Geodes.WarzoneVI) < 3 then
 			targetPosition:sendMagicEffect(CONST_ME_HITAREA)
 			item:remove(1)
 			if Game.getStorageValue(Storage.Quest.U11_50.DangerousDepths.Geodes.WarzoneVI) < 0 then

@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(3147, 3165, 1)
+	return creature:conjureItem(3147, 3165, 10)
 end
 
 spell:name("Paralyze Rune")
@@ -12,8 +12,8 @@ spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)
 spell:level(54)
 spell:mana(1400)
-spell:soul(3)
+spell:soul(5)
 spell:isAggressive(false)
 spell:isPremium(true)
-
+spell:needLearn(false)
 spell:register()

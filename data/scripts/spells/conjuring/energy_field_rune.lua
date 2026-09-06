@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(3147, 3164, 3)
+	return creature:conjureItem(3147, 3164, 10)
 end
 
 spell:name("Energy Field Rune")
@@ -14,5 +14,5 @@ spell:level(18)
 spell:mana(320)
 spell:soul(2)
 spell:isAggressive(false)
-
+spell:needLearn(false)
 spell:register()

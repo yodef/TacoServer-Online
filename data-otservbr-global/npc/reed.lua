@@ -20,10 +20,24 @@ npcConfig.outfit = {
 }
 
 npcConfig.flags = {
-	floorchange = false,
-	profession = "normal",
+	floorchange = false
 }
-npcConfig.speechBubble = SPEECHBUBBLE_NORMAL
+
+npcConfig.shop = {
+	{clientId = 23541, buy = 100000, itemName = "blue sphere"},
+	{clientId = 37110, buy = 500000, itemName = "exalted core"}
+}
+-- On buy npc shop message
+npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)
+	npc:sellItem(player, itemId, amount, subType, 0, ignore, inBackpacks)
+end
+-- On sell npc shop message
+npcType.onSellItem = function(npc, player, itemId, subtype, amount, ignore, name, totalCost)
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Sold %ix %s for %i gold.", amount, name, totalCost))
+end
+-- On check npc shop message (look item)
+npcType.onCheckItem = function(npc, player, clientId, subType)
+end
 
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
@@ -52,42 +66,10 @@ npcType.onCloseChannel = function(npc, creature)
 	npcHandler:onCloseChannel(npc, creature)
 end
 
-local function creatureSayCallback(npc, creature, type, message)
-	local player = Player(creature)
-	local playerId = player:getId()
 
-	if not npcHandler:checkInteraction(npc, creature) then
-		return false
-	end
-
-	if MsgContains(message, "report") then
-		if player:getStorageValue(Storage.Quest.U8_4.InServiceOfYalahar.Questline) == 10 or player:getStorageValue(Storage.Quest.U8_4.InServiceOfYalahar.Questline) == 11 then
-			npcHandler:say("You have NO idea what we have to endure each day .. <gives a shocking and disturbing report>. ", npc, creature)
-			player:setStorageValue(Storage.Quest.U8_4.InServiceOfYalahar.Questline, player:getStorageValue(Storage.Quest.U8_4.InServiceOfYalahar.Questline) + 1)
-			player:setStorageValue(Storage.Quest.U8_4.InServiceOfYalahar.Mission02, player:getStorageValue(Storage.Quest.U8_4.InServiceOfYalahar.Mission02) + 1) -- StorageValue for Questlog "Mission 02: Watching the Watchmen"
-			npcHandler:setTopic(playerId, 0)
-		end
-	elseif MsgContains(message, "pass") then
-		npcHandler:say("You can {pass} either to the {Cemetery Quarter} or {Magician Quarter}. Which one will it be?", npc, creature)
-		npcHandler:setTopic(playerId, 1)
-	elseif MsgContains(message, "cemetery") then
-		if npcHandler:getTopic(playerId) == 1 then
-			local destination = Position(32799, 31103, 7)
-			player:teleportTo(destination)
-			destination:sendMagicEffect(CONST_ME_TELEPORT)
-			npcHandler:setTopic(playerId, 0)
-		end
-	elseif MsgContains(message, "magician") then
-		if npcHandler:getTopic(playerId) == 1 then
-			local destination = Position(32804, 31103, 7)
-			player:teleportTo(destination)
-			destination:sendMagicEffect(CONST_ME_TELEPORT)
-			npcHandler:setTopic(playerId, 0)
-		end
-	end
-	return true
-end
-
+npcHandler:setMessage(MESSAGE_GREET, "Welcome |PLAYERNAME|. I {trade} special items to help in the forge!")
+npcHandler:setMessage(MESSAGE_FAREWELL, "See you later then!")
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new(), npcConfig.name, true, true, true)
 

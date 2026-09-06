@@ -1,9 +1,9 @@
 local timiraFightConfig = {
 	chestEquipmentChance = 200, -- with modifier x4 and lootRate x3 it gives 3,6% for equipment
 	getLootRandomModifier = 4, -- for more info check getLootRandom function in functions.lua
-	bucketsRequiredPerPlayerInFight = 2,
-	corruptedWaterUsePerPlayerInFight = 2,
-	secondsDelayForUseCorruptedWater = 8,
+	bucketsRequiredPerPlayerInFight = 1,
+	corruptedWaterUsePerPlayerInFight = 1,
+	secondsDelayForUseCorruptedWater = 10,
 	chestPossibleValuables = {
 		"crystal coin",
 		"amber",
@@ -43,8 +43,8 @@ fightZone:addArea({ x = 33784, y = 32701, z = 9 }, { x = 33805, y = 32711, z = 9
 fightZone:addArea({ x = 33803, y = 32690, z = 9 }, { x = 33828, y = 32715, z = 9 }) -- whole boss stage area
 
 local monstersToKeepSpawning = {
-	{ name = "Rogue Naga", amount = 3 },
-	{ name = "Corrupt Naga", amount = 3 },
+	{ name = "Rogue Naga", amount = 1 },
+	{ name = "Corrupt Naga", amount = 1 },
 }
 
 local stages = {

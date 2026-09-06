@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(3147, 3160, 1)
+	return creature:conjureItem(3147, 3160, 15)
 end
 
 spell:name("Ultimate Healing Rune")
@@ -14,5 +14,5 @@ spell:level(24)
 spell:mana(400)
 spell:soul(3)
 spell:isAggressive(false)
-
+spell:needLearn(false)
 spell:register()

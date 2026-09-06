@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(3147, 3192, 2)
+	return creature:conjureItem(3147, 3192, 20)
 end
 
 spell:name("Fire Bomb Rune")
@@ -14,5 +14,5 @@ spell:level(27)
 spell:mana(600)
 spell:soul(4)
 spell:isAggressive(false)
-
+spell:needLearn(false)
 spell:register()

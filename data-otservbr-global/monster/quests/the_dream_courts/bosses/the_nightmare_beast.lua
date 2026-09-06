@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("The Nightmare Beast")
 local monster = {}
 
 monster.description = "The Nightmare Beast"
-monster.experience = 75000
+monster.experience = 750000
 monster.outfit = {
 	lookType = 1144,
 	lookHead = 0,
@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0,
 }
 
-monster.health = 850000
-monster.maxHealth = 850000
+monster.health = 750000
+monster.maxHealth = 750000
 monster.race = "blood"
 monster.corpse = 30159
 monster.speed = 125
@@ -136,16 +136,16 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{ type = COMBAT_PHYSICALDAMAGE, percent = 20 },
-	{ type = COMBAT_ENERGYDAMAGE, percent = 0 },
-	{ type = COMBAT_EARTHDAMAGE, percent = 0 },
-	{ type = COMBAT_FIREDAMAGE, percent = 35 },
+	{ type = COMBAT_PHYSICALDAMAGE, percent = -20 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = -20 },
+	{ type = COMBAT_EARTHDAMAGE, percent = -20 },
+	{ type = COMBAT_FIREDAMAGE, percent = -35 },
 	{ type = COMBAT_LIFEDRAIN, percent = 0 },
 	{ type = COMBAT_MANADRAIN, percent = 0 },
 	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
-	{ type = COMBAT_ICEDAMAGE, percent = 0 },
-	{ type = COMBAT_HOLYDAMAGE, percent = 15 },
-	{ type = COMBAT_DEATHDAMAGE, percent = 0 },
+	{ type = COMBAT_ICEDAMAGE, percent = -20 },
+	{ type = COMBAT_HOLYDAMAGE, percent = -35 },
+	{ type = COMBAT_DEATHDAMAGE, percent = -20 },
 }
 
 monster.immunities = {

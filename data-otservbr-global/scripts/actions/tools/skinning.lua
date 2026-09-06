@@ -1,11 +1,52 @@
-local CREATURE_SKINNING_CHANCE = 25000 -- 25% probability
+---- if you want protected corpses (10 second protection after monster being killed) to be skinned/dusted, delete '--#' in the appropriate lines; be careful, it may cause abuses ----
+local CREATURE_SKINNING_CHANCE = 50000 -- 50% probability
 local config = {
 	[5908] = {
 
 		-- rabbits
 		[4173] = { value = CREATURE_SKINNING_CHANCE, newItem = 12172, after = 4302 },
 		[6017] = { value = CREATURE_SKINNING_CHANCE, newItem = 12172, after = 4302 }, -- after being killed
-
+		-- wolf
+		[4007] = { value = CREATURE_SKINNING_CHANCE, newItem = 5897, after = 4008 },
+		[5968] = { value = CREATURE_SKINNING_CHANCE, newItem = 5897, after = 4008 }, -- after being killed
+		-- war wolf
+		[6009] = { value = CREATURE_SKINNING_CHANCE, newItem = 5897, after = 4151 },
+		[4150] = { value = CREATURE_SKINNING_CHANCE, newItem = 5897, after = 4151 }, -- after being killed
+		-- bear
+		[4030] = { value = CREATURE_SKINNING_CHANCE, newItem = 5896, after = 4031 },
+		[5975] = { value = CREATURE_SKINNING_CHANCE, newItem = 5896, after = 4031 }, -- after being killed
+		-- chicken
+		[4330] = { value = CREATURE_SKINNING_CHANCE, newItem = 5890, after = 4331 },
+		[6042] = { value = CREATURE_SKINNING_CHANCE, newItem = 5890, after = 4331 }, -- after being killed		
+		-- bat
+		[4363] = { value = CREATURE_SKINNING_CHANCE, newItem = 5894, after = 4364 },
+		[6053] = { value = CREATURE_SKINNING_CHANCE, newItem = 5894, after = 4364 }, -- after being killed
+		[8915] = { value = CREATURE_SKINNING_CHANCE, newItem = 5894, after = 8917 }, -- after being killed mutated
+		[8916] = { value = CREATURE_SKINNING_CHANCE, newItem = 5894, after = 8917 }, -- mutated
+		
+		-- tortoises
+		[5624] = { value = CREATURE_SKINNING_CHANCE, newItem = 5899, after = 5625 }, -- tortoise
+		[6072] = { value = CREATURE_SKINNING_CHANCE, newItem = 5899, after = 5625 }, -- after being killed
+		[5627] = { value = CREATURE_SKINNING_CHANCE, newItem = 5899, after = 5628 }, -- thornback tortoise
+		[6073] = { value = CREATURE_SKINNING_CHANCE, newItem = 5899, after = 5628 }, -- after, thornback tortoise		
+		-- quaras
+		[5521] = { value = CREATURE_SKINNING_CHANCE, newItem = 5895, after = 5534 }, -- pincher
+		[6063] = { value = CREATURE_SKINNING_CHANCE, newItem = 5895, after = 5534 }, -- after being killed	
+		[5522] = { value = CREATURE_SKINNING_CHANCE, newItem = 5895, after = 5532 }, -- mantassin
+		[6064] = { value = CREATURE_SKINNING_CHANCE, newItem = 5895, after = 5532 }, -- after being killed	
+		[5523] = { value = CREATURE_SKINNING_CHANCE, newItem = 5895, after = 5530 }, -- constrictor
+		[6065] = { value = CREATURE_SKINNING_CHANCE, newItem = 5895, after = 5530 }, -- after being killed			
+		[5524] = { value = CREATURE_SKINNING_CHANCE, newItem = 5895, after = 5528 }, -- hydromancer
+		[6066] = { value = CREATURE_SKINNING_CHANCE, newItem = 5895, after = 5528 }, -- after being killed	
+		[5525] = { value = CREATURE_SKINNING_CHANCE, newItem = 5895, after = 5534 }, -- predator
+		[6067] = { value = CREATURE_SKINNING_CHANCE, newItem = 5895, after = 5534 }, -- after being killed	
+		-- Apes
+		[4339] = { value = CREATURE_SKINNING_CHANCE, newItem = 5883, after = 4340 }, -- sibang
+		[6045] = { value = CREATURE_SKINNING_CHANCE, newItem = 5883, after = 4340 }, -- sibang, after 		
+		[4333] = { value = CREATURE_SKINNING_CHANCE, newItem = 5883, after = 4334 }, -- kongra
+		[6043] = { value = CREATURE_SKINNING_CHANCE, newItem = 5883, after = 4334 }, -- kongra, after 	
+		[4336] = { value = CREATURE_SKINNING_CHANCE, newItem = 5883, after = 4337 }, -- merlkin
+		[6044] = { value = CREATURE_SKINNING_CHANCE, newItem = 5883, after = 4337 }, -- merlkin, after 		
 		-- Minotaurs
 		[4011] = { value = CREATURE_SKINNING_CHANCE, newItem = 5878, after = 4012 }, -- minotaur
 		[5969] = { value = CREATURE_SKINNING_CHANCE, newItem = 5878, after = 4012 }, -- minotaur, after being killed
@@ -69,28 +110,10 @@ local config = {
 		[22742] = { value = CREATURE_SKINNING_CHANCE, newItem = 22186, after = 22744 }, -- after being killed
 
 		-- The Mutated Pumpkin
-		[12816] = {
-			{ value = 5000, newItem = 8032 }, -- spiderwebs
-			{ value = 5000, newItem = 8178 }, -- toy spider
-			{ value = 5000, newItem = 6491 }, -- bat decoration
-			{ value = 20000, newItem = 6525 }, -- skeleton decoration
-			{ value = 90000, newItem = 8177, amount = 20 }, -- yummy gummy worm
-			{ value = 10000, newItem = 6571 }, -- surprise bag (red)
-			{ value = 10000, newItem = 6570 }, -- surprise bag (blue)
-			{ value = 50000, newItem = 6574 }, -- bar of chocolate
-			{ value = 60000, newItem = 2977 }, -- pumpkinhead
-			{ value = 45000, newItem = 3594 }, -- pumpkin
-			{ value = 90000, newItem = 3599, amount = 50 }, -- candy cane
-			{ value = 90000, newItem = 6569, amount = 50 }, -- candy
-			{ value = 2000, newItem = 6574, amount = 50 }, -- bar of chocolate
-		},
+		[12816] = { { value = 5000, newItem = 123 }, { value = 10000, newItem = 653 }, { value = 20000, 6491 }, { value = 26764, newItem = 8032 }, { value = 45000, newItem = 3594 }, { value = 60000, newItem = 2977 }, { value = 90000, newItem = 8177, amount = 50 } },
 
 		-- Marble
-		[10426] = {
-			{ value = 10000, newItem = 10429, desc = "This little figurine of Tibiasula was masterfully sculpted by |PLAYERNAME|." },
-			{ value = 26764, newItem = 10428, desc = "This little figurine made by |PLAYERNAME| has some room for improvement." },
-			{ value = 60000, newItem = 10427, desc = "This shoddy work was made by |PLAYERNAME|." },
-		},
+		[10426] = { { value = 10000, newItem = 10429, desc = "This little figurine of Tibiasula was masterfully sculpted by |PLAYERNAME|." }, { value = 26764, newItem = 10428, desc = "This little figurine made by |PLAYERNAME| has some room for improvement." }, { value = 60000, newItem = 10427, desc = "This shoddy work was made by |PLAYERNAME|." } },
 
 		-- Ice Cube
 		[7441] = { value = 22344, newItem = 7442 },
@@ -102,7 +125,26 @@ local config = {
 		-- Demon
 		[4097] = { value = CREATURE_SKINNING_CHANCE, newItem = 5906, after = 4098 },
 		[5995] = { value = CREATURE_SKINNING_CHANCE, newItem = 5906, after = 4098 }, -- after being killed
-
+		-- High Class Lizards
+		[10368] = { value = CREATURE_SKINNING_CHANCE, newItem = 5881, after = 10369 }, -- lizard chosen,
+		[10371] = { value = CREATURE_SKINNING_CHANCE, newItem = 5881, after = 10369 }, -- lizard chosen, after being killed
+		[10360] = { value = CREATURE_SKINNING_CHANCE, newItem = 5881, after = 10361 }, -- lizard dragon priest
+		[10363] = { value = CREATURE_SKINNING_CHANCE, newItem = 5881, after = 10361 }, -- lizard dragon priest, after being killed
+		[10352] = { value = CREATURE_SKINNING_CHANCE, newItem = 5881, after = 10353 }, -- lizard high guard
+		[10355] = { value = CREATURE_SKINNING_CHANCE, newItem = 5881, after = 10353 }, -- lizard high guard, after being killed
+		[10364] = { value = CREATURE_SKINNING_CHANCE, newItem = 5881, after = 10365 }, -- lizard zaogun
+		[10367] = { value = CREATURE_SKINNING_CHANCE, newItem = 5881, after = 10365 }, -- lizard zaogun, after being killed
+		[10356] = { value = CREATURE_SKINNING_CHANCE, newItem = 5881, after = 10357 }, -- lizard legionnaire
+		[10359] = { value = CREATURE_SKINNING_CHANCE, newItem = 5881, after = 10357 }, -- lizard legionnaire, after being 
+		-- Dragons
+		[4025] = { value = CREATURE_SKINNING_CHANCE, newItem = 5920, after = 4026 }, -- Dragon
+		[5973] = { value = CREATURE_SKINNING_CHANCE, newItem = 5920, after = 4026 }, -- Dragon, after being killed
+		-- Dragon Lords
+		[4062] = { value = CREATURE_SKINNING_CHANCE, newItem = 5882, after = 4063 },
+		[5984] = { value = CREATURE_SKINNING_CHANCE, newItem = 5882, after = 4063 }, -- after being killed
+		-- Behemoths
+		[4112] = { value = CREATURE_SKINNING_CHANCE, newItem = 5930, after = 4113 },
+		[5999] = { value = CREATURE_SKINNING_CHANCE, newItem = 5930, after = 4113 }, -- after being killed
 		-- Vampires
 		[4137] = { value = CREATURE_SKINNING_CHANCE, newItem = 5905, after = 4138 }, -- vampire
 		[6006] = { value = CREATURE_SKINNING_CHANCE, newItem = 5905, after = 4138 }, -- vampire, after being killed
@@ -118,15 +160,7 @@ local config = {
 local skinning = Action()
 
 function skinning.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	local topItem = false
 	local skin = config[item.itemid][target.itemid]
-	local tile = Tile(toPosition)
-	if tile then
-		topItem = tile:getTopDownItem()
-		if topItem then
-			skin = config[item.itemid][topItem.itemid]
-		end
-	end
 
 	if item.itemid == 5908 then
 		if target:getId() == CONST_FIREWORK_ITEMID_DISASSEMBLE then
@@ -150,13 +184,13 @@ function skinning.onUse(player, item, fromPosition, target, toPosition, isHotkey
 			player:say("You carve a solid bowl of the chunk of wood.", TALKTYPE_MONSTER_SAY)
 			return true
 			-- An Interest In Botany Quest
-		elseif target.itemid == 10735 and player:getItemCount(11699) > 0 and player:getStorageValue(Storage.Quest.U8_6.AnInterestInBotany.Questline) == 1 then
+		elseif target.itemid == 10735 and player:getItemCount(11699) > 0 and player:getStorageValue(Storage.TibiaTales.AnInterestInBotany) == 1 then
 			player:say("The plant feels cold but dry and very soft. You streak the plant gently with your knife and put a fragment in the almanach.", TALKTYPE_MONSTER_SAY)
-			player:setStorageValue(Storage.Quest.U8_6.AnInterestInBotany.Questline, 2)
+			player:setStorageValue(Storage.TibiaTales.AnInterestInBotany, 2)
 			return true
-		elseif target.itemid == 10697 and player:getItemCount(11699) > 0 and player:getStorageValue(Storage.Quest.U8_6.AnInterestInBotany.Questline) == 2 then
+		elseif target.itemid == 10697 and player:getItemCount(11699) > 0 and player:getStorageValue(Storage.TibiaTales.AnInterestInBotany) == 2 then
 			player:say("You cut a leaf from a branch and put it in the almanach. It smells strangely sweet and awfully bitter at the same time.", TALKTYPE_MONSTER_SAY)
-			player:setStorageValue(Storage.Quest.U8_6.AnInterestInBotany.Questline, 3)
+			player:setStorageValue(Storage.TibiaTales.AnInterestInBotany, 3)
 			return true
 		elseif target.itemid == 8181 and player:getStorageValue(789100) <= 1 then
 			player:say("You got Neutral matter.", TALKTYPE_MONSTER_SAY)
@@ -168,28 +202,7 @@ function skinning.onUse(player, item, fromPosition, target, toPosition, isHotkey
 			player:addItem(954, 1)
 			player:setStorageValue(789100, 2)
 			return true
-		-- Rottin Wood and the Married Men Quest
-		elseif target.itemid == 4301 then
-			player:say("You successfully gathered a rabbit's food in excellent condition.", TALKTYPE_MONSTER_SAY)
-			player:addItem(12172, 1)
-			return true
 		end
-	end
-
-	if target:getId() == 12816 then
-		if player:getStorageValue(Storage.Quest.U8_2.TheMutatedPumpkin.Skinned) > os.time() then
-			player:sendCancelMessage("You already used your knife on the corpse.")
-			return true
-		end
-
-		player:setStorageValue(Storage.Quest.U8_2.TheMutatedPumpkin.Skinned, os.time() + 4 * 60 * 60)
-		player:say("Happy Halloween!", TALKTYPE_MONSTER_SAY)
-		player:getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
-		player:addAchievement("Mutated Presents")
-		local reward = math.random(1, #skin)
-		player:addItem(skin[reward].newItem, skin[reward].amount or 1)
-		effect = CONST_ME_HITAREA
-		return true
 	end
 
 	if not skin then
@@ -201,9 +214,7 @@ function skinning.onUse(player, item, fromPosition, target, toPosition, isHotkey
 	if charmMType then
 		local charmCorpse = charmMType:getCorpseId()
 		if charmCorpse == target.itemid or ItemType(charmCorpse):getDecayId() == target.itemid then
-			local charmChance = player:getCharmChance(CHARM_SCAVENGE)
-			charmChance = (charmChance == 0 and 1 or charmChance) -- Guarantee that the chance will neve be 0
-			chanceRange = chanceRange * charmChance / 100
+			chanceRange = chanceRange * GLOBAL_CHARM_SCAVENGE / 100
 		end
 	end
 
@@ -215,14 +226,10 @@ function skinning.onUse(player, item, fromPosition, target, toPosition, isHotkey
 			_skin = skin[i]
 			if random <= _skin.value then
 				if target.itemid == 10426 then
-					target:getPosition():sendMagicEffect(CONST_ME_HITAREA)
+					target:getPosition():sendMagicEffect(CONST_ME_ICEAREA)
 					local gobletItem = player:addItem(_skin.newItem, _skin.amount or 1)
 					if gobletItem then
 						gobletItem:setDescription(_skin.desc:gsub("|PLAYERNAME|", player:getName()))
-					end
-					if _skin.newItem == 10429 then
-						player:addAchievement("Marblelous")
-						player:addAchievementProgress("Marble Madness", 5)
 					end
 					target:remove()
 					added = true
@@ -234,9 +241,11 @@ function skinning.onUse(player, item, fromPosition, target, toPosition, isHotkey
 			end
 		end
 
-		if not added and target.itemid == 10426 then
-			effect = CONST_ME_HITAREA
-			player:say("Your attempt at shaping that marble rock failed miserably.", TALKTYPE_MONSTER_SAY)
+		if not added and target.itemid == 12816 then
+			effect = CONST_ME_POFF
+			transform = false
+		elseif not added and target.itemid == 10426 then
+			effect = CONST_ME_POFF
 			transform = false
 			target:remove()
 		end
@@ -244,23 +253,11 @@ function skinning.onUse(player, item, fromPosition, target, toPosition, isHotkey
 		if isInArray({ 7441, 7442, 7444, 7445 }, target.itemid) then
 			if skin.newItem == 7446 then
 				player:addAchievement("Ice Sculptor")
-				player:addAchievementProgress("Cold as Ice", 10)
 			end
 			target:transform(skin.newItem, 1)
 			effect = CONST_ME_HITAREA
-			return true
 		else
-			if table.contains({ 5906, 5905 }, skin.newItem) then
-				player:addAchievementProgress("Ashes to Dust", 500)
-			else
-				player:addAchievementProgress("Skin-Deep", 500)
-			end
-			local container = Container(item:getParent().uid)
-			if fromPosition.x == CONTAINER_POSITION and container:getEmptySlots() ~= 0 then
-				container:addItem(skin.newItem, skin.amount or 1)
-			else
-				player:addItem(skin.newItem, skin.amount or 1)
-			end
+			player:addItem(skin.newItem, skin.amount or 1)
 		end
 	else
 		if isInArray({ 7441, 7442, 7444, 7445 }, target.itemid) then
@@ -268,20 +265,16 @@ function skinning.onUse(player, item, fromPosition, target, toPosition, isHotkey
 			effect = CONST_ME_HITAREA
 			target:remove()
 		else
-			effect = CONST_ME_BLOCKHIT
+			effect = CONST_ME_POFF
 		end
 	end
-
+	-- SE BUGAR, PEGAR SCRIPT ANTIGO
+	toPosition:sendMagicEffect(effect)
 	if transform then
-		topItem:transform(skin.after or topItem:getType():getDecayId() or topItem.itemid + 1)
+		target:transform(skin.after or target:getType():getDecayId() or target.itemid + 1)
 	else
 		target:remove()
 	end
-
-	if toPosition.x == CONTAINER_POSITION then
-		toPosition = player:getPosition()
-	end
-	toPosition:sendMagicEffect(effect)
 
 	return true
 end

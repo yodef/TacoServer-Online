@@ -15,9 +15,8 @@ local config = {
 		from = Position(32490, 31117, 15),
 		to = Position(32506, 31132, 15),
 	},
-	exit = Position(32536, 31122, 15),
+	exit = Position(32503, 31130, 15),
 }
-
 local lever = BossLever(config)
-lever:position({ x = 32529, y = 31122, z = 15 })
+lever:position({x = 32529, y = 31122, z = 15})
 lever:register()

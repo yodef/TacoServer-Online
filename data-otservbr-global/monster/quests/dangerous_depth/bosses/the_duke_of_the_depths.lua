@@ -17,8 +17,8 @@ monster.events = {
 	"DepthWarzoneBossDeath",
 }
 
-monster.health = 350000
-monster.maxHealth = 350000
+monster.health = 250000
+monster.maxHealth = 250000
 monster.race = "blood"
 monster.corpse = 27641
 monster.speed = 135
@@ -113,6 +113,7 @@ monster.loot = {
 	{ name = "violet gem", chance = 2080 },
 	{ name = "gnome legs", chance = 3390 },
 	{ name = "gnomish cuirass", chance = 3390 },
+	{ name = "depth claws", chance = 3890 },
 }
 
 monster.attacks = {

@@ -21,9 +21,7 @@ npcConfig.outfit = {
 
 npcConfig.flags = {
 	floorchange = false,
-	profession = "sailor",
 }
-npcConfig.speechBubble = SPEECHBUBBLE_SAILOR
 
 npcConfig.shop = {
 	-- HuntsMan rank
@@ -460,9 +458,9 @@ local function creatureSayCallback(npc, creature, type, message)
 							end
 						end
 						if table.contains({ REWARD_MONEY, "money" }, reward.type:lower()) and not deny then
-							player:addMoney(reward.value[1])
+							player:addMoney(reward.value[1] * 100)
 						elseif table.contains({ REWARD_EXP, "exp", "experience" }, reward.type:lower()) and not deny then
-							player:addExperience(reward.value[1], true)
+							player:addExperience(reward.value[1] * 100, true)
 						elseif table.contains({ REWARD_STORAGE, "storage", "stor" }, reward.type:lower()) and not deny then
 							if #reward.value == 2 then
 								player:setStorageValue(reward.value[1], reward.value[2])

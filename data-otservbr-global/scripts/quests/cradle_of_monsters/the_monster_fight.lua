@@ -1,52 +1,19 @@
 local bossZone = Zone("boss.the-monster")
-
 local puddleId = 42075
-local jailBarsId = 2184
 
 local encounter = Encounter("The Monster", {
 	zone = bossZone,
 	timeToSpawnMonsters = "10ms",
 })
 
-local function freeMonster()
-	local tile = Tile(Position(33844, 32591, 12))
-	if tile then
-		while true do
-			local item = tile:getItemById(jailBarsId)
-			if item then
-				item:remove()
-			else
-				break
-			end
-		end
-	end
-end
-
 function encounter:onReset(position)
 	encounter:removeMonsters()
-	freeMonster()
 end
 
 encounter:addRemoveMonsters():autoAdvance()
-encounter
-	:addStage({
-		start = function()
-			Game.createItem(jailBarsId, 1, Position(33844, 32591, 12))
-		end,
-	})
-	:autoAdvance()
 
+-- Invocación directa del boss final con sus 20 escudos
 encounter:addSpawnMonsters({
-	{
-		name = "Doctor Marrow",
-		event = "fight.the-monster.DoctorMarrowHealth",
-		positions = {
-			Position(33838, 32591, 12),
-		},
-		spawn = function(monster)
-			monster:setInvulnerable()
-		end,
-	},
 	{
 		name = "The Monster",
 		event = { "fight.the-monster.TheMonsterHealth", "fight.the-monster.TheMonsterDeath" },
@@ -54,76 +21,14 @@ encounter:addSpawnMonsters({
 			Position(33845, 32591, 12),
 		},
 		spawn = function(monster)
-			monster:setIcon("the-monster", CreatureIconCategory_Quests, CreatureIconQuests_PurpleShield, 20)
+			monster:setIcon("the-monster", CreatureIconCategory_Quests, CreatureIconQuests_PurpleShield, 10)
 		end,
 	},
-	{
-		name = "Antenna",
-		event = "fight.the-monster.AntennaDeath",
-		positions = {
-			Position(33834, 32589, 12),
-			Position(33840, 32589, 12),
-			Position(33834, 32593, 12),
-			Position(33840, 32593, 12),
-		},
-	},
-})
-
-encounter:addStage({
-	start = function()
-		local monsters = encounter:getZone():getMonstersByName("Doctor Marrow")
-		if not monsters or #monsters == 0 then
-			return false
-		end
-		local doctor = monsters[1]
-		doctor:removeInvulnerable()
-	end,
-})
-
-encounter:addStage({
-	start = function()
-		freeMonster()
-	end,
 })
 
 encounter:register()
 
-local spawnContainers = GlobalEvent("fight.the-monster.containers.onThink")
-function spawnContainers.onThink(interval, lastExecution)
-	return true
-end
-
-spawnContainers:interval(4000)
-spawnContainers:register()
-
-local doctorHealth = CreatureEvent("fight.the-monster.DoctorMarrowHealth")
-function doctorHealth.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType)
-	if not creature then
-		return primaryDamage, primaryType, secondaryDamage, secondaryType
-	end
-	local newHealth = creature:getHealth() - primaryDamage - secondaryDamage
-	if newHealth <= creature:getMaxHealth() * 0.5 then
-		creature:setHealth(creature:getMaxHealth())
-		creature:remove()
-		encounter:nextStage()
-		return false
-	end
-	return primaryDamage, primaryType, secondaryDamage, secondaryType
-end
-
-doctorHealth:register()
-
-local antennaDeath = CreatureEvent("fight.the-monster.AntennaDeath")
-function antennaDeath.onDeath()
-	-- The monster count is only updated AFTER the event is called, so we need to subtract 1
-	local count = encounter:countMonsters("antenna") - 1
-	if count == 0 then
-		encounter:nextStage()
-	end
-end
-
-antennaDeath:register()
-
+-- Mecánica de Alchemist Containers (necesaria para remover escudos con charcos)
 local alchemistContainerDeath = CreatureEvent("fight.the-monster.AlchemistContainerDeath")
 function alchemistContainerDeath.onDeath(creature)
 	local directions = { DIRECTION_NORTH, DIRECTION_EAST, DIRECTION_SOUTH, DIRECTION_WEST }
@@ -175,13 +80,14 @@ end
 alchemistContainerSpawns:interval(10000)
 alchemistContainerSpawns:register()
 
+-- Lógica de Escudos y Daño de The Monster
 local function getShields(creature)
 	local currentIcon = creature:getIcon("the-monster")
 	if not currentIcon or currentIcon.category ~= CreatureIconCategory_Quests or currentIcon.icon ~= CreatureIconQuests_PurpleShield then
 		return 0
 	end
 	if currentIcon.count <= 0 then
-		creature:removeIcon("magma-bubble")
+		creature:removeIcon("the-monster")
 		return 0
 	end
 	return currentIcon.count
@@ -196,7 +102,6 @@ local function setShields(creature, count)
 end
 
 local monsterHealth = CreatureEvent("fight.the-monster.TheMonsterHealth")
-
 function monsterHealth.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType)
 	if not creature then
 		return primaryDamage, primaryType, secondaryDamage, secondaryType
@@ -215,6 +120,7 @@ end
 
 monsterDeath:register()
 
+-- Romper escudos al pisar los charcos (Puddles)
 local puddleStepIn = MoveEvent("fight.the-monster.PuddleStepIn")
 function puddleStepIn.onStepIn(creature, item, position, fromPosition)
 	if not creature or creature:getName() ~= "The Monster" then

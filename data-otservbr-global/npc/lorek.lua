@@ -21,9 +21,7 @@ npcConfig.outfit = {
 
 npcConfig.flags = {
 	floorchange = false,
-	profession = "sailor",
 }
-npcConfig.speechBubble = SPEECHBUBBLE_SAILOR
 
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
@@ -55,7 +53,7 @@ end
 -- Travel
 local function addTravelKeyword(keyword, text, cost, destination, condition)
 	local travelKeyword = keywordHandler:addKeyword({ keyword }, StdModule.say, { npcHandler = npcHandler, text = "Do you seek a passage to " .. (text or keyword:titleCase()) .. " for |TRAVELCOST|?", cost = cost }, condition and function(player)
-		return player:getPawAndFurRank() >= 3
+		return player:getPawAndFurRank() >= 0
 	end or nil)
 	travelKeyword:addChildKeyword({ "yes" }, StdModule.travel, { npcHandler = npcHandler, premium = false, cost = cost, destination = destination })
 	travelKeyword:addChildKeyword({ "no" }, StdModule.say, { npcHandler = npcHandler, text = "Maybe another time.", reset = true })
@@ -71,7 +69,7 @@ addTravelKeyword("mountain", nil, 30, Position(32987, 32729, 7), true)
 addTravelKeyword("mountain pass", nil, 30, Position(32987, 32729, 7), true)
 -- Basic
 keywordHandler:addKeyword({ "ferumbras" }, StdModule.say, { npcHandler = npcHandler, text = "I heard he is some scary magician or so." })
-keywordHandler:addKeyword({ "passage" }, StdModule.say, { npcHandler = npcHandler, text = "I can travel you to west, centre, darama, chor or banuta." })
+keywordHandler:addKeyword({ "passage" }, StdModule.say, { npcHandler = npcHandler, text = "I can travel you to {west}, {centre}, {chor}, {banuta} or {darama}." })
 
 npcHandler:addModule(FocusModule:new(), npcConfig.name, true, true, true)
 
