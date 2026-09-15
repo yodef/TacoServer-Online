@@ -254,7 +254,26 @@ npcConfig.shop = {
 	{ itemName = "sun catcher", clientId = 25977, buy = 15 },
 	{ itemName = "jungle quiver", clientId = 35524, buy = 100 },
 	{ itemName = "ring of temptation", clientId = 45642, buy = 5 },
-	{ itemName = "scarab ocarina", clientId = 43740, buy = 15 }
+	{ itemName = "scarab ocarina", clientId = 43740, buy = 15 },
+	--monk fist weapons & armor (lv 51-150)
+	{ itemName = "sais", clientId = 50183, buy = 20 },
+	{ itemName = "coned hat of enlightenment", clientId = 50274, buy = 25 },
+	{ itemName = "crude umbral katar", clientId = 50163, buy = 25 },
+	{ itemName = "ghazbaran oyoroi", clientId = 50275, buy = 30 },
+	{ itemName = "spirit bind", clientId = 51294, buy = 20 },
+	{ itemName = "legs of wisdom", clientId = 50187, buy = 20 },
+	{ itemName = "yalahari footwraps", clientId = 50289, buy = 15 },
+	{ itemName = "enchanted werewolf helmet", clientId = 50192, buy = 30 },
+	{ itemName = "merudri scale mail", clientId = 50263, buy = 40 },
+	{ itemName = "sai of enlightenment", clientId = 50272, buy = 50 },
+	{ itemName = "umbral katar", clientId = 50164, buy = 220 },
+	{ itemName = "merudri nanbando", clientId = 50261, buy = 60 },
+	{ itemName = "jungle survivor legs", clientId = 50186, buy = 30 },
+	{ itemName = "depth claws", clientId = 50176, buy = 80 },
+	{ itemName = "bambus jo", clientId = 50270, buy = 80 },
+	{ itemName = "gnomish cuirass", clientId = 50276, buy = 80 },
+	{ itemName = "gnomish footwraps", clientId = 50290, buy = 80 },
+	{ itemName = "robe of enlightenment", clientId = 50268, buy = 80 },
 }
 
 -- On buy npc shop message

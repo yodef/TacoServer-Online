@@ -108,7 +108,23 @@ npcConfig.shop = { --copper token price 1k ea
 	{ itemName = "fur boots", clientId = 7457, buy = 3},
 	{ itemName = "pirate boots", clientId = 5461, buy = 10},
 	{ itemName = "steel boots", clientId = 3554, buy = 40},
-	{ itemName = "zaoan shoes", clientId = 10386, buy = 6}
+	{ itemName = "zaoan shoes", clientId = 10386, buy = 6},
+	--monk fist weapons & armor (lv<=50)
+	{ itemName = "simple jo staff", clientId = 50166, buy = 1 },
+	{ itemName = "jo staff", clientId = 50171, buy = 2 },
+	{ itemName = "plain monk robe", clientId = 50257, buy = 1 },
+	{ itemName = "monk robe", clientId = 50258, buy = 3 },
+	{ itemName = "light bandana", clientId = 50194, buy = 1 },
+	{ itemName = "boots of enlightenment", clientId = 50267, buy = 2 },
+	{ itemName = "harmony amulet", clientId = 50195, buy = 2 },
+	{ itemName = "pair of monk fists", clientId = 50181, buy = 4 },
+	{ itemName = "fists of enlightenment", clientId = 50271, buy = 8 },
+	{ itemName = "jade conical hat", clientId = 50193, buy = 12 },
+	{ itemName = "drachaku", clientId = 10391, buy = 15 },
+	{ itemName = "nunchaku", clientId = 50182, buy = 15 },
+	{ itemName = "legs of enlightenment", clientId = 50269, buy = 10 },
+	{ itemName = "nunchaku of enlightenment", clientId = 50273, buy = 25 },
+	{ itemName = "zaoan monk robe", clientId = 50259, buy = 20 },
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)
