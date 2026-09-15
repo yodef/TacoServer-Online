@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("The Time Guardian")
 local monster = {}
 
 monster.description = "The Time Guardian"
-monster.experience = 50000
+monster.experience = 100000
 monster.outfit = {
 	lookType = 945,
 	lookHead = 0,
@@ -15,6 +15,7 @@ monster.outfit = {
 
 monster.events = {
 	"ForgottenKnowledgeBossDeath",
+	"bossWarDeath",
 }
 
 monster.health = 150000
@@ -132,15 +133,15 @@ monster.defenses = {
 
 monster.elements = {
 	{ type = COMBAT_PHYSICALDAMAGE, percent = 0 },
-	{ type = COMBAT_ENERGYDAMAGE, percent = 80 },
-	{ type = COMBAT_EARTHDAMAGE, percent = 80 },
-	{ type = COMBAT_FIREDAMAGE, percent = 80 },
-	{ type = COMBAT_LIFEDRAIN, percent = 80 },
-	{ type = COMBAT_MANADRAIN, percent = 80 },
-	{ type = COMBAT_DROWNDAMAGE, percent = 80 },
-	{ type = COMBAT_ICEDAMAGE, percent = 80 },
-	{ type = COMBAT_HOLYDAMAGE, percent = 80 },
-	{ type = COMBAT_DEATHDAMAGE, percent = 80 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = 30 },
+	{ type = COMBAT_EARTHDAMAGE, percent = 30 },
+	{ type = COMBAT_FIREDAMAGE, percent = 30 },
+	{ type = COMBAT_LIFEDRAIN, percent = 30 },
+	{ type = COMBAT_MANADRAIN, percent = 30 },
+	{ type = COMBAT_DROWNDAMAGE, percent = 30 },
+	{ type = COMBAT_ICEDAMAGE, percent = 30 },
+	{ type = COMBAT_HOLYDAMAGE, percent = 30 },
+	{ type = COMBAT_DEATHDAMAGE, percent = -50 },
 }
 
 monster.immunities = {

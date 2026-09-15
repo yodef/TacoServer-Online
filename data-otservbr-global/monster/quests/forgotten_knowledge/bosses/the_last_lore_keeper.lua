@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("The Last Lore Keeper")
 local monster = {}
 
 monster.description = "the last lore keeper"
-monster.experience = 45000
+monster.experience = 450000
 monster.outfit = {
 	lookType = 939,
 	lookHead = 0,
@@ -15,10 +15,11 @@ monster.outfit = {
 
 monster.events = {
 	"ForgottenKnowledgeBossDeath",
+	"bossWarDeath",
 }
 
-monster.health = 750000
-monster.maxHealth = 750000
+monster.health = 550000
+monster.maxHealth = 550000
 monster.race = "undead"
 monster.corpse = 0
 monster.speed = 225
@@ -79,6 +80,8 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 39546, chance = 300 }, -- primal bag
+	{ id = 34109, chance = 200 }, -- bag you desire
 	{ id = 16119, chance = 3000, maxCount = 3 }, -- blue crystal shard
 	{ id = 3031, chance = 50320, maxCount = 200 }, -- gold coin
 	{ id = 3035, chance = 50320, maxCount = 35 }, -- platinum coin
@@ -135,26 +138,26 @@ monster.attacks = {
 	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -640, maxDamage = -800, radius = 5, effect = CONST_ME_SMALLCLOUDS, target = false },
 	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -420, maxDamage = -954, length = 8, spread = 0, effect = CONST_ME_PURPLEENERGY, target = false },
 	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -640, maxDamage = -800, radius = 5, effect = CONST_ME_STONES, target = true },
-	{ name = "medusa paralyze", interval = 2000, chance = 20, target = false },
+	{ name = "medusa paralyze", interval = 10000, chance = 20, target = false },
 }
 
 monster.defenses = {
 	defense = 50,
 	armor = 50,
-	{ name = "combat", interval = 2000, chance = 25, type = COMBAT_HEALING, minDamage = 1500, maxDamage = 3000, effect = CONST_ME_MAGIC_GREEN, target = false },
+	{ name = "combat", interval = 8000, chance = 25, type = COMBAT_HEALING, minDamage = 1500, maxDamage = 3000, effect = CONST_ME_MAGIC_GREEN, target = false },
 }
 
 monster.elements = {
 	{ type = COMBAT_PHYSICALDAMAGE, percent = 20 },
-	{ type = COMBAT_ENERGYDAMAGE, percent = 20 },
-	{ type = COMBAT_EARTHDAMAGE, percent = 20 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = -20 },
+	{ type = COMBAT_EARTHDAMAGE, percent = -20 },
 	{ type = COMBAT_FIREDAMAGE, percent = 20 },
 	{ type = COMBAT_LIFEDRAIN, percent = 0 },
 	{ type = COMBAT_MANADRAIN, percent = 0 },
 	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
 	{ type = COMBAT_ICEDAMAGE, percent = 20 },
-	{ type = COMBAT_HOLYDAMAGE, percent = 20 },
-	{ type = COMBAT_DEATHDAMAGE, percent = 20 },
+	{ type = COMBAT_HOLYDAMAGE, percent = -20 },
+	{ type = COMBAT_DEATHDAMAGE, percent = -20 },
 }
 
 monster.immunities = {

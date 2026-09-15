@@ -22,6 +22,10 @@ monster.health = 300000
 monster.maxHealth = monster.health
 monster.race = "undead"
 monster.corpse = 36843
+
+monster.events = {
+	"bossWarDeath",
+}
 monster.speed = 425
 
 monster.summon = {
@@ -56,6 +60,8 @@ monster.flags = {
 }
 
 monster.loot = {
+	{ id = 39546, chance = 300 }, -- primal bag
+	{ id = 34109, chance = 200 }, -- bag you desire
 	{ name = "platinum coin", mincount = 10, maxcount = 50, chance = 100000 },
 	{ name = "crystal coin", mincount = 1, maxcount = 5, chance = 100000 },
 	{ name = "violet gem", chance = 50000 },

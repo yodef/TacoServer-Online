@@ -15,6 +15,7 @@ monster.outfit = {
 
 monster.events = {
 	"AscendantBossesDeath",
+	"bossWarDeath",
 }
 
 monster.bosstiary = {
@@ -72,6 +73,8 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 39546, chance = 300 }, -- primal bag
+	{ id = 34109, chance = 200 }, -- bag you desire
 	{ id = 22516, chance = 1000000 }, -- silver token
 	{ id = 16125, chance = 23000, maxCount = 5 }, -- cyan crystal fragment
 	{ id = 16126, chance = 23000, maxCount = 5 }, -- red crystal fragment
@@ -116,8 +119,8 @@ monster.defenses = {
 	defense = 125,
 	armor = 125,
 	--	mitigation = ???,
-	{ name = "combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 2090, maxDamage = 4500, effect = CONST_ME_MAGIC_BLUE, target = false },
-	{ name = "speed", interval = 2000, chance = 35, speedChange = 700, effect = CONST_ME_MAGIC_GREEN, target = false, duration = 6000 },
+	{ name = "combat", interval = 8000, chance = 10, type = COMBAT_HEALING, minDamage = 2090, maxDamage = 4500, effect = CONST_ME_MAGIC_BLUE, target = false },
+	{ name = "speed", interval = 10000, chance = 35, speedChange = 700, effect = CONST_ME_MAGIC_GREEN, target = false, duration = 6000 },
 	{ name = "mazoran fire", interval = 30000, chance = 45, target = false },
 }
 

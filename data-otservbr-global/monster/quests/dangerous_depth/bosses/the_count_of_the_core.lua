@@ -15,6 +15,7 @@ monster.outfit = {
 
 monster.events = {
 	"DepthWarzoneBossDeath",
+	"bossWarDeath",
 }
 
 monster.health = 250000
@@ -115,7 +116,7 @@ monster.loot = {
 	{ name = "giant sword", chance = 1690 },
 	{ name = "guardian axe", chance = 1690 },
 	{ name = "twiceslicer", chance = 1690 },
-	{ name = "tinged pot", chance = 1690 },\
+	{ name = "tinged pot", chance = 1690 },
 	{ name = "depth claws", chance = 3890 },
 }
 

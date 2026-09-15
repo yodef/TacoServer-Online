@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Lokathmor")
 local monster = {}
 
 monster.description = "Lokathmor"
-monster.experience = 100000
+monster.experience = 150000
 monster.outfit = {
 	lookType = 1062,
 	lookHead = 22,
@@ -14,7 +14,7 @@ monster.outfit = {
 }
 
 monster.events = {
-	"lokathmorDeath",
+	"bossWarDeath",
 }
 
 monster.bosstiary = {
@@ -76,6 +76,8 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 39546, chance = 300 }, -- primal bag
+	{ id = 34109, chance = 200 }, -- bag you desire
 	{ name = "platinum coin", chance = 90000, maxCount = 63 },
 	{ name = "crystal coin", chance = 70000, maxCount = 4 },
 	{ name = "great mana potion", chance = 70000, maxCount = 18 },
@@ -105,12 +107,12 @@ monster.loot = {
 
 monster.attacks = {
 	{ name = "melee", interval = 2000, chance = 100, skill = 150, attack = 250 },
-	{ name = "combat", interval = 2000, chance = 8, type = COMBAT_LIFEDRAIN, minDamage = -1100, maxDamage = -2800, range = 7, radius = 5, shootEffect = CONST_ANI_WHIRLWINDAXE, effect = CONST_ME_DRAWBLOOD, target = true },
-	{ name = "combat", interval = 1000, chance = 8, type = COMBAT_DEATHDAMAGE, minDamage = -800, maxDamage = -1900, radius = 9, effect = CONST_ME_MORTAREA, target = false },
+	{ name = "combat", interval = 8000, chance = 8, type = COMBAT_LIFEDRAIN, minDamage = -1100, maxDamage = -2800, range = 7, radius = 5, shootEffect = CONST_ANI_WHIRLWINDAXE, effect = CONST_ME_DRAWBLOOD, target = true },
+	{ name = "combat", interval = 6000, chance = 8, type = COMBAT_DEATHDAMAGE, minDamage = -800, maxDamage = -1900, radius = 9, effect = CONST_ME_MORTAREA, target = false },
 	-- poison
 	{ name = "condition", type = CONDITION_POISON, interval = 5000, chance = 18, minDamage = -1100, maxDamage = -2500, effect = CONST_ME_HITBYPOISON, target = false },
-	{ name = "combat", interval = 1000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -1000, maxDamage = -255, range = 7, radius = 6, effect = CONST_ME_LOSEENERGY, target = false },
-	{ name = "combat", interval = 2000, chance = 8, type = COMBAT_PHYSICALDAMAGE, minDamage = -90, maxDamage = -200, range = 7, shootEffect = CONST_ANI_WHIRLWINDAXE, effect = CONST_ME_EXPLOSIONAREA, target = true },
+	{ name = "combat", interval = 8000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -1000, maxDamage = -2550, range = 7, radius = 6, effect = CONST_ME_LOSEENERGY, target = false },
+	{ name = "combat", interval = 1000, chance = 8, type = COMBAT_PHYSICALDAMAGE, minDamage = -90, maxDamage = -200, range = 7, shootEffect = CONST_ANI_WHIRLWINDAXE, effect = CONST_ME_EXPLOSIONAREA, target = true },
 }
 
 monster.defenses = {

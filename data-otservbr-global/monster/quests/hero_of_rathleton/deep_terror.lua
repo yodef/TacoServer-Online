@@ -15,6 +15,7 @@ monster.outfit = {
 
 monster.events = {
 	"RathletonBossDeath",
+	"bossWarDeath",
 }
 
 monster.bosstiary = {

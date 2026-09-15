@@ -22,6 +22,10 @@ monster.health = 90000
 monster.maxHealth = 90000
 monster.race = "venom"
 monster.corpse = 6078
+
+monster.events = {
+	"bossWarDeath",
+}
 monster.speed = 160
 monster.manaCost = 0
 
@@ -80,6 +84,8 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 39546, chance = 300 }, -- primal bag
+	{ id = 34109, chance = 200 }, -- bag you desire
 	{ id = 5903, chance = 100000, unique = true }, -- ferumbras' hat
 	{ id = 3031, chance = 98000, maxCount = 184 }, -- gold coin
 	{ id = 9058, chance = 75000, maxCount = 2 }, -- gold ingot

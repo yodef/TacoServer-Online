@@ -485,6 +485,26 @@ npcConfig.shop = {
 	{ itemName = "lasting exercise club", clientId = 35287, buy = 10000000, count = 14400 },
 	{ itemName = "lasting exercise shield", clientId = 44067, buy = 10000000, count = 14400 },
 	{ itemName = "lasting exercise sword", clientId = 35285, buy = 10000000, count = 14400 },
+	-- Monk Starter & Low Level Equipment (<= 50)
+	{ itemName = "simple jo staff", clientId = 50166, buy = 10, sell = 3 },
+	{ itemName = "jo staff", clientId = 50171, buy = 35, sell = 12 },
+	{ itemName = "plain monk robe", clientId = 50257, buy = 35, sell = 12 },
+	{ itemName = "monk robe", clientId = 50258, buy = 200, sell = 70 },
+	{ itemName = "light bandana", clientId = 50194, buy = 20, sell = 6 },
+	{ itemName = "boots of enlightenment", clientId = 50267, buy = 50, sell = 15 },
+	{ itemName = "harmony amulet", clientId = 50195, buy = 100, sell = 30 },
+	{ itemName = "pair of monk fists", clientId = 50181, buy = 280, sell = 80 },
+	{ itemName = "pair of iron fists", clientId = 17828, sell = 4000 },
+	{ itemName = "fists of enlightenment", clientId = 50271, sell = 300 },
+	{ itemName = "jade conical hat", clientId = 50193, sell = 1000 },
+	{ itemName = "legs of enlightenment", clientId = 50269, sell = 800 },
+	{ itemName = "nunchaku", clientId = 50182, sell = 2500 },
+	{ itemName = "zaoan monk robe", clientId = 50259, sell = 5000 },
+	{ itemName = "nunchaku of enlightenment", clientId = 50273, sell = 8000 },
+	-- Monk Exercise Wraps
+	{ itemName = "exercise wraps", clientId = 50293, buy = 347222, count = 500 },
+	{ itemName = "durable exercise wraps", clientId = 50294, buy = 1250000, count = 1800 },
+	{ itemName = "lasting exercise wraps", clientId = 50295, buy = 10000000, count = 14400 },
 	{ itemName = "elvish bow", clientId = 7438, buy = 5000, sell = 2000 }
 }
 -- On buy npc shop message

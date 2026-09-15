@@ -22,6 +22,10 @@ monster.health = 80000
 monster.maxHealth = 80000
 monster.race = "blood"
 monster.corpse = 33973
+
+monster.events = {
+	"bossWarDeath",
+}
 monster.speed = 130
 monster.manaCost = 0
 

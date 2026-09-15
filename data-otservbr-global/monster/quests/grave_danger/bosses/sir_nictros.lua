@@ -27,6 +27,7 @@ monster.changeTarget = {
 
 monster.events = {
 	"BossHealthCheck",
+	"bossWarDeath",
 }
 
 monster.bosstiary = {

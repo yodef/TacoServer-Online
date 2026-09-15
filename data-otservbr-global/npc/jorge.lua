@@ -33,10 +33,10 @@ npcConfig.currency = 22723
 --items over LV400
 npcConfig.shop = {--gold token price 1000k ea
 	-- Helmets
-	{ itemName = "bag you desire", clientId = 34109, buy = 110 },	
-	{ itemName = "primal bag", clientId = 39546, buy = 90 },
-	{ itemName = "bag you covet", clientId = 43895, buy = 350 },
-	{ itemName = "golden helmet", clientId = 3365, buy = 50 }
+	{ itemName = "bag you desire", clientId = 34109, buy = 90 },	
+	{ itemName = "primal bag", clientId = 39546, buy = 60 },
+	{ itemName = "bag you covet", clientId = 43895, buy = 200 },
+	{ itemName = "golden helmet", clientId = 3365, buy = 25 }
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)

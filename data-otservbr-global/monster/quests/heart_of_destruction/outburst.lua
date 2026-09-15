@@ -59,7 +59,7 @@ monster.flags = {
 
 monster.events = {
 	"HeartBossDeath",
-	"OutburstCharge",
+	"bossWarDeath",
 }
 
 monster.light = {

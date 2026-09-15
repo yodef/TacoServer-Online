@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("King Zelos")
 local monster = {}
 
 monster.description = "King Zelos"
-monster.experience = 75000
+monster.experience = 500000
 monster.outfit = {
 	lookType = 1224,
 	lookHead = 0,
@@ -23,6 +23,7 @@ monster.events = {
 	"zelos_damage",
 	"zelos_init",
 	"grave_danger_death",
+	"bossWarDeath",
 }
 
 monster.bosstiary = {
@@ -55,6 +56,8 @@ monster.flags = {
 }
 
 monster.loot = {
+	{ id = 39546, chance = 300 }, -- primal bag
+	{ id = 34109, chance = 200 }, -- bag you desire
 	{ name = "platinum coin", minCount = 1, maxCount = 5, chance = 100000 },
 	{ name = "crystal coin", minCount = 0, maxCount = 5, chance = 50000 },
 	{ name = "supreme health potion", minCount = 0, maxCount = 20, chance = 45000 },
@@ -95,7 +98,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 130,
 	armor = 130,
-	{ name = "combat", type = COMBAT_HEALING, chance = 15, interval = 2000, minDamage = 1450, maxDamage = 5350, effect = CONST_ME_MAGIC_BLUE },
+	{ name = "combat", type = COMBAT_HEALING, chance = 15, interval = 8000, minDamage = 1450, maxDamage = 5350, effect = CONST_ME_MAGIC_BLUE },
 }
 
 monster.elements = {

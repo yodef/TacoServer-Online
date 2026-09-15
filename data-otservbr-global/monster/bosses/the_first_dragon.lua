@@ -59,6 +59,7 @@ monster.flags = {
 
 monster.events = {
 	"FirstDragonDeath",
+	"bossWarDeath",
 }
 
 monster.light = {
@@ -71,7 +72,10 @@ monster.voices = {
 	chance = 10,
 }
 
-monster.loot = {}
+monster.loot = {
+	{ id = 39546, chance = 300 }, -- primal bag
+	{ id = 34109, chance = 200 }, -- bag you desire
+}
 
 monster.attacks = {
 	{ name = "melee", interval = 2000, chance = 100, skill = 120, attack = 130 },

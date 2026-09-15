@@ -15,6 +15,7 @@ monster.outfit = {
 
 monster.events = {
 	"AscendantBossesDeath",
+	"bossWarDeath",
 }
 
 monster.bosstiary = {
@@ -82,6 +83,8 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 39546, chance = 300 }, -- primal bag
+	{ id = 34109, chance = 200 }, -- bag you desire
 	{ id = 22516, chance = 1000000 }, -- silver token
 	{ id = 6558, chance = 10000 }, -- flask of demonic blood
 	{ id = 6558, chance = 10000 }, -- flask of demonic blood
@@ -133,8 +136,8 @@ monster.defenses = {
 	defense = 145,
 	armor = 188,
 	--	mitigation = ???,
-	{ name = "combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 1000, maxDamage = 3000, effect = CONST_ME_MAGIC_BLUE, target = false },
-	{ name = "speed", interval = 2000, chance = 8, speedChange = 480, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000 },
+	{ name = "combat", interval = 4000, chance = 15, type = COMBAT_HEALING, minDamage = 1000, maxDamage = 3000, effect = CONST_ME_MAGIC_BLUE, target = false },
+	{ name = "speed", interval = 10000, chance = 8, speedChange = 480, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000 },
 	{ name = "razzagorn summon", interval = 2000, chance = 3, target = false },
 }
 

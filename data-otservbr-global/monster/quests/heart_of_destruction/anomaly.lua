@@ -28,6 +28,7 @@ monster.manaCost = 0
 monster.events = {
 	"AnomalyTransform",
 	"HeartBossDeath",
+	"bossWarDeath",
 }
 
 monster.changeTarget = {

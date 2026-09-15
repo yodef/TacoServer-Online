@@ -10,5 +10,5 @@ function bossWarTp.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-bossWarTp:position({ x = 32659, y = 31230, z = 7 }, {x = 32659, y = 31215, z = 8})
+bossWarTp:position({ x = 32139, y = 32301, z = 7}, { x = 32139, y = 32301, z = 7})
 bossWarTp:register()

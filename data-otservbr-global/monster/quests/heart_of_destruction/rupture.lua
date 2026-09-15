@@ -58,9 +58,8 @@ monster.flags = {
 }
 
 monster.events = {
-	"RuptureResonance",
-	"RuptureHeal",
 	"HeartBossDeath",
+	"bossWarDeath",
 }
 
 monster.light = {

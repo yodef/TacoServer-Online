@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Gorzindel")
 local monster = {}
 
 monster.description = "Gorzindel"
-monster.experience = 100000
+monster.experience = 140000
 monster.outfit = {
 	lookType = 1062,
 	lookHead = 94,
@@ -14,7 +14,7 @@ monster.outfit = {
 }
 
 monster.events = {
-	"gorzindelHealth",
+"bossWarDeath",
 }
 
 monster.bosstiary = {
@@ -69,6 +69,8 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 39546, chance = 300 }, -- primal bag
+	{ id = 34109, chance = 200 }, -- bag you desire
 	{ name = "platinum coin", chance = 90000 },
 	{ name = "crystal coin", chance = 90000, maxCount = 8 },
 	{ name = "small amethyst", chance = 90000, maxCount = 12 },
@@ -110,11 +112,11 @@ monster.loot = {
 
 monster.attacks = {
 	{ name = "melee", interval = 2000, chance = 100, skill = 100, attack = 100 },
-	{ name = "melee", interval = 2000, chance = 15, minDamage = -600, maxDamage = -2800 },
-	{ name = "melee", interval = 1000, chance = 15, minDamage = -800, maxDamage = -1300 },
-	{ name = "melee", interval = 1000, chance = 15, minDamage = -800, maxDamage = -1000 },
-	{ name = "melee", interval = 1000, chance = 15, minDamage = -200, maxDamage = -800 },
-	{ name = "combat", interval = 1000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -600, radius = 9, effect = CONST_ME_MAGIC_RED, target = false },
+	{ name = "melee", interval = 8000, chance = 15, minDamage = -600, maxDamage = -2800 },
+	{ name = "melee", interval = 5000, chance = 15, minDamage = -800, maxDamage = -1300 },
+	{ name = "melee", interval = 4000, chance = 15, minDamage = -800, maxDamage = -1000 },
+	{ name = "melee", interval = 3000, chance = 15, minDamage = -200, maxDamage = -800 },
+	{ name = "combat", interval = 4000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -600, radius = 9, effect = CONST_ME_MAGIC_RED, target = false },
 }
 
 monster.defenses = {

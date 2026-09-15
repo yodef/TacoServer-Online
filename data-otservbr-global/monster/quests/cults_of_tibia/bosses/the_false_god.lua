@@ -15,6 +15,7 @@ monster.outfit = {
 
 monster.events = {
 	"CultsOfTibiaBossDeath",
+	"bossWarDeath",
 }
 
 monster.bosstiary = {

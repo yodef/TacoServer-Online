@@ -22,6 +22,7 @@ monster.manaCost = 0
 
 monster.events = {
 	"dreamCourtsDeath",
+	"bossWarDeath",
 }
 
 monster.changeTarget = {
@@ -72,6 +73,8 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 39546, chance = 300 }, -- primal bag
+	{ id = 34109, chance = 200 }, -- bag you desire
 	{ id = 23542, chance = 6450 }, -- collar of blue plasma
 	{ id = 23529, chance = 3230 }, -- ring of blue plasma
 	{ id = 23531, chance = 16129 }, -- ring of green plasma

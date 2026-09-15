@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Deathstrike")
 local monster = {}
 
 monster.description = "Deathstrike"
-monster.experience = 40000
+monster.experience = 400000
 monster.outfit = {
 	lookType = 500,
 	lookHead = 0,
@@ -15,6 +15,7 @@ monster.outfit = {
 
 monster.events = {
 	"BossesWarzoneDeath",
+	"bossWarDeath",
 }
 
 monster.bosstiary = {
@@ -97,20 +98,20 @@ monster.defenses = {
 	defense = 35,
 	armor = 25,
 	--	mitigation = ???,
-	{ name = "combat", interval = 1000, chance = 25, type = COMBAT_HEALING, minDamage = 1000, maxDamage = 5500, effect = CONST_ME_MAGIC_BLUE, target = false },
+	{ name = "combat", interval = 8000, chance = 25, type = COMBAT_HEALING, minDamage = 1000, maxDamage = 5500, effect = CONST_ME_MAGIC_BLUE, target = false },
 }
 
 monster.elements = {
 	{ type = COMBAT_PHYSICALDAMAGE, percent = 25 },
-	{ type = COMBAT_ENERGYDAMAGE, percent = 40 },
-	{ type = COMBAT_EARTHDAMAGE, percent = 100 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = -40 },
+	{ type = COMBAT_EARTHDAMAGE, percent = -40 },
 	{ type = COMBAT_FIREDAMAGE, percent = 50 },
 	{ type = COMBAT_LIFEDRAIN, percent = 10 },
 	{ type = COMBAT_MANADRAIN, percent = 0 },
 	{ type = COMBAT_DROWNDAMAGE, percent = 0 },
 	{ type = COMBAT_ICEDAMAGE, percent = 40 },
 	{ type = COMBAT_HOLYDAMAGE, percent = 20 },
-	{ type = COMBAT_DEATHDAMAGE, percent = 40 },
+	{ type = COMBAT_DEATHDAMAGE, percent = -40 },
 }
 
 monster.immunities = {

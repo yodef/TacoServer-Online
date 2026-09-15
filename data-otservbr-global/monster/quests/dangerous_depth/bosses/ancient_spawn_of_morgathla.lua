@@ -22,6 +22,10 @@ monster.health = 700000
 monster.maxHealth = 700000
 monster.race = "blood"
 monster.corpse = 21004
+
+monster.events = {
+	"bossWarDeath",
+}
 monster.speed = 135
 monster.manaCost = 0
 
@@ -68,6 +72,8 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 39546, chance = 300 }, -- primal bag
+	{ id = 34109, chance = 200 }, -- bag you desire
 	{ id = 3031, chance = 100000, maxCount = 198 }, -- gold coin
 	{ id = 3035, chance = 67610, maxCount = 3 }, -- platinum coin
 	{ id = 9058, chance = 390 }, -- gold ingot

@@ -74,6 +74,7 @@ local randomBoss = {
 {id = 46, name = "Plagueroot"},
 {id = 47, name = "Deep Terror"},
 {id = 48, name = "Apocalypse"},
+{id = 49, name = "the baron from below"},
 }
 
 local config = {
@@ -299,7 +300,7 @@ function bossWar.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
                         -- Set player cooldown
                         --creature:setStorageValue(config.storage, os.time() + config.cooldownTimer) -- cooldown timer
-						creature:setStorageValue(15053, 1)
+			creature:setStorageValue(15053, 1)
                     end
                 end
             end

@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Ghulosh")
 local monster = {}
 
 monster.description = "Ghulosh"
-monster.experience = 45000
+monster.experience = 145000
 monster.outfit = {
 	lookType = 1062,
 	lookHead = 78,
@@ -14,7 +14,7 @@ monster.outfit = {
 }
 
 monster.events = {
-	"ghuloshThink",
+	"bossWarDeath",
 }
 
 monster.bosstiary = {
@@ -69,6 +69,8 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 39546, chance = 300 }, -- primal bag
+	{ id = 34109, chance = 200 }, -- bag you desire
 	{ name = "platinum coin", chance = 90000, maxCount = 53 },
 	{ name = "crystal coin", chance = 90000, maxCount = 12 },
 	{ name = "great spirit potion", chance = 90000, maxCount = 8 },
@@ -105,10 +107,10 @@ monster.loot = {
 
 monster.attacks = {
 	{ name = "melee", interval = 1000, chance = 100, skill = 150, attack = 280 },
-	{ name = "combat", interval = 2000, chance = 12, type = COMBAT_DEATHDAMAGE, minDamage = -900, maxDamage = -1500, length = 8, spread = 0, effect = CONST_ME_MORTAREA, target = false },
-	{ name = "combat", interval = 2000, chance = 12, type = COMBAT_DEATHDAMAGE, minDamage = -210, maxDamage = -600, length = 8, spread = 0, effect = CONST_ME_MORTAREA, target = false },
-	{ name = "combat", interval = 2000, chance = 12, type = COMBAT_DEATHDAMAGE, minDamage = -210, maxDamage = -600, range = 7, radius = 3, effect = CONST_ME_MORTAREA, target = false },
-	{ name = "combat", interval = 2000, chance = 12, type = COMBAT_LIFEDRAIN, minDamage = -1500, maxDamage = -2000, range = 7, radius = 3, effect = CONST_ME_DRAWBLOOD, target = false },
+	{ name = "combat", interval = 6000, chance = 12, type = COMBAT_DEATHDAMAGE, minDamage = -900, maxDamage = -1500, length = 8, spread = 0, effect = CONST_ME_MORTAREA, target = false },
+	{ name = "combat", interval = 3000, chance = 12, type = COMBAT_DEATHDAMAGE, minDamage = -210, maxDamage = -600, length = 8, spread = 0, effect = CONST_ME_MORTAREA, target = false },
+	{ name = "combat", interval = 5000, chance = 12, type = COMBAT_DEATHDAMAGE, minDamage = -210, maxDamage = -600, range = 7, radius = 3, effect = CONST_ME_MORTAREA, target = false },
+	{ name = "combat", interval = 8000, chance = 12, type = COMBAT_LIFEDRAIN, minDamage = -1500, maxDamage = -2000, range = 7, radius = 3, effect = CONST_ME_DRAWBLOOD, target = false },
 }
 
 monster.defenses = {

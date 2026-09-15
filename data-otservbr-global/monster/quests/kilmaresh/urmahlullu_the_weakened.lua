@@ -22,6 +22,10 @@ monster.health = 100000
 monster.maxHealth = 512000
 monster.race = "blood"
 monster.corpse = 31413
+
+monster.events = {
+	"bossWarDeath",
+}
 monster.speed = 95
 monster.manaCost = 0
 
@@ -70,6 +74,8 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 39546, chance = 300 }, -- primal bag
+	{ id = 34109, chance = 200 }, -- bag you desire
 	{ name = "platinum coin", chance = 100000, maxCount = 9 },
 	{ name = "green gem", chance = 100000, maxCount = 2 },
 	{ name = "energy bar", chance = 100000 },
@@ -112,6 +118,9 @@ monster.loot = {
 	{ id = 30403, chance = 160 }, -- enchanted theurgic amulet
 	{ name = "sun medal", chance = 160 },
 	{ name = "sunray emblem", chance = 160 },
+	{ id = 39546, chance = 300 }, -- primal bag
+	{ id = 34109, chance = 200 }, -- bag you desire
+
 }
 
 monster.attacks = {

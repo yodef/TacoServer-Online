@@ -15,6 +15,7 @@ monster.outfit = {
 
 monster.events = {
 	"AscendantBossesDeath",
+	"bossWarDeath",
 }
 
 monster.bosstiary = {
@@ -76,6 +77,8 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 39546, chance = 300 }, -- primal bag
+	{ id = 34109, chance = 200 }, -- bag you desire
 	{ id = 22516, chance = 1000000 }, -- silver token
 	{ id = 10389, chance = 3000 }, -- sai
 	{ id = 16117, chance = 1820 }, -- muck rod
@@ -115,10 +118,10 @@ monster.defenses = {
 	defense = 125,
 	armor = 125,
 	--	mitigation = ???,
-	{ name = "combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 3000, maxDamage = 4000, effect = CONST_ME_MAGIC_BLUE, target = false },
-	{ name = "speed", interval = 2000, chance = 30, speedChange = 440, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000 },
-	{ name = "plagirath summon", interval = 2000, chance = 15, target = false },
-	{ name = "plagirath heal", interval = 2000, chance = 17, target = false },
+	{ name = "combat", interval = 4000, chance = 15, type = COMBAT_HEALING, minDamage = 3000, maxDamage = 4000, effect = CONST_ME_MAGIC_BLUE, target = false },
+	{ name = "speed", interval = 10000, chance = 30, speedChange = 440, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000 },
+	{ name = "plagirath summon", interval = 4000, chance = 15, target = false },
+	{ name = "plagirath heal", interval = 10000, chance = 17, target = false },
 }
 
 monster.elements = {

@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("World Devourer")
 local monster = {}
 
 monster.description = "World Devourer"
-monster.experience = 77700
+monster.experience = 250000
 monster.outfit = {
 	lookType = 875,
 	lookHead = 82,
@@ -18,8 +18,8 @@ monster.bosstiary = {
 	bossRace = RARITY_NEMESIS,
 }
 
-monster.health = 25000
-monster.maxHealth = 25000
+monster.health = 300000
+monster.maxHealth = 300000
 monster.race = "venom"
 monster.corpse = 0
 monster.speed = 225
@@ -59,6 +59,7 @@ monster.flags = {
 
 monster.events = {
 	"HeartBossDeath",
+	"bossWarDeath",
 }
 
 monster.light = {
@@ -72,6 +73,8 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 39546, chance = 300 }, -- primal bag
+	{ id = 34109, chance = 200 }, -- bag you desire
 	{ id = 3031, chance = 100000, maxCount = 100 }, -- gold coin
 	{ id = 3035, chance = 100000, maxCount = 20 }, -- platinum coin
 	{ id = 16119, chance = 10000, maxCount = 3 }, -- blue crystal shard

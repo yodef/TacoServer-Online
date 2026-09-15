@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("The Source of Corruption")
 local monster = {}
 
 monster.description = "The Source Of Corruption"
-monster.experience = 0
+monster.experience = 350000
 monster.outfit = {
 	lookType = 979,
 	lookHead = 0,
@@ -15,6 +15,7 @@ monster.outfit = {
 
 monster.events = {
 	"CultsOfTibiaBossDeath",
+	"bossWarDeath",
 }
 
 monster.bosstiary = {
@@ -71,7 +72,33 @@ monster.voices = {
 	chance = 10,
 }
 
-monster.loot = {}
+monster.loot = {
+}
+monster.loot = {
+	{ name = "platinum coin", chance = 100000, maxCount = 200 },
+	{ name = "crystal coin", chance = 29840, maxCount = 57 },
+	{ name = "lightning legs", chance = 8723 },
+	{ name = "yellow gem", chance = 29460 },
+	{ name = "tempest shield", chance = 6270 },
+	{ name = "shockwave amulet", chance = 15100 },
+	{ name = "opal", chance = 9510 },
+	{ name = "opal", chance = 9510 },
+	{ name = "mysterious remains", chance = 100000 },
+	{ name = "small amethyst", chance = 14700, maxCount = 10 },
+	{ name = "small amethyst", chance = 12259, maxCount = 10 },
+	{ name = "odd organ", chance = 100000 },
+	{ name = "energy bar", chance = 16872, maxCount = 3 },
+	{ id = 23529, chance = 8762 }, -- ring of blue plasma
+	{ name = "ultimate health potion", chance = 27652, maxCount = 10 },
+	{ name = "umbral master spellbook", chance = 475 },
+	{ name = "umbral master axe", chance = 475 },
+	{ name = "umbral masterblade", chance = 475 },
+	{ name = "umbral master mace", chance = 475 },
+	{ name = "winged boots", chance = 2750 },
+	{ name = "bow of cataclysm", chance = 3750 },
+	{ id = 39546, chance = 300 }, -- primal bag
+	{ id = 34109, chance = 200 }, -- bag you desire
+}
 
 monster.attacks = {
 	{ name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1500 },
@@ -85,16 +112,16 @@ monster.defenses = {
 }
 
 monster.reflects = {
-	{ type = COMBAT_PHYSICALDAMAGE, percent = 15 },
-	{ type = COMBAT_ENERGYDAMAGE, percent = 15 },
-	{ type = COMBAT_EARTHDAMAGE, percent = 15 },
+	{ type = COMBAT_PHYSICALDAMAGE, percent = -15 },
+	{ type = COMBAT_ENERGYDAMAGE, percent = -15 },
+	{ type = COMBAT_EARTHDAMAGE, percent = -15 },
 	{ type = COMBAT_FIREDAMAGE, percent = 15 },
 	{ type = COMBAT_LIFEDRAIN, percent = 15 },
 	{ type = COMBAT_MANADRAIN, percent = 15 },
 	{ type = COMBAT_DROWNDAMAGE, percent = 15 },
 	{ type = COMBAT_ICEDAMAGE, percent = 15 },
 	{ type = COMBAT_HOLYDAMAGE, percent = 15 },
-	{ type = COMBAT_DEATHDAMAGE, percent = 15 },
+	{ type = COMBAT_DEATHDAMAGE, percent = -15 },
 }
 
 monster.elements = {

@@ -27,6 +27,7 @@ monster.manaCost = 0
 
 monster.events = {
 	"killingLibrary",
+	"bossWarDeath",
 }
 
 monster.changeTarget = {

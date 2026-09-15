@@ -15,6 +15,7 @@ monster.outfit = {
 
 monster.events = {
 	"AscendantBossesDeath",
+	"bossWarDeath",
 }
 
 monster.health = 290000
@@ -73,6 +74,8 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 39546, chance = 300 }, -- primal bag
+	{ id = 34109, chance = 200 }, -- bag you desire
 	{ id = 22516, chance = 1000000 }, -- silver token
 	{ id = 6558, chance = 10000 }, -- flask of demonic blood
 	{ id = 6558, chance = 10000 }, -- flask of demonic blood
@@ -119,7 +122,7 @@ monster.defenses = {
 	defense = 120,
 	armor = 100,
 	--	mitigation = ???,
-	{ name = "combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 900, maxDamage = 3500, effect = CONST_ME_MAGIC_GREEN, target = false },
+	{ name = "combat", interval = 5000, chance = 10, type = COMBAT_HEALING, minDamage = 900, maxDamage = 3500, effect = CONST_ME_MAGIC_GREEN, target = false },
 	{ name = "speed", interval = 3000, chance = 30, speedChange = 460, effect = CONST_ME_MAGIC_RED, target = false, duration = 7000 },
 }
 

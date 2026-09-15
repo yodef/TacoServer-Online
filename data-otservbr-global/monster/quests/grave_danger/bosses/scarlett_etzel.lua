@@ -17,6 +17,7 @@ monster.events = {
 	"scarlettThink",
 	"scarlettHealth",
 	"grave_danger_death",
+	"bossWarDeath",
 }
 
 monster.bosstiary = {

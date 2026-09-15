@@ -1375,18 +1375,9 @@
 			<attribute key="slot" value="hand"/>
 		</attribute>
 	</item>
-	<item id="673" article="a" name="fiery orcish maul">
-		<attribute key="primarytype" value="club weapons"/>
-		<attribute key="elementfire" value="7"/>
-		<attribute key="attack" value="35"/>
-		<attribute key="defense" value="18"/>
-		<attribute key="weight" value="5400"/>
-		<attribute key="script" value="moveevent;weapon">
-			<attribute key="action" value="removecharge"/>
-			<attribute key="level" value="35"/>
-			<attribute key="unproperly" value="true"/>
-			<attribute key="weaponType" value="club"/>
-		</attribute>
+	<item id="673" article="a" name="opticorder hammer">
+		<attribute key="weight" value="5000"/>
+		<attribute key="description" value="Use it on a figurine along with power crystals to upgrade it."/>
 	</item>
 	<item id="674" article="a" name="fiery war hammer">
 		<attribute key="primarytype" value="club weapons"/>
@@ -7020,6 +7011,7 @@
 	<item id="3063" article="a" name="gold ring">
 		<attribute key="primarytype" value="rings"/>
 		<attribute key="weight" value="100"/>
+		<attribute key="speed" value="5"/>
 		<attribute key="script" value="moveevent">
 			<attribute key="slot" value="ring"/>
 		</attribute>
@@ -29388,8 +29380,8 @@
 		<attribute key="description" value="This doll seems to be the favourite doll of the emperor. It was awarded by TibiaJourney.com"/>
 		<attribute key="weight" value="1500"/>
 	</item>
-	<item fromid="12045" toid="12046" name="music box">
-		<attribute key="primarytype" value="taming items"/>
+	<item fromid="12045" toid="12046" name="surprise box">
+		<attribute key="primarytype" value="quest items"/>
 		<attribute key="description" value="The song inside is made of love. It was rewarded by TibiaSpace.com"/>
 		<attribute key="weight" value="200"/>
 	</item>
@@ -40895,24 +40887,24 @@
 	<item id="20265" article="a" name="unknowm item"/>
 	<item fromid="20266" toid="20267" article="a" name="prison wall"/>
 	<item fromid="20268" toid="20269" article="an" name="energy prison"/>
-	<item id="20270" article="a" name="silver prison key">
+	<item id="20270" article="a" name="silver epic key">
 		<attribute key="primarytype" value="quest items"/>
-		<attribute key="description" value="You dreamt that this key unlocks the prison of a powerful horror that you had to face on your own"/>
+		<attribute key="description" value="Grants access into a HARD dungeon or arena."/>
 		<attribute key="weight" value="200"/>
 	</item>
-	<item id="20271" article="a" name="copper prison key">
+	<item id="20271" article="a" name="platinum epic key">
 		<attribute key="primarytype" value="quest items"/>
-		<attribute key="description" value="You dreamt that this key unlocks the prison of a powerful horror that you had to face on your own"/>
+		<attribute key="description" value="Grants access into a NIGHTMARE dungeon or arena."/>
 		<attribute key="weight" value="200"/>
 	</item>
-	<item id="20272" article="a" name="bronze prison key">
+	<item id="20272" article="a" name="bronze epic key">
 		<attribute key="primarytype" value="quest items"/>
-		<attribute key="description" value="You dreamt that this key unlocks the prison of a powerful horror that you had to face on your own"/>
+		<attribute key="description" value="Grants access into a MEDIUM dungeon or arena."/>
 		<attribute key="weight" value="200"/>
 	</item>
-	<item id="20273" article="a" name="golden prison key">
+	<item id="20273" article="a" name="golden epic key">
 		<attribute key="primarytype" value="quest items"/>
-		<attribute key="description" value="You dreamt that this key unlocks the prison of a powerful horror that you had to face on your own"/>
+		<attribute key="description" value="Grants access into a INFERNO dungeon or arena."/>
 		<attribute key="weight" value="200"/>
 	</item>
 	<item id="20274" article="a" name="nightmare horn">
@@ -46389,29 +46381,54 @@ hands of its owner. Granted by TibiaRoyal.com"/>
 		<attribute key="description" value="There might be something valuable inside"/>
 		<attribute key="weight" value="8500"/>
 	</item>
-	<item id="23489" article="a" name="brown pit demon">
+	<item id="23489" article="a" name="brightlight figurine">
 		<attribute key="primarytype" value="light sources"/>
-		<attribute key="description" value="Figurine 1 of 5"/>
+		<attribute key="showAttributes" value="1"/>
+		<attribute key="skilldist" value="1"/>
+		<attribute key="speed" value="10"/>
+		<attribute key="absorbpercentholy" value="3"/>
+		<attribute key="description" value="Light casted by this figurine improves your reflexes."/>
 		<attribute key="weight" value="500"/>
 	</item>
-	<item id="23490" article="a" name="green pit demon">
+	<item id="23490" article="a" name="gemlight figurine">
+		<attribute key="showAttributes" value="1"/>
 		<attribute key="primarytype" value="light sources"/>
-		<attribute key="description" value="Figurine 2 of 5"/>
+		<attribute key="healthgain" value="15"/>
+		<attribute key="healthticks" value="3000"/>
+		<attribute key="absorbpercentearth" value="3"/>
+		<attribute key="absorbpercentice" value="3"/>
+		<attribute key="description" value="Light casted by this figurine benefits health recovery."/>
 		<attribute key="weight" value="500"/>
 	</item>
-	<item id="23491" article="a" name="blue pit demon">
+	<item id="23491" article="a" name="manalight figurine">
 		<attribute key="primarytype" value="light sources"/>
-		<attribute key="description" value="Figurine 3 of 5"/>
+		<attribute key="showAttributes" value="1"/>
+		<attribute key="managain" value="10"/>
+		<attribute key="manaticks" value="3000"/>
+		<attribute key="magiclevelpoints" value="1"/>
+		<attribute key="absorbpercentenergy" value="3"/>
+		<attribute key="absorbpercentmanadrain" value="3"/>
+		<attribute key="description" value="Light casted by this figurine boosts your magic and mana recovery."/>
 		<attribute key="weight" value="500"/>
 	</item>
-	<item id="23492" article="a" name="black pit demon">
+	<item id="23492" article="a" name="blacklight figurine">
 		<attribute key="primarytype" value="light sources"/>
-		<attribute key="description" value="Figurine 4 of 5"/>
+		<attribute key="showAttributes" value="1"/>
+		<attribute key="skillshield" value="2"/>
+		<attribute key="description" value="Light casted by this figurine protects your body."/>
+		<attribute key="absorbpercentphysical" value="4"/>
+		<attribute key="absorbpercentdeath" value="3"/>
 		<attribute key="weight" value="500"/>
 	</item>
-	<item id="23493" article="a" name="red pit demon">
+	<item id="23493" article="a" name="bloodlight figurine">
 		<attribute key="primarytype" value="light sources"/>
-		<attribute key="description" value="Figurine 5 of 5"/>
+		<attribute key="absorbpercentfire" value="3"/>
+		<attribute key="absorbpercentlifedrain" value="3"/>
+		<attribute key="skillsword" value="1"/>
+		<attribute key="skillaxe" value="1"/>
+		<attribute key="skillclub" value="1"/>
+		<attribute key="showAttributes" value="1"/>
+		<attribute key="description" value="Light casted by this figurine boils your blood."/>
 		<attribute key="weight" value="500"/>
 	</item>
 	<item fromid="23494" toid="23500" article="a" name="mysterious thing">
