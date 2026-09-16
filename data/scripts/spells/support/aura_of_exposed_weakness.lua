@@ -67,9 +67,9 @@ function spell.onCastSpell(creature, var)
 end
 
 spell:group("support", "crippling")
-spell:id(243)
-spell:name("Expose Weakness")
-spell:words("exori moe")
+spell:id(323)
+spell:name("Aura of Exposed Weakness")
+spell:words("exori moe tempo")
 spell:castSound(SOUND_EFFECT_TYPE_SPELL_EXPOSE_WEAKNESS)
 spell:level(80)
 spell:mana(150)

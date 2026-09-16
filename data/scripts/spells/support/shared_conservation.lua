@@ -1,0 +1,41 @@
+dofile(CORE_DIRECTORY .. "/scripts/spells/support/stances_lib.lua")
+
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
+	local player = creature:getPlayer()
+	if not player then return false end
+	return StanceSystem.toggle(player, "conservation", CONST_ME_MAGIC_BLUE)
+end
+
+spell:name("Shared Conservation")
+spell:words("utura sio")
+spell:group("support")
+spell:vocation("druid;true", "elder druid;true")
+spell:castSound(SOUND_EFFECT_TYPE_SPELL_HEAL_FRIEND)
+spell:id(320)
+spell:cooldown(2 * 1000)
+spell:groupCooldown(2 * 1000)
+spell:level(55)
+spell:mana(150)
+spell:isSelfTarget(true)
+spell:isAggressive(false)
+spell:isPremium(true)
+spell:register()
+
+local spellAlias = Spell("instant")
+spellAlias.onCastSpell = spell.onCastSpell
+spellAlias:name("Shared Conservation (Legacy)")
+spellAlias:words("utura sio")
+spellAlias:group("support")
+spellAlias:vocation("druid;true", "elder druid;true")
+spellAlias:castSound(SOUND_EFFECT_TYPE_SPELL_HEAL_FRIEND)
+spellAlias:id(312)
+spellAlias:cooldown(2 * 1000)
+spellAlias:groupCooldown(2 * 1000)
+spellAlias:level(55)
+spellAlias:mana(150)
+spellAlias:isSelfTarget(true)
+spellAlias:isAggressive(false)
+spellAlias:isPremium(true)
+spellAlias:register()

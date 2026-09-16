@@ -3326,6 +3326,7 @@
 	</monster>
 	<monster centerx="33375" centery="31320" centerz="3" radius="3">
 		<monster name="Falcon Knight" x="1" y="-2" z="3" spawntime="60" />
+		<monster name="Falcon Paladin" x="-2" y="-1" z="3" spawntime="60" />
 		<monster name="Falcon Paladin" x="3" y="1" z="3" spawntime="60" />
 		<monster name="Falcon Knight" x="-2" y="2" z="3" spawntime="60" />
 	</monster>
@@ -3336,9 +3337,6 @@
 	<monster centerx="33365" centery="31321" centerz="3" radius="3">
 		<monster name="Falcon Paladin" x="-1" y="-3" z="3" spawntime="60" />
 		<monster name="Falcon Paladin" x="-2" y="0" z="3" spawntime="60" />
-	</monster>
-	<monster centerx="33369" centery="31321" centerz="3" radius="1">
-		<monster name="Falcon Paladin" x="0" y="1" z="3" spawntime="60" />
 	</monster>
 	<monster centerx="33164" centery="31324" centerz="3" radius="1">
 		<monster name="Frost Dragon" x="1" y="1" z="3" spawntime="90" />
@@ -5874,43 +5872,41 @@
 	</monster>
 	<monster centerx="33375" centery="31331" centerz="4" radius="2">
 		<monster name="Falcon Paladin" x="1" y="-1" z="4" spawntime="60" />
+		<monster name="Falcon Knight" x="2" y="1" z="4" spawntime="60" />
 		<monster name="Falcon Knight" x="-1" y="2" z="4" spawntime="60" />
+	</monster>
+	<monster centerx="33365" centery="31332" centerz="4" radius="1">
+		<monster name="Falcon Knight" x="0" y="0" z="4" spawntime="60" />
+		<monster name="Falcon Paladin" x="1" y="0" z="4" spawntime="60" />
+		<monster name="Falcon Paladin" x="0" y="1" z="4" spawntime="60" />
 	</monster>
 	<monster centerx="33209" centery="31334" centerz="4" radius="1">
 		<monster name="Frost Dragon Hatchling" x="0" y="0" z="4" spawntime="90" />
 	</monster>
 	<monster centerx="33374" centery="31339" centerz="4" radius="2">
+		<monster name="Falcon Knight" x="-1" y="-2" z="4" spawntime="60" />
 		<monster name="Falcon Knight" x="1" y="-1" z="4" spawntime="60" />
+		<monster name="Falcon Knight" x="-1" y="0" z="4" spawntime="60" />
 		<monster name="Falcon Paladin" x="-1" y="2" z="4" spawntime="60" />
 	</monster>
 	<monster centerx="33365" centery="31345" centerz="4" radius="2">
 		<monster name="Falcon Knight" x="1" y="-1" z="4" spawntime="60" />
 		<monster name="Falcon Paladin" x="-1" y="1" z="4" spawntime="60" />
+		<monster name="Falcon Paladin" x="2" y="1" z="4" spawntime="60" />
 	</monster>
 	<monster centerx="33371" centery="31345" centerz="4" radius="2">
 		<monster name="Falcon Knight" x="2" y="-1" z="4" spawntime="60" />
 		<monster name="Falcon Paladin" x="-2" y="1" z="4" spawntime="60" />
+		<monster name="Falcon Paladin" x="1" y="2" z="4" spawntime="60" />
 	</monster>
-	<monster centerx="33358" centery="31346" centerz="4" radius="2">
-		<monster name="Falcon Knight" x="1" y="-1" z="4" spawntime="60" />
-		<monster name="Falcon Paladin" x="-1" y="1" z="4" spawntime="60" />
-	</monster>
-	<monster centerx="33358" centery="31351" centerz="4" radius="2">
-		<monster name="Falcon Paladin" x="2" y="0" z="4" spawntime="60" />
-		<monster name="Falcon Paladin" x="-2" y="1" z="4" spawntime="60" />
-	</monster>
-	<monster centerx="33365" centery="31351" centerz="4" radius="2">
-		<monster name="Falcon Knight" x="0" y="0" z="4" spawntime="60" />
-	</monster>
-	<monster centerx="33374" centery="31351" centerz="4" radius="2">
-		<monster name="Falcon Paladin" x="2" y="0" z="4" spawntime="60" />
-	</monster>
-	<monster centerx="33353" centery="31356" centerz="4" radius="2">
-		<monster name="Falcon Knight" x="-1" y="1" z="4" spawntime="60" />
+	<monster centerx="33355" centery="31357" centerz="4" radius="2">
+		<monster name="Falcon Knight" x="0" y="-1" z="4" spawntime="60" />
 	</monster>
 	<monster centerx="33362" centery="31357" centerz="4" radius="2">
 		<monster name="Falcon Knight" x="-2" y="-1" z="4" spawntime="60" />
 		<monster name="Falcon Paladin" x="2" y="-1" z="4" spawntime="60" />
+		<monster name="Falcon Paladin" x="-1" y="0" z="4" spawntime="60" />
+		<monster name="Falcon Paladin" x="1" y="0" z="4" spawntime="60" />
 	</monster>
 	<monster centerx="32266" centery="31360" centerz="4" radius="1">
 		<monster name="Frost Dragon" x="1" y="0" z="4" spawntime="90" />
@@ -15746,7 +15742,9 @@
 		<monster name="Orc Berserker" x="0" y="0" z="6" spawntime="90" />
 	</monster>
 	<monster centerx="33363" centery="31348" centerz="6" radius="3">
+		<monster name="Falcon Knight" x="1" y="-1" z="6" spawntime="60" />
 		<monster name="Falcon Knight" x="-1" y="2" z="6" spawntime="60" />
+		<monster name="Falcon Paladin" x="1" y="2" z="6" spawntime="60" />
 	</monster>
 	<monster centerx="32805" centery="31349" centerz="6" radius="1">
 		<monster name="Pirate Corsair" x="1" y="1" z="6" spawntime="90" />
@@ -26826,6 +26824,10 @@
 	<monster centerx="33159" centery="31315" centerz="7" radius="1">
 		<monster name="Dragon" x="0" y="0" z="7" spawntime="90" />
 	</monster>
+	<monster centerx="33358" centery="31315" centerz="7" radius="1">
+		<monster name="Falcon Knight" x="1" y="-1" z="7" spawntime="60" />
+		<monster name="Falcon Paladin" x="0" y="0" z="7" spawntime="60" />
+	</monster>
 	<monster centerx="33557" centery="31315" centerz="7" radius="1">
 		<monster name="Swarmer" x="1" y="0" z="7" spawntime="90" />
 	</monster>
@@ -26844,6 +26846,10 @@
 	</monster>
 	<monster centerx="33182" centery="31316" centerz="7" radius="1">
 		<monster name="Dragon" x="0" y="0" z="7" spawntime="90" />
+	</monster>
+	<monster centerx="33363" centery="31316" centerz="7" radius="1">
+		<monster name="Falcon Knight" x="0" y="0" z="7" spawntime="60" />
+		<monster name="Falcon Paladin" x="1" y="1" z="7" spawntime="60" />
 	</monster>
 	<monster centerx="31925" centery="31317" centerz="7" radius="3">
 		<monster name="Deer" x="-1" y="1" z="7" spawntime="90" />
@@ -53092,9 +53098,10 @@
 	<monster centerx="32754" centery="31288" centerz="8" radius="2">
 		<monster name="Elf Arcanist" x="-1" y="0" z="8" spawntime="90" />
 	</monster>
-	<monster centerx="33307" centery="31288" centerz="8" radius="6">
-		<monster name="Falcon Knight" x="1" y="-2" z="8" spawntime="60" />
-		<monster name="Dazed Leaf Golem" x="0" y="0" z="8" spawntime="60" />
+	<monster centerx="33308" centery="31288" centerz="8" radius="6">
+		<monster name="Falcon Knight" x="0" y="-2" z="8" spawntime="60" />
+		<monster name="Dazed Leaf Golem" x="-1" y="0" z="8" spawntime="60" />
+		<monster name="Dazed Leaf Golem" x="-3" y="1" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33579" centery="31288" centerz="8" radius="1">
 		<monster name="Swarmer" x="1" y="0" z="8" spawntime="90" />
@@ -53301,16 +53308,14 @@
 		<monster name="Falcon Knight" x="-3" y="3" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33321" centery="31330" centerz="8" radius="3">
+		<monster name="Falcon Paladin" x="0" y="-2" z="8" spawntime="60" />
 		<monster name="Falcon Knight" x="-2" y="-1" z="8" spawntime="60" />
+		<monster name="Falcon Paladin" x="0" y="2" z="8" spawntime="60" />
 		<monster name="Falcon Paladin" x="1" y="2" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="32527" centery="31331" centerz="8" radius="2">
 		<monster name="Crocodile" x="-2" y="-1" z="8" spawntime="90" />
 		<monster name="Crocodile" x="2" y="0" z="8" spawntime="90" />
-	</monster>
-	<monster centerx="33340" centery="31333" centerz="8" radius="3">
-		<monster name="Falcon Paladin" x="-1" y="1" z="8" spawntime="60" />
-		<monster name="Falcon Paladin" x="0" y="2" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="32728" centery="31335" centerz="8" radius="2">
 		<monster name="Minotaur" x="2" y="-2" z="8" spawntime="90" />
@@ -53422,6 +53427,7 @@
 	<monster centerx="33328" centery="31342" centerz="8" radius="3">
 		<monster name="Falcon Knight" x="-2" y="-2" z="8" spawntime="60" />
 		<monster name="Falcon Paladin" x="1" y="-1" z="8" spawntime="60" />
+		<monster name="Falcon Paladin" x="-1" y="0" z="8" spawntime="60" />
 		<monster name="Falcon Knight" x="1" y="1" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33809" centery="31343" centerz="8" radius="1">
@@ -53438,10 +53444,6 @@
 	</monster>
 	<monster centerx="32271" centery="31345" centerz="8" radius="1">
 		<monster name="Frost Dragon Hatchling" x="0" y="0" z="8" spawntime="90" />
-	</monster>
-	<monster centerx="33348" centery="31345" centerz="8" radius="3">
-		<monster name="Falcon Paladin" x="3" y="-1" z="8" spawntime="60" />
-		<monster name="Falcon Knight" x="1" y="1" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33851" centery="31345" centerz="8" radius="1">
 		<monster name="Pirat Cutthroat" x="-1" y="-1" z="8" spawntime="60" />
@@ -53480,6 +53482,7 @@
 	<monster centerx="33337" centery="31350" centerz="8" radius="3">
 		<monster name="Falcon Paladin" x="-2" y="-1" z="8" spawntime="60" />
 		<monster name="Falcon Paladin" x="3" y="-1" z="8" spawntime="60" />
+		<monster name="Falcon Knight" x="-2" y="1" z="8" spawntime="60" />
 		<monster name="Falcon Knight" x="1" y="1" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="32771" centery="31351" centerz="8" radius="2">
@@ -79143,10 +79146,10 @@
 	<monster centerx="33163" centery="31279" centerz="9" radius="1">
 		<monster name="Lizard Legionnaire" x="0" y="0" z="9" spawntime="90" />
 	</monster>
-	<monster centerx="33302" centery="31279" centerz="9" radius="3">
-		<monster name="Falcon Knight" x="1" y="2" z="9" spawntime="60" />
-	</monster>
 	<monster centerx="33309" centery="31279" centerz="9" radius="3">
+		<monster name="Falcon Knight" x="1" y="2" z="9" spawntime="60" />
+		<monster name="Falcon Paladin" x="3" y="2" z="9" spawntime="60" />
+		<monster name="Falcon Paladin" x="-3" y="3" z="9" spawntime="60" />
 		<monster name="Falcon Knight" x="0" y="3" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="32131" centery="31281" centerz="9" radius="4">
@@ -79212,14 +79215,6 @@
 	<monster centerx="33161" centery="31286" centerz="9" radius="1">
 		<monster name="Dragon Hatchling" x="0" y="0" z="9" spawntime="90" />
 	</monster>
-	<monster centerx="33295" centery="31286" centerz="9" radius="3">
-		<monster name="Falcon Knight" x="-3" y="-2" z="9" spawntime="60" />
-		<monster name="Falcon Knight" x="-2" y="2" z="9" spawntime="60" />
-	</monster>
-	<monster centerx="33302" centery="31286" centerz="9" radius="3">
-		<monster name="Falcon Paladin" x="-3" y="-2" z="9" spawntime="60" />
-		<monster name="Falcon Knight" x="-3" y="0" z="9" spawntime="60" />
-	</monster>
 	<monster centerx="33170" centery="31287" centerz="9" radius="1">
 		<monster name="Lizard Legionnaire" x="0" y="0" z="9" spawntime="90" />
 	</monster>
@@ -79234,9 +79229,6 @@
 	</monster>
 	<monster centerx="33159" centery="31290" centerz="9" radius="1">
 		<monster name="Lizard Legionnaire" x="0" y="0" z="9" spawntime="90" />
-	</monster>
-	<monster centerx="33313" centery="31290" centerz="9" radius="1">
-		<monster name="Falcon Paladin" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33326" centery="31290" centerz="9" radius="1">
 		<monster name="Falcon Knight" x="0" y="0" z="9" spawntime="60" />
@@ -79256,8 +79248,8 @@
 	<monster centerx="32856" centery="31291" centerz="9" radius="2">
 		<monster name="Frost Dragon Hatchling" x="0" y="0" z="9" spawntime="90" />
 	</monster>
-	<monster centerx="33322" centery="31292" centerz="9" radius="1">
-		<monster name="Falcon Paladin" x="0" y="0" z="9" spawntime="60" />
+	<monster centerx="33323" centery="31292" centerz="9" radius="1">
+		<monster name="Falcon Paladin" x="-1" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="32544" centery="31293" centerz="9" radius="1">
 		<monster name="Tortoise" x="1" y="1" z="9" spawntime="90" />
@@ -79273,11 +79265,9 @@
 		<monster name="Damaged Worker Golem" x="3" y="1" z="9" spawntime="90" />
 	</monster>
 	<monster centerx="33288" centery="31293" centerz="9" radius="3">
+		<monster name="Falcon Knight" x="-2" y="-1" z="9" spawntime="60" />
+		<monster name="Falcon Knight" x="-1" y="2" z="9" spawntime="60" />
 		<monster name="Falcon Knight" x="3" y="3" z="9" spawntime="60" />
-	</monster>
-	<monster centerx="33309" centery="31293" centerz="9" radius="3">
-		<monster name="Falcon Paladin" x="-3" y="1" z="9" spawntime="60" />
-		<monster name="Falcon Paladin" x="2" y="3" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="32077" centery="31294" centerz="9" radius="3">
 		<monster name="Ice Golem" x="-1" y="1" z="9" spawntime="90" />
@@ -79294,6 +79284,11 @@
 	<monster centerx="32132" centery="31296" centerz="9" radius="4">
 		<monster name="Novice of the Cult" x="0" y="-2" z="9" spawntime="90" />
 		<monster name="Novice of the Cult" x="1" y="2" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="33308" centery="31296" centerz="9" radius="3">
+		<monster name="Falcon Paladin" x="-2" y="0" z="9" spawntime="60" />
+		<monster name="Falcon Knight" x="0" y="0" z="9" spawntime="60" />
+		<monster name="Falcon Paladin" x="1" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="32546" centery="31297" centerz="9" radius="1">
 		<monster name="Tortoise" x="1" y="1" z="9" spawntime="90" />
@@ -79316,9 +79311,6 @@
 		<monster name="Frost Giant" x="-2" y="1" z="9" spawntime="90" />
 		<monster name="Frost Giant" x="3" y="4" z="9" spawntime="90" />
 	</monster>
-	<monster centerx="33326" centery="31299" centerz="9" radius="1">
-		<monster name="Falcon Knight" x="0" y="0" z="9" spawntime="60" />
-	</monster>
 	<monster centerx="31923" centery="31300" centerz="9" radius="3">
 		<monster name="Sea Serpent" x="3" y="-1" z="9" spawntime="90" />
 	</monster>
@@ -79335,9 +79327,6 @@
 	</monster>
 	<monster centerx="32529" centery="31302" centerz="9" radius="1">
 		<monster name="Tortoise" x="1" y="-1" z="9" spawntime="90" />
-	</monster>
-	<monster centerx="33332" centery="31302" centerz="9" radius="1">
-		<monster name="Falcon Paladin" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="32412" centery="31304" centerz="9" radius="7">
 		<monster name="Frost Giant" x="-5" y="-7" z="9" spawntime="90" />
@@ -79394,9 +79383,6 @@
 		<monster name="Falcon Paladin" x="0" y="3" z="9" spawntime="60" />
 		<monster name="Falcon Knight" x="3" y="3" z="9" spawntime="60" />
 	</monster>
-	<monster centerx="33333" centery="31307" centerz="9" radius="1">
-		<monster name="Falcon Knight" x="0" y="0" z="9" spawntime="60" />
-	</monster>
 	<monster centerx="32567" centery="31308" centerz="9" radius="1">
 		<monster name="Tortoise" x="0" y="-1" z="9" spawntime="90" />
 	</monster>
@@ -79423,9 +79409,6 @@
 	<monster centerx="32560" centery="31312" centerz="9" radius="1">
 		<monster name="Crocodile" x="-1" y="-1" z="9" spawntime="90" />
 		<monster name="Tortoise" x="1" y="1" z="9" spawntime="90" />
-	</monster>
-	<monster centerx="33332" centery="31312" centerz="9" radius="1">
-		<monster name="Falcon Paladin" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="32496" centery="31313" centerz="9" radius="4">
 		<monster name="Tortoise" x="-3" y="-2" z="9" spawntime="90" />
@@ -79456,12 +79439,10 @@
 		<monster name="Tortoise" x="-1" y="-1" z="9" spawntime="90" />
 		<monster name="Tortoise" x="2" y="1" z="9" spawntime="90" />
 	</monster>
-	<monster centerx="33333" centery="31317" centerz="9" radius="3">
-		<monster name="Falcon Knight" x="-3" y="-1" z="9" spawntime="60" />
-		<monster name="Falcon Knight" x="2" y="3" z="9" spawntime="60" />
-	</monster>
 	<monster centerx="33315" centery="31318" centerz="9" radius="1">
+		<monster name="Falcon Knight" x="1" y="-1" z="9" spawntime="60" />
 		<monster name="Falcon Paladin" x="0" y="0" z="9" spawntime="60" />
+		<monster name="Falcon Paladin" x="-1" y="1" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="32506" centery="31319" centerz="9" radius="2">
 		<monster name="Tortoise" x="0" y="-1" z="9" spawntime="90" />
@@ -79491,7 +79472,9 @@
 		<monster name="Falcon Paladin" x="3" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33309" centery="31321" centerz="9" radius="3">
+		<monster name="Falcon Knight" x="2" y="-2" z="9" spawntime="60" />
 		<monster name="Falcon Paladin" x="-2" y="0" z="9" spawntime="60" />
+		<monster name="Falcon Paladin" x="2" y="2" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="32495" centery="31323" centerz="9" radius="3">
 		<monster name="Crocodile" x="1" y="-1" z="9" spawntime="90" />
@@ -79504,16 +79487,15 @@
 		<monster name="Tortoise" x="-2" y="-1" z="9" spawntime="90" />
 		<monster name="Tortoise" x="-1" y="2" z="9" spawntime="90" />
 	</monster>
-	<monster centerx="33314" centery="31324" centerz="9" radius="1">
-		<monster name="Falcon Paladin" x="0" y="0" z="9" spawntime="60" />
-	</monster>
 	<monster centerx="33310" centery="31325" centerz="9" radius="1">
 		<monster name="Falcon Paladin" x="0" y="0" z="9" spawntime="60" />
+		<monster name="Falcon Paladin" x="-1" y="1" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="32544" centery="31327" centerz="9" radius="2">
 		<monster name="Tortoise" x="0" y="2" z="9" spawntime="90" />
 	</monster>
 	<monster centerx="33315" centery="31327" centerz="9" radius="1">
+		<monster name="Falcon Knight" x="1" y="-1" z="9" spawntime="60" />
 		<monster name="Falcon Knight" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33288" centery="31328" centerz="9" radius="3">
@@ -79521,9 +79503,6 @@
 	</monster>
 	<monster centerx="33296" centery="31328" centerz="9" radius="1">
 		<monster name="Falcon Paladin" x="0" y="0" z="9" spawntime="60" />
-	</monster>
-	<monster centerx="33330" centery="31328" centerz="9" radius="3">
-		<monster name="Falcon Knight" x="3" y="2" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="32560" centery="31329" centerz="9" radius="2">
 		<monster name="Tortoise" x="1" y="-1" z="9" spawntime="90" />

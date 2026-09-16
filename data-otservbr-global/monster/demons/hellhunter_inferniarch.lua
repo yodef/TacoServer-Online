@@ -56,7 +56,7 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 80,
-	targetDistance = 1,
+	targetDistance = 4,
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
@@ -90,11 +90,14 @@ monster.loot = {
 	{ name = "onyx arrow", chance = 1000, maxCount = 5 },
 	{ id = 6299, chance = 900 }, -- death ring
 	{ name = "cyan crystal fragment", chance = 900 },
-	{ name = "mummified demon finger", chance = 155 },
+	{ name = "demonic finger", chance = 155 },
 }
 
 monster.attacks = {
-	{ name = "combat", interval = 2000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -219, maxDamage = -261, range = 4, shootEffect = CONST_ANI_BOLT, effect = CONST_ME_MORTAREA, target = true },
+	{ name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400 },
+	{ name = "combat", interval = 2000, chance = 35, type = COMBAT_PHYSICALDAMAGE, minDamage = -350, maxDamage = -580, range = 6, shootEffect = CONST_ANI_SNIPERARROW, effect = CONST_ME_HITAREA, target = true },
+	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -300, maxDamage = -520, range = 6, shootEffect = CONST_ANI_BOLT, effect = CONST_ME_MORTAREA, target = true },
+	{ name = "combat", interval = 2500, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -280, maxDamage = -480, range = 5, radius = 2, shootEffect = CONST_ANI_BURSTARROW, effect = CONST_ME_FIREAREA, target = true },
 }
 
 monster.defenses = {

@@ -43,7 +43,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
@@ -82,6 +82,11 @@ monster.loot = {
 	{ id = 8896, chance = 26670 }, -- slightly rusted armor
 	{ id = 6299, chance = 13330 }, -- death ring
 	{ id = 10316, chance = 50000, maxCount = 2 }, -- unholy bone
+	{ id = 27450, chance = 300}, -- slayer of destruction
+	{ id = 27452, chance = 300}, -- chopper of destruction
+	{ id = 27454, chance = 300}, -- hammer of destruction
+	{ name = "thundermind raiment", chance = 500 },
+	{ name = "moon mirror", chance = 1500 }
 }
 
 monster.attacks = {

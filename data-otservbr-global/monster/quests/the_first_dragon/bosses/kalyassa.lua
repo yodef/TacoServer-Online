@@ -43,7 +43,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
@@ -89,6 +89,11 @@ monster.loot = {
 	{ id = 3280, chance = 25000 }, -- fire sword
 	{ id = 3051, chance = 25000 }, -- energy ring
 	{ id = 5948, chance = 25000 }, -- red dragon leather
+	{ name = "sun catcher", chance = 1500 },
+	{ name = "firemind raiment", chance = 300 },
+	{ id = 27458, chance = 300}, -- rod of destruction
+	{ id = 27457, chance = 300}, -- wand of destruction
+	{ id = 27455, chance = 300} -- bow of destruction
 }
 
 monster.attacks = {

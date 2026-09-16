@@ -56,7 +56,7 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 80,
-	targetDistance = 1,
+	targetDistance = 3,
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
@@ -89,17 +89,21 @@ monster.loot = {
 	{ name = "fire mushroom", chance = 2000 },
 	{ name = "black pearl", chance = 1000 },
 	{ name = "demonic core essence", chance = 100 },
-	{ name = "mummified demon finger", chance = 155 },
+	{ name = "demonic finger", chance = 155 },
 }
 
 monster.attacks = {
-	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -150, maxDamage = -450, range = 4, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true },
+	{ name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -380 },
+	{ name = "combat", interval = 2000, chance = 25, type = COMBAT_ENERGYDAMAGE, minDamage = -350, maxDamage = -580, range = 5, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true },
+	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -320, maxDamage = -540, range = 4, radius = 3, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true },
+	{ name = "combat", interval = 2500, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -350, maxDamage = -600, range = 5, effect = CONST_ME_REAPER, target = true },
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 74,
 	mitigation = 2.13,
+	{ name = "combat", interval = 2000, chance = 8, type = COMBAT_HEALING, minDamage = 250, maxDamage = 500, effect = CONST_ME_MAGIC_BLUE, target = false },
 }
 
 monster.elements = {

@@ -81,7 +81,7 @@ monster.loot = {
 	{ name = "platinum coin", chance = 5000, maxCount = 25 },
 	{ name = "drill bolt", chance = 900, maxCount = 5 },
 	{ name = "broodrider saddle", chance = 1000 },
-	{ name = "mummified demon finger", chance = 155 },
+	{ name = "demonic finger", chance = 155 },
 	{ name = "blue crystal splinter", chance = 300 },
 	{ name = "onyx chip", chance = 1500, maxCount = 3 },
 	{ name = "magma legs", chance = 800 },
@@ -92,10 +92,10 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{ name = "melee", interval = 2000, chance = 100, minDamage = -167, maxDamage = -374 },
-	{ name = "combat", interval = 3000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -402, maxDamage = -426, range = 1, effect = CONST_ME_BITE, target = true },
-	{ name = "combat", interval = 2000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -219, maxDamage = -261, range = 4, shootEffect = CONST_ANI_BOLT, effect = CONST_ME_MORTAREA, target = true },
-	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -400, maxDamage = -472, range = 4, effect = CONST_ME_MORTAREA, target = true },
+	{ name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550 },
+	{ name = "combat", interval = 2000, chance = 22, type = COMBAT_PHYSICALDAMAGE, minDamage = -350, maxDamage = -580, range = 1, effect = CONST_ME_BITE, target = true },
+	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -300, maxDamage = -520, range = 5, shootEffect = CONST_ANI_DRILLBOLT, effect = CONST_ME_MORTAREA, target = true },
+	{ name = "combat", interval = 3000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -280, maxDamage = -460, radius = 2, effect = CONST_ME_GROUNDSHAKER, target = false },
 }
 
 monster.defenses = {

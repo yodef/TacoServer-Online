@@ -1,0 +1,41 @@
+dofile(CORE_DIRECTORY .. "/scripts/spells/support/stances_lib.lua")
+
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
+	local player = creature:getPlayer()
+	if not player then return false end
+	return StanceSystem.toggle(player, "synthesis", CONST_ME_ICEAREA)
+end
+
+spell:name("Elemental Synthesis")
+spell:words("utito dru")
+spell:group("support")
+spell:vocation("druid;true", "elder druid;true")
+spell:castSound(SOUND_EFFECT_TYPE_SPELL_ICE_WAVE)
+spell:id(319)
+spell:cooldown(2 * 1000)
+spell:groupCooldown(2 * 1000)
+spell:level(60)
+spell:mana(150)
+spell:isSelfTarget(true)
+spell:isAggressive(false)
+spell:isPremium(true)
+spell:register()
+
+local spellAlias = Spell("instant")
+spellAlias.onCastSpell = spell.onCastSpell
+spellAlias:name("Elemental Synthesis (Legacy)")
+spellAlias:words("utori frigo")
+spellAlias:group("support")
+spellAlias:vocation("druid;true", "elder druid;true")
+spellAlias:castSound(SOUND_EFFECT_TYPE_SPELL_ICE_WAVE)
+spellAlias:id(313)
+spellAlias:cooldown(2 * 1000)
+spellAlias:groupCooldown(2 * 1000)
+spellAlias:level(60)
+spellAlias:mana(150)
+spellAlias:isSelfTarget(true)
+spellAlias:isAggressive(false)
+spellAlias:isPremium(true)
+spellAlias:register()

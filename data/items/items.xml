@@ -82742,6 +82742,26 @@ Granted by TibiaGoals.com"/>
 		<attribute key="decayTo" value="0"/>
 		<attribute key="duration" value="5"/>
 	</item>
+	<item id="49891" article="a" name="skin of twisterror">
+		<attribute key="primarytype" value="creature products"/>
+		<attribute key="weight" value="180"/>
+	</item>
+	<item id="49892" article="a" name="skin of gralvalon">
+		<attribute key="primarytype" value="creature products"/>
+		<attribute key="weight" value="180"/>
+	</item>
+	<item id="49893" article="a" name="skin of malvaroth">
+		<attribute key="primarytype" value="creature products"/>
+		<attribute key="weight" value="180"/>
+	</item>
+	<item id="49894" article="a" name="demonic matter">
+		<attribute key="primarytype" value="creature products"/>
+		<attribute key="weight" value="120"/>
+	</item>
+	<item id="49895" article="a" name="demonic core essence">
+		<attribute key="primarytype" value="creature products"/>
+		<attribute key="weight" value="250"/>
+	</item>
 	<item id="49937" article="a" name="ramp">
 		<attribute key="floorchange" value="north"/>
 	</item>

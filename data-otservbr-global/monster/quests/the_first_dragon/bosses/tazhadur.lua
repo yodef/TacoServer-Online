@@ -80,6 +80,11 @@ monster.loot = {
 	{ id = 24937, chance = 80000, maxCount = 2 }, -- dragon blood
 	{ id = 3275, chance = 25000 }, -- double axe
 	{ id = 24940, chance = 100000 }, -- tooth of tazhadur
+	{ name = "scarab ocarina", chance = 1500 },
+	{ id = 27449, chance = 300}, -- blade of destruction
+	{ id = 27451, chance = 300}, -- axe of destruction
+	{ id = 27453, chance = 300}, -- mace of destruction
+	{ name = "earthmind raiment", chance = 300 }
 }
 
 monster.attacks = {

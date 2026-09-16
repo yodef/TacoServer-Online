@@ -21,7 +21,8 @@ function spell.onCastSpell(creature, variant)
 		local skill = Condition(CONDITION_ATTRIBUTES)
 		skill:setParameter(CONDITION_PARAM_SUBID, AttrSubId_Sharpshooter)
 		skill:setParameter(CONDITION_PARAM_TICKS, spellDuration)
-		local grade = creature:upgradeSpellsWOD("Sharpshooter")
+		local player = creature:getPlayer()
+		local grade = player and player:upgradeSpellsWOD("Sharpshooter") or WHEEL_GRADE_NONE
 		if grade == WHEEL_GRADE_NONE then
 			local exhaustSupportGroup = Condition(CONDITION_SPELLGROUPCOOLDOWN)
 			exhaustSupportGroup:setParameter(CONDITION_PARAM_SUBID, 3)

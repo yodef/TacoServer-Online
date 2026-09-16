@@ -88,21 +88,21 @@ monster.loot = {
 	{ name = "demonic matter", chance = 4761 },
 	{ id = 3093, chance = 1000 }, -- club ring
 	{ name = "gorger antlers", chance = 1000 },
-	{ name = "mummified demon finger", chance = 155 },
+	{ name = "demonic finger", chance = 155 },
 }
 
 monster.attacks = {
-	{ name = "melee", interval = 2000, chance = 100, minDamage = -199, maxDamage = -503 },
-	{ name = "extended fire chain", interval = 3000, chance = 15, minDamage = -1, maxDamage = -400, range = 7 },
-	{ name = "combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -1, maxDamage = -500, effect = CONST_ME_REAPER, target = true },
-	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -1, maxDamage = -500, radius = 6, effect = CONST_ME_BLACKSMOKE, target = false }, -- death ball
+	{ name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -580 },
+	{ name = "extended fire chain", interval = 3000, chance = 15, minDamage = -320, maxDamage = -550, range = 7 },
+	{ name = "combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -320, maxDamage = -520, effect = CONST_ME_REAPER, target = true },
+	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -350, maxDamage = -580, radius = 4, effect = CONST_ME_BLACKSMOKE, target = false },
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 74,
 	mitigation = 1.99,
-	{ name = "combat", interval = 2000, chance = 5, type = COMBAT_HEALING, minDamage = 100, maxDamage = 150, effect = CONST_ME_MAGIC_BLUE, target = false },
+	{ name = "combat", interval = 2000, chance = 8, type = COMBAT_HEALING, minDamage = 250, maxDamage = 500, effect = CONST_ME_MAGIC_BLUE, target = false },
 }
 
 monster.elements = {

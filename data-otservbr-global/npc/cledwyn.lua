@@ -269,10 +269,7 @@ npcConfig.shop = {
 	{ itemName = "umbral katar", clientId = 50164, buy = 220 },
 	{ itemName = "merudri nanbando", clientId = 50261, buy = 60 },
 	{ itemName = "jungle survivor legs", clientId = 50186, buy = 30 },
-	{ itemName = "depth claws", clientId = 50176, buy = 80 },
 	{ itemName = "bambus jo", clientId = 50270, buy = 80 },
-	{ itemName = "gnomish cuirass", clientId = 50276, buy = 80 },
-	{ itemName = "gnomish footwraps", clientId = 50290, buy = 80 },
 	{ itemName = "robe of enlightenment", clientId = 50268, buy = 80 },
 }
 

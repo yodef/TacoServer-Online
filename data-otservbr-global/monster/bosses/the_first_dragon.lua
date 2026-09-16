@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("The First Dragon")
 local monster = {}
 
 monster.description = "the first dragon"
-monster.experience = 9000
+monster.experience = 100000
 monster.outfit = {
 	lookType = 947,
 	lookHead = 94,
@@ -73,17 +73,27 @@ monster.voices = {
 }
 
 monster.loot = {
-	{ id = 39546, chance = 300 }, -- primal bag
-	{ id = 34109, chance = 200 }, -- bag you desire
+	{ name = "starlight vial", chance = 1000 },
+	{ id = 27449, chance = 500}, -- blade of destruction
+	{ id = 27451, chance = 500}, -- axe of destruction
+	{ id = 27453, chance = 500}, -- mace of destruction
+	{ id = 27458, chance = 500}, -- rod of destruction
+	{ id = 27457, chance = 500}, -- wand of destruction
+	{ id = 27455, chance = 500}, -- bow of destruction
+	{ id = 27456, chance = 500}, -- crossbow of destruction
+	{ id = 27450, chance = 500}, -- slayer of destruction
+	{ id = 27452, chance = 500}, -- chopper of destruction
+	{ id = 27454, chance = 500}, -- hammer of destruction
+	{ name = "primal bag", chance = 150 },
 }
 
 monster.attacks = {
 	{ name = "melee", interval = 2000, chance = 100, skill = 120, attack = 130 },
-	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -410, maxDamage = -695, range = 5, radius = 5, effect = CONST_ME_FIREAREA, target = true },
+	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -410, maxDamage = -950, range = 5, radius = 5, effect = CONST_ME_FIREAREA, target = true },
 	{ name = "speed", interval = 2000, chance = 20, speedChange = -600, radius = 7, effect = CONST_ME_MAGIC_RED, target = false, duration = 10000 },
 	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -1010, maxDamage = -1995, length = 9, spread = 3, effect = CONST_ME_FIREAREA, target = false },
-	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -410, maxDamage = -595, radius = 7, effect = CONST_ME_HITBYFIRE, target = false },
-	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -150, maxDamage = -280, radius = 6, effect = CONST_ME_MAGIC_RED, target = false },
+	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -410, maxDamage = -995, radius = 7, effect = CONST_ME_HITBYFIRE, target = false },
+	{ name = "combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -350, maxDamage = -680, radius = 6, effect = CONST_ME_MAGIC_RED, target = false },
 }
 
 monster.defenses = {
@@ -111,5 +121,19 @@ monster.immunities = {
 	{ type = "invisible", condition = true },
 	{ type = "bleed", condition = false },
 }
+
+mType.onThink = function(monster, interval) end
+
+mType.onAppear = function(monster, creature)
+	if monster:getType():isRewardBoss() then
+		monster:setReward(true)
+	end
+end
+
+mType.onDisappear = function(monster, creature) end
+
+mType.onMove = function(monster, creature, fromPosition, toPosition) end
+
+mType.onSay = function(monster, creature, type, message) end
 
 mType:register(monster)

@@ -762,8 +762,8 @@
 	<npc centerx="32342" centery="32234" centerz="6" radius="1">
 		<npc name="Cledwyn" x="0" y="0" z="6" spawntime="60" />
 	</npc>
-	<npc centerx="32355" centery="32245" centerz="6" radius="1">
-		<npc name="Walter Jaeger" x="-1" y="0" z="6" spawntime="60" />
+	<npc centerx="32354" centery="32245" centerz="6" radius="1">
+		<npc name="The Forgemaster" x="0" y="0" z="6" spawntime="60" />
 	</npc>
 	<npc centerx="32342" centery="32246" centerz="6" radius="1">
 		<npc name="Yana" x="0" y="-1" z="6" spawntime="60" />
@@ -1707,9 +1707,6 @@
 	<npc centerx="32050" centery="32206" centerz="7" radius="1">
 		<npc name="Billy" x="0" y="0" z="7" spawntime="60" />
 	</npc>
-	<npc centerx="32379" centery="32208" centerz="7" radius="3">
-		<npc name="Walter Jaeger" x="0" y="-1" z="7" spawntime="60" />
-	</npc>
 	<npc centerx="32358" centery="32209" centerz="7" radius="1">
 		<npc name="Frodo" x="0" y="0" z="7" spawntime="60" />
 	</npc>
@@ -1748,6 +1745,9 @@
 	</npc>
 	<npc centerx="33492" centery="32227" centerz="7" radius="1">
 		<npc name="Taegen" x="0" y="0" z="7" spawntime="60" />
+	</npc>
+	<npc centerx="32373" centery="32229" centerz="7" radius="3">
+		<npc name="Walter Jaeger" x="0" y="-1" z="7" spawntime="60" />
 	</npc>
 	<npc centerx="32389" centery="32229" centerz="7" radius="1">
 		<npc name="Donald McRonald" x="0" y="0" z="7" spawntime="60" />
@@ -2180,9 +2180,6 @@
 	</npc>
 	<npc centerx="33452" centery="31308" centerz="8" radius="1">
 		<npc name="Eighty" x="0" y="0" z="8" spawntime="60" />
-	</npc>
-	<npc centerx="33362" centery="31342" centerz="8" radius="1">
-		<npc name="Crowned Tree" x="0" y="0" z="8" spawntime="60" />
 	</npc>
 	<npc centerx="32581" centery="31401" centerz="8" radius="1">
 		<npc name="Kihil, The Guard" x="0" y="0" z="8" spawntime="60" />

@@ -29,7 +29,8 @@ function spell.onCastSpell(creature, var)
 	end
 
 	if combat:execute(creature, var) then
-		local grade = creature:upgradeSpellsWOD("Swift Foot")
+		local player = creature:getPlayer()
+		local grade = player and player:upgradeSpellsWOD("Swift Foot") or WHEEL_GRADE_NONE
 		if grade == WHEEL_GRADE_NONE then
 			local exhaust = Condition(CONDITION_EXHAUST_COMBAT)
 			exhaust:setParameter(CONDITION_PARAM_TICKS, spellDuration)

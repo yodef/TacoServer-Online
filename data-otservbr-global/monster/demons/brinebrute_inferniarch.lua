@@ -100,19 +100,22 @@ monster.loot = {
 	{ id = 3098, chance = 900 }, -- ring of healing
 	{ name = "giant sword", chance = 300 },
 	{ name = "demonic core essence", chance = 100 },
-	{ name = "mummified demon finger", chance = 155 },
+	{ name = "demonic finger", chance = 155 },
 	{ name = "demonrage sword", chance = 300 },
 }
 
 monster.attacks = {
-	{ name = "melee", interval = 2000, chance = 100, minDamage = -520, maxDamage = -600 },
+	{ name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -850 },
+	{ name = "combat", interval = 2500, chance = 18, type = COMBAT_ICEDAMAGE, minDamage = -450, maxDamage = -750, range = 5, effect = CONST_ME_ICEATTACK, target = false },
+	{ name = "combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -700, radius = 3, effect = CONST_ME_GROUNDSHAKER, target = false },
+	{ name = "combat", interval = 2000, chance = 14, type = COMBAT_DEATHDAMAGE, minDamage = -400, maxDamage = -680, range = 4, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true },
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 80,
 	mitigation = 2.45,
-	{ name = "combat", interval = 2000, chance = 5, type = COMBAT_HEALING, minDamage = 100, maxDamage = 150, effect = CONST_ME_MAGIC_BLUE, target = false },
+	{ name = "combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 400, maxDamage = 900, effect = CONST_ME_MAGIC_BLUE, target = false },
 }
 
 monster.elements = {

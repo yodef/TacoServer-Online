@@ -84,7 +84,14 @@ monster.loot = {
 	{ id = 7409, chance = 1500 }, -- northern star
 	{ id = 16118, chance = 1500 }, -- glacial rod
 	{ id = 24939, chance = 100000 }, -- scale of gelidrazah
-}
+	{ name = "conch shell horn", chance = 1500 },
+	{ name = "dwarven helmet", chance = 300 },
+	{ name = "frostmind raiment", chance = 300 },
+	{ name = "frostsoul tabard", chance = 300 },
+	{ name = "frostheart cuirass", chance = 300 },
+	{ name = "frostheart hauberk", chance = 300 },
+	{ name = "frostheart platemail", chance = 300 },
+	{ id = 27456, chance = 300} -- crossbow of destruction}
 
 monster.attacks = {
 	{ name = "melee", interval = 2000, chance = 100, skill = 112, attack = 85 },

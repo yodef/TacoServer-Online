@@ -8,15 +8,23 @@ local function targetFunction(creature, target)
 		return true
 	end
 
+	local buff = 90
+	if player then
+		local grade = player:upgradeSpellsWOD("Sap Strength")
+		if grade == WHEEL_GRADE_UPGRADED then
+			buff = 80
+		end
+	end
+
 	local condition = Condition(CONDITION_ATTRIBUTES)
 	condition:setParameter(CONDITION_PARAM_TICKS, 16000)
-	condition:setParameter(CONDITION_PARAM_BUFF_DAMAGERECEIVED, 108)
+	condition:setParameter(CONDITION_PARAM_BUFF_DAMAGEDEALT, buff)
 
-	local grade = 0
+	local gradeBuff = 0
 	if player then
-		grade = player:upgradeSpellsWOD("Drain_Body_Spells")
+		gradeBuff = player:upgradeSpellsWOD("Drain_Body_Spells")
 	end
-	condition:setParameter(CONDITION_PARAM_DRAIN_BODY, grade)
+	condition:setParameter(CONDITION_PARAM_DRAIN_BODY, gradeBuff)
 
 	target:addCondition(condition)
 	return true
@@ -67,10 +75,10 @@ function spell.onCastSpell(creature, var)
 end
 
 spell:group("support", "crippling")
-spell:id(243)
-spell:name("Expose Weakness")
-spell:words("exori moe")
-spell:castSound(SOUND_EFFECT_TYPE_SPELL_EXPOSE_WEAKNESS)
+spell:id(324)
+spell:name("Aura of Sapped Strength")
+spell:words("exori kor tempo")
+spell:castSound(SOUND_EFFECT_TYPE_SPELL_SAP_STRENGTH)
 spell:level(80)
 spell:mana(150)
 spell:isSelfTarget(true)

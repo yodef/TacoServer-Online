@@ -1,21 +1,16 @@
-local SPELL_BASE_POWER = 110
-
 local combat = Combat()
-combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_PHYSICALDAMAGE)
-combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_BLOW_WHITE)
+combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_HOLYDAMAGE)
+combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HOLYAREA)
 combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_SMALLHOLY)
-combat:setParameter(COMBAT_PARAM_BLOCKARMOR, 1)
 combat:setArea(createCombatArea(AREA_CIRCLE3X3))
 
-function onGetFormulaValues(player, skill, attack, factor)
-	local damageHealing = player:calculateFlatDamageHealing()
-	local damage = SPELL_BASE_POWER * (skill / 100) * (attack / 10) + damageHealing
-	local min = damage - (damage / 10)
-	local max = damage + (damage / 10)
+function onGetFormulaValues(player, level, maglevel)
+	local min = (level / 5) + (maglevel * 3.5) + 15
+	local max = (level / 5) + (maglevel * 5.0) + 25
 	return -min, -max
 end
 
-combat:setCallback(CALLBACK_PARAM_SKILLVALUE, "onGetFormulaValues")
+combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
 
 local spell = Spell("instant")
 
@@ -68,16 +63,14 @@ function spell.onCastSpell(creature, var)
 end
 
 spell:group("attack")
-spell:id(301)
-spell:name("Thousand Fist Blows")
-spell:words("exori mas amp pug")
+spell:id(302)
+spell:name("Divine Barrage")
+spell:words("exori dir san")
 spell:castSound(SOUND_EFFECT_TYPE_SPELL_DIVINE_CALDERA)
-spell:level(120)
-spell:mana(145)
+spell:level(70)
+spell:mana(175)
 spell:isPremium(true)
-spell:cooldown(8 * 1000)
+spell:cooldown(4 * 1000)
 spell:groupCooldown(2 * 1000)
-
-spell:monkSpellType(MonkSpell_Builder)
-spell:vocation("monk;true", "exalted monk;true")
+spell:vocation("paladin;true", "royal paladin;true")
 spell:register()
