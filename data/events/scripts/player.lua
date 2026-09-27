@@ -581,6 +581,12 @@ function Player:onGainExperience(target, exp, rawExp)
 		end
 	end
 
+	-- Livestream Experience Bonus
+	local livestreamExpMultiplier = configManager.getFloat(configKeys.LIVESTREAM_EXPERIENCE_MULTIPLIER)
+	if livestreamExpMultiplier and livestreamExpMultiplier > 1.0 and (self:kv():scoped("livestream-system"):get("experience-bonus") or self:getStorageValue(14035) == 1) then
+		exp = math.floor(exp * livestreamExpMultiplier + 0.5)
+	end
+
 	-- Soul War Experience by Taint
 	if SoulWarQuest then
 		local monsterType = target:getType()

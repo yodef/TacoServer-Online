@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Gore Horn")
 local monster = {}
 
 monster.description = "a gore horn"
-monster.experience = 12595
+monster.experience = 24500
 monster.outfit = {
 	lookType = 1548,
 	lookHead = 85,
@@ -74,6 +74,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ name = "primal bag", chance = 15 },
 	{ name = "Gore Horn", chance = 36040 },
 	{ name = "Crystal Coin", chance = 30050 },
 	{ name = "Big Bone", chance = 5270 },

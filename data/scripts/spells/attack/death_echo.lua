@@ -1,11 +1,20 @@
+local function getDeathEchoGrade(player)
+	if not player then
+		return 0
+	end
+	return math.max(player:upgradeSpellsWOD("Death Echo"), player:upgradeSpellsWOD("Sap Strength"))
+end
+
 local combatInitial = Combat()
 combatInitial:setParameter(COMBAT_PARAM_TYPE, COMBAT_DEATHDAMAGE)
 combatInitial:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MORTAREA)
 combatInitial:setArea(createCombatArea(AREA_CIRCLE3X3))
 
 function onGetFormulaValues(player, level, maglevel)
-	local min = (level / 5) + (maglevel * 5.0) + 30
-	local max = (level / 5) + (maglevel * 7.5) + 50
+	local grade = getDeathEchoGrade(player)
+	local mult = (grade >= 2) and 1.12 or 1.0
+	local min = ((level / 5) + (maglevel * 5.0) + 30) * mult
+	local max = ((level / 5) + (maglevel * 7.5) + 50) * mult
 	return -min, -max
 end
 
@@ -17,8 +26,10 @@ combatEcho:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_SMALLCLOUDS)
 combatEcho:setArea(createCombatArea(AREA_CIRCLE3X3))
 
 function onGetEchoFormulaValues(player, level, maglevel)
-	local min = ((level / 5) + (maglevel * 5.0) + 30) * 0.50
-	local max = ((level / 5) + (maglevel * 7.5) + 50) * 0.50
+	local grade = getDeathEchoGrade(player)
+	local mult = (grade >= 2) and 1.12 or 1.0
+	local min = (((level / 5) + (maglevel * 5.0) + 30) * 0.50) * mult
+	local max = (((level / 5) + (maglevel * 7.5) + 50) * 0.50) * mult
 	return -min, -max
 end
 
@@ -83,6 +94,17 @@ function spell.onCastSpell(creature, var)
 		return false
 	end
 
+	-- Apply dynamic cooldown: Stage 1 = 4s (4000ms), Base = 6s (6000ms)
+	local grade = getDeathEchoGrade(player)
+	local cdMs = (grade >= 1) and 4000 or 6000
+	local condition = Condition(CONDITION_SPELLCOOLDOWN, CONDITIONID_DEFAULT, 310)
+	local rate = configManager.getFloat(configKeys.RATE_SPELL_COOLDOWN)
+	if not rate or rate <= 0 then
+		rate = 1.0
+	end
+	condition:setTicks(cdMs / rate)
+	player:addCondition(condition)
+
 	addEvent(triggerEcho, 1000, player:getId(), centerPos)
 	return true
 end
@@ -95,7 +117,7 @@ spell:castSound(SOUND_EFFECT_TYPE_SPELL_OR_RUNE)
 spell:level(120)
 spell:mana(150)
 spell:isPremium(true)
-spell:cooldown(6 * 1000)
+spell:cooldown(1000) -- Dynamic cooldown calculated on cast (4s or 6s)
 spell:groupCooldown(2 * 1000)
 spell:vocation("sorcerer;true", "master sorcerer;true")
 spell:register()

@@ -1,3 +1,10 @@
+if not TaskSystem or not TaskSystem.Config then
+	if fileExists and fileExists(CORE_DIRECTORY .. "/scripts/lib/task_lib.lua") then
+		dofile(CORE_DIRECTORY .. "/scripts/lib/task_lib.lua")
+	elseif fileExists and fileExists("data/scripts/lib/task_lib.lua") then
+		dofile("data/scripts/lib/task_lib.lua")
+	end
+end
 local internalNpcName = "Walter Jaeger"
 local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
@@ -237,6 +244,18 @@ local config = {
 			amount = 1,
 			points = 1500,
 		},
+		[14] = {
+			name = "bounty ring",
+			id = 34080,
+			amount = 1,
+			points = 1500,
+		},
+		[15] = {
+			name = "bounty amulet",
+			id = 31268,
+			amount = 1,
+			points = 2000,
+		},
 	},
 }
 
@@ -416,7 +435,81 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:say("Prey hunting tasks should reduce the number of certain monsters. And if you fulfil them successfully I will show my appreciation and give you some {rewards} in exchange of hunting task points.", npc, creature)
 		npcHandler:setTopic(playerId, 0)
 	elseif MsgContains(message, "have") then
-		npcHandler:say("Right now you have " .. player:getTaskHuntingPoints() .. " HTP.", npc, creature)
+		local bpVal = (player.getBountyPoints and player:getBountyPoints()) or math.max(0, player:getStorageValue(14020))
+		npcHandler:say("Right now you have " .. player:getTaskHuntingPoints() .. " HTP and " .. bpVal .. " Bounty Points.", npc, creature)
+		npcHandler:setTopic(playerId, 0)
+	elseif MsgContains(message, "bounty amulet") or (MsgContains(message, "amulet") and (MsgContains(message, "bounty") or MsgContains(message, "buy"))) then
+		local cost = 2000
+		if player:getTaskHuntingPoints() < cost then
+			npcHandler:say("You need " .. cost .. " Hunting Task Points to buy a bounty amulet, but you only have " .. player:getTaskHuntingPoints() .. " HTP.", npc, creature)
+		else
+			if player:removeTaskHuntingPoints(cost) then
+				player:addItem(31268, 1)
+				npcHandler:say("Here is your {bounty amulet}! Equip it while hunting your active task monsters to benefit from defensive wards.", npc, creature)
+				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
+			end
+		end
+		npcHandler:setTopic(playerId, 0)
+	elseif MsgContains(message, "bounty ring") or (MsgContains(message, "ring") and (MsgContains(message, "bounty") or MsgContains(message, "buy"))) then
+		local cost = 1500
+		if player:getTaskHuntingPoints() < cost then
+			npcHandler:say("You need " .. cost .. " Hunting Task Points to buy a bounty ring, but you only have " .. player:getTaskHuntingPoints() .. " HTP.", npc, creature)
+		else
+			if player:removeTaskHuntingPoints(cost) then
+				player:addItem(34080, 1)
+				npcHandler:say("Here is your {bounty ring}! Equip it while hunting your active task monsters to benefit from bounty upgrades.", npc, creature)
+				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
+			end
+		end
+		npcHandler:setTopic(playerId, 0)
+	elseif MsgContains(message, "1000") or MsgContains(message, "1,000") then
+		if player:getTaskHuntingPoints() < 4000 then
+			npcHandler:say("You need 4,000 Hunting Task Points to buy 1,000 Bounty Points, but you only have " .. player:getTaskHuntingPoints() .. " HTP.", npc, creature)
+		else
+			if player:removeTaskHuntingPoints(4000) then
+				local curBP = (player.getBountyPoints and player:getBountyPoints()) or math.max(0, player:getStorageValue(14020))
+				local newBP = curBP + 1000
+				player:setStorageValue(14020, newBP)
+				npcHandler:say("Here you are! 1,000 Bounty Points added. You now have " .. newBP .. " Bounty Points.", npc, creature)
+				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
+			end
+		end
+		npcHandler:setTopic(playerId, 0)
+	elseif MsgContains(message, "500") then
+		if player:getTaskHuntingPoints() < 2000 then
+			npcHandler:say("You need 2,000 Hunting Task Points to buy 500 Bounty Points, but you only have " .. player:getTaskHuntingPoints() .. " HTP.", npc, creature)
+		else
+			if player:removeTaskHuntingPoints(2000) then
+				local curBP = (player.getBountyPoints and player:getBountyPoints()) or math.max(0, player:getStorageValue(14020))
+				local newBP = curBP + 500
+				player:setStorageValue(14020, newBP)
+				npcHandler:say("Here you are! 500 Bounty Points added. You now have " .. newBP .. " Bounty Points.", npc, creature)
+				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
+			end
+		end
+		npcHandler:setTopic(playerId, 0)
+	elseif MsgContains(message, "250") then
+		if player:getTaskHuntingPoints() < 1000 then
+			npcHandler:say("You need 1,000 Hunting Task Points to buy 250 Bounty Points, but you only have " .. player:getTaskHuntingPoints() .. " HTP.", npc, creature)
+		else
+			if player:removeTaskHuntingPoints(1000) then
+				local curBP = (player.getBountyPoints and player:getBountyPoints()) or math.max(0, player:getStorageValue(14020))
+				local newBP = curBP + 250
+				player:setStorageValue(14020, newBP)
+				npcHandler:say("Here you are! 250 Bounty Points added. You now have " .. newBP .. " Bounty Points.", npc, creature)
+				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
+			end
+		end
+		npcHandler:setTopic(playerId, 0)
+	elseif MsgContains(message, "bounty") or MsgContains(message, "bp") then
+		local bpVal = (player.getBountyPoints and player:getBountyPoints()) or math.max(0, player:getStorageValue(14020))
+		npcHandler:say({
+			"I can exchange your Hunting Task Points (HTP) for Bounty Points (BP) to upgrade your Bounty Equipment (Ring & Amulet):\n" ..
+			"- {250 bounty points} for 1,000 HTP\n" ..
+			"- {500 bounty points} for 2,000 HTP\n" ..
+			"- {1000 bounty points} for 4,000 HTP\n" ..
+			"You currently have " .. bpVal .. " BP. You can also buy a {bounty ring} (1,500 HTP) and a {bounty amulet} (2,000 HTP) directly from me or in my {special} rewards!",
+		}, npc, creature, 100)
 		npcHandler:setTopic(playerId, 0)
 
 		-- Add task hunting points history here.
@@ -612,7 +705,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	return true
 end
 
-npcHandler:setMessage(MESSAGE_GREET, "Good hunting! I can offer you some lovely {rewards} for finishing prey hunting tasks! Furthermore I can tell you how many hunting task points (HTP) you actually {have} and you have already {spent}.")
+npcHandler:setMessage(MESSAGE_GREET, "Good hunting! I can offer you some lovely {rewards} for finishing prey hunting tasks! I can also exchange HTP for {bounty} points. Furthermore I can tell you how many hunting task points (HTP) you actually {have} and you have already {spent}.")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Keep on hunting!")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Keep on hunting!")
 

@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Meandering Mushroom")
 local monster = {}
 
 monster.description = "a meandering mushroom"
-monster.experience = 21980
+monster.experience = 38400
 monster.outfit = {
 	lookType = 1621,
 	lookHead = 0,
@@ -71,6 +71,7 @@ monster.light = {
 }
 
 monster.loot = {
+	{ id = 43895, chance = 15 },
 	{ name = "crystal coin", chance = 11755, maxCount = 1 },
 	{ name = "lichen gobbler", chance = 9121, maxCount = 1 },
 	{ name = "white mushroom", chance = 12998, maxCount = 3 },

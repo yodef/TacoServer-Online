@@ -13,5 +13,5 @@ function premiumScroll.onUse(player, item, fromPosition, target, toPosition, isH
 	return true
 end
 
-premiumScroll:id(14758)
+premiumScroll:id(6119, 5952)
 premiumScroll:register()

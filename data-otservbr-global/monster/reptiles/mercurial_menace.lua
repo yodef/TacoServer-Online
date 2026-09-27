@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Mercurial Menace")
 local monster = {}
 
 monster.description = "a mercurial menace"
-monster.experience = 12095
+monster.experience = 22000
 monster.outfit = {
 	lookType = 1561,
 	lookHead = 85,
@@ -74,6 +74,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ name = "primal bag", chance = 15 },
 	{ name = "Crystal Coin", chance = 24890, minCount = 1, maxCount = 2 },
 	{ name = "Mercurial Wing", chance = 21500 },
 	{ name = "Terra Boots", chance = 4250 },

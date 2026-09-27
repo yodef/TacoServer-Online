@@ -15,19 +15,27 @@ local function openMainWindow(player)
 		return true
 	end
 
+	player:registerEvent("CustomTaskKill")
+
 	local activeTasks = player:getActiveTasks()
 	local activeCount = #activeTasks
 	local htp = player:getTaskHuntingPoints()
+	local bp = player:getBountyPoints()
+	local ringStatus = player:hasBountyRingEquipped() and "Equipped [Active]" or "Not Equipped"
+	local amuletStatus = player:hasBountyAmuletEquipped() and "Equipped [Active]" or "Not Equipped"
 	local completedTotal = math.max(0, player:getStorageValue(TaskSystem.Storages.ranking))
 
 	local msg = string.format(
 		"Welcome to TacoServer Task System!\n\n" ..
 		"- Active Tasks: %d / %d\n" ..
 		"- Total Completed: %d\n" ..
-		"- Hunting Task Points (HTP): %d\n\n" ..
-		"Hunting Task Points can be exchanged with NPC Walter Jaeger for custom rewards!\n\n" ..
+		"- Hunting Task Points (HTP): %d\n" ..
+		"- Bounty Points (BP): %d\n" ..
+		"- Bounty Ring: %s\n" ..
+		"- Bounty Amulet: %s\n\n" ..
+		"Exchange HTP with NPC Walter Jaeger for rewards & Bounty Points!\n\n" ..
 		"Choose an action below:",
-		activeCount, TaskSystem.Config.maxActiveTasks, completedTotal, htp
+		activeCount, TaskSystem.Config.maxActiveTasks, completedTotal, htp, bp, ringStatus, amuletStatus
 	)
 
 	local window = ModalWindow({
@@ -67,6 +75,22 @@ local function openMainWindow(player)
 	window:addChoice("Cancel an Active Task", function(p, btn, c)
 		if btn.name == "Select" then
 			TaskSystem.openCancelWindow(p)
+		end
+		return true
+	end)
+
+	-- Option 5: Bounty Ring Upgrades
+	window:addChoice("Bounty Ring Upgrades", function(p, btn, c)
+		if btn.name == "Select" then
+			TaskSystem.openBountyRingWindow(p)
+		end
+		return true
+	end)
+
+	-- Option 6: Bounty Amulet Upgrades
+	window:addChoice("Bounty Amulet Upgrades", function(p, btn, c)
+		if btn.name == "Select" then
+			TaskSystem.openBountyAmuletWindow(p)
 		end
 		return true
 	end)
@@ -147,6 +171,7 @@ function TaskSystem.openTasksWindow(player, categoryId)
 			if btn.name == "Accept" then
 				local success, freeSlotOrReason, taskObj = p:startTask(tid)
 				if success then
+					p:registerEvent("CustomTaskKill")
 					p:sendTextMessage(MESSAGE_LOOK, string.format("[Tasks] Accepted task: %s! Kill %d %s to claim %d HTP.", taskObj.name, taskObj.count, taskObj.name, taskObj.rewards.points or 0))
 					p:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 					TaskSystem.openActiveTasksWindow(p)
@@ -171,6 +196,7 @@ function TaskSystem.openTasksWindow(player, categoryId)
 end
 
 function TaskSystem.openActiveTasksWindow(player)
+	player:registerEvent("CustomTaskKill")
 	local active = player:getActiveTasks()
 	local msg = ""
 	if #active == 0 then
@@ -181,8 +207,18 @@ function TaskSystem.openActiveTasksWindow(player)
 			local current = a.count or a.current or 0
 			local isComp = a.completed or a.isCompleted
 			local status = isComp and "[READY TO COMPLETE!]" or string.format("%d / %d kills", current, a.task.count)
-			msg = msg .. string.format("- [Slot %d] %s: %s\n  Reward: %d HTP\n\n",
-				a.slotId, a.task.name, status, a.task.rewards.points or 0)
+
+			local monsterList = {}
+			if a.task.creatures and #a.task.creatures > 0 then
+				for _, name in ipairs(a.task.creatures) do
+					local formatted = name:gsub("(%a)([%w_']*)", function(first, rest) return first:upper() .. rest:lower() end)
+					table.insert(monsterList, formatted)
+				end
+			end
+			local monstersStr = #monsterList > 0 and table.concat(monsterList, ", ") or a.task.name
+
+			msg = msg .. string.format("- [Slot %d] %s\n  Progress: %s\n  Monsters: %s\n  Reward: %d HTP\n\n",
+				a.slotId, a.task.name, status, monstersStr, a.task.rewards.points or 0)
 		end
 	end
 
@@ -301,6 +337,157 @@ function TaskSystem.openCancelWindow(player)
 	end
 
 	window:addButton("Abandon")
+	window:addButton("Back", function(p) TaskSystem.openMainWindow(p) end)
+	window:addButton("Close")
+	window:setDefaultEnterButton(0)
+	window:setDefaultEscapeButton(2)
+	window:sendToPlayer(player)
+	return true
+end
+
+function TaskSystem.openBountyRingWindow(player)
+	local bp = player:getBountyPoints()
+	local isEquipped = player:hasBountyRingEquipped()
+	local statusStr = isEquipped and "Equipped [BONUSES ACTIVE!]" or "NOT Equipped (Equip Bounty Ring to activate!)"
+
+	local msg = string.format(
+		"=== BOUNTY RING UPGRADES ===\n\n" ..
+		"- Bounty Points (BP): %d\n" ..
+		"- Bounty Ring: %s\n\n" ..
+		"Upgrades only take effect against your active task monsters while the Bounty Ring (ID 34080) is equipped.\n" ..
+		"Exchange HTP for Bounty Points with Walter Jaeger in Thais!\n\n" ..
+		"Select an upgrade to purchase:",
+		bp, statusStr
+	)
+
+	local window = ModalWindow({
+		title = "Task System - Bounty Ring",
+		message = msg,
+	})
+
+	local upgradeKeys = { "damage", "critical", "leech", "loot", "bestiary" }
+	for _, key in ipairs(upgradeKeys) do
+		local u = TaskSystem.BountyConfig.upgrades[key]
+		local curLvl = player:getBountyUpgrade(key)
+		local maxLvl = u.maxLevel
+		local nextLvl = curLvl + 1
+		local costStr = ""
+		local nextBonusStr = ""
+
+		if nextLvl <= maxLvl then
+			local nextData = u.levels[nextLvl]
+			costStr = string.format(" [Next: %d BP]", nextData.cost)
+			nextBonusStr = string.format(" -> %s", nextData.desc)
+		else
+			costStr = " [MAXED]"
+		end
+
+		local choiceLabel = string.format("%s (Lvl %d/%d)%s", u.name, curLvl, maxLvl, costStr)
+		window:addChoice(choiceLabel, function(p, btn, choice)
+			if btn.name == "Upgrade" then
+				if curLvl >= maxLvl then
+					p:sendTextMessage(MESSAGE_STATUS, string.format("You have already reached the maximum level for %s.", u.name))
+					TaskSystem.openBountyRingWindow(p)
+					return true
+				end
+
+				local nextData = u.levels[nextLvl]
+				if p:getBountyPoints() < nextData.cost then
+					p:sendTextMessage(MESSAGE_STATUS, string.format("You need %d Bounty Points for %s Level %d. You currently have %d BP.", nextData.cost, u.name, nextLvl, p:getBountyPoints()))
+					TaskSystem.openBountyRingWindow(p)
+					return true
+				end
+
+				p:removeBountyPoints(nextData.cost)
+				p:setBountyUpgrade(key, nextLvl)
+				p:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
+				p:sendTextMessage(MESSAGE_LOOK, string.format("[Bounty Ring] Upgraded %s to Level %d (%s) for %d BP! Remaining BP: %d", u.name, nextLvl, nextData.desc, nextData.cost, p:getBountyPoints()))
+				TaskSystem.openBountyRingWindow(p)
+			elseif btn.name == "Back" then
+				TaskSystem.openMainWindow(p)
+			end
+			return true
+		end)
+	end
+
+	window:addButton("Upgrade")
+	window:addButton("Back", function(p) TaskSystem.openMainWindow(p) end)
+	window:addButton("Close")
+	window:setDefaultEnterButton(0)
+	window:setDefaultEscapeButton(2)
+	window:sendToPlayer(player)
+	return true
+end
+
+function TaskSystem.openBountyAmuletWindow(player)
+	local bp = player:getBountyPoints()
+	local isEquipped = player:hasBountyAmuletEquipped()
+	local statusStr = isEquipped and "Equipped [WARDS ACTIVE!]" or "NOT Equipped (Equip Bounty Amulet to activate!)"
+
+	local msg = string.format(
+		"=== BOUNTY AMULET UPGRADES ===\n\n" ..
+		"- Bounty Points (BP): %d\n" ..
+		"- Bounty Amulet: %s\n\n" ..
+		"Protective wards only take effect against your active task monsters while the Bounty Amulet (ID 31268) is equipped.\n" ..
+		"Exchange HTP for Bounty Points with Walter Jaeger in Thais!\n\n" ..
+		"Select a defensive upgrade to purchase:",
+		bp, statusStr
+	)
+
+	local window = ModalWindow({
+		title = "Task System - Bounty Amulet",
+		message = msg,
+	})
+
+	local upgradeKeys = { "defense", "elemental", "speed", "paralysis" }
+	for _, key in ipairs(upgradeKeys) do
+		local u = TaskSystem.BountyConfig.amuletUpgrades[key]
+		local curLvl = player:getAmuletUpgrade(key)
+		local maxLvl = u.maxLevel
+		local nextLvl = curLvl + 1
+		local costStr = ""
+		local nextBonusStr = ""
+
+		if nextLvl <= maxLvl then
+			local nextData = u.levels[nextLvl]
+			costStr = string.format(" [Next: %d BP]", nextData.cost)
+			nextBonusStr = string.format(" -> %s", nextData.desc)
+		else
+			costStr = " [MAXED]"
+		end
+
+		local choiceLabel = string.format("%s (Lvl %d/%d)%s", u.name, curLvl, maxLvl, costStr)
+		window:addChoice(choiceLabel, function(p, btn, choice)
+			if btn.name == "Upgrade" then
+				if curLvl >= maxLvl then
+					p:sendTextMessage(MESSAGE_STATUS, string.format("You have already reached the maximum level for %s.", u.name))
+					TaskSystem.openBountyAmuletWindow(p)
+					return true
+				end
+
+				local nextData = u.levels[nextLvl]
+				if p:getBountyPoints() < nextData.cost then
+					p:sendTextMessage(MESSAGE_STATUS, string.format("You need %d Bounty Points for %s Level %d. You currently have %d BP.", nextData.cost, u.name, nextLvl, p:getBountyPoints()))
+					TaskSystem.openBountyAmuletWindow(p)
+					return true
+				end
+
+				p:removeBountyPoints(nextData.cost)
+				p:setAmuletUpgrade(key, nextLvl)
+				if key == "speed" and p.updateAmuletSpeedCondition then
+					p:updateAmuletSpeedCondition()
+				end
+				p:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
+				p:sendTextMessage(MESSAGE_LOOK, string.format("[Bounty Amulet] Upgraded %s to Level %d (%s) for %d BP! Remaining BP: %d", u.name, nextLvl, nextData.desc, nextData.cost, p:getBountyPoints()))
+				TaskSystem.openBountyAmuletWindow(p)
+			elseif btn.name == "Back" then
+				TaskSystem.openMainWindow(p)
+			end
+			return true
+		end)
+	end
+
+	window:addButton("Upgrade")
 	window:addButton("Back", function(p) TaskSystem.openMainWindow(p) end)
 	window:addButton("Close")
 	window:setDefaultEnterButton(0)

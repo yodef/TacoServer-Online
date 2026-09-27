@@ -26,17 +26,12 @@ local rewardBags = {
 	[PRIMAL_BAG] = {
 		{ id = 39147, name = "spiritthorn armor", weight = 0.01 },
 		{ id = 39148, name = "spiritthorn helmet", weight = 0.01 },
-		{ id = 39177, name = "charged spiritthorn ring", weight = 0.05 },
 		{ id = 39149, name = "alicorn headguard", weight = 0.01 },
 		{ id = 39150, name = "alicorn quiver", weight = 0.05 },
-		{ id = 39180, name = "charged alicorn ring", weight = 0.05 },
 		{ id = 39151, name = "arcanomancer regalia", weight = 0.05 },
 		{ id = 39152, name = "arcanomancer folio", weight = 0.05 },
-		{ id = 39183, name = "charged arcanomancer sigil", weight = 0.05 },
 		{ id = 39153, name = "arboreal crown", weight = 0.05 },
 		{ id = 39154, name = "arboreal tome", weight = 0.05 },
-		{ id = 39186, name = "charged arboreal ring", weight = 0.05 },
-		{ id = 50149, name = "charged ethereal ring", weight = 0.05 },
 		{ id = 50188, name = "ethereal coned hat", weight = 0.01 },
 	},
 
@@ -69,6 +64,12 @@ local rewardBags = {
 		{ id = 50157, name = "sanguine claws", weight = 0.02 },
 	},
 }
+
+-- Support all item IDs of Bag You Covet (43895 is default, 43898 is dropped by monsters, 43860, 43896, 43897)
+rewardBags[43898] = rewardBags[BAG_YOU_COVET]
+rewardBags[43897] = rewardBags[BAG_YOU_COVET]
+rewardBags[43896] = rewardBags[BAG_YOU_COVET]
+rewardBags[43860] = rewardBags[BAG_YOU_COVET]
 
 local randomItems = Action()
 local warnedLegacyChanceField = false

@@ -39,6 +39,8 @@ return {
 			price = 260,
 			blessid = 10,
 			count = 1,
+			disabled = true,
+			disabledReason = "Death Redemption is not supported on this server.",
 			description = "<i>Reduces the penalty of your character's most recent death.</i>\n\n{character}\n{info} can only be used for the most recent death and only within 24 hours after this death",
 			type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS,
 		},

@@ -1,3 +1,10 @@
+local function getDivineBarrageGrade(player)
+	if not player then
+		return 0
+	end
+	return math.max(player:upgradeSpellsWOD("Divine Barrage"), player:upgradeSpellsWOD("Swift Foot"))
+end
+
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_HOLYDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HOLYAREA)
@@ -5,8 +12,15 @@ combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_SMALLHOLY)
 combat:setArea(createCombatArea(AREA_CIRCLE3X3))
 
 function onGetFormulaValues(player, level, maglevel)
-	local min = (level / 5) + (maglevel * 3.5) + 15
-	local max = (level / 5) + (maglevel * 5.0) + 25
+	local grade = getDivineBarrageGrade(player)
+	local mult = 1.0
+	if grade >= 2 then
+		mult = 1.15
+	elseif grade == 1 then
+		mult = 1.08
+	end
+	local min = ((level / 5) + (maglevel * 3.5) + 15) * mult
+	local max = ((level / 5) + (maglevel * 5.0) + 25) * mult
 	return -min, -max
 end
 

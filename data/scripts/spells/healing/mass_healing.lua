@@ -42,7 +42,7 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	local player = creature:getPlayer()
 	if creature and player then
-		if player:getWheelSpellAdditionalArea("Mass Healing") then
+		if player:getWheelSpellAdditionalArea("Mass Healing") or (player:upgradeSpellsWOD("Mass Healing") >= 2) then
 			return combatWOD:execute(creature, var)
 		end
 	end

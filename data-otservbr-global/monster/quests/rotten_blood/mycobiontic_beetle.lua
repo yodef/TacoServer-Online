@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Mycobiontic Beetle")
 local monster = {}
 
 monster.description = "a mycobiontic beetle"
-monster.experience = 21175
+monster.experience = 39800
 monster.outfit = {
 	lookType = 1620,
 	lookHead = 0,
@@ -76,6 +76,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 43895, chance = 15 },
 	{ name = "crystal coin", chance = 15540 },
 	{ name = "ultimate health potion", chance = 43253, maxCount = 5 },
 	{ name = "serpent sword", chance = 32253 },

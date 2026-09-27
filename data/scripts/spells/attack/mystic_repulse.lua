@@ -22,7 +22,17 @@ combat:setCallback(CALLBACK_PARAM_SKILLVALUE, "onGetFormulaValues")
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
-	return combat:execute(creature, var)
+	local ret = combat:execute(creature, var)
+	if ret and creature:isPlayer() then
+		local grade = creature:upgradeSpellsWOD("Mystic Repulse")
+		local cdMs = (grade >= 1) and 16000 or 20000
+		local condition = Condition(CONDITION_SPELLCOOLDOWN, CONDITIONID_DEFAULT, 290)
+		local rate = configManager.getFloat(configKeys.RATE_SPELL_COOLDOWN)
+		if not rate or rate <= 0 then rate = 1.0 end
+		condition:setTicks(cdMs / rate)
+		creature:addCondition(condition)
+	end
+	return ret
 end
 
 spell:group("attack")
@@ -37,7 +47,7 @@ spell:isPremium(true)
 spell:range(7)
 spell:needTarget(true)
 spell:blockWalls(true)
-spell:cooldown(20 * 1000)
+spell:cooldown(1000) -- Dynamic cooldown: 16s at Grade 1+, 20s base
 spell:groupCooldown(2 * 1000)
 spell:needLearn(true)
 spell:monkSpellType(MonkSpell_Builder)

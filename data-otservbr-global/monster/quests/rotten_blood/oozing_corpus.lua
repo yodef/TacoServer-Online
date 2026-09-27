@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Oozing Corpus")
 local monster = {}
 
 monster.description = "an oozing corpus"
-monster.experience = 20600
+monster.experience = 37800
 monster.outfit = {
 	lookType = 1625,
 	lookHead = 0,
@@ -71,6 +71,7 @@ monster.light = {
 }
 
 monster.loot = {
+	{ id = 43895, chance = 15 },
 	{ name = "crystal coin", chance = 9000, maxCount = 1 },
 	{ name = "organic acid", chance = 7678, maxCount = 1 },
 	{ name = "terra boots", chance = 12369, maxCount = 1 },

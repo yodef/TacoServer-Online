@@ -58,6 +58,7 @@ for index, moduleEntry in ipairs(catalogModules) do
 end
 
 GameStore.Categories = catalogLoader.getCategories()
+_G.GameStore.Categories = GameStore.Categories
 
 -- Each outfit must be uniquely identified to distinguish between addons.
 -- Here we dynamically assign ids for outfits. These ids must be unique.
@@ -67,6 +68,7 @@ for k, category in ipairs(GameStore.Categories) do
 		for m, offer in ipairs(category.offers) do
 			if not offer.id then
 				if type(offer.count) == "table" then
+					offer.id = {}
 					for i = 1, #offer.price do
 						offer.id[i] = runningId
 						runningId = runningId + 1

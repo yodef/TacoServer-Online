@@ -16988,7 +16988,7 @@
 	</item>
 	<item id="6119" article="a" name="poem scroll">
 		<attribute key="primarytype" value="documents and papers"/>
-		<attribute key="description" value="It contains a love poem, written by an unknown elven poet"/>
+		<attribute key="description" value="Using this scroll will add 30 days of premium time to your account once."/>
 		<attribute key="weight" value="120"/>
 	</item>
 	<item id="6120" name="Dragha's spellbook">
@@ -32839,9 +32839,9 @@
 	<item id="14757" article="a" name="dragon's nest">
 		<attribute key="description" value="Young dragons will hatch soon."/>
 	</item>
-	<item id="14758" article="a" name="premium scroll">
+	<item id="14758" article="a" name="tibia coin scroll">
 		<attribute key="primarytype" value="documents and papers"/>
-		<attribute key="description" value="Using this scroll will add 30 days of premium time to your account once."/>
+		<attribute key="description" value="Using this scroll will add 1000 Tibia Coins to your account."/>
 		<attribute key="weight" value="0"/>
 	</item>
 	<item id="14759" article="a" name="surprise nest">
@@ -58045,11 +58045,9 @@ hands of its owner. Granted by TibiaRoyal.com"/>
 		<attribute key="description" value="Souvenir from Thais Museum"/>
 		<attribute key="weight" value="7700"/>
 	</item>
-	<item id="31268" article="a" name="jade amulet">
+	<item id="31268" article="a" name="bounty amulet">
 		<attribute key="primarytype" value="amulets and necklaces"/>
-		<attribute key="description" value="Souvenir from Thais Museum"/>
-		<attribute key="writeable" value="1"/>
-		<attribute key="maxtextlen" value="99"/>
+		<attribute key="description" value="Channeling bounty warding power. Provides defensive protection and utility against your active task targets when upgraded."/>
 		<attribute key="weight" value="400"/>
 		<attribute key="script" value="moveevent">
 			<attribute key="slot" value="necklace"/>
@@ -63978,7 +63976,8 @@ hands of its owner. Granted by TibiaRoyal.com"/>
 		<attribute key="description" value="It was awarded by a CM as a token of gratitude for valuable feedback"/>
 		<attribute key="weight" value="1000"/>
 	</item>
-	<item id="34080" article="a" name="lion ring">
+	<item id="34080" article="a" name="bounty ring">
+		<attribute key="description" value="Channeling bounty hunting power. Provides special bonuses against your active task targets when upgraded."/>
 		<attribute key="primarytype" value="rings"/>
 		<attribute key="weight" value="40"/>
 		<attribute key="script" value="moveevent">
@@ -76392,7 +76391,15 @@ Granted by TibiaGoals.com"/>
 	<item id="43891" article="a" name="sacrificial plate">
 		<attribute key="primarytype" value="shrines and altars"/>
 	</item>
+	<item id="43860" article="a" name="bag you covet">
+		<attribute key="primarytype" value="valuables"/>
+		<attribute key="weight" value="20"/>
+	</item>
 	<item id="43895" article="a" name="bag you covet">
+		<attribute key="primarytype" value="valuables"/>
+		<attribute key="weight" value="20"/>
+	</item>
+	<item id="43898" article="a" name="bag you covet">
 		<attribute key="primarytype" value="valuables"/>
 		<attribute key="weight" value="20"/>
 	</item>
@@ -85315,5 +85322,15 @@ Granted by TibiaGoals.com"/>
 	<item id="51747" article="a" name="intricate void scroll">
 		<attribute key="primarytype" value="imbuement scrolls"/>
 		<attribute key="weight" value="250"/>
+	</item>
+	<item id="49215" article="a" name="water floor in a bucket">
+		<attribute key="primarytype" value="floor decorations"/>
+		<attribute key="type" value="carpet"/>
+		<attribute key="wrapableto" value="23398"/>
+	</item>
+	<item id="49216" name="water floor">
+		<attribute key="primarytype" value="floor decorations"/>
+		<attribute key="type" value="carpet"/>
+		<attribute key="wrapableto" value="23398"/>
 	</item>
 </items>

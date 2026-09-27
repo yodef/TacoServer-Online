@@ -21,7 +21,25 @@ function spell.onCastSpell(creature, var)
 		return false
 	end
 
-	return combat:execute(creature, var)
+	local ret = combat:execute(creature, var)
+	if ret and creature:isPlayer() then
+		local cooldowns = { [1] = 22000, [2] = 18000, [3] = 14000 }
+		local cdMs = cooldowns[grade] or 22000
+		local rate = configManager.getFloat(configKeys.RATE_SPELL_COOLDOWN)
+		if not rate or rate <= 0 then rate = 1.0 end
+		local finalTicks = cdMs / rate
+
+		-- Spell individual cooldown
+		local condSpell = Condition(CONDITION_SPELLCOOLDOWN, CONDITIONID_DEFAULT, 263)
+		condSpell:setTicks(finalTicks)
+		creature:addCondition(condSpell)
+
+		-- Secondary group cooldown (burstsofnature = 9)
+		local condGroup = Condition(CONDITION_SPELLGROUPCOOLDOWN, CONDITIONID_DEFAULT, 9)
+		condGroup:setTicks(finalTicks)
+		creature:addCondition(condGroup)
+	end
+	return ret
 end
 
 spell:group("attack", "burstsofnature")
@@ -33,8 +51,8 @@ spell:level(300)
 spell:mana(230)
 spell:isPremium(true)
 spell:isSelfTarget(true)
-spell:cooldown(22 * 1000)
-spell:groupCooldown(2 * 1000, 22 * 1000)
+spell:cooldown(1000)
+spell:groupCooldown(2 * 1000, 1000)
 spell:needLearn(true)
 spell:vocation("druid;true", "elder druid;true")
 spell:register()

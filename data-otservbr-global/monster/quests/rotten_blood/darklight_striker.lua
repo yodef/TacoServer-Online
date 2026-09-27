@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Darklight Striker")
 local monster = {}
 
 monster.description = "a darklight striker"
-monster.experience = 22200
+monster.experience = 39200
 monster.outfit = {
 	lookType = 1661,
 	lookHead = 0,
@@ -71,6 +71,7 @@ monster.light = {
 }
 
 monster.loot = {
+	{ id = 43895, chance = 15 },
 	{ name = "crystal coin", chance = 14380, maxCount = 1 },
 	{ name = "unstable darklight matter", chance = 14492, maxCount = 1 },
 	{ name = "darklight core", chance = 9783, maxCount = 1 },

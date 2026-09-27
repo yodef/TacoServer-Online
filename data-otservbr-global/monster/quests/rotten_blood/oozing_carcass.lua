@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Oozing Carcass")
 local monster = {}
 
 monster.description = "an oozing carcass"
-monster.experience = 20980
+monster.experience = 36300
 monster.outfit = {
 	lookType = 1626,
 	lookHead = 0,
@@ -71,6 +71,7 @@ monster.light = {
 }
 
 monster.loot = {
+	{ id = 43895, chance = 15 },
 	{ name = "crystal coin", chance = 9000, maxCount = 1 },
 	{ name = "lichen gobbler", chance = 12369, maxCount = 1 },
 	{ name = "small emerald", chance = 12859, maxCount = 1 },

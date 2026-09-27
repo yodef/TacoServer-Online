@@ -1,6 +1,25 @@
 {
 	"events": [
 		{
+			"name": "TACOLOCO",
+			"startdate": "09/18/2026",
+			"enddate": "09/27/2026",
+			"ingame": {
+				"exprate": 200,
+				"spawnrate": 200
+			},
+			"description": "Double experience and double monster respawn rate event (2x)!",
+			"colors": {
+				"colordark": "#002d00",
+				"colorlight": "#004400"
+			},
+			"details": {
+				"displaypriority": 10,
+				"isseasonal": 0,
+				"specialevent": 1
+			}
+		},
+		{
 			"name": "Forge Time",
 			"startdate": "11/12/2024",
 			"enddate": "11/17/2024",

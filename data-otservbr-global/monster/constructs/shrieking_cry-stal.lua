@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Shrieking Cry-Stal")
 local monster = {}
 
 monster.description = "a shrieking cry-stal"
-monster.experience = 13560
+monster.experience = 24500
 monster.outfit = {
 	lookType = 1560,
 	lookHead = 85,
@@ -75,6 +75,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ name = "primal bag", chance = 15 },
 	{ name = "Crystal Coin", chance = 23440, minCount = 1, maxCount = 2 },
 	{ name = "Great Spirit Potion", chance = 20760 },
 	{ name = "Cry-Stal", chance = 12560, minCount = 1, maxCount = 2 },

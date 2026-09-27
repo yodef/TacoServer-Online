@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Emerald Tortoise")
 local monster = {}
 
 monster.description = "an emerald tortoise"
-monster.experience = 12129
+monster.experience = 26500
 monster.outfit = {
 	lookType = 1550,
 	lookHead = 85,
@@ -74,6 +74,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ name = "primal bag", chance = 15 },
 	{ name = "Emerald Tortoise Shell", chance = 28590 },
 	{ name = "Crystal Coin", chance = 15520, minCount = 1, maxCount = 3 },
 	{ name = "Great Spirit Potion", chance = 13360, minCount = 1, maxCount = 2 },

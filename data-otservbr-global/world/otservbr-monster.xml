@@ -64994,11 +64994,20 @@
 	<monster centerx="31959" centery="32324" centerz="8" radius="1">
 		<monster name="Flimsy Lost Soul" x="0" y="0" z="8" spawntime="60" />
 	</monster>
+	<monster centerx="32878" centery="32324" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32889" centery="32324" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="31951" centery="32325" centerz="8" radius="1">
 		<monster name="Flimsy Lost Soul" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="32585" centery="32325" centerz="8" radius="1">
 		<monster name="Water Elemental" x="0" y="0" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32884" centery="32325" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="31955" centery="32326" centerz="8" radius="1">
 		<monster name="Mean Lost Soul" x="0" y="0" z="8" spawntime="60" />
@@ -65024,6 +65033,9 @@
 	<monster centerx="33252" centery="32326" centerz="8" radius="1">
 		<monster name="Rotworm" x="-1" y="0" z="8" spawntime="90" />
 	</monster>
+	<monster centerx="32882" centery="32327" centerz="8" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="33073" centery="32327" centerz="8" radius="1">
 		<monster name="Burster Spectre" x="0" y="0" z="8" spawntime="60" />
 	</monster>
@@ -65035,6 +65047,16 @@
 	</monster>
 	<monster centerx="33309" centery="32327" centerz="8" radius="1">
 		<monster name="Rotworm" x="1" y="1" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32875" centery="32328" centerz="8" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32879" centery="32328" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="1" y="-1" z="8" spawntime="60" />
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32887" centery="32328" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33106" centery="32328" centerz="8" radius="1">
 		<monster name="Burster Spectre" x="0" y="0" z="8" spawntime="60" />
@@ -65173,6 +65195,9 @@
 	<monster centerx="32778" centery="32331" centerz="8" radius="2">
 		<monster name="Ghoul" x="1" y="1" z="8" spawntime="90" />
 	</monster>
+	<monster centerx="32875" centery="32331" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="33308" centery="32332" centerz="8" radius="1">
 		<monster name="Rotworm" x="1" y="-1" z="8" spawntime="90" />
 		<monster name="Rotworm" x="-1" y="1" z="8" spawntime="90" />
@@ -65188,6 +65213,9 @@
 	</monster>
 	<monster centerx="32295" centery="32333" centerz="8" radius="1">
 		<monster name="Tarantula" x="-1" y="0" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32877" centery="32333" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33058" centery="32334" centerz="8" radius="1">
 		<monster name="Burster Spectre" x="0" y="0" z="8" spawntime="60" />
@@ -65333,6 +65361,9 @@
 	<monster centerx="33300" centery="32338" centerz="8" radius="1">
 		<monster name="Rotworm" x="-1" y="1" z="8" spawntime="90" />
 	</monster>
+	<monster centerx="32884" centery="32339" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="32698" centery="32341" centerz="8" radius="2">
 		<monster name="Cave Rat" x="1" y="1" z="8" spawntime="90" />
 	</monster>
@@ -65347,6 +65378,9 @@
 	</monster>
 	<monster centerx="31964" centery="32342" centerz="8" radius="1">
 		<monster name="Grim Reaper" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32877" centery="32342" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="31946" centery="32343" centerz="8" radius="1">
 		<monster name="Mean Lost Soul" x="0" y="0" z="8" spawntime="60" />
@@ -65625,6 +65659,12 @@
 	<monster centerx="32005" centery="32353" centerz="8" radius="1">
 		<monster name="Flimsy Lost Soul" x="0" y="0" z="8" spawntime="60" />
 	</monster>
+	<monster centerx="32862" centery="32353" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32902" centery="32353" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="33687" centery="32353" centerz="8" radius="2">
 		<monster name="Terrorsleep" x="1" y="0" z="8" spawntime="60" />
 	</monster>
@@ -65641,6 +65681,10 @@
 	<monster centerx="32791" centery="32354" centerz="8" radius="2">
 		<monster name="Skeleton" x="1" y="-1" z="8" spawntime="90" />
 		<monster name="Skeleton" x="-1" y="2" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32876" centery="32354" centerz="8" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+		<monster name="Bulltaur Forgepriest" x="2" y="1" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33673" centery="32354" centerz="8" radius="2">
 		<monster name="Feversleep" x="0" y="-1" z="8" spawntime="60" />
@@ -65678,6 +65722,19 @@
 		<monster name="Wild Warrior" x="3" y="1" z="8" spawntime="90" />
 		<monster name="Bandit" x="-1" y="2" z="8" spawntime="90" />
 		<monster name="Bandit" x="3" y="4" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32852" centery="32356" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32856" centery="32356" centerz="8" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32887" centery="32356" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32892" centery="32356" centerz="8" radius="2">
+		<monster name="Bulltaur Forgepriest" x="0" y="-1" z="8" spawntime="60" />
+		<monster name="Bulltaur Brute" x="2" y="-1" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33707" centery="32356" centerz="8" radius="2">
 		<monster name="Feversleep" x="2" y="1" z="8" spawntime="60" />
@@ -65790,6 +65847,9 @@
 		<monster name="Poison Spider" x="-1" y="0" z="8" spawntime="90" />
 		<monster name="Poison Spider" x="-4" y="3" z="8" spawntime="90" />
 		<monster name="Poison Spider" x="1" y="3" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32897" centery="32359" centerz="8" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="-1" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33687" centery="32359" centerz="8" radius="2">
 		<monster name="Terrorsleep" x="0" y="1" z="8" spawntime="60" />
@@ -65913,9 +65973,18 @@
 		<monster name="Bandit" x="4" y="-1" z="8" spawntime="90" />
 		<monster name="Bandit" x="-2" y="2" z="8" spawntime="90" />
 	</monster>
+	<monster centerx="32954" centery="32368" centerz="8" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="33674" centery="32369" centerz="8" radius="2">
 		<monster name="Terrorsleep" x="2" y="-1" z="8" spawntime="60" />
 		<monster name="Feversleep" x="-2" y="1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32863" centery="32370" centerz="8" radius="2">
+		<monster name="Bulltaur Brute" x="1" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32886" centery="32370" centerz="8" radius="2">
+		<monster name="Bulltaur Alchemist" x="0" y="1" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="32399" centery="32371" centerz="8" radius="3">
 		<monster name="Cyclops" x="2" y="-2" z="8" spawntime="90" />
@@ -65927,6 +65996,33 @@
 	</monster>
 	<monster centerx="32511" centery="32371" centerz="8" radius="3">
 		<monster name="Misguided Bully" x="1" y="1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32829" centery="32371" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32836" centery="32371" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32844" centery="32371" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32856" centery="32371" centerz="8" radius="2">
+		<monster name="Bulltaur Forgepriest" x="0" y="-2" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32897" centery="32371" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32910" centery="32371" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32926" centery="32371" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32936" centery="32371" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32943" centery="32371" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33029" centery="32371" centerz="8" radius="3">
 		<monster name="Rotworm" x="0" y="0" z="8" spawntime="90" />
@@ -66019,6 +66115,9 @@
 		<monster name="Cyclops" x="3" y="-1" z="8" spawntime="90" />
 		<monster name="Cyclops" x="-3" y="1" z="8" spawntime="90" />
 	</monster>
+	<monster centerx="32821" centery="32373" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="33083" centery="32374" centerz="8" radius="1">
 		<monster name="Burster Spectre" x="0" y="0" z="8" spawntime="60" />
 	</monster>
@@ -66042,6 +66141,12 @@
 	<monster centerx="32248" centery="32376" centerz="8" radius="1">
 		<monster name="Cave Rat" x="0" y="-1" z="8" spawntime="90" />
 	</monster>
+	<monster centerx="32931" centery="32376" centerz="8" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32952" centery="32376" centerz="8" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="32370" centery="32377" centerz="8" radius="1">
 		<monster name="Bear" x="0" y="-1" z="8" spawntime="90" />
 	</monster>
@@ -66062,6 +66167,9 @@
 		<monster name="Wild Warrior" x="4" y="0" z="8" spawntime="90" />
 		<monster name="Wild Warrior" x="-2" y="1" z="8" spawntime="90" />
 		<monster name="Wild Warrior" x="1" y="2" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32872" centery="32378" centerz="8" radius="2">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33043" centery="32378" centerz="8" radius="3">
 		<monster name="Rotworm" x="0" y="-3" z="8" spawntime="90" />
@@ -66144,6 +66252,10 @@
 	<monster centerx="32325" centery="32379" centerz="8" radius="1">
 		<monster name="Bat" x="1" y="1" z="8" spawntime="90" />
 	</monster>
+	<monster centerx="32901" centery="32379" centerz="8" radius="2">
+		<monster name="Bulltaur Alchemist" x="2" y="0" z="8" spawntime="60" />
+		<monster name="Bulltaur Brute" x="0" y="1" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="32336" centery="32380" centerz="8" radius="1">
 		<monster name="Bat" x="1" y="0" z="8" spawntime="90" />
 	</monster>
@@ -66156,6 +66268,15 @@
 	<monster centerx="32361" centery="32382" centerz="8" radius="1">
 		<monster name="Bear" x="1" y="1" z="8" spawntime="90" />
 	</monster>
+	<monster centerx="32821" centery="32382" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32919" centery="32382" centerz="8" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32922" centery="32382" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="32644" centery="32383" centerz="8" radius="5">
 		<monster name="Bandit" x="1" y="-4" z="8" spawntime="90" />
 		<monster name="Bandit" x="-3" y="-1" z="8" spawntime="90" />
@@ -66164,8 +66285,24 @@
 		<monster name="Wild Warrior" x="-3" y="2" z="8" spawntime="90" />
 		<monster name="Wild Warrior" x="4" y="3" z="8" spawntime="90" />
 	</monster>
+	<monster centerx="32834" centery="32383" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32840" centery="32383" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32899" centery="32383" centerz="8" radius="2">
+		<monster name="Bulltaur Alchemist" x="-1" y="-1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32932" centery="32383" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="32324" centery="32384" centerz="8" radius="1">
 		<monster name="Bat" x="-1" y="1" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32857" centery="32384" centerz="8" radius="2">
+		<monster name="Bulltaur Brute" x="-1" y="0" z="8" spawntime="60" />
+		<monster name="Bulltaur Brute" x="2" y="2" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33670" centery="32384" centerz="8" radius="2">
 		<monster name="Feversleep" x="1" y="0" z="8" spawntime="60" />
@@ -66175,6 +66312,18 @@
 	</monster>
 	<monster centerx="32421" centery="32385" centerz="8" radius="1">
 		<monster name="Cyclops" x="1" y="0" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32823" centery="32385" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32836" centery="32385" centerz="8" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32915" centery="32385" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32942" centery="32385" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33519" centery="32385" centerz="8" radius="3">
 		<monster name="Dark Torturer" x="-2" y="1" z="8" spawntime="90" />
@@ -66201,6 +66350,7 @@
 	<monster centerx="32335" centery="32387" centerz="8" radius="1">
 		<monster name="Bat" x="1" y="1" z="8" spawntime="90" />
 	</monster>
+	<monster centerx="32858" centery="32387" centerz="8" radius="2" />
 	<monster centerx="32376" centery="32388" centerz="8" radius="2">
 		<monster name="Bear" x="-1" y="-1" z="8" spawntime="90" />
 		<monster name="Bear" x="1" y="2" z="8" spawntime="90" />
@@ -66209,6 +66359,21 @@
 		<monster name="Bandit" x="1" y="-3" z="8" spawntime="90" />
 		<monster name="Bandit" x="-2" y="1" z="8" spawntime="90" />
 		<monster name="Bandit" x="2" y="2" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32838" centery="32388" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32881" centery="32388" centerz="8" radius="2">
+		<monster name="Bulltaur Alchemist" x="0" y="-2" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32899" centery="32388" centerz="8" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32905" centery="32388" centerz="8" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32943" centery="32388" centerz="8" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33662" centery="32388" centerz="8" radius="2">
 		<monster name="Feversleep" x="1" y="-1" z="8" spawntime="60" />
@@ -66221,14 +66386,40 @@
 	<monster centerx="32324" centery="32389" centerz="8" radius="1">
 		<monster name="Bat" x="0" y="1" z="8" spawntime="90" />
 	</monster>
+	<monster centerx="32834" centery="32389" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32853" centery="32389" centerz="8" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32872" centery="32389" centerz="8" radius="2">
+		<monster name="Bulltaur Forgepriest" x="1" y="-1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32887" centery="32389" centerz="8" radius="2">
+		<monster name="Bulltaur Brute" x="2" y="-1" z="8" spawntime="60" />
+		<monster name="Bulltaur Forgepriest" x="1" y="2" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32947" centery="32389" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="32440" centery="32390" centerz="8" radius="1">
 		<monster name="Cyclops" x="1" y="0" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32859" centery="32390" centerz="8" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32932" centery="32390" centerz="8" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="-1" z="8" spawntime="60672" />
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33670" centery="32390" centerz="8" radius="2">
 		<monster name="Feversleep" x="1" y="-1" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="32419" centery="32391" centerz="8" radius="1">
 		<monster name="Cyclops" x="0" y="1" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32822" centery="32391" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="32323" centery="32392" centerz="8" radius="1">
 		<monster name="Bat" x="0" y="1" z="8" spawntime="90" />
@@ -66241,6 +66432,21 @@
 	</monster>
 	<monster centerx="32435" centery="32392" centerz="8" radius="1">
 		<monster name="Cyclops" x="-1" y="1" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32840" centery="32392" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32856" centery="32392" centerz="8" radius="2">
+		<monster name="Bulltaur Brute" x="1" y="-1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32899" centery="32392" centerz="8" radius="2">
+		<monster name="Bulltaur Brute" x="2" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32915" centery="32392" centerz="8" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32943" centery="32392" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="32987" centery="32392" centerz="8" radius="3">
 		<monster name="Scorpion" x="-2" y="-2" z="8" spawntime="90" />
@@ -66312,8 +66518,23 @@
 		<monster name="Hellhunter Inferniarch" x="-3" y="0" z="8" spawntime="60" />
 		<monster name="Spellreaper Inferniarch" x="-2" y="1" z="8" spawntime="60" />
 	</monster>
+	<monster centerx="32833" centery="32393" centerz="8" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="32320" centery="32394" centerz="8" radius="1">
 		<monster name="Bat" x="0" y="1" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32905" centery="32394" centerz="8" radius="2">
+		<monster name="Bulltaur Brute" x="-1" y="-1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32922" centery="32394" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32933" centery="32394" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32872" centery="32395" centerz="8" radius="2">
+		<monster name="Bulltaur Brute" x="1" y="-1" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="32316" centery="32396" centerz="8" radius="1">
 		<monster name="Bat" x="1" y="-1" z="8" spawntime="90" />
@@ -66328,11 +66549,23 @@
 		<monster name="Bandit" x="1" y="3" z="8" spawntime="90" />
 		<monster name="Smuggler" x="2" y="4" z="8" spawntime="90" />
 	</monster>
+	<monster centerx="32820" centery="32396" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32857" centery="32396" centerz="8" radius="2">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="32339" centery="32397" centerz="8" radius="4">
 		<monster name="Bat" x="-1" y="-4" z="8" spawntime="90" />
 		<monster name="Bat" x="3" y="-3" z="8" spawntime="90" />
 		<monster name="Bat" x="3" y="-2" z="8" spawntime="90" />
 		<monster name="Bat" x="1" y="2" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32882" centery="32397" centerz="8" radius="2">
+		<monster name="Bulltaur Brute" x="1" y="1" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32931" centery="32397" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33554" centery="32397" centerz="8" radius="1">
 		<monster name="Plaguesmith" x="0" y="0" z="8" spawntime="90" />
@@ -66352,6 +66585,10 @@
 		<monster name="Assassin" x="1" y="0" z="8" spawntime="90" />
 		<monster name="Bandit" x="1" y="1" z="8" spawntime="90" />
 		<monster name="Bandit" x="-3" y="3" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32919" centery="32399" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="-1" y="0" z="8" spawntime="60672" />
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33008" centery="32399" centerz="8" radius="3">
 		<monster name="Stalker" x="-3" y="-2" z="8" spawntime="90" />
@@ -66421,12 +66658,27 @@
 		<monster name="Cyclops" x="2" y="0" z="8" spawntime="90" />
 		<monster name="Cyclops" x="-2" y="2" z="8" spawntime="90" />
 	</monster>
+	<monster centerx="32821" centery="32402" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="32396" centery="32405" centerz="8" radius="3">
 		<monster name="Cyclops" x="1" y="-3" z="8" spawntime="90" />
 		<monster name="Cyclops" x="-2" y="2" z="8" spawntime="90" />
 	</monster>
+	<monster centerx="32932" centery="32405" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="33139" centery="32405" centerz="8" radius="1">
 		<monster name="Rotworm" x="-1" y="-1" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32815" centery="32406" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32886" centery="32406" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32911" centery="32406" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33015" centery="32406" centerz="8" radius="3">
 		<monster name="Pirate Ghost" x="-2" y="3" z="8" spawntime="90" />
@@ -66470,6 +66722,30 @@
 		<monster name="Hellhunter Inferniarch" x="2" y="-2" z="8" spawntime="60" />
 		<monster name="Spellreaper Inferniarch" x="-1" y="0" z="8" spawntime="60" />
 	</monster>
+	<monster centerx="32831" centery="32407" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32836" centery="32407" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32853" centery="32407" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32873" centery="32407" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32893" centery="32407" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32905" centery="32407" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32917" centery="32407" centerz="8" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32929" centery="32407" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="33136" centery="32408" centerz="8" radius="1">
 		<monster name="Rotworm" x="1" y="0" z="8" spawntime="90" />
 	</monster>
@@ -66500,6 +66776,9 @@
 	</monster>
 	<monster centerx="33133" centery="32412" centerz="8" radius="1">
 		<monster name="Rotworm" x="1" y="1" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32822" centery="32413" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33008" centery="32413" centerz="8" radius="3">
 		<monster name="Sandcrawler" x="1" y="1" z="8" spawntime="90" />
@@ -66635,6 +66914,12 @@
 	<monster centerx="33023" centery="32425" centerz="8" radius="3">
 		<monster name="Skeleton" x="0" y="2" z="8" spawntime="90" />
 	</monster>
+	<monster centerx="32804" centery="32426" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32820" centery="32426" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="33064" centery="32426" centerz="8" radius="3">
 		<monster name="Snake" x="0" y="-2" z="8" spawntime="90" />
 	</monster>
@@ -66659,6 +66944,12 @@
 		<monster name="Minotaur Cult Follower" x="-2" y="-3" z="8" spawntime="60" />
 		<monster name="Minotaur Cult Prophet" x="0" y="-1" z="8" spawntime="60" />
 		<monster name="Minotaur Cult Follower" x="2" y="2" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32791" centery="32427" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32813" centery="32427" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="32875" centery="32427" centerz="8" radius="3">
 		<monster name="Deathling Spellsinger" x="2" y="-2" z="8" spawntime="60" />
@@ -66711,6 +67002,9 @@
 	<monster centerx="33056" centery="32429" centerz="8" radius="3">
 		<monster name="Sandcrawler" x="3" y="2" z="8" spawntime="90" />
 	</monster>
+	<monster centerx="32795" centery="32430" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="32993" centery="32430" centerz="8" radius="3">
 		<monster name="Skeleton Warrior" x="3" y="1" z="8" spawntime="90" />
 		<monster name="Pirate Skeleton" x="-2" y="3" z="8" spawntime="90" />
@@ -66727,6 +67021,9 @@
 	<monster centerx="33137" centery="32431" centerz="8" radius="1">
 		<monster name="Rotworm" x="-1" y="-1" z="8" spawntime="90" />
 		<monster name="Rotworm" x="1" y="1" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32820" centery="32432" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33080" centery="32432" centerz="8" radius="3">
 		<monster name="Snake" x="3" y="-1" z="8" spawntime="90" />
@@ -66755,6 +67052,10 @@
 		<monster name="Minotaur Cult Prophet" x="-1" y="0" z="8" spawntime="60" />
 		<monster name="Minotaur Cult Follower" x="3" y="2" z="8" spawntime="60" />
 	</monster>
+	<monster centerx="32792" centery="32434" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="1" y="-1" z="8" spawntime="60" />
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
 	<monster centerx="32875" centery="32434" centerz="8" radius="3">
 		<monster name="Deathling Spellsinger" x="3" y="2" z="8" spawntime="60" />
 	</monster>
@@ -66770,6 +67071,12 @@
 	</monster>
 	<monster centerx="33117" centery="32434" centerz="8" radius="1">
 		<monster name="Rotworm" x="0" y="1" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32812" centery="32435" centerz="8" radius="2">
+		<monster name="Bulltaur Alchemist" x="2" y="-2" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32795" centery="32436" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="33048" centery="32436" centerz="8" radius="3">
 		<monster name="Tarnished Spirit" x="-2" y="2" z="8" spawntime="90" />
@@ -66791,6 +67098,18 @@
 	</monster>
 	<monster centerx="33015" centery="32439" centerz="8" radius="3">
 		<monster name="Skeleton" x="0" y="2" z="8" spawntime="90" />
+	</monster>
+	<monster centerx="32793" centery="32440" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32802" centery="32440" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32812" centery="32440" centerz="8" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="8" spawntime="60" />
+	</monster>
+	<monster centerx="32823" centery="32440" centerz="8" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="8" spawntime="60" />
 	</monster>
 	<monster centerx="31909" centery="32441" centerz="8" radius="3">
 		<monster name="Minotaur Cult Prophet" x="2" y="-3" z="8" spawntime="60" />
@@ -90212,6 +90531,9 @@
 	<monster centerx="31952" centery="32322" centerz="9" radius="1">
 		<monster name="Mean Lost Soul" x="0" y="0" z="9" spawntime="60" />
 	</monster>
+	<monster centerx="32890" centery="32322" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="33127" centery="32322" centerz="9" radius="3">
 		<monster name="Ancient Scarab" x="3" y="1" z="9" spawntime="90" />
 	</monster>
@@ -90258,6 +90580,12 @@
 	<monster centerx="31987" centery="32323" centerz="9" radius="1">
 		<monster name="Mean Lost Soul" x="0" y="0" z="9" spawntime="60" />
 	</monster>
+	<monster centerx="32877" centery="32323" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32888" centery="32323" centerz="9" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="33237" centery="32323" centerz="9" radius="1">
 		<monster name="Rotworm" x="1" y="0" z="9" spawntime="90" />
 	</monster>
@@ -90300,6 +90628,9 @@
 	</monster>
 	<monster centerx="32142" centery="32326" centerz="9" radius="1">
 		<monster name="Rotworm" x="0" y="-1" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32891" centery="32326" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33296" centery="32326" centerz="9" radius="2">
 		<monster name="Carrion Worm" x="0" y="-1" z="9" spawntime="90" />
@@ -90414,6 +90745,9 @@
 	<monster centerx="31955" centery="32330" centerz="9" radius="1">
 		<monster name="Mean Lost Soul" x="0" y="0" z="9" spawntime="60" />
 	</monster>
+	<monster centerx="32876" centery="32330" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="33227" centery="32331" centerz="9" radius="1">
 		<monster name="Rotworm" x="0" y="-1" z="9" spawntime="90" />
 	</monster>
@@ -90435,12 +90769,19 @@
 		<monster name="Rotworm" x="2" y="1" z="9" spawntime="90" />
 		<monster name="Rotworm" x="0" y="2" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32882" centery="32332" centerz="9" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="32148" centery="32333" centerz="9" radius="1">
 		<monster name="Rotworm" x="0" y="-1" z="9" spawntime="90" />
 	</monster>
 	<monster centerx="32163" centery="32333" centerz="9" radius="1">
 		<monster name="Rotworm" x="-1" y="0" z="9" spawntime="90" />
 		<monster name="Rotworm" x="1" y="1" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32884" centery="32333" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+		<monster name="Bulltaur Alchemist" x="1" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="31958" centery="32334" centerz="9" radius="1">
 		<monster name="Flimsy Lost Soul" x="0" y="0" z="9" spawntime="60" />
@@ -90560,6 +90901,9 @@
 	</monster>
 	<monster centerx="32138" centery="32338" centerz="9" radius="1">
 		<monster name="Carrion Worm" x="0" y="1" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32884" centery="32339" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33325" centery="32339" centerz="9" radius="1">
 		<monster name="Rotworm" x="0" y="1" z="9" spawntime="90" />
@@ -90745,6 +91089,9 @@
 		<monster name="Tarantula" x="-3" y="3" z="9" spawntime="90" />
 		<monster name="Tarantula" x="4" y="3" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32884" centery="32348" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="33556" centery="32348" centerz="9" radius="1">
 		<monster name="Plaguesmith" x="0" y="0" z="9" spawntime="90" />
 	</monster>
@@ -90789,6 +91136,9 @@
 		<monster name="Misguided Thief" x="1" y="-3" z="9" spawntime="60" />
 		<monster name="Misguided Bully" x="2" y="-1" z="9" spawntime="60" />
 		<monster name="Misguided Bully" x="2" y="3" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32903" centery="32350" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="32994" centery="32350" centerz="9" radius="3">
 		<monster name="Rotworm" x="-1" y="3" z="9" spawntime="90" />
@@ -90907,6 +91257,21 @@
 		<monster name="Cave Rat" x="-1" y="-1" z="9" spawntime="90" />
 		<monster name="Cave Rat" x="1" y="1" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32856" centery="32356" centerz="9" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="1" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32862" centery="32356" centerz="9" radius="2">
+		<monster name="Bulltaur Brute" x="1" y="1" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32876" centery="32356" centerz="9" radius="2">
+		<monster name="Bulltaur Brute" x="2" y="-1" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32884" centery="32356" centerz="9" radius="2">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32893" centery="32356" centerz="9" radius="2">
+		<monster name="Bulltaur Forgepriest" x="0" y="2" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="33335" centery="32356" centerz="9" radius="1">
 		<monster name="Rotworm" x="-1" y="1" z="9" spawntime="90" />
 	</monster>
@@ -90922,6 +91287,12 @@
 	</monster>
 	<monster centerx="32668" centery="32357" centerz="9" radius="2">
 		<monster name="Slime" x="1" y="0" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32870" centery="32357" centerz="9" radius="2">
+		<monster name="Bulltaur Forgepriest" x="0" y="1" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32889" centery="32357" centerz="9" radius="2">
+		<monster name="Bulltaur Brute" x="1" y="1" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33029" centery="32357" centerz="9" radius="3">
 		<monster name="Rotworm" x="3" y="3" z="9" spawntime="90" />
@@ -91052,6 +91423,9 @@
 	<monster centerx="32661" centery="32363" centerz="9" radius="2">
 		<monster name="Slime" x="1" y="0" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32903" centery="32363" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="33118" centery="32363" centerz="9" radius="1">
 		<monster name="Rotworm" x="0" y="1" z="9" spawntime="90" />
 	</monster>
@@ -91073,6 +91447,12 @@
 	<monster centerx="32105" centery="32364" centerz="9" radius="1">
 		<monster name="Rotworm" x="-1" y="-1" z="9" spawntime="90" />
 		<monster name="Rotworm" x="1" y="1" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32832" centery="32364" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32846" centery="32364" centerz="9" radius="2">
+		<monster name="Bulltaur Alchemist" x="1" y="-1" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33008" centery="32364" centerz="9" radius="3">
 		<monster name="Rotworm" x="-1" y="1" z="9" spawntime="90" />
@@ -91165,11 +91545,21 @@
 	<monster centerx="33700" centery="32365" centerz="9" radius="2">
 		<monster name="Feversleep" x="0" y="-1" z="9" spawntime="60" />
 	</monster>
+	<monster centerx="32807" centery="32366" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32811" centery="32366" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+		<monster name="Bulltaur Forgepriest" x="1" y="1" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="33320" centery="32366" centerz="9" radius="1">
 		<monster name="Carrion Worm" x="-1" y="-1" z="9" spawntime="90" />
 	</monster>
 	<monster centerx="33563" centery="32366" centerz="9" radius="1">
 		<monster name="Demon Outcast" x="0" y="0" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32826" centery="32367" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33527" centery="32367" centerz="9" radius="1">
 		<monster name="Demon Outcast" x="0" y="0" z="9" spawntime="90" />
@@ -91185,6 +91575,9 @@
 		<monster name="Skeleton" x="-4" y="0" z="9" spawntime="90" />
 		<monster name="Skeleton" x="5" y="2" z="9" spawntime="90" />
 		<monster name="Skeleton" x="-2" y="4" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32820" centery="32368" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33314" centery="32368" centerz="9" radius="2">
 		<monster name="Carrion Worm" x="0" y="-2" z="9" spawntime="90" />
@@ -91209,6 +91602,12 @@
 	<monster centerx="32672" centery="32369" centerz="9" radius="2">
 		<monster name="Slime" x="2" y="0" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32830" centery="32369" centerz="9" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32874" centery="32369" centerz="9" radius="2">
+		<monster name="Bulltaur Brute" x="2" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="33706" centery="32369" centerz="9" radius="2">
 		<monster name="Terrorsleep" x="0" y="-1" z="9" spawntime="60" />
 	</monster>
@@ -91220,6 +91619,12 @@
 	</monster>
 	<monster centerx="32400" centery="32370" centerz="9" radius="1">
 		<monster name="Cyclops" x="1" y="1" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32798" centery="32370" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32834" centery="32370" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="32149" centery="32371" centerz="9" radius="2">
 		<monster name="Rotworm" x="-1" y="-2" z="9" spawntime="90" />
@@ -91246,6 +91651,15 @@
 	<monster centerx="32525" centery="32371" centerz="9" radius="3">
 		<monster name="Misguided Bully" x="1" y="1" z="9" spawntime="60" />
 		<monster name="Misguided Bully" x="-2" y="2" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32814" centery="32371" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32863" centery="32371" centerz="9" radius="2">
+		<monster name="Bulltaur Brute" x="1" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32903" centery="32371" centerz="9" radius="2">
+		<monster name="Bulltaur Forgepriest" x="0" y="1" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33008" centery="32371" centerz="9" radius="3">
 		<monster name="Rotworm" x="-1" y="-3" z="9" spawntime="90" />
@@ -91356,6 +91770,20 @@
 		<monster name="Skeleton" x="-3" y="0" z="9" spawntime="90" />
 		<monster name="Skeleton" x="1" y="2" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32806" centery="32372" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+		<monster name="Bulltaur Forgepriest" x="-1" y="1" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32830" centery="32372" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32845" centery="32372" centerz="9" radius="2">
+		<monster name="Bulltaur Brute" x="1" y="-2" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32888" centery="32372" centerz="9" radius="2">
+		<monster name="Bulltaur Brute" x="1" y="-1" z="9" spawntime="60" />
+		<monster name="Bulltaur Brute" x="1" y="2" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="33139" centery="32372" centerz="9" radius="1">
 		<monster name="Carrion Worm" x="-1" y="1" z="9" spawntime="90" />
 	</monster>
@@ -91367,14 +91795,21 @@
 		<monster name="Cave Rat" x="-1" y="1" z="9" spawntime="90" />
 		<monster name="Bat" x="2" y="1" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32875" centery="32373" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="32137" centery="32374" centerz="9" radius="1">
 		<monster name="Rotworm" x="-1" y="1" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32889" centery="32374" centerz="9" radius="2" />
 	<monster centerx="32404" centery="32375" centerz="9" radius="1">
 		<monster name="Cyclops" x="-1" y="1" z="9" spawntime="90" />
 	</monster>
 	<monster centerx="32397" centery="32376" centerz="9" radius="1">
 		<monster name="Cyclops Smith" x="1" y="0" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32856" centery="32376" centerz="9" radius="2">
+		<monster name="Bulltaur Alchemist" x="1" y="1" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33125" centery="32376" centerz="9" radius="1">
 		<monster name="Rotworm" x="0" y="1" z="9" spawntime="90" />
@@ -91394,6 +91829,9 @@
 	<monster centerx="32490" centery="32378" centerz="9" radius="3">
 		<monster name="Misguided Bully" x="1" y="-2" z="9" spawntime="60" />
 		<monster name="Misguided Bully" x="2" y="3" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32908" centery="32378" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33043" centery="32378" centerz="9" radius="3">
 		<monster name="Rotworm" x="3" y="-2" z="9" spawntime="90" />
@@ -91469,11 +91907,37 @@
 		<monster name="Ghoul" x="-2" y="0" z="9" spawntime="90" />
 		<monster name="Skeleton" x="2" y="0" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32864" centery="32379" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32885" centery="32379" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="33595" centery="32379" centerz="9" radius="1">
 		<monster name="Demon Outcast" x="0" y="0" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32797" centery="32380" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32859" centery="32380" centerz="9" radius="1">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32876" centery="32380" centerz="9" radius="2">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="32371" centery="32381" centerz="9" radius="1">
 		<monster name="Bug" x="-1" y="0" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32872" centery="32381" centerz="9" radius="2">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+		<monster name="Bulltaur Forgepriest" x="-2" y="2" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32896" centery="32381" centerz="9" radius="2">
+		<monster name="Bulltaur Forgepriest" x="1" y="-2" z="9" spawntime="60" />
+		<monster name="Bulltaur Alchemist" x="-1" y="1" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32907" centery="32382" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33029" centery="32382" centerz="9" radius="1">
 		<monster name="Rotworm" x="0" y="-1" z="9" spawntime="90" />
@@ -91494,6 +91958,9 @@
 		<monster name="Cave Rat" x="2" y="-2" z="9" spawntime="90" />
 		<monster name="Bat" x="2" y="1" z="9" spawntime="90" />
 		<monster name="Cave Rat" x="-2" y="2" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32852" centery="32383" centerz="9" radius="2">
+		<monster name="Bulltaur Alchemist" x="1" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="32364" centery="32384" centerz="9" radius="1">
 		<monster name="Snake" x="0" y="-1" z="9" spawntime="90" />
@@ -91568,6 +92035,12 @@
 		<monster name="Bug" x="-1" y="0" z="9" spawntime="90" />
 		<monster name="Poison Spider" x="1" y="1" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32829" centery="32386" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32834" centery="32386" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="33126" centery="32386" centerz="9" radius="1">
 		<monster name="Rotworm" x="1" y="-1" z="9" spawntime="90" />
 	</monster>
@@ -91585,6 +92058,18 @@
 		<monster name="Skeleton" x="2" y="-3" z="9" spawntime="90" />
 		<monster name="Skeleton" x="-2" y="1" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32861" centery="32388" centerz="9" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32873" centery="32388" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32884" centery="32388" centerz="9" radius="2">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32889" centery="32388" centerz="9" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="32348" centery="32389" centerz="9" radius="1">
 		<monster name="Bat" x="-1" y="-1" z="9" spawntime="90" />
 		<monster name="Cave Rat" x="1" y="1" z="9" spawntime="90" />
@@ -91596,6 +92081,15 @@
 	<monster centerx="32133" centery="32390" centerz="9" radius="1">
 		<monster name="Rotworm" x="-1" y="-1" z="9" spawntime="90" />
 		<monster name="Rotworm" x="1" y="1" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32806" centery="32390" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32844" centery="32390" centerz="9" radius="2">
+		<monster name="Bulltaur Forgepriest" x="1" y="-1" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32901" centery="32390" centerz="9" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33126" centery="32390" centerz="9" radius="1">
 		<monster name="Rotworm" x="-1" y="-1" z="9" spawntime="90" />
@@ -91615,6 +92109,13 @@
 		<monster name="Slime" x="-3" y="-4" z="9" spawntime="90" />
 		<monster name="Slime" x="5" y="1" z="9" spawntime="90" />
 		<monster name="Slime" x="-1" y="3" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32829" centery="32391" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+		<monster name="Bulltaur Forgepriest" x="1" y="1" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32889" centery="32391" centerz="9" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33149" centery="32391" centerz="9" radius="2">
 		<monster name="Rotworm" x="1" y="-2" z="9" spawntime="90" />
@@ -91655,6 +92156,9 @@
 	<monster centerx="32746" centery="32392" centerz="9" radius="3">
 		<monster name="Ghoul" x="0" y="-1" z="9" spawntime="90" />
 		<monster name="Ghoul" x="-1" y="3" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32814" centery="32392" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="32987" centery="32392" centerz="9" radius="3">
 		<monster name="Zombie" x="2" y="-1" z="9" spawntime="90" />
@@ -91732,6 +92236,10 @@
 		<monster name="Ghoul" x="1" y="-2" z="9" spawntime="90" />
 		<monster name="Ghoul" x="-2" y="0" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32809" centery="32394" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+		<monster name="Bulltaur Forgepriest" x="1" y="1" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="32131" centery="32395" centerz="9" radius="1">
 		<monster name="Rotworm" x="-1" y="0" z="9" spawntime="90" />
 	</monster>
@@ -91745,6 +92253,18 @@
 	<monster centerx="32372" centery="32395" centerz="9" radius="1">
 		<monster name="Wasp" x="-1" y="0" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32796" centery="32395" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32847" centery="32395" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32873" centery="32395" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32901" centery="32395" centerz="9" radius="2">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="32377" centery="32396" centerz="9" radius="2">
 		<monster name="Rat" x="0" y="-2" z="9" spawntime="90" />
 		<monster name="Cave Rat" x="2" y="-2" z="9" spawntime="90" />
@@ -91754,6 +92274,12 @@
 		<monster name="Cave Rat" x="2" y="1" z="9" spawntime="90" />
 		<monster name="Rat" x="-2" y="2" z="9" spawntime="90" />
 		<monster name="Cave Rat" x="1" y="2" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32825" centery="32396" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32830" centery="32396" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33192" centery="32396" centerz="9" radius="1">
 		<monster name="Terramite" x="0" y="0" z="9" spawntime="90" />
@@ -91766,6 +92292,9 @@
 	</monster>
 	<monster centerx="32347" centery="32398" centerz="9" radius="1">
 		<monster name="Rotworm" x="0" y="1" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32811" centery="32398" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33239" centery="32398" centerz="9" radius="1">
 		<monster name="Terramite" x="0" y="0" z="9" spawntime="90" />
@@ -91871,6 +92400,12 @@
 	<monster centerx="32445" centery="32402" centerz="9" radius="1">
 		<monster name="Cyclops" x="1" y="1" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32773" centery="32402" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32873" centery="32402" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="33533" centery="32402" centerz="9" radius="1">
 		<monster name="Plaguesmith" x="0" y="0" z="9" spawntime="90" />
 	</monster>
@@ -91890,14 +92425,44 @@
 	<monster centerx="32360" centery="32403" centerz="9" radius="1">
 		<monster name="Wasp" x="-1" y="1" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32798" centery="32403" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32802" centery="32403" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32809" centery="32403" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32848" centery="32403" centerz="9" radius="2">
+		<monster name="Bulltaur Brute" x="1" y="-1" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32881" centery="32403" centerz="9" radius="2">
+		<monster name="Bulltaur Alchemist" x="1" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32894" centery="32403" centerz="9" radius="2">
+		<monster name="Bulltaur Brute" x="1" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="33535" centery="32403" centerz="9" radius="1">
 		<monster name="Plaguesmith" x="0" y="0" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32785" centery="32404" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32837" centery="32404" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32861" centery="32404" centerz="9" radius="2">
+		<monster name="Bulltaur Brute" x="1" y="-1" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33002" centery="32404" centerz="9" radius="1">
 		<monster name="Ghoul" x="0" y="1" z="9" spawntime="90" />
 	</monster>
 	<monster centerx="33531" centery="32404" centerz="9" radius="1">
 		<monster name="Plaguesmith" x="0" y="0" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32820" centery="32405" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33200" centery="32405" centerz="9" radius="1">
 		<monster name="Terramite" x="0" y="0" z="9" spawntime="90" />
@@ -92015,6 +92580,9 @@
 	<monster centerx="32393" centery="32410" centerz="9" radius="1">
 		<monster name="Cyclops" x="0" y="0" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32771" centery="32410" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="33229" centery="32410" centerz="9" radius="1">
 		<monster name="Terramite" x="0" y="0" z="9" spawntime="90" />
 	</monster>
@@ -92030,6 +92598,15 @@
 	<monster centerx="32711" centery="32412" centerz="9" radius="3">
 		<monster name="Skeleton" x="1" y="-1" z="9" spawntime="90" />
 		<monster name="Skeleton" x="1" y="3" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32782" centery="32412" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32792" centery="32412" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32807" centery="32412" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33174" centery="32412" centerz="9" radius="2">
 		<monster name="Rotworm" x="1" y="-1" z="9" spawntime="90" />
@@ -92123,6 +92700,10 @@
 	<monster centerx="32442" centery="32415" centerz="9" radius="1">
 		<monster name="Cyclops" x="1" y="1" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32803" centery="32415" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+		<monster name="Bulltaur Forgepriest" x="1" y="1" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="32994" centery="32415" centerz="9" radius="2">
 		<monster name="Demon Skeleton" x="-1" y="0" z="9" spawntime="90" />
 		<monster name="Mummy" x="2" y="1" z="9" spawntime="90" />
@@ -92157,6 +92738,17 @@
 		<monster name="Dark Monk" x="3" y="1" z="9" spawntime="90" />
 		<monster name="Dark Monk" x="0" y="2" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32769" centery="32416" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32786" centery="32416" centerz="9" radius="1">
+		<monster name="Bulltaur Forgepriest" x="1" y="-1" z="9" spawntime="60" />
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+		<monster name="Bulltaur Forgepriest" x="-1" y="1" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32813" centery="32416" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="32203" centery="32417" centerz="9" radius="1">
 		<monster name="Orc" x="-1" y="0" z="9" spawntime="90" />
 	</monster>
@@ -92179,6 +92771,13 @@
 		<monster name="Skeleton" x="4" y="2" z="9" spawntime="90" />
 		<monster name="Skeleton" x="-3" y="4" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32780" centery="32418" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+		<monster name="Bulltaur Alchemist" x="1" y="1" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32821" centery="32418" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="33008" centery="32418" centerz="9" radius="2">
 		<monster name="Snake" x="-1" y="1" z="9" spawntime="90" />
 	</monster>
@@ -92200,6 +92799,9 @@
 	</monster>
 	<monster centerx="32532" centery="32420" centerz="9" radius="3">
 		<monster name="Misguided Bully" x="1" y="3" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32790" centery="32420" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="32868" centery="32420" centerz="9" radius="3">
 		<monster name="Deathling Spellsinger" x="0" y="3" z="9" spawntime="60" />
@@ -92238,6 +92840,10 @@
 	</monster>
 	<monster centerx="33596" centery="32420" centerz="9" radius="3">
 		<monster name="Plaguesmith" x="-3" y="1" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32807" centery="32421" centerz="9" radius="1">
+		<monster name="Bulltaur Forgepriest" x="1" y="-1" z="9" spawntime="60" />
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="32129" centery="32422" centerz="9" radius="1">
 		<monster name="Rotworm" x="0" y="1" z="9" spawntime="90" />
@@ -92290,6 +92896,9 @@
 		<monster name="Mummy" x="1" y="-1" z="9" spawntime="90" />
 		<monster name="Witch" x="3" y="2" z="9" spawntime="90" />
 		<monster name="Dark Monk" x="-1" y="3" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32772" centery="32426" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="32992" centery="32426" centerz="9" radius="2">
 		<monster name="Demon Skeleton" x="-1" y="0" z="9" spawntime="90" />
@@ -92435,6 +93044,9 @@
 	<monster centerx="33608" centery="32428" centerz="9" radius="1">
 		<monster name="Demon Outcast" x="0" y="0" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32801" centery="32429" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="33544" centery="32429" centerz="9" radius="1">
 		<monster name="Dark Torturer" x="0" y="0" z="9" spawntime="90" />
 	</monster>
@@ -92448,14 +93060,35 @@
 		<monster name="Skeleton" x="-3" y="2" z="9" spawntime="90" />
 		<monster name="Ghoul" x="-5" y="4" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32808" centery="32430" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="-1" z="9" spawntime="60" />
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="33207" centery="32430" centerz="9" radius="1">
 		<monster name="Terramite" x="0" y="0" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32783" centery="32431" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+		<monster name="Bulltaur Forgepriest" x="0" y="1" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33141" centery="32431" centerz="9" radius="2">
 		<monster name="Rotworm" x="1" y="-1" z="9" spawntime="90" />
 	</monster>
 	<monster centerx="33196" centery="32431" centerz="9" radius="1">
 		<monster name="Terramite" x="0" y="0" z="9" spawntime="90" />
+	</monster>
+	<monster centerx="32789" centery="32432" centerz="9" radius="1">
+		<monster name="Bulltaur Forgepriest" x="1" y="-1" z="9" spawntime="60" />
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32822" centery="32432" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32803" centery="32433" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32809" centery="32433" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="33203" centery="32433" centerz="9" radius="1">
 		<monster name="Terramite" x="0" y="0" z="9" spawntime="90" />
@@ -92570,6 +93203,9 @@
 		<monster name="Carrion Worm" x="1" y="-2" z="9" spawntime="90" />
 		<monster name="Carrion Worm" x="-2" y="-1" z="9" spawntime="90" />
 	</monster>
+	<monster centerx="32770" centery="32440" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
 	<monster centerx="32894" centery="32440" centerz="9" radius="3">
 		<monster name="Deathling Spellsinger" x="3" y="-2" z="9" spawntime="60" />
 		<monster name="Deepling Warrior" x="2" y="2" z="9" spawntime="60" />
@@ -92589,6 +93225,21 @@
 		<monster name="Minotaur Cult Prophet" x="0" y="-2" z="9" spawntime="60" />
 		<monster name="Minotaur Cult Prophet" x="3" y="-2" z="9" spawntime="60" />
 		<monster name="Minotaur Cult Zealot" x="0" y="2" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32777" centery="32441" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32785" centery="32441" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32796" centery="32441" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32808" centery="32441" centerz="9" radius="1">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="9" spawntime="60" />
+	</monster>
+	<monster centerx="32817" centery="32441" centerz="9" radius="1">
+		<monster name="Bulltaur Brute" x="0" y="0" z="9" spawntime="60" />
 	</monster>
 	<monster centerx="32861" centery="32441" centerz="9" radius="3">
 		<monster name="Deepling Warrior" x="0" y="-2" z="9" spawntime="60" />
@@ -113612,6 +114263,9 @@
 	<monster centerx="31974" centery="32302" centerz="10" radius="1">
 		<monster name="Mean Lost Soul" x="0" y="0" z="10" spawntime="60" />
 	</monster>
+	<monster centerx="32838" centery="32302" centerz="10" radius="2">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="10" spawntime="60" />
+	</monster>
 	<monster centerx="31921" centery="32303" centerz="10" radius="1">
 		<monster name="Freakish Lost Soul" x="0" y="0" z="10" spawntime="60" />
 	</monster>
@@ -113627,6 +114281,12 @@
 	<monster centerx="31944" centery="32305" centerz="10" radius="1">
 		<monster name="Mean Lost Soul" x="0" y="0" z="10" spawntime="60" />
 	</monster>
+	<monster centerx="32833" centery="32305" centerz="10" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="10" spawntime="60" />
+	</monster>
+	<monster centerx="32839" centery="32306" centerz="10" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="10" spawntime="60" />
+	</monster>
 	<monster centerx="31977" centery="32307" centerz="10" radius="1">
 		<monster name="Freakish Lost Soul" x="0" y="0" z="10" spawntime="60" />
 	</monster>
@@ -113634,8 +114294,12 @@
 		<monster name="Slime" x="0" y="-1" z="10" spawntime="90" />
 	</monster>
 	<monster centerx="32842" centery="32307" centerz="10" radius="5">
+		<monster name="Bulltaur Brute" x="2" y="0" z="10" spawntime="60" />
 		<monster name="Defiler" x="3" y="0" z="10" spawntime="90" />
+		<monster name="Bulltaur Forgepriest" x="-2" y="2" z="10" spawntime="60" />
+		<monster name="Bulltaur Brute" x="3" y="3" z="10" spawntime="60" />
 	</monster>
+	<monster centerx="32844" centery="32307" centerz="10" radius="2" />
 	<monster centerx="31926" centery="32308" centerz="10" radius="1">
 		<monster name="Mean Lost Soul" x="0" y="0" z="10" spawntime="60" />
 	</monster>
@@ -113688,9 +114352,11 @@
 		<monster name="Spellreaper Inferniarch" x="-3" y="1" z="10" spawntime="60" />
 		<monster name="Hellhunter Inferniarch" x="1" y="3" z="10" spawntime="60" />
 	</monster>
+	<monster centerx="32840" centery="32309" centerz="10" radius="2" />
 	<monster centerx="31942" centery="32310" centerz="10" radius="1">
 		<monster name="Mean Lost Soul" x="0" y="0" z="10" spawntime="60" />
 	</monster>
+	<monster centerx="32845" centery="32310" centerz="10" radius="2" />
 	<monster centerx="31979" centery="32312" centerz="10" radius="1">
 		<monster name="Freakish Lost Soul" x="0" y="0" z="10" spawntime="60" />
 	</monster>
@@ -113699,6 +114365,10 @@
 	</monster>
 	<monster centerx="31936" centery="32314" centerz="10" radius="1">
 		<monster name="Freakish Lost Soul" x="0" y="0" z="10" spawntime="60" />
+	</monster>
+	<monster centerx="32851" centery="32315" centerz="10" radius="2">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="10" spawntime="60" />
+		<monster name="Betrayed Wraith" x="2" y="2" z="10" spawntime="90" />
 	</monster>
 	<monster centerx="33015" centery="32315" centerz="10" radius="3">
 		<monster name="Shadow Pupil" x="-1" y="-3" z="10" spawntime="90" />
@@ -113773,7 +114443,6 @@
 		<monster name="Mean Lost Soul" x="0" y="0" z="10" spawntime="60" />
 	</monster>
 	<monster centerx="32854" centery="32318" centerz="10" radius="1">
-		<monster name="Betrayed Wraith" x="-1" y="-1" z="10" spawntime="90" />
 		<monster name="Betrayed Wraith" x="1" y="-1" z="10" spawntime="90" />
 	</monster>
 	<monster centerx="31914" centery="32319" centerz="10" radius="1">
@@ -113789,6 +114458,9 @@
 	<monster centerx="33013" centery="32320" centerz="10" radius="3">
 		<monster name="Ghoul" x="2" y="-1" z="10" spawntime="90" />
 		<monster name="Necromancer" x="1" y="3" z="10" spawntime="90" />
+	</monster>
+	<monster centerx="32853" centery="32321" centerz="10" radius="2">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="10" spawntime="60" />
 	</monster>
 	<monster centerx="32996" centery="32321" centerz="10" radius="1">
 		<monster name="Necromancer" x="-1" y="0" z="10" spawntime="90" />
@@ -113854,15 +114526,21 @@
 	<monster centerx="31930" centery="32325" centerz="10" radius="1">
 		<monster name="Mean Lost Soul" x="0" y="0" z="10" spawntime="60" />
 	</monster>
-	<monster centerx="32840" centery="32327" centerz="10" radius="1">
-		<monster name="Nightmare" x="-1" y="1" z="10" spawntime="90" />
+	<monster centerx="32846" centery="32325" centerz="10" radius="2">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="10" spawntime="60" />
+		<monster name="Diabolic Imp" x="0" y="2" z="10" spawntime="90" />
 	</monster>
-	<monster centerx="32845" centery="32327" centerz="10" radius="1">
-		<monster name="Diabolic Imp" x="1" y="0" z="10" spawntime="90" />
+	<monster centerx="32841" centery="32326" centerz="10" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="10" spawntime="60" />
+		<monster name="Nightmare" x="-2" y="2" z="10" spawntime="90" />
 	</monster>
+	<monster centerx="32840" centery="32327" centerz="10" radius="1" />
+	<monster centerx="32845" centery="32327" centerz="10" radius="1" />
 	<monster centerx="32860" centery="32327" centerz="10" radius="1">
 		<monster name="Scorpion" x="1" y="-1" z="10" spawntime="90" />
+		<monster name="Bulltaur Brute" x="1" y="1" z="10" spawntime="60" />
 	</monster>
+	<monster centerx="32861" centery="32328" centerz="10" radius="2" />
 	<monster centerx="32525" centery="32329" centerz="10" radius="3">
 		<monster name="Misguided Thief" x="2" y="2" z="10" spawntime="60" />
 	</monster>
@@ -113939,6 +114617,9 @@
 	</monster>
 	<monster centerx="32989" centery="32330" centerz="10" radius="1">
 		<monster name="Blood Priest" x="1" y="0" z="10" spawntime="90" />
+	</monster>
+	<monster centerx="32853" centery="32332" centerz="10" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="10" spawntime="60" />
 	</monster>
 	<monster centerx="32998" centery="32332" centerz="10" radius="3">
 		<monster name="Demon Skeleton" x="-1" y="-2" z="10" spawntime="90" />
@@ -114077,6 +114758,9 @@
 	<monster centerx="31967" centery="32338" centerz="10" radius="1">
 		<monster name="Freakish Lost Soul" x="0" y="0" z="10" spawntime="60" />
 	</monster>
+	<monster centerx="32862" centery="32338" centerz="10" radius="2">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="10" spawntime="60" />
+	</monster>
 	<monster centerx="32985" centery="32339" centerz="10" radius="1">
 		<monster name="Necromancer" x="1" y="0" z="10" spawntime="90" />
 	</monster>
@@ -114085,6 +114769,9 @@
 	</monster>
 	<monster centerx="31964" centery="32340" centerz="10" radius="1">
 		<monster name="Mean Lost Soul" x="0" y="0" z="10" spawntime="60" />
+	</monster>
+	<monster centerx="32847" centery="32340" centerz="10" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="10" spawntime="60" />
 	</monster>
 	<monster centerx="33064" centery="32340" centerz="10" radius="3">
 		<monster name="Rat" x="2" y="-1" z="10" spawntime="90" />
@@ -114102,7 +114789,20 @@
 	<monster centerx="32841" centery="32341" centerz="10" radius="1">
 		<monster name="Nightmare" x="-1" y="-1" z="10" spawntime="90" />
 		<monster name="Nightmare" x="1" y="-1" z="10" spawntime="90" />
+		<monster name="Bulltaur Brute" x="1" y="0" z="10" spawntime="60" />
 		<monster name="Spectre" x="1" y="1" z="10" spawntime="90" />
+	</monster>
+	<monster centerx="32842" centery="32341" centerz="10" radius="2" />
+	<monster centerx="32857" centery="32341" centerz="10" radius="2">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="10" spawntime="60" />
+		<monster name="Hellfire Fighter" x="2" y="1" z="10" spawntime="90" />
+	</monster>
+	<monster centerx="32908" centery="32341" centerz="10" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="10" spawntime="60" />
+		<monster name="Bulltaur Alchemist" x="2" y="1" z="10" spawntime="60" />
+	</monster>
+	<monster centerx="32912" centery="32341" centerz="10" radius="2">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="10" spawntime="60" />
 	</monster>
 	<monster centerx="31935" centery="32342" centerz="10" radius="1">
 		<monster name="Freakish Lost Soul" x="0" y="0" z="10" spawntime="60" />
@@ -114116,6 +114816,12 @@
 	<monster centerx="31998" centery="32342" centerz="10" radius="1">
 		<monster name="Mean Lost Soul" x="0" y="0" z="10" spawntime="60" />
 	</monster>
+	<monster centerx="32910" centery="32342" centerz="10" radius="2" />
+	<monster centerx="32915" centery="32342" centerz="10" radius="2">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="10" spawntime="60" />
+		<monster name="Bulltaur Brute" x="2" y="0" z="10" spawntime="60" />
+	</monster>
+	<monster centerx="32917" centery="32342" centerz="10" radius="2" />
 	<monster centerx="33097" centery="32342" centerz="10" radius="5">
 		<monster name="Priestess" x="2" y="-1" z="10" spawntime="90" />
 		<monster name="Priestess" x="-2" y="3" z="10" spawntime="90" />
@@ -114136,7 +114842,6 @@
 		<monster name="Nightmare" x="1" y="0" z="10" spawntime="90" />
 	</monster>
 	<monster centerx="32860" centery="32343" centerz="10" radius="2">
-		<monster name="Hellfire Fighter" x="-1" y="-1" z="10" spawntime="90" />
 		<monster name="Hellfire Fighter" x="2" y="2" z="10" spawntime="90" />
 	</monster>
 	<monster centerx="32973" centery="32343" centerz="10" radius="3">
@@ -114221,6 +114926,9 @@
 	<monster centerx="31998" centery="32344" centerz="10" radius="1">
 		<monster name="Mean Lost Soul" x="0" y="0" z="10" spawntime="60" />
 	</monster>
+	<monster centerx="32856" centery="32344" centerz="10" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="10" spawntime="60" />
+	</monster>
 	<monster centerx="33017" centery="32344" centerz="10" radius="3">
 		<monster name="Ghoul" x="1" y="0" z="10" spawntime="90" />
 	</monster>
@@ -114240,6 +114948,9 @@
 		<monster name="Nightmare" x="1" y="-1" z="10" spawntime="90" />
 		<monster name="Spectre" x="-1" y="0" z="10" spawntime="90" />
 	</monster>
+	<monster centerx="32913" centery="32346" centerz="10" radius="2">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="10" spawntime="60" />
+	</monster>
 	<monster centerx="33518" centery="32346" centerz="10" radius="1">
 		<monster name="Blightwalker" x="0" y="0" z="10" spawntime="90" />
 	</monster>
@@ -114249,6 +114960,9 @@
 	</monster>
 	<monster centerx="32798" centery="32347" centerz="10" radius="3">
 		<monster name="Ghost" x="0" y="1" z="10" spawntime="90" />
+	</monster>
+	<monster centerx="32859" centery="32347" centerz="10" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="10" spawntime="60" />
 	</monster>
 	<monster centerx="31954" centery="32348" centerz="10" radius="1">
 		<monster name="Mean Lost Soul" x="0" y="0" z="10" spawntime="60" />
@@ -114267,6 +114981,10 @@
 	</monster>
 	<monster centerx="32560" centery="32350" centerz="10" radius="3">
 		<monster name="Misguided Bully" x="-1" y="3" z="10" spawntime="60" />
+	</monster>
+	<monster centerx="32916" centery="32350" centerz="10" radius="2">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="10" spawntime="60" />
+		<monster name="Bulltaur Forgepriest" x="-2" y="1" z="10" spawntime="60" />
 	</monster>
 	<monster centerx="33064" centery="32350" centerz="10" radius="3">
 		<monster name="Priestess" x="2" y="-1" z="10" spawntime="90" />
@@ -114363,6 +115081,10 @@
 	<monster centerx="31916" centery="32351" centerz="10" radius="1">
 		<monster name="Mean Lost Soul" x="0" y="0" z="10" spawntime="60" />
 	</monster>
+	<monster centerx="32911" centery="32351" centerz="10" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="10" spawntime="60" />
+	</monster>
+	<monster centerx="32914" centery="32351" centerz="10" radius="2" />
 	<monster centerx="32981" centery="32351" centerz="10" radius="1">
 		<monster name="Zombie" x="1" y="0" z="10" spawntime="90" />
 	</monster>
@@ -114423,6 +115145,9 @@
 	<monster centerx="31917" centery="32356" centerz="10" radius="1">
 		<monster name="Mean Lost Soul" x="0" y="0" z="10" spawntime="60" />
 	</monster>
+	<monster centerx="32912" centery="32356" centerz="10" radius="2">
+		<monster name="Bulltaur Alchemist" x="0" y="0" z="10" spawntime="60" />
+	</monster>
 	<monster centerx="32995" centery="32356" centerz="10" radius="1">
 		<monster name="Necromancer" x="1" y="-1" z="10" spawntime="90" />
 	</monster>
@@ -114434,6 +115159,9 @@
 	</monster>
 	<monster centerx="32560" centery="32357" centerz="10" radius="3">
 		<monster name="Misguided Thief" x="1" y="-1" z="10" spawntime="60" />
+	</monster>
+	<monster centerx="32915" centery="32357" centerz="10" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="10" spawntime="60" />
 	</monster>
 	<monster centerx="33027" centery="32357" centerz="10" radius="3">
 		<monster name="Priestess" x="-2" y="1" z="10" spawntime="90" />
@@ -114547,6 +115275,13 @@
 	<monster centerx="33045" centery="32359" centerz="10" radius="3">
 		<monster name="Priestess" x="1" y="-2" z="10" spawntime="90" />
 	</monster>
+	<monster centerx="32906" centery="32360" centerz="10" radius="2">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="10" spawntime="60" />
+		<monster name="Bulltaur Alchemist" x="-2" y="1" z="10" spawntime="60" />
+	</monster>
+	<monster centerx="32910" centery="32360" centerz="10" radius="2">
+		<monster name="Bulltaur Forgepriest" x="0" y="0" z="10" spawntime="60" />
+	</monster>
 	<monster centerx="33551" centery="32360" centerz="10" radius="1">
 		<monster name="Demon Outcast" x="-1" y="0" z="10" spawntime="90" />
 	</monster>
@@ -114556,6 +115291,10 @@
 	<monster centerx="33698" centery="32360" centerz="10" radius="2">
 		<monster name="Feversleep" x="1" y="-2" z="10" spawntime="60" />
 		<monster name="Feversleep" x="0" y="2" z="10" spawntime="60" />
+	</monster>
+	<monster centerx="32904" centery="32361" centerz="10" radius="2" />
+	<monster centerx="32913" centery="32361" centerz="10" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="10" spawntime="60" />
 	</monster>
 	<monster centerx="32991" centery="32361" centerz="10" radius="1">
 		<monster name="Demon Skeleton" x="-1" y="0" z="10" spawntime="90" />
@@ -114579,6 +115318,9 @@
 	<monster centerx="32525" centery="32364" centerz="10" radius="3">
 		<monster name="Misguided Thief" x="3" y="-3" z="10" spawntime="60" />
 		<monster name="Misguided Thief" x="3" y="2" z="10" spawntime="60" />
+	</monster>
+	<monster centerx="32917" centery="32364" centerz="10" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="10" spawntime="60" />
 	</monster>
 	<monster centerx="32966" centery="32364" centerz="10" radius="3">
 		<monster name="Shadow Pupil" x="-1" y="3" z="10" spawntime="90" />
@@ -114662,6 +115404,9 @@
 	</monster>
 	<monster centerx="33876" centery="32364" centerz="10" radius="3">
 		<monster name="Hellhunter Inferniarch" x="-2" y="0" z="10" spawntime="60" />
+	</monster>
+	<monster centerx="32907" centery="32365" centerz="10" radius="2">
+		<monster name="Bulltaur Brute" x="0" y="0" z="10" spawntime="60" />
 	</monster>
 	<monster centerx="33003" centery="32365" centerz="10" radius="1">
 		<monster name="Necromancer" x="1" y="0" z="10" spawntime="90" />
@@ -146857,6 +147602,8 @@
 	</monster>
 	<monster centerx="32595" centery="32532" centerz="12" radius="3">
 		<monster name="Cursed Book" x="-3" y="2" z="12" spawntime="60" />
+		<monster name="Cursed Book" x="0" y="2" z="12" spawntime="60" />
+		<monster name="Ink Blob" x="-1" y="3" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32616" centery="32532" centerz="12" radius="3">
 		<monster name="Cursed Book" x="-1" y="3" z="12" spawntime="60" />
@@ -146880,11 +147627,6 @@
 	</monster>
 	<monster centerx="33794" centery="32533" centerz="12" radius="1">
 		<monster name="Liodile" x="0" y="0" z="12" spawntime="60" />
-	</monster>
-	<monster centerx="32515" centery="32535" centerz="12" radius="3">
-		<monster name="Squid Warden" x="2" y="0" z="12" spawntime="60" />
-		<monster name="Energetic Book" x="-2" y="1" z="12" spawntime="60" />
-		<monster name="Animated Feather" x="1" y="2" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32783" centery="32536" centerz="12" radius="1">
 		<monster name="Eternal Guardian" x="0" y="0" z="12" spawntime="90" />
@@ -146950,22 +147692,32 @@
 	</monster>
 	<monster centerx="32560" centery="32539" centerz="12" radius="3">
 		<monster name="Cursed Book" x="-1" y="-2" z="12" spawntime="60" />
+		<monster name="Ink Blob" x="3" y="-1" z="12" spawntime="60" />
+		<monster name="Cursed Book" x="-2" y="1" z="12" spawntime="60" />
 		<monster name="Ink Blob" x="1" y="3" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32567" centery="32539" centerz="12" radius="3">
 		<monster name="Ink Blob" x="0" y="2" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32574" centery="32539" centerz="12" radius="3">
+		<monster name="Ink Blob" x="1" y="-1" z="12" spawntime="60" />
 		<monster name="Cursed Book" x="-2" y="0" z="12" spawntime="60" />
+		<monster name="Cursed Book" x="-3" y="3" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32581" centery="32539" centerz="12" radius="3">
 		<monster name="Ink Blob" x="1" y="-1" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32602" centery="32539" centerz="12" radius="3">
 		<monster name="Cursed Book" x="2" y="-3" z="12" spawntime="60" />
+		<monster name="Ink Blob" x="2" y="-1" z="12" spawntime="60" />
+		<monster name="Cursed Book" x="1" y="3" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32609" centery="32539" centerz="12" radius="3">
+		<monster name="Ink Blob" x="3" y="-2" z="12" spawntime="60" />
+		<monster name="Cursed Book" x="-3" y="-1" z="12" spawntime="60" />
 		<monster name="Cursed Book" x="1" y="1" z="12" spawntime="60" />
+		<monster name="Cursed Book" x="-1" y="3" z="12" spawntime="60" />
+		<monster name="Ink Blob" x="2" y="3" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32623" centery="32539" centerz="12" radius="3">
 		<monster name="Biting Book" x="-2" y="-2" z="12" spawntime="60" />
@@ -147085,15 +147837,20 @@
 	</monster>
 	<monster centerx="32560" centery="32546" centerz="12" radius="3">
 		<monster name="Cursed Book" x="-3" y="-2" z="12" spawntime="60" />
+		<monster name="Cursed Book" x="-2" y="-1" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32574" centery="32546" centerz="12" radius="3">
+		<monster name="Ink Blob" x="1" y="-2" z="12" spawntime="60" />
 		<monster name="Cursed Book" x="-2" y="-1" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32581" centery="32546" centerz="12" radius="3">
+		<monster name="Cursed Book" x="0" y="-3" z="12" spawntime="60" />
 		<monster name="Ink Blob" x="2" y="-1" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32595" centery="32546" centerz="12" radius="3">
+		<monster name="Ink Blob" x="-1" y="-2" z="12" spawntime="60" />
 		<monster name="Cursed Book" x="-2" y="-1" z="12" spawntime="60" />
+		<monster name="Cursed Book" x="-1" y="1" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="33053" centery="32546" centerz="12" radius="4">
 		<monster name="Demon Skeleton" x="0" y="0" z="12" spawntime="90" />
@@ -147113,12 +147870,19 @@
 	<monster centerx="33814" centery="32547" centerz="12" radius="1">
 		<monster name="Liodile" x="0" y="0" z="12" spawntime="60" />
 	</monster>
+	<monster centerx="32635" centery="32548" centerz="12" radius="1">
+		<monster name="Cursed Book" x="0" y="0" z="12" spawntime="60" />
+	</monster>
 	<monster centerx="32806" centery="32548" centerz="12" radius="1">
 		<monster name="Serpent Spawn" x="0" y="0" z="12" spawntime="90" />
 	</monster>
 	<monster centerx="33229" centery="32548" centerz="12" radius="3">
 		<monster name="Scarab" x="-1" y="0" z="12" spawntime="90" />
 		<monster name="Scarab" x="1" y="2" z="12" spawntime="90" />
+	</monster>
+	<monster centerx="32631" centery="32549" centerz="12" radius="1">
+		<monster name="Cursed Book" x="0" y="0" z="12" spawntime="60" />
+		<monster name="Ink Blob" x="1" y="1" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32764" centery="32549" centerz="12" radius="1">
 		<monster name="Eternal Guardian" x="-1" y="0" z="12" spawntime="90" />
@@ -147201,10 +147965,17 @@
 		<monster name="Earth Elemental" x="-2" y="-2" z="12" spawntime="90" />
 		<monster name="Ancient Scarab" x="3" y="-2" z="12" spawntime="90" />
 	</monster>
+	<monster centerx="32569" centery="32553" centerz="12" radius="1">
+		<monster name="Cursed Book" x="0" y="0" z="12" spawntime="60" />
+		<monster name="Ink Blob" x="-1" y="1" z="12" spawntime="60" />
+	</monster>
 	<monster centerx="32602" centery="32553" centerz="12" radius="3">
+		<monster name="Ink Blob" x="2" y="-2" z="12" spawntime="60" />
 		<monster name="Cursed Book" x="-1" y="3" z="12" spawntime="60" />
+		<monster name="Ink Blob" x="1" y="3" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32609" centery="32553" centerz="12" radius="3">
+		<monster name="Ink Blob" x="-2" y="2" z="12" spawntime="60" />
 		<monster name="Cursed Book" x="3" y="3" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32651" centery="32553" centerz="12" radius="3">
@@ -147229,6 +148000,17 @@
 	</monster>
 	<monster centerx="33815" centery="32553" centerz="12" radius="1">
 		<monster name="Carnivostrich" x="0" y="0" z="12" spawntime="60" />
+	</monster>
+	<monster centerx="32616" centery="32554" centerz="12" radius="1">
+		<monster name="Cursed Book" x="0" y="0" z="12" spawntime="60" />
+	</monster>
+	<monster centerx="32624" centery="32554" centerz="12" radius="1">
+		<monster name="Ink Blob" x="1" y="-1" z="12" spawntime="60" />
+		<monster name="Cursed Book" x="0" y="0" z="12" spawntime="60" />
+	</monster>
+	<monster centerx="32634" centery="32554" centerz="12" radius="1">
+		<monster name="Cursed Book" x="0" y="0" z="12" spawntime="60" />
+		<monster name="Ink Blob" x="0" y="1" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32785" centery="32554" centerz="12" radius="1">
 		<monster name="Eternal Guardian" x="0" y="0" z="12" spawntime="90" />
@@ -147357,10 +148139,13 @@
 		<monster name="Animated Feather" x="-1" y="1" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32609" centery="32560" centerz="12" radius="3">
+		<monster name="Ink Blob" x="3" y="-1" z="12" spawntime="60" />
 		<monster name="Cursed Book" x="0" y="0" z="12" spawntime="60" />
+		<monster name="Cursed Book" x="-3" y="2" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32637" centery="32560" centerz="12" radius="3">
-		<monster name="Squid Warden" x="-3" y="3" z="12" spawntime="60" />
+		<monster name="Cursed Book" x="-3" y="2" z="12" spawntime="60" />
+		<monster name="Ink Blob" x="-2" y="3" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32658" centery="32560" centerz="12" radius="3">
 		<monster name="Icecold Book" x="-3" y="-3" z="12" spawntime="60" />
@@ -147374,6 +148159,17 @@
 	<monster centerx="32530" centery="32561" centerz="12" radius="3">
 		<monster name="Squid Warden" x="2" y="0" z="12" spawntime="60" />
 		<monster name="Energetic Book" x="-3" y="1" z="12" spawntime="60" />
+	</monster>
+	<monster centerx="32592" centery="32561" centerz="12" radius="1">
+		<monster name="Cursed Book" x="0" y="0" z="12" spawntime="60" />
+		<monster name="Ink Blob" x="1" y="1" z="12" spawntime="60" />
+	</monster>
+	<monster centerx="32577" centery="32562" centerz="12" radius="1">
+		<monster name="Cursed Book" x="0" y="0" z="12" spawntime="60" />
+	</monster>
+	<monster centerx="32585" centery="32562" centerz="12" radius="1">
+		<monster name="Ink Blob" x="1" y="-1" z="12" spawntime="60" />
+		<monster name="Cursed Book" x="0" y="0" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="33707" centery="32563" centerz="12" radius="1">
 		<monster name="Liodile" x="0" y="0" z="12" spawntime="60" />
@@ -147401,6 +148197,10 @@
 		<monster name="Fire Elemental" x="-2" y="-2" z="12" spawntime="90" />
 		<monster name="Adept of the Cult" x="-2" y="0" z="12" spawntime="90" />
 		<monster name="Fire Elemental" x="1" y="3" z="12" spawntime="90" />
+	</monster>
+	<monster centerx="32629" centery="32565" centerz="12" radius="1">
+		<monster name="Cursed Book" x="1" y="-1" z="12" spawntime="60" />
+		<monster name="Ink Blob" x="0" y="0" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32728" centery="32565" centerz="12" radius="1">
 		<monster name="Serpent Spawn" x="1" y="-1" z="12" spawntime="90" />
@@ -147481,10 +148281,14 @@
 		<monster name="Icecold Book" x="-1" y="-2" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32623" centery="32567" centerz="12" radius="3">
-		<monster name="Icecold Book" x="2" y="-2" z="12" spawntime="60" />
+		<monster name="Ink Blob" x="-2" y="-2" z="12" spawntime="60160" />
+		<monster name="Cursed Book" x="0" y="-2" z="12" spawntime="60" />
+		<monster name="Ink Blob" x="-2" y="-1" z="12" spawntime="60" />
+		<monster name="Cursed Book" x="2" y="2" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32637" centery="32567" centerz="12" radius="3">
-		<monster name="Icecold Book" x="-2" y="0" z="12" spawntime="60" />
+		<monster name="Ink Blob" x="-2" y="-3" z="12" spawntime="60160" />
+		<monster name="Cursed Book" x="-2" y="0" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32754" centery="32567" centerz="12" radius="3">
 		<monster name="Medusa" x="-2" y="-2" z="12" spawntime="90" />
@@ -147505,6 +148309,12 @@
 	<monster centerx="32098" centery="32568" centerz="12" radius="3">
 		<monster name="Fire Elemental" x="1" y="-3" z="12" spawntime="90" />
 		<monster name="Fire Elemental" x="1" y="2" z="12" spawntime="90" />
+	</monster>
+	<monster centerx="32602" centery="32568" centerz="12" radius="1">
+		<monster name="Cursed Book" x="0" y="0" z="12" spawntime="60" />
+	</monster>
+	<monster centerx="32614" centery="32568" centerz="12" radius="1">
+		<monster name="Cursed Book" x="0" y="0" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32734" centery="32568" centerz="12" radius="1">
 		<monster name="Eternal Guardian" x="0" y="1" z="12" spawntime="90" />
@@ -148103,9 +148913,6 @@
 	<monster centerx="32336" centery="32602" centerz="12" radius="3">
 		<monster name="Mutated Bat" x="1" y="-1" z="12" spawntime="90" />
 	</monster>
-	<monster centerx="32574" centery="32602" centerz="12" radius="3">
-		<monster name="Energetic Book" x="-2" y="-1" z="12" spawntime="60" />
-	</monster>
 	<monster centerx="32609" centery="32602" centerz="12" radius="3">
 		<monster name="Burning Book" x="3" y="2" z="12" spawntime="60" />
 	</monster>
@@ -148217,9 +149024,6 @@
 	</monster>
 	<monster centerx="32553" centery="32609" centerz="12" radius="3">
 		<monster name="Animated Feather" x="-2" y="2" z="12" spawntime="60" />
-	</monster>
-	<monster centerx="32574" centery="32609" centerz="12" radius="3">
-		<monster name="Energetic Book" x="-3" y="-1" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32581" centery="32609" centerz="12" radius="3">
 		<monster name="Burning Book" x="2" y="1" z="12" spawntime="60" />
@@ -148376,9 +149180,6 @@
 	<monster centerx="32343" centery="32616" centerz="12" radius="3">
 		<monster name="Earth Elemental" x="0" y="-2" z="12" spawntime="90" />
 		<monster name="Earth Elemental" x="3" y="2" z="12" spawntime="90" />
-	</monster>
-	<monster centerx="32574" centery="32616" centerz="12" radius="3">
-		<monster name="Knowledge Elemental" x="-3" y="0" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32616" centery="32616" centerz="12" radius="3">
 		<monster name="Burning Book" x="-3" y="0" z="12" spawntime="60" />
@@ -148583,19 +149384,8 @@
 	</monster>
 	<monster centerx="32525" centery="32630" centerz="12" radius="3">
 		<monster name="Energetic Book" x="0" y="0" z="12" spawntime="60" />
-	</monster>
-	<monster centerx="32539" centery="32630" centerz="12" radius="3">
-		<monster name="Energuardian of Tales" x="0" y="-1" z="12" spawntime="60" />
-		<monster name="Knowledge Elemental" x="3" y="0" z="12" spawntime="60" />
-	</monster>
-	<monster centerx="32553" centery="32630" centerz="12" radius="3">
-		<monster name="Energetic Book" x="1" y="-1" z="12" spawntime="60" />
-		<monster name="Knowledge Elemental" x="3" y="0" z="12" spawntime="60" />
-	</monster>
-	<monster centerx="32567" centery="32630" centerz="12" radius="3">
-		<monster name="Energetic Book" x="0" y="-1" z="12" spawntime="60" />
-		<monster name="Energuardian of Tales" x="2" y="-1" z="12" spawntime="60" />
-		<monster name="Energetic Book" x="3" y="1" z="12" spawntime="60" />
+		<monster name="Energetic Book" x="2" y="2" z="12" spawntime="60" />
+		<monster name="Energetic Book" x="0" y="3" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="33351" centery="32630" centerz="12" radius="3">
 		<monster name="Scarab" x="3" y="3" z="12" spawntime="90" />
@@ -148613,6 +149403,11 @@
 	</monster>
 	<monster centerx="32790" centery="32631" centerz="12" radius="1">
 		<monster name="Centipede" x="1" y="0" z="12" spawntime="90" />
+	</monster>
+	<monster centerx="32532" centery="32632" centerz="12" radius="3">
+		<monster name="Energuardian of Tales" x="2" y="-1" z="12" spawntime="60" />
+		<monster name="Knowledge Elemental" x="-3" y="1" z="12" spawntime="60" />
+		<monster name="Knowledge Elemental" x="2" y="1" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32806" centery="32632" centerz="12" radius="1">
 		<monster name="Centipede" x="1" y="0" z="12" spawntime="90" />
@@ -148785,18 +149580,17 @@
 	</monster>
 	<monster centerx="32497" centery="32644" centerz="12" radius="3">
 		<monster name="Energuardian of Tales" x="2" y="-1" z="12" spawntime="60" />
-	</monster>
-	<monster centerx="32504" centery="32644" centerz="12" radius="3">
-		<monster name="Energetic Book" x="0" y="-2" z="12" spawntime="60" />
+		<monster name="Knowledge Elemental" x="2" y="2" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32511" centery="32644" centerz="12" radius="3">
 		<monster name="Energetic Book" x="-1" y="-3" z="12" spawntime="60" />
-	</monster>
-	<monster centerx="32518" centery="32644" centerz="12" radius="3">
-		<monster name="Knowledge Elemental" x="-3" y="-2" z="12" spawntime="60" />
+		<monster name="Energetic Book" x="-2" y="-1" z="12" spawntime="60" />
+		<monster name="Knowledge Elemental" x="-2" y="1" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32532" centery="32644" centerz="12" radius="3">
+		<monster name="Energetic Book" x="-2" y="-2" z="12" spawntime="60" />
 		<monster name="Energetic Book" x="0" y="-2" z="12" spawntime="60" />
+		<monster name="Energuardian of Tales" x="2" y="-2" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32602" centery="32644" centerz="12" radius="3">
 		<monster name="Rage Squid" x="1" y="2" z="12" spawntime="60" />
@@ -148866,6 +149660,10 @@
 	<monster centerx="33375" centery="32649" centerz="12" radius="1">
 		<monster name="Ancient Scarab" x="0" y="0" z="12" spawntime="90" />
 	</monster>
+	<monster centerx="32506" centery="32650" centerz="12" radius="3">
+		<monster name="Knowledge Elemental" x="1" y="-2" z="12" spawntime="60" />
+		<monster name="Energetic Book" x="2" y="1" z="12" spawntime="60" />
+	</monster>
 	<monster centerx="32757" centery="32650" centerz="12" radius="1">
 		<monster name="Medusa" x="0" y="0" z="12" spawntime="90" />
 	</monster>
@@ -148927,13 +149725,15 @@
 		<monster name="Ancient Scarab" x="0" y="-2" z="12" spawntime="90" />
 	</monster>
 	<monster centerx="32476" centery="32651" centerz="12" radius="3">
-		<monster name="Energuardian of Tales" x="-3" y="3" z="12" spawntime="60" />
+		<monster name="Energuardian of Tales" x="1" y="3" z="12" spawntime="60" />
+		<monster name="Energetic Book" x="3" y="3" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32483" centery="32651" centerz="12" radius="3">
+		<monster name="Energetic Book" x="2" y="2" z="12" spawntime="60" />
 		<monster name="Energetic Book" x="-1" y="3" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32497" centery="32651" centerz="12" radius="3">
-		<monster name="Energetic Book" x="-1" y="2" z="12" spawntime="60" />
+		<monster name="Energetic Book" x="2" y="-2" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32588" centery="32651" centerz="12" radius="3">
 		<monster name="Rage Squid" x="-1" y="3" z="12" spawntime="60" />
@@ -149000,6 +149800,10 @@
 	</monster>
 	<monster centerx="32364" centery="32658" centerz="12" radius="3">
 		<monster name="Crystalcrusher" x="1" y="-2" z="12" spawntime="90" />
+	</monster>
+	<monster centerx="32482" centery="32658" centerz="12" radius="1">
+		<monster name="Energuardian of Tales" x="0" y="0" z="12" spawntime="60" />
+		<monster name="Knowledge Elemental" x="1" y="1" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32581" centery="32658" centerz="12" radius="3">
 		<monster name="Rage Squid" x="2" y="-2" z="12" spawntime="60" />
@@ -149094,6 +149898,14 @@
 		<monster name="Scarab" x="2" y="3" z="12" spawntime="90" />
 		<monster name="Ghoul" x="4" y="3" z="12" spawntime="90" />
 		<monster name="Scarab" x="-3" y="4" z="12" spawntime="90" />
+	</monster>
+	<monster centerx="32476" centery="32662" centerz="12" radius="1">
+		<monster name="Knowledge Elemental" x="0" y="0" z="12" spawntime="60" />
+		<monster name="Energetic Book" x="1" y="0" z="12" spawntime="60" />
+	</monster>
+	<monster centerx="32486" centery="32662" centerz="12" radius="1">
+		<monster name="Knowledge Elemental" x="0" y="0" z="12" spawntime="60" />
+		<monster name="Energetic Book" x="-1" y="1" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32692" centery="32662" centerz="12" radius="1">
 		<monster name="Burning Book" x="0" y="0" z="12" spawntime="60" />
@@ -149264,9 +150076,6 @@
 	<monster centerx="32322" centery="32672" centerz="12" radius="3">
 		<monster name="Ancient Scarab" x="0" y="0" z="12" spawntime="90" />
 	</monster>
-	<monster centerx="32476" centery="32672" centerz="12" radius="3">
-		<monster name="Energetic Book" x="-2" y="1" z="12" spawntime="60" />
-	</monster>
 	<monster centerx="32602" centery="32672" centerz="12" radius="3">
 		<monster name="Burning Book" x="3" y="-1" z="12" spawntime="60" />
 		<monster name="Rage Squid" x="-2" y="1" z="12" spawntime="60" />
@@ -149372,9 +150181,6 @@
 	</monster>
 	<monster centerx="32343" centery="32679" centerz="12" radius="3">
 		<monster name="Clay Guardian" x="2" y="1" z="12" spawntime="90" />
-	</monster>
-	<monster centerx="32476" centery="32679" centerz="12" radius="3">
-		<monster name="Energetic Book" x="-1" y="-3" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32616" centery="32679" centerz="12" radius="3">
 		<monster name="Rage Squid" x="0" y="-2" z="12" spawntime="60" />
@@ -149508,9 +150314,6 @@
 		<monster name="Mutated Bat" x="2" y="-1" z="12" spawntime="90" />
 		<monster name="Earth Elemental" x="2" y="2" z="12" spawntime="90" />
 		<monster name="Clay Guardian" x="-1" y="3" z="12" spawntime="90" />
-	</monster>
-	<monster centerx="32476" centery="32686" centerz="12" radius="3">
-		<monster name="Energetic Book" x="-1" y="-3" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32595" centery="32686" centerz="12" radius="3">
 		<monster name="Rage Squid" x="3" y="-1" z="12" spawntime="60" />
@@ -149917,12 +150720,11 @@
 	</monster>
 	<monster centerx="32448" centery="32721" centerz="12" radius="3">
 		<monster name="Energetic Book" x="3" y="0" z="12" spawntime="60" />
+		<monster name="Energetic Book" x="0" y="2" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32462" centery="32721" centerz="12" radius="3">
+		<monster name="Energetic Book" x="-1" y="1" z="12" spawntime="60" />
 		<monster name="Energuardian of Tales" x="3" y="1" z="12" spawntime="60" />
-	</monster>
-	<monster centerx="32476" centery="32721" centerz="12" radius="3">
-		<monster name="Energuardian of Tales" x="-1" y="-1" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32588" centery="32721" centerz="12" radius="3">
 		<monster name="Burning Book" x="-3" y="-2" z="12" spawntime="60" />
@@ -150006,12 +150808,14 @@
 	</monster>
 	<monster centerx="32448" centery="32728" centerz="12" radius="3">
 		<monster name="Knowledge Elemental" x="-1" y="0" z="12" spawntime="60" />
+		<monster name="Energetic Book" x="0" y="2" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32462" centery="32728" centerz="12" radius="3">
 		<monster name="Knowledge Elemental" x="0" y="3" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32476" centery="32728" centerz="12" radius="3">
 		<monster name="Energetic Book" x="-1" y="-1" z="12" spawntime="60" />
+		<monster name="Energuardian of Tales" x="1" y="2" z="12" spawntime="60" />
 	</monster>
 	<monster centerx="32532" centery="32728" centerz="12" radius="3">
 		<monster name="Knowledge Elemental" x="0" y="-2" z="12" spawntime="60" />
@@ -165814,14 +166618,14 @@
 	<monster centerx="32771" centery="31466" centerz="14" radius="1">
 		<monster name="Troll Legionnaire" x="1" y="0" z="14" spawntime="90" />
 	</monster>
-	<monster centerx="33323" centery="31466" centerz="14" radius="1">
-		<monster name="Grimeleech" x="0" y="0" z="14" spawntime="60" />
-	</monster>
 	<monster centerx="32579" centery="31467" centerz="14" radius="1">
 		<monster name="Dwarf Guard" x="1" y="0" z="14" spawntime="90" />
 	</monster>
 	<monster centerx="32606" centery="31467" centerz="14" radius="1">
 		<monster name="Dwarf" x="1" y="0" z="14" spawntime="90" />
+	</monster>
+	<monster centerx="33323" centery="31467" centerz="14" radius="1">
+		<monster name="Grimeleech" x="-1" y="1" z="14" spawntime="60" />
 	</monster>
 	<monster centerx="33379" centery="31467" centerz="14" radius="10">
 		<monster name="Electric Sparks" x="0" y="1" z="14" spawntime="10" />
@@ -173344,7 +174148,11 @@
 		<monster name="Animated Feather" x="0" y="2" z="14" spawntime="60" />
 	</monster>
 	<monster centerx="32560" centery="32581" centerz="14" radius="3">
+		<monster name="Icecold Book" x="0" y="-2" z="14" spawntime="60" />
+		<monster name="Icecold Book" x="3" y="-2" z="14" spawntime="60" />
+		<monster name="Animated Feather" x="3" y="1" z="14" spawntime="60" />
 		<monster name="Icecold Book" x="-2" y="3" z="14" spawntime="60" />
+		<monster name="Icecold Book" x="0" y="3" z="14" spawntime="60" />
 	</monster>
 	<monster centerx="32567" centery="32581" centerz="14" radius="3">
 		<monster name="Icecold Book" x="-2" y="3" z="14" spawntime="60" />
@@ -173573,10 +174381,6 @@
 	<monster centerx="32497" centery="32595" centerz="14" radius="3">
 		<monster name="Animated Feather" x="-2" y="-1" z="14" spawntime="60" />
 	</monster>
-	<monster centerx="32518" centery="32595" centerz="14" radius="3">
-		<monster name="Icecold Book" x="0" y="0" z="14" spawntime="60" />
-		<monster name="Squid Warden" x="-2" y="1" z="14" spawntime="60" />
-	</monster>
 	<monster centerx="32546" centery="32595" centerz="14" radius="3">
 		<monster name="Animated Feather" x="3" y="1" z="14" spawntime="60" />
 	</monster>
@@ -173585,6 +174389,7 @@
 		<monster name="Animated Feather" x="1" y="3" z="14" spawntime="60" />
 	</monster>
 	<monster centerx="32560" centery="32595" centerz="14" radius="3">
+		<monster name="Icecold Book" x="3" y="2" z="14" spawntime="60" />
 		<monster name="Icecold Book" x="-1" y="3" z="14" spawntime="60" />
 	</monster>
 	<monster centerx="32574" centery="32595" centerz="14" radius="3">
@@ -173607,6 +174412,9 @@
 		<monster name="Demon Skeleton" x="0" y="-1" z="14" spawntime="90" />
 		<monster name="Stone Golem" x="-2" y="0" z="14" spawntime="90" />
 		<monster name="Stone Golem" x="2" y="2" z="14" spawntime="90" />
+	</monster>
+	<monster centerx="32566" centery="32598" centerz="14" radius="3">
+		<monster name="Icecold Book" x="1" y="2" z="14" spawntime="60" />
 	</monster>
 	<monster centerx="32718" centery="32599" centerz="14" radius="1">
 		<monster name="Lizard Sentinel" x="1" y="0" z="14" spawntime="90" />
@@ -173683,18 +174491,6 @@
 		<monster name="Wyrm" x="0" y="2" z="14" spawntime="90" />
 		<monster name="Lost Basher" x="1" y="2" z="14" spawntime="90" />
 	</monster>
-	<monster centerx="32518" centery="32602" centerz="14" radius="3">
-		<monster name="Squid Warden" x="0" y="3" z="14" spawntime="60" />
-	</monster>
-	<monster centerx="32553" centery="32602" centerz="14" radius="3">
-		<monster name="Icecold Book" x="1" y="3" z="14" spawntime="60" />
-	</monster>
-	<monster centerx="32567" centery="32602" centerz="14" radius="3">
-		<monster name="Icecold Book" x="0" y="-2" z="14" spawntime="60" />
-	</monster>
-	<monster centerx="32574" centery="32602" centerz="14" radius="3">
-		<monster name="Animated Feather" x="-3" y="-3" z="14" spawntime="60" />
-	</monster>
 	<monster centerx="32602" centery="32602" centerz="14" radius="3">
 		<monster name="Animated Feather" x="1" y="1" z="14" spawntime="60" />
 	</monster>
@@ -173745,6 +174541,11 @@
 		<monster name="Mummy" x="-5" y="1" z="14" spawntime="90" />
 		<monster name="Ghost" x="4" y="1" z="14" spawntime="90" />
 		<monster name="Ghost" x="1" y="4" z="14" spawntime="90" />
+	</monster>
+	<monster centerx="32552" centery="32606" centerz="14" radius="3">
+		<monster name="Icecold Book" x="1" y="-2" z="14" spawntime="60" />
+		<monster name="Icecold Book" x="-1" y="2" z="14" spawntime="60" />
+		<monster name="Animated Feather" x="2" y="2" z="14" spawntime="60" />
 	</monster>
 	<monster centerx="32716" centery="32606" centerz="14" radius="1">
 		<monster name="Lizard Sentinel" x="1" y="0" z="14" spawntime="90" />
@@ -173821,9 +174622,6 @@
 		<monster name="Vulcongra" x="2" y="-3" z="14" spawntime="90" />
 		<monster name="Lost Basher" x="2" y="-1" z="14" spawntime="90" />
 	</monster>
-	<monster centerx="32518" centery="32609" centerz="14" radius="3">
-		<monster name="Animated Feather" x="-1" y="-1" z="14" spawntime="60" />
-	</monster>
 	<monster centerx="32532" centery="32609" centerz="14" radius="3">
 		<monster name="Squid Warden" x="-1" y="-3" z="14" spawntime="60" />
 		<monster name="Animated Feather" x="-1" y="0" z="14" spawntime="60" />
@@ -173834,20 +174632,15 @@
 	<monster centerx="32546" centery="32609" centerz="14" radius="3">
 		<monster name="Ink Blob" x="2" y="3" z="14" spawntime="60" />
 	</monster>
-	<monster centerx="32560" centery="32609" centerz="14" radius="3">
-		<monster name="Icecold Book" x="3" y="2" z="14" spawntime="60" />
-	</monster>
-	<monster centerx="32567" centery="32609" centerz="14" radius="3">
-		<monster name="Icecold Book" x="3" y="3" z="14" spawntime="60" />
-	</monster>
-	<monster centerx="32574" centery="32609" centerz="14" radius="3">
-		<monster name="Animated Feather" x="2" y="1" z="14" spawntime="60" />
-	</monster>
 	<monster centerx="32595" centery="32609" centerz="14" radius="3">
 		<monster name="Icecold Book" x="-1" y="2" z="14" spawntime="60" />
 	</monster>
 	<monster centerx="32602" centery="32609" centerz="14" radius="3">
 		<monster name="Icecold Book" x="-2" y="3" z="14" spawntime="60" />
+	</monster>
+	<monster centerx="32525" centery="32611" centerz="14" radius="3">
+		<monster name="Icecold Book" x="-2" y="0" z="14" spawntime="60" />
+		<monster name="Squid Warden" x="1" y="1" z="14" spawntime="60" />
 	</monster>
 	<monster centerx="32764" centery="32611" centerz="14" radius="1">
 		<monster name="Medusa" x="0" y="0" z="14" spawntime="90" />
@@ -173901,6 +174694,8 @@
 		<monster name="Wyrm" x="1" y="3" z="14" spawntime="90" />
 	</monster>
 	<monster centerx="32532" centery="32616" centerz="14" radius="3">
+		<monster name="Animated Feather" x="-1" y="-2" z="14" spawntime="60" />
+		<monster name="Squid Warden" x="1" y="-2" z="14" spawntime="60" />
 		<monster name="Squid Warden" x="0" y="0" z="14" spawntime="60" />
 	</monster>
 	<monster centerx="32713" centery="32617" centerz="14" radius="1">
@@ -185525,9 +186320,6 @@
 		<monster name="Lost Husher" x="0" y="0" z="15" spawntime="90" />
 		<monster name="Lost Thrower" x="-2" y="2" z="15" spawntime="90" />
 	</monster>
-	<monster centerx="32560" centery="32574" centerz="15" radius="3">
-		<monster name="Icecold Book" x="2" y="2" z="15" spawntime="60" />
-	</monster>
 	<monster centerx="32723" centery="32574" centerz="15" radius="1">
 		<monster name="Medusa" x="0" y="0" z="15" spawntime="90" />
 	</monster>
@@ -185630,10 +186422,6 @@
 	</monster>
 	<monster centerx="32343" centery="32581" centerz="15" radius="3">
 		<monster name="Drillworm" x="-3" y="0" z="15" spawntime="90" />
-	</monster>
-	<monster centerx="32560" centery="32581" centerz="15" radius="3">
-		<monster name="Icecold Book" x="2" y="-2" z="15" spawntime="60" />
-		<monster name="Animated Feather" x="2" y="1" z="15" spawntime="60" />
 	</monster>
 	<monster centerx="32717" centery="32581" centerz="15" radius="1">
 		<monster name="Bonebeast" x="1" y="0" z="15" spawntime="90" />
@@ -185752,10 +186540,6 @@
 		<monster name="Ink Blob" x="-2" y="0" z="15" spawntime="60" />
 		<monster name="Icecold Book" x="2" y="2" z="15" spawntime="60" />
 	</monster>
-	<monster centerx="32560" centery="32588" centerz="15" radius="3">
-		<monster name="Icecold Book" x="2" y="-2" z="15" spawntime="60" />
-		<monster name="Animated Feather" x="1" y="3" z="15" spawntime="60" />
-	</monster>
 	<monster centerx="33194" centery="32588" centerz="15" radius="6">
 		<monster name="Banshee" x="-2" y="-3" z="15" spawntime="90" />
 		<monster name="Demon Skeleton" x="0" y="-3" z="15" spawntime="90" />
@@ -185852,9 +186636,6 @@
 	</monster>
 	<monster centerx="32343" centery="32595" centerz="15" radius="3">
 		<monster name="Wyrm" x="-2" y="-3" z="15" spawntime="90" />
-	</monster>
-	<monster centerx="32560" centery="32595" centerz="15" radius="3">
-		<monster name="Icecold Book" x="2" y="2" z="15" spawntime="60" />
 	</monster>
 	<monster centerx="32718" centery="32595" centerz="15" radius="1">
 		<monster name="Hydra" x="1" y="0" z="15" spawntime="90" />

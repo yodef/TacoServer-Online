@@ -121,6 +121,17 @@ GameStore.ServiceTypes = {
 	SERVICE_BLESSINGS = 5,
 }
 
+GameStore.OldProtocolSendingPackets = {
+	S_CoinBalance = 0xDE, -- 222 (Protocol 11.00)
+	S_StoreError = 0xDF, -- 223 (Protocol 11.00)
+	S_RequestPurchaseData = 0xE1, -- 225
+	S_CoinBalanceUpdating = 0xF2, -- 242
+	S_OpenStore = 0xFA, -- 250 (Protocol 11.00)
+	S_StoreOffers = 0xFB, -- 251 (Protocol 11.00)
+	S_OpenTransactionHistory = 0xFC, -- 252 (Protocol 11.00)
+	S_CompletePurchase = 0xFD, -- 253 (Protocol 11.00)
+}
+
 GameStore.SendingPackets = {
 	S_CoinBalance = 0xDF, -- 223
 	S_StoreError = 0xE0, -- 224

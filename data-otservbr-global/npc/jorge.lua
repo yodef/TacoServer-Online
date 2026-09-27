@@ -31,12 +31,31 @@ npcConfig.voices = {
 
 npcConfig.currency = 22723
 --items over LV400
-npcConfig.shop = {--gold token price 1000k ea
-	-- Helmets
+npcConfig.shop = {
+	-- Helmets & Lucky Bags
 	{ itemName = "bag you desire", clientId = 34109, buy = 90 },	
 	{ itemName = "primal bag", clientId = 39546, buy = 60 },
 	{ itemName = "bag you covet", clientId = 43895, buy = 200 },
-	{ itemName = "golden helmet", clientId = 3365, buy = 25 }
+	{ itemName = "golden helmet", clientId = 3365, buy = 25 },
+
+	-- Elemental Concoctions (Surprise Cube)
+	-- Resilience (Defensive)
+	{ itemName = "fire resilience", clientId = 36729, buy = 10, sell = 5 },
+	{ itemName = "ice resilience", clientId = 36730, buy = 10, sell = 5 },
+	{ itemName = "earth resilience", clientId = 36731, buy = 10, sell = 5 },
+	{ itemName = "energy resilience", clientId = 36732, buy = 10, sell = 5 },
+	{ itemName = "holy resilience", clientId = 36733, buy = 10, sell = 5 },
+	{ itemName = "death resilience", clientId = 36734, buy = 10, sell = 5 },
+	{ itemName = "physical resilience", clientId = 36735, buy = 10, sell = 5 },
+
+	-- Amplification (Offensive)
+	{ itemName = "fire amplification", clientId = 36736, buy = 10, sell = 5 },
+	{ itemName = "ice amplification", clientId = 36737, buy = 10, sell = 5 },
+	{ itemName = "earth amplification", clientId = 36738, buy = 10, sell = 5 },
+	{ itemName = "energy amplification", clientId = 36739, buy = 10, sell = 5 },
+	{ itemName = "holy amplification", clientId = 36740, buy = 10, sell = 5 },
+	{ itemName = "death amplification", clientId = 36741, buy = 10, sell = 5 },
+	{ itemName = "physical amplification", clientId = 36742, buy = 10, sell = 5 },
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)
@@ -44,7 +63,7 @@ npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBac
 end
 -- On sell npc shop message
 npcType.onSellItem = function(npc, player, itemId, subtype, amount, ignore, name, totalCost)
-	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Sold %ix %s for %i gold.", amount, name, totalCost))
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Sold %ix %s for %i platinum tokens.", amount, name, totalCost))
 end
 -- On check npc shop message (look item)
 npcType.onCheckItem = function(npc, player, clientId, subType)
@@ -99,7 +118,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	npcHandler:say({"I am not trading imbuing items anymore, go with {Grizzly Addams} he is selling all imbuing items!"}, npc, creature)
 	elseif MsgContains(message, "tokens") then
 		npc:openShopWindow(creature)
-		npcHandler:say("If you have any gold tokens with you, let's {trade}! Those are my offers.", npc, creature)	
+		npcHandler:say("If you have any platinum tokens with you, let's {trade}! Those are my offers.", npc, creature)	
 		npcHandler:setTopic(playerId, 0)
 	end
 	return true

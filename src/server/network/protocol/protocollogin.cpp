@@ -276,7 +276,7 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage &msg) {
 	}
 
 	std::string password = msg.getString();
-	if (accountDescriptor == "@livestream") {
+	if (accountDescriptor == "@livestream" || accountDescriptor == "@cast") {
 		if (oldProtocol && !g_configManager().getBoolean(OLD_PROTOCOL)) {
 			disconnectClient(ProtocolProfileRegistry::getUnsupportedClientProtocolMessage(false));
 			return;

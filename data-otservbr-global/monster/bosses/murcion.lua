@@ -76,6 +76,7 @@ monster.summon = {
 monster.voices = {}
 
 monster.loot = {
+	{ id = 43895, chance = 360 }, -- Bag you covet
 	{ name = "crystal coin", chance = 12317, maxCount = 91 },
 	{ id = 3039, chance = 10896, maxCount = 2 }, -- red gem
 	{ name = "amber with a bug", chance = 14590, maxCount = 1 },

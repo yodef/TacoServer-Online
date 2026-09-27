@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Gorerilla")
 local monster = {}
 
 monster.description = "a gorerilla"
-monster.experience = 13172
+monster.experience = 20500
 monster.outfit = {
 	lookType = 1559,
 	lookHead = 85,
@@ -74,6 +74,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ name = "primal bag", chance = 15 },
 	{ name = "Crystal Coin", chance = 20700, minCount = 1, maxCount = 2 },
 	{ name = "Gorerilla Mane", chance = 19890 },
 	{ name = "Gorerilla Tail", chance = 17060 },

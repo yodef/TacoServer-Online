@@ -83,16 +83,30 @@ function spell.onCastSpell(creature, var)
 		return false
 	end
 
-	if player and player:getHarmony() == 5 then
-		addEvent(function(playerGuid, spellVar)
-			local recastPlayer = Player(playerGuid)
-			if recastPlayer then
-				combatRecast:execute(recastPlayer, spellVar)
-			end
-		end, 1000, player:getGuid(), var)
+	local hasFullHarmony = (player:getHarmony() == 5)
+
+	local ret = combat:execute(creature, var)
+	if ret then
+		if hasFullHarmony then
+			addEvent(function(playerGuid, spellVar)
+				local recastPlayer = Player(playerGuid)
+				if recastPlayer then
+					combatRecast:execute(recastPlayer, spellVar)
+				end
+			end, 1000, player:getGuid(), var)
+		end
+
+		-- Cooldown scaling: Stage 1 = 24s, Stage 2 = 20s, Stage 3 = 16s
+		local cooldowns = { [1] = 24000, [2] = 20000, [3] = 16000 }
+		local cdMs = cooldowns[grade] or 24000
+		local condition = Condition(CONDITION_SPELLCOOLDOWN, CONDITIONID_DEFAULT, 295)
+		local rate = configManager.getFloat(configKeys.RATE_SPELL_COOLDOWN)
+		if not rate or rate <= 0 then rate = 1.0 end
+		condition:setTicks(cdMs / rate)
+		player:addCondition(condition)
 	end
 
-	return combat:execute(creature, var)
+	return ret
 end
 
 spell:group("attack")
@@ -103,7 +117,7 @@ spell:level(0)
 spell:mana(425)
 spell:isPremium(true)
 spell:blockWalls(true)
-spell:cooldown(24 * 1000) -- Cooldown is calculated on the casting
+spell:cooldown(1000) -- Dynamic cooldown calculated on cast (24s / 20s / 16s)
 spell:groupCooldown(2 * 1000)
 spell:needLearn(true)
 spell:monkSpellType(MonkSpell_Spender)

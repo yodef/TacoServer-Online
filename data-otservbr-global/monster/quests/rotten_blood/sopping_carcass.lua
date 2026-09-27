@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Sopping Carcass")
 local monster = {}
 
 monster.description = "a sopping carcass"
-monster.experience = 23425
+monster.experience = 43100
 monster.outfit = {
 	lookType = 1658,
 	lookHead = 0,
@@ -70,7 +70,9 @@ monster.light = {
 	color = 0,
 }
 
-monster.loot = {}
+monster.loot = {
+	{ id = 43895, chance = 15 },
+}
 
 monster.attacks = {
 	{ name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1100 },

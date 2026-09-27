@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Nighthunter")
 local monster = {}
 
 monster.description = "a nighthunter"
-monster.experience = 12647
+monster.experience = 23000
 monster.outfit = {
 	lookType = 1552,
 	lookHead = 85,
@@ -74,6 +74,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ name = "primal bag", chance = 15 },
 	{ name = "Crystal Coin", chance = 34190 },
 	{ name = "Nighthunter Wing", chance = 24370, minCount = 1, maxCount = 2 },
 	{ name = "Ultimate Health Potion", chance = 12640, minCount = 1, maxCount = 3 },

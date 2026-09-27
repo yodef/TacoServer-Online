@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Undertaker")
 local monster = {}
 
 monster.description = "an undertaker"
-monster.experience = 13543
+monster.experience = 24000
 monster.outfit = {
 	lookType = 1551,
 	lookHead = 85,
@@ -74,6 +74,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ name = "primal bag", chance = 15 },
 	{ name = "Great Spirit Potion", chance = 30660, minCount = 1, maxCount = 3 },
 	{ name = "Undertaker Fangs", chance = 25740 },
 	{ name = "Crystal Coin", chance = 15100, minCount = 1, maxCount = 3 },

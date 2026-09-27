@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Stalking Stalk")
 local monster = {}
 
 monster.description = "a stalking stalk"
-monster.experience = 11569
+monster.experience = 20500
 monster.outfit = {
 	lookType = 1554,
 	lookHead = 85,
@@ -74,6 +74,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ name = "primal bag", chance = 15 },
 	{ name = "Stalking Seeds", chance = 21520 },
 	{ name = "Crystal Coin", chance = 16570, minCount = 1, maxCount = 3 },
 	{ name = "Small Diamond", chance = 7140, minCount = 1, maxCount = 3 },

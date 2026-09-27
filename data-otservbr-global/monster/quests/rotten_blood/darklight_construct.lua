@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Darklight Construct")
 local monster = {}
 
 monster.description = "a darklight construct"
-monster.experience = 22050
+monster.experience = 42500
 monster.outfit = {
 	lookType = 1622,
 	lookHead = 0,
@@ -71,6 +71,7 @@ monster.light = {
 }
 
 monster.loot = {
+	{ id = 43895, chance = 15 },
 	{ name = "crystal coin", chance = 11290, maxCount = 1 },
 	{ name = "dark obsidian splinter", chance = 12735, maxCount = 1 },
 	{ id = 3039, chance = 8781, maxCount = 1 }, -- red gem

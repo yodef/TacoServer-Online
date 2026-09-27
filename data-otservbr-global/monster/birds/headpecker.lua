@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Headpecker")
 local monster = {}
 
 monster.description = "a headpecker"
-monster.experience = 12026
+monster.experience = 20000
 monster.outfit = {
 	lookType = 1557,
 	lookHead = 85,
@@ -73,6 +73,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ name = "primal bag", chance = 15 },
 	{ name = "Crystal Coin", chance = 35160 },
 	{ name = "Headpecker Beak", chance = 11360 },
 	{ name = "Headpecker Feather", chance = 7620, minCount = 1, maxCount = 5 },

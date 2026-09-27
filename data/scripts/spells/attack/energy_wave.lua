@@ -1,15 +1,25 @@
-local function formulaFunction(player, level, maglevel)
-	local min = (level / 5) + (maglevel * 4.5)
-	local max = (level / 5) + (maglevel * 9)
+local function formulaFunction(player, level, maglevel, mult)
+	mult = mult or 1.0
+	local min = ((level / 5) + (maglevel * 4.5)) * mult
+	local max = ((level / 5) + (maglevel * 9)) * mult
 	return -min, -max
 end
 
 function onGetFormulaValues(player, level, maglevel)
-	return formulaFunction(player, level, maglevel)
+	return formulaFunction(player, level, maglevel, 1.0)
 end
 
 function onGetFormulaValuesWOD(player, level, maglevel)
-	return formulaFunction(player, level, maglevel)
+	local mult = 1.0
+	if player then
+		local grade = player:upgradeSpellsWOD("Energy Wave")
+		if grade >= 2 then
+			mult = 1.10
+		elseif grade >= 1 then
+			mult = 1.05
+		end
+	end
+	return formulaFunction(player, level, maglevel, mult)
 end
 
 local function createCombat(area, areaDiagonal, combatFunc)
@@ -30,7 +40,7 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	local player = creature:getPlayer()
 	if creature and player then
-		if player:getWheelSpellAdditionalArea("Energy Wave") then
+		if player:getWheelSpellAdditionalArea("Energy Wave") or player:upgradeSpellsWOD("Energy Wave") > 0 then
 			return combatWOD:execute(creature, var)
 		end
 	end

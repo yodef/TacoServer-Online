@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Darklight Emitter")
 local monster = {}
 
 monster.description = "a darklight emitter"
-monster.experience = 20600
+monster.experience = 36300
 monster.outfit = {
 	lookType = 1627,
 	lookHead = 0,
@@ -71,6 +71,7 @@ monster.light = {
 }
 
 monster.loot = {
+	{ id = 43895, chance = 15 },
 	{ name = "crystal coin", chance = 12516, maxCount = 2 },
 	{ name = "darklight core", chance = 13367, maxCount = 1 },
 	{ name = "darklight obsidian axe", chance = 10433, maxCount = 1 },

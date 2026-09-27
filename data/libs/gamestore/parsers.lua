@@ -65,6 +65,7 @@ local function parseRequestStoreOffersTail(oldProtocol, msg)
 end
 
 local function onRecvbyte(player, msg, byte)
+	logger.info("[GameStore] onRecvbyte byte={}", byte)
 	if player:getVocation():getId() == 0 and not GameStore.haveCategoryRook() then
 		player:sendCancelMessage("Store don't have offers for rookgaard citizen.")
 		return false
@@ -139,9 +140,19 @@ end
 local function parseOpenStore(playerId, msg)
 	openStore(playerId)
 
+	local player = Player(playerId)
+	if not player then
+		return
+	end
+
+	local oldProtocol = player:getClient().version < 1200
 	local category = GameStore.Categories and GameStore.Categories[1] or nil
 	if category then
-		addPlayerEvent(sendShowStoreOffers, 50, playerId, category)
+		if oldProtocol then
+			addPlayerEvent(sendShowStoreOffersOnOldProtocol, 50, playerId, category, category.name)
+		else
+			addPlayerEvent(sendShowStoreOffers, 50, playerId, category)
+		end
 	end
 end
 

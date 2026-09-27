@@ -18,7 +18,11 @@ function getChainValue(creature)
 	local targets = 5
 	local player = creature:getPlayer()
 	if creature and player then
-		targets = targets + player:getWheelSpellAdditionalTarget("Chivalrous Challenge")
+		local extra = player:getWheelSpellAdditionalTarget("Chivalrous Challenge")
+		if (not extra or extra == 0) and player:upgradeSpellsWOD("Chivalrous Challenge") >= 2 then
+			extra = 1
+		end
+		targets = targets + (extra or 0)
 	end
 	return targets, 6, false
 end

@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Rotten Man-Maggot")
 local monster = {}
 
 monster.description = "a rotten man-maggot"
-monster.experience = 22625
+monster.experience = 41000
 monster.outfit = {
 	lookType = 1655,
 	lookHead = 0,
@@ -76,6 +76,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 43895, chance = 15 },
 	{ name = "crystal coin", chance = 10340, maxCount = 1 },
 	{ name = "small amethyst", chance = 7364, maxCount = 2 },
 	{ name = "lichen gobbler", chance = 8391, maxCount = 1 },

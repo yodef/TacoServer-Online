@@ -44,7 +44,21 @@ function spell.onCastSpell(creature, var)
 		creature:getPosition():sendMagicEffect(CONST_ME_POFF)
 		return false
 	end
-	return combat:execute(creature, var)
+
+	local ret = combat:execute(creature, var)
+	if ret then
+		-- Cooldown scaling: Stage 1 = 18s, Stage 2 = 14s, Stage 3 = 10s
+		local cooldowns = { [1] = 18000, [2] = 14000, [3] = 10000 }
+		local cdMs = cooldowns[grade] or 18000
+		local condition = Condition(CONDITION_SPELLCOOLDOWN, CONDITIONID_DEFAULT, 261)
+		local rate = configManager.getFloat(configKeys.RATE_SPELL_COOLDOWN)
+		if not rate or rate <= 0 then
+			rate = 1.0
+		end
+		condition:setTicks(cdMs / rate)
+		creature:addCondition(condition)
+	end
+	return ret
 end
 
 spell:group("attack")
@@ -58,7 +72,7 @@ spell:range(5)
 spell:needTarget(true)
 spell:blockWalls(true)
 spell:needWeapon(true)
-spell:cooldown(18 * 1000)
+spell:cooldown(1000) -- Dynamic cooldown calculated on cast based on Revelation Stage (18s, 14s, 10s)
 spell:groupCooldown(2 * 1000)
 spell:needLearn(true)
 spell:vocation("knight;true", "elite knight;true")

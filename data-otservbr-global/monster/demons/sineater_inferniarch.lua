@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Sineater Inferniarch")
 local monster = {}
 
 monster.description = "a sineater inferniarch"
-monster.experience = 6750
+monster.experience = 11000
 monster.outfit = {
 	lookType = 1795,
 	lookHead = 0,

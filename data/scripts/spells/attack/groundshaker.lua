@@ -17,7 +17,25 @@ combat:setCallback(CALLBACK_PARAM_SKILLVALUE, "onGetFormulaValues")
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
-	return combat:execute(creature, var)
+	local player = creature:getPlayer()
+	if not player then
+		return false
+	end
+
+	local ret = combat:execute(player, var)
+	if ret then
+		-- Wheel of Destiny: Grade 1 & 2 reduces cooldown by 2 seconds (from 8s to 6s)
+		local grade = player:upgradeSpellsWOD("Groundshaker")
+		local cdMs = (grade >= 1) and 6000 or 8000
+		local condition = Condition(CONDITION_SPELLCOOLDOWN, CONDITIONID_DEFAULT, 106)
+		local rate = configManager.getFloat(configKeys.RATE_SPELL_COOLDOWN)
+		if not rate or rate <= 0 then
+			rate = 1.0
+		end
+		condition:setTicks(cdMs / rate)
+		player:addCondition(condition)
+	end
+	return ret
 end
 
 spell:group("attack")
@@ -29,7 +47,7 @@ spell:level(33)
 spell:mana(160)
 spell:isPremium(true)
 spell:needWeapon(true)
-spell:cooldown(8 * 1000)
+spell:cooldown(1000) -- Dynamic cooldown calculated on cast (6s at Grade 1+, 8s base)
 spell:groupCooldown(2 * 1000)
 
 spell:vocation("knight;true", "elite knight;true")

@@ -37,7 +37,8 @@ local gourmetDishes = {
 local hirelingFoods = Action()
 
 function hirelingFoods.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	local dish = gourmetDishes[item.itemid]
+	local itemId = item:getId()
+	local dish = gourmetDishes[itemId] or gourmetDishes[item.itemid]
 	if not dish then
 		return true
 	end
@@ -48,15 +49,18 @@ function hirelingFoods.onUse(player, item, fromPosition, target, toPosition, isH
 	end
 
 	if dish.condition then
-		player:updateFood(item:getId(), 3600)
+		player:updateFood(itemId, 3600)
 		player:addCondition(dish.condition)
 	elseif dish.healing then
+		player:updateFood(itemId, 3600)
 		player:addHealth(player:getMaxHealth() * 0.3)
 	elseif dish.manaRestore then
+		player:updateFood(itemId, 3600)
 		player:addMana(player:getMaxMana() * 0.3)
 	end
 
 	player:say(dish.message, TALKTYPE_MONSTER_SAY)
+	player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
 	player:setExhaustion("special-foods-cooldown", 10 * 60)
 
 	item:remove(1)

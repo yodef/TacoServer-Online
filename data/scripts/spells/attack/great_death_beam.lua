@@ -1,22 +1,33 @@
-function onGetFormulaValues(player, level, maglevel)
+function onGetFormulaValues1(player, level, maglevel)
 	local min = (level / 5) + (maglevel * 5.5)
 	local max = (level / 5) + (maglevel * 9)
 	return -min, -max
 end
 
-local initCombat = Combat()
-initCombat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
-
-local function createCombat(combat, area)
-	combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_DEATHDAMAGE)
-	combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MORTAREA)
-	combat:setArea(createCombatArea(area))
-	return combat
+function onGetFormulaValues2(player, level, maglevel)
+	local min = (level / 5) + (maglevel * 5.5)
+	local max = (level / 5) + (maglevel * 9)
+	return -min, -max
 end
 
-local combat1 = createCombat(initCombat, AREA_BEAM6)
-local combat2 = createCombat(initCombat, AREA_BEAM7)
-local combat3 = createCombat(initCombat, AREA_BEAM8)
+function onGetFormulaValues3(player, level, maglevel)
+	local min = (level / 5) + (maglevel * 5.5)
+	local max = (level / 5) + (maglevel * 9)
+	return -min, -max
+end
+
+local function createCombat(area, callbackName)
+	local cb = Combat()
+	cb:setParameter(COMBAT_PARAM_TYPE, COMBAT_DEATHDAMAGE)
+	cb:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MORTAREA)
+	cb:setArea(createCombatArea(area))
+	cb:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, callbackName)
+	return cb
+end
+
+local combat1 = createCombat(AREA_BEAM6, "onGetFormulaValues1")
+local combat2 = createCombat(AREA_BEAM7, "onGetFormulaValues2")
+local combat3 = createCombat(AREA_BEAM8, "onGetFormulaValues3")
 local combat = { combat1, combat2, combat3 }
 
 local spell = Spell("instant")

@@ -34,44 +34,65 @@ function onTargetCreature(creature, target)
 	return targetFunction(creature, target)
 end
 
+function onTargetCreatureWOD(creature, target)
+	return targetFunction(creature, target)
+end
+
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MORTAREA)
+combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_DEATH)
 combat:setArea(createCombatArea(AREA_CIRCLE3X3))
 combat:setCallback(CALLBACK_PARAM_TARGETCREATURE, "onTargetCreature")
+
+local combatWOD = Combat()
+combatWOD:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MORTAREA)
+combatWOD:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_DEATH)
+combatWOD:setArea(createCombatArea(AREA_CIRCLE3X4))
+combatWOD:setCallback(CALLBACK_PARAM_TARGETCREATURE, "onTargetCreatureWOD")
 
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
 	local player = creature:getPlayer()
-	if not player then return false end
+	if not player then
+		return false
+	end
 
 	local varNum = var:getNumber()
-	local varPos = var:getPosition()
 	local target = player:getTarget()
 	local playerPos = player:getPosition()
 
 	local targetCreature = nil
-	local centerPos = nil
 
-	if varNum and varNum > 0 and Creature(varNum) then
+	if varNum and varNum > 0 and Creature(varNum) and varNum ~= player:getId() then
 		targetCreature = Creature(varNum)
-		centerPos = targetCreature:getPosition()
-	elseif varPos and varPos.x and varPos.x > 0 and (varPos.x ~= playerPos.x or varPos.y ~= playerPos.y or varPos.z ~= playerPos.z) then
-		centerPos = varPos
 	elseif target and not target:isRemoved() and target:getHealth() > 0 then
 		targetCreature = target
-		centerPos = target:getPosition()
+	end
+
+	local centerPos = nil
+	if targetCreature then
+		centerPos = targetCreature:getPosition()
+		if playerPos.z ~= centerPos.z or playerPos:getDistance(centerPos) > 7 then
+			player:sendCancelMessage("Destination is out of reach.")
+			playerPos:sendMagicEffect(CONST_ME_POFF)
+			return false
+		end
+		if not player:canSee(centerPos) then
+			player:sendCancelMessage("Creature is not reachable.")
+			playerPos:sendMagicEffect(CONST_ME_POFF)
+			return false
+		end
 	else
 		centerPos = playerPos
 	end
 
-	if playerPos:getDistance(centerPos) > 7 then
-		player:sendCancelMessage("Destination is out of reach.")
-		playerPos:sendMagicEffect(CONST_ME_POFF)
-		return false
+	local activeCombat = combat
+	if player:getWheelSpellAdditionalArea("Sap Strength") or (player:upgradeSpellsWOD("Sap Strength") >= 1) then
+		activeCombat = combatWOD
 	end
 
-	return combat:execute(player, Variant(centerPos))
+	return activeCombat:execute(player, Variant(centerPos))
 end
 
 spell:group("support", "crippling")
@@ -81,7 +102,11 @@ spell:words("exori kor tempo")
 spell:castSound(SOUND_EFFECT_TYPE_SPELL_SAP_STRENGTH)
 spell:level(80)
 spell:mana(150)
-spell:isSelfTarget(true)
+spell:isPremium(true)
+spell:range(7)
+spell:isBlockingWalls(true)
+spell:isAggressive(true)
+spell:allowOnSelf(true)
 spell:cooldown(12 * 1000)
 spell:groupCooldown(2 * 1000, 12 * 1000)
 spell:vocation("sorcerer;true", "master sorcerer;true")

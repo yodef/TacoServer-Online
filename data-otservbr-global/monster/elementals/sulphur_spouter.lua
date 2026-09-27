@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Sulphur Spouter")
 local monster = {}
 
 monster.description = "a sulphur spouter"
-monster.experience = 11517
+monster.experience = 22500
 monster.outfit = {
 	lookType = 1547,
 	lookHead = 85,
@@ -74,6 +74,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ name = "primal bag", chance = 15 },
 	{ name = "Sulphur Powder", chance = 39440 },
 	{ name = "Crystal Coin", chance = 22310, minCount = 1, maxCount = 2 },
 	{ name = "Ultimate Mana Potion", chance = 12890, minCount = 1, maxCount = 2 },

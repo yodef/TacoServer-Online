@@ -5,7 +5,7 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	local player = creature:getPlayer()
 	if not player then return false end
-	return StanceSystem.toggle(player, "sniper", CONST_ME_CRITICAL_DAMAGE)
+	return StanceSystem.toggle(player, "sharpshooter", CONST_ME_CRITICAL_DAMAGE)
 end
 
 spell:name("Sniper Stance")

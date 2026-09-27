@@ -78,6 +78,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 43895, chance = 360 }, -- Bag you covet
 	{ name = "crystal coin", chance = 8852, maxCount = 125 },
 	{ name = "ultimate mana potion", chance = 11337, maxCount = 211 },
 	{ name = "giant emerald", chance = 6423, maxCount = 1 },

@@ -35,6 +35,9 @@ lightCondition:setParameter(CONDITION_PARAM_LIGHT_LEVEL, 15)
 lightCondition:setParameter(CONDITION_PARAM_LIGHT_COLOR, 154)
 lightCondition:setTicks(60 * 60 * 1000)
 
+local invisibleCondition = Condition(CONDITION_INVISIBLE)
+invisibleCondition:setParameter(CONDITION_PARAM_TICKS, 10 * 60 * 1000)
+
 local demonicCandyBall = Action()
 
 function demonicCandyBall.onUse(player, item, fromPosition, target, toPosition, isHotkey)
@@ -56,7 +59,7 @@ function demonicCandyBall.onUse(player, item, fromPosition, target, toPosition, 
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You feel enlightened.")
 	elseif randomConditionIndex == 3 then
 		player:updateFood(item:getId(), 3600)
-		player:addCondition(condition_i)
+		player:addCondition(invisibleCondition)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You became invisible.")
 	elseif randomConditionIndex == 4 then
 		player:addHealth(player:getMaxHealth())

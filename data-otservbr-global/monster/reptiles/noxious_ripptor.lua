@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Noxious Ripptor")
 local monster = {}
 
 monster.description = "a noxious ripptor"
-monster.experience = 13190
+monster.experience = 27000
 monster.outfit = {
 	lookType = 1558,
 	lookHead = 85,
@@ -75,6 +75,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ name = "primal bag", chance = 15 },
 	{ name = "Crystal Coin", chance = 26770, minCount = 1, maxCount = 2 },
 	{ name = "Ripptor Scales", chance = 12850 },
 	{ name = "Ultimate Health Potion", chance = 10570, minCount = 1, maxCount = 2 },

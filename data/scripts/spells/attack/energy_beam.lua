@@ -12,6 +12,24 @@ function onGetFormulaValuesWOD(player, level, maglevel)
 	return formulaFunction(player, level, maglevel)
 end
 
+local AREA_BEAM6_WIDE = {
+	{ 1, 1, 1 },
+	{ 1, 1, 1 },
+	{ 1, 1, 1 },
+	{ 1, 1, 1 },
+	{ 1, 1, 1 },
+	{ 1, 3, 1 },
+}
+
+local AREADIAGONAL_BEAM6_WIDE = {
+	{ 1, 1, 0, 0, 0, 0 },
+	{ 1, 1, 1, 0, 0, 0 },
+	{ 0, 1, 1, 1, 0, 0 },
+	{ 0, 0, 1, 1, 1, 0 },
+	{ 0, 0, 0, 1, 1, 1 },
+	{ 0, 0, 0, 0, 1, 3 },
+}
+
 local function createCombat(area, areaDiagonal, combatFunc)
 	local initCombat = Combat()
 	initCombat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, combatFunc)
@@ -22,7 +40,20 @@ local function createCombat(area, areaDiagonal, combatFunc)
 end
 
 local combat = createCombat(AREA_BEAM5, AREADIAGONAL_BEAM5, "onGetFormulaValues")
-local combatWOD = createCombat(AREA_BEAM7, AREADIAGONAL_BEAM7, "onGetFormulaValuesWOD")
+local combatWOD = createCombat(AREA_BEAM6_WIDE, AREADIAGONAL_BEAM6_WIDE, "onGetFormulaValuesWOD")
+
+local function hasBeamMastery(player)
+	if not player then
+		return false
+	end
+	if player:instantSkillWOD("Beam Mastery") then
+		return true
+	end
+	if player:upgradeSpellsWOD("Energy Beam") > 0 or player:upgradeSpellsWOD("Beam Mastery") > 0 then
+		return true
+	end
+	return false
+end
 
 local spell = Spell("instant")
 
@@ -31,7 +62,10 @@ function spell.onCastSpell(creature, var)
 	if not creature or not player then
 		return false
 	end
-	return player:instantSkillWOD("Beam Mastery") and combatWOD:execute(creature, var) or combat:execute(creature, var)
+	if hasBeamMastery(player) then
+		return combatWOD:execute(creature, var)
+	end
+	return combat:execute(creature, var)
 end
 
 spell:group("attack")

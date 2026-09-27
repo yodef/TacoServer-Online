@@ -1,3 +1,10 @@
+local function getEtherealBarrageGrade(player)
+	if not player then
+		return 0
+	end
+	return math.max(player:upgradeSpellsWOD("Ethereal Barrage"), player:upgradeSpellsWOD("Sharpshooter"))
+end
+
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_PHYSICALDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HITAREA)
@@ -6,9 +13,12 @@ combat:setParameter(COMBAT_PARAM_BLOCKARMOR, 1)
 combat:setArea(createCombatArea(AREA_CIRCLE3X3))
 
 function onGetFormulaValues(player, skill, attack, factor)
+	local grade = getEtherealBarrageGrade(player)
+	local mult = (grade >= 2) and 1.10 or 1.0
+
 	local levelTotal = player:getLevel() / 5
-	local min = -(((2 * skill + attack / 2500) * 1.8) + levelTotal + 5)
-	local max = -(((2 * skill + attack / 1875) * 2.6) + levelTotal + 10)
+	local min = -(((2 * skill + attack / 2500) * 1.8) + levelTotal + 5) * mult
+	local max = -(((2 * skill + attack / 1875) * 2.6) + levelTotal + 10) * mult
 	return min, max
 end
 
@@ -61,7 +71,21 @@ function spell.onCastSpell(creature, var)
 	end
 
 	local execVar = targetCreature and Variant(targetCreature:getId()) or Variant(centerPos)
-	return combat:execute(player, execVar)
+	if not combat:execute(player, execVar) then
+		return false
+	end
+
+	-- Stage I: 10% Life Leech
+	local grade = getEtherealBarrageGrade(player)
+	if grade >= 1 then
+		local hpToHeal = math.floor(player:getMaxHealth() * 0.05)
+		if hpToHeal > 0 and player:getHealth() < player:getMaxHealth() then
+			player:addHealth(hpToHeal)
+			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+		end
+	end
+
+	return true
 end
 
 spell:group("attack")

@@ -44,24 +44,47 @@ StanceSystem.Definitions = {
 		},
 		desc = "+30% Shielding, -15% Damage Taken, -15% Damage Dealt"
 	},
-	["sniper"] = {
-		name = "Sniper",
+	["sharpshooter"] = {
+		name = "Sharpshooter",
 		vocation = "paladin",
 		subId = StanceSystem.SUBID_PALADIN,
 		params = {
-			[CONDITION_PARAM_SKILL_DISTANCEPERCENT] = 135,
+			[CONDITION_PARAM_SKILL_DISTANCEPERCENT] = 132,
 			[CONDITION_PARAM_BUFF_HEALINGRECEIVED] = 85,
 		},
-		desc = "+35% Distance Skill, -15% Self Healing"
+		desc = "+32% Distance Skill, -15% Self Healing"
 	},
-	["radiant-evasion"] = {
-		name = "Radiant Evasion",
+	["divine-defiance"] = {
+		name = "Divine Defiance",
 		vocation = "paladin",
 		subId = StanceSystem.SUBID_PALADIN,
 		params = {
-			[CONDITION_PARAM_BUFF_DAMAGERECEIVED] = 95,
+			[CONDITION_PARAM_INCREASE_HOLYPERCENT] = 10,
+			[CONDITION_PARAM_BUFF_HEALINGDEALT] = 110,
+			[CONDITION_PARAM_BUFF_DAMAGERECEIVED] = 90,
 		},
-		desc = "-5% Damage Taken"
+		desc = "+10% Holy Damage, +10% Healing Output, -10% Damage Taken"
+	},
+	["sniper"] = {
+		name = "Sharpshooter",
+		vocation = "paladin",
+		subId = StanceSystem.SUBID_PALADIN,
+		params = {
+			[CONDITION_PARAM_SKILL_DISTANCEPERCENT] = 132,
+			[CONDITION_PARAM_BUFF_HEALINGRECEIVED] = 85,
+		},
+		desc = "+32% Distance Skill, -15% Self Healing"
+	},
+	["radiant-evasion"] = {
+		name = "Divine Defiance",
+		vocation = "paladin",
+		subId = StanceSystem.SUBID_PALADIN,
+		params = {
+			[CONDITION_PARAM_INCREASE_HOLYPERCENT] = 10,
+			[CONDITION_PARAM_BUFF_HEALINGDEALT] = 110,
+			[CONDITION_PARAM_BUFF_DAMAGERECEIVED] = 90,
+		},
+		desc = "+10% Holy Damage, +10% Healing Output, -10% Damage Taken"
 	},
 	["flames"] = {
 		name = "Master of Flames",
@@ -149,7 +172,7 @@ function StanceSystem.toggle(player, stanceKey, effect)
 	if not def then return false end
 
 	local current = StanceSystem.getActiveStance(player)
-	if current == stanceKey then
+	if current == stanceKey or (current and StanceSystem.Definitions[current] and StanceSystem.Definitions[current].name == def.name) then
 		StanceSystem.removeCurrentStance(player)
 		player:sendTextMessage(MESSAGE_LOOK, string.format("You deactivated %s Stance and returned to Neutral.", def.name))
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
@@ -184,4 +207,3 @@ function StanceSystem.onLogin(player)
 		end
 	end
 end
-

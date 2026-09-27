@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Converter")
 local monster = {}
 
 monster.description = "a converter"
-monster.experience = 21425
+monster.experience = 39000
 monster.outfit = {
 	lookType = 1623,
 	lookHead = 0,
@@ -71,6 +71,7 @@ monster.light = {
 }
 
 monster.loot = {
+	{ id = 43895, chance = 15 },
 	{ name = "crystal coin", chance = 5230, maxCount = 1 },
 	{ name = "darklight obsidian axe", chance = 6963, maxCount = 1 },
 	{ name = "darklight matter", chance = 6927, maxCount = 1 },

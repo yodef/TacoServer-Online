@@ -1,3 +1,10 @@
+local function getThousandFistBlowsGrade(player)
+	if not player then
+		return 0
+	end
+	return math.max(player:upgradeSpellsWOD("Thousand Fist Blows"), player:upgradeSpellsWOD("Flurry of Blows"))
+end
+
 local SPELL_BASE_POWER = 110
 
 local combat = Combat()
@@ -9,7 +16,10 @@ combat:setArea(createCombatArea(AREA_CIRCLE3X3))
 
 function onGetFormulaValues(player, skill, attack, factor)
 	local damageHealing = player:calculateFlatDamageHealing()
-	local damage = SPELL_BASE_POWER * (skill / 100) * (attack / 10) + damageHealing
+	local grade = getThousandFistBlowsGrade(player)
+	local mult = (grade >= 2) and 1.12 or 1.0
+
+	local damage = (SPELL_BASE_POWER * (skill / 100) * (attack / 10) + damageHealing) * mult
 	local min = damage - (damage / 10)
 	local max = damage + (damage / 10)
 	return -min, -max
@@ -63,6 +73,16 @@ function spell.onCastSpell(creature, var)
 		return false
 	end
 
+	local grade = getThousandFistBlowsGrade(player)
+	local cdMs = (grade >= 1) and 6000 or 8000
+	local condition = Condition(CONDITION_SPELLCOOLDOWN, CONDITIONID_DEFAULT, 301)
+	local rate = configManager.getFloat(configKeys.RATE_SPELL_COOLDOWN)
+	if not rate or rate <= 0 then
+		rate = 1.0
+	end
+	condition:setTicks(cdMs / rate)
+	player:addCondition(condition)
+
 	local execVar = targetCreature and Variant(targetCreature:getId()) or Variant(centerPos)
 	return combat:execute(player, execVar)
 end
@@ -75,7 +95,7 @@ spell:castSound(SOUND_EFFECT_TYPE_SPELL_DIVINE_CALDERA)
 spell:level(120)
 spell:mana(145)
 spell:isPremium(true)
-spell:cooldown(8 * 1000)
+spell:cooldown(1000) -- Dynamic cooldown calculated on cast (6s or 8s)
 spell:groupCooldown(2 * 1000)
 
 spell:monkSpellType(MonkSpell_Builder)

@@ -44,7 +44,7 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	local player = creature:getPlayer()
 	if creature and player then
-		if player:getWheelSpellAdditionalArea("Mass Spirit Mend") then
+		if player:getWheelSpellAdditionalArea("Mass Spirit Mend") or (player:upgradeSpellsWOD("Mass Spirit Mend") >= 2) then
 			return combatWOD:execute(creature, var)
 		end
 	end

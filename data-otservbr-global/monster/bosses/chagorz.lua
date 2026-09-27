@@ -78,6 +78,7 @@ monster.voices = {
 }
 
 monster.loot = {
+	{ id = 43895, chance = 360 }, -- Bag you covet
 	{ name = "crystal coin", chance = 5441, maxCount = 108 },
 	{ name = "mastermind potion", chance = 5530, maxCount = 28 },
 	{ name = "supreme health potion", chance = 5044, maxCount = 154 },

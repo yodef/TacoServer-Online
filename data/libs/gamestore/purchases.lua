@@ -37,7 +37,11 @@ local function processChargesPurchase(player, offerId, name, charges, movable, s
 end
 
 local function processSingleBlessingPurchase(player, blessId, count)
-	player:addBlessing(blessId, count)
+	local currentCount = player:getBlessingCount(blessId)
+	local toAdd = math.min(count, math.max(0, 5 - currentCount))
+	if toAdd > 0 then
+		player:addBlessing(blessId, toAdd)
+	end
 end
 
 local function processAllBlessingsPurchase(player, count)
@@ -66,6 +70,9 @@ local function processInstantRewardAccess(player, offerCount)
 end
 
 local function processCharmsPurchase(player)
+	if player:charmExpansion() then
+		return error({ code = 1, message = "You already have charm expansion." })
+	end
 	player:charmExpansion(true)
 end
 

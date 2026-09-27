@@ -7,6 +7,7 @@ local helpMessages = {
 	"Available commands:\n",
 	"!livestream on - enables the stream",
 	"!livestream off - disables the stream",
+	"!livestream list (or !streams) - shows all active livestreams",
 	"!livestream desc, description (or empty for remove) - sets description about your livestream",
 	"!livestream desc, remove/delete - removes description",
 	"!livestream password, password - sets a password on the stream",
@@ -20,6 +21,9 @@ local helpMessages = {
 	"!livestream mutes - shows muted spectators list",
 	"!livestream show - displays the amount and nicknames of current spectators",
 	"!livestream status - displays stream status",
+	"\n>> HOW TO SPECTATE / COMO ESPECTAR:",
+	"Inicia sesion en tu cliente con usuario: @livestream",
+	"(Deja la contrasena vacia o pon la del stream) y selecciona al jugador para ver su pantalla en vivo!",
 }
 
 local function containsName(list, name)
@@ -111,29 +115,74 @@ local function setExperienceBonus(player, enabled)
 
 	if enabled then
 		player:kv():scoped("livestream-system"):set("experience-bonus", true)
+		player:setStorageValue(14035, 1)
 		player:sendTextMessage(MESSAGE_LOOK, "Experience bonus activated: +" .. bonusPercent .. "%")
 	else
 		player:kv():scoped("livestream-system"):remove("experience-bonus")
+		player:setStorageValue(14035, -1)
 		player:sendTextMessage(MESSAGE_LOOK, "Experience bonus deactivated: -" .. bonusPercent .. "%")
 	end
 end
 
-local talkaction = TalkAction("!livestream")
+local talkaction = TalkAction("!livestream", "!cast", "!streams")
 
 function talkaction.onSay(player, words, param)
-	local minLevelToLivestream = configManager.getNumber(configKeys.LIVESTREAM_CASTER_MIN_LEVEL)
-	if player:getLevel() < minLevelToLivestream then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to be at least level " .. minLevelToLivestream .. " to use this command.")
-		return false
+	local split = param:splitTrimmed(",")
+	local command = (split[1] or ""):lower()
+	local value = split[2]
+
+	if command == "" then
+		if words:lower() == "!streams" then
+			command = "list"
+		else
+			command = "help"
+		end
 	end
 
-	local split = param:splitTrimmed(",")
-	local command = (split[1] or "help"):lower()
-	local value = split[2]
 	local data = normalizeData(player:getLivestreamViewers())
 
 	if command == "help" then
 		player:popupFYI(table.concat(helpMessages, "\n"))
+	elseif table.contains({ "list", "streams", "casters", "online" }, command) then
+		local activeStreams = {}
+		for _, targetPlayer in ipairs(Game.getPlayers()) do
+			local targetData = targetPlayer:getLivestreamViewers()
+			if targetData and targetData.broadcast then
+				table.insert(activeStreams, {
+					name = targetPlayer:getName(),
+					level = targetPlayer:getLevel(),
+					vocation = targetPlayer:getVocation():getName(),
+					viewers = targetPlayer:getLivestreamViewersCount() or 0,
+					hasPassword = (targetData.password and targetData.password ~= ""),
+					description = (targetData.description and targetData.description ~= "") and targetData.description or nil
+				})
+			end
+		end
+
+		if #activeStreams == 0 then
+			player:sendTextMessage(MESSAGE_STATUS, "There are currently no active livestreams.")
+			player:sendTextMessage(MESSAGE_LOOK, "To start streaming, use: !livestream on (level " .. (configManager.getNumber(configKeys.LIVESTREAM_CASTER_MIN_LEVEL) or 200) .. "+)")
+			return true
+		end
+
+		local msg = "=== ACTIVE LIVESTREAMS (" .. #activeStreams .. ") ===\n"
+		for _, s in ipairs(activeStreams) do
+			msg = msg .. string.format("\n* %s [Lvl %d %s] - %d viewers%s",
+				s.name, s.level, s.vocation, s.viewers,
+				s.hasPassword and " [Password Protected]" or " [Public]"
+			)
+			if s.description then
+				msg = msg .. "\n   Description: " .. s.description
+			end
+		end
+		msg = msg .. "\n\n--------------------------------------------"
+		msg = msg .. "\n>> HOW TO SPECTATE / COMO ESPECTAR:"
+		msg = msg .. "\n1. Inicia sesion en tu cliente con usuario: @livestream"
+		msg = msg .. "\n2. Deja la contrasena vacia (o pon la del stream si tiene clave)."
+		msg = msg .. "\n3. Selecciona al jugador de la lista y entraras como espectador a ver su pantalla en vivo!"
+
+		player:popupFYI(msg)
+		return true
 	elseif table.contains({ "off", "no", "disable" }, command) then
 		if not data.broadcast then
 			player:sendTextMessage(MESSAGE_STATUS, "You already have the live stream closed.")
@@ -146,9 +195,15 @@ function talkaction.onSay(player, words, param)
 		setExperienceBonus(player, false)
 		playersStreaming[player:getGuid()] = nil
 	elseif table.contains({ "on", "yes", "enable" }, command) then
+		local minLevelToLivestream = configManager.getNumber(configKeys.LIVESTREAM_CASTER_MIN_LEVEL)
+		if player:getLevel() < minLevelToLivestream then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to be at least level " .. minLevelToLivestream .. " to start a livestream.")
+			return false
+		end
+
 		if data.broadcast then
 			upsertLivestreamStatus(player, data.password == "" and 1 or 3, #data.names)
-			setExperienceBonus(player, data.password == "")
+			setExperienceBonus(player, true)
 			playersStreaming[player:getGuid()] = true
 			player:sendTextMessage(MESSAGE_STATUS, "You already have the live stream open.")
 			return true
@@ -156,7 +211,7 @@ function talkaction.onSay(player, words, param)
 		data.broadcast = true
 		upsertLivestreamStatus(player, data.password == "" and 1 or 3, #data.names)
 		player:sendTextMessage(MESSAGE_STATUS, "You have started live broadcast.")
-		setExperienceBonus(player, data.password == "")
+		setExperienceBonus(player, true)
 		playersStreaming[player:getGuid()] = true
 	elseif table.contains({ "show", "count", "see" }, command) then
 		if not data.broadcast then
@@ -289,6 +344,7 @@ local logoutEvent = CreatureEvent("LivestreamLogout")
 function logoutEvent.onLogout(player)
 	updateLivestreamStatus(player, 0, 0)
 	playersStreaming[player:getGuid()] = nil
+	player:setStorageValue(14035, -1)
 	return true
 end
 
@@ -300,6 +356,7 @@ function loginEvent.onLogin(player)
 	player:registerEvent("LivestreamLogout")
 	updateLivestreamStatus(player, 0, 0)
 	player:kv():scoped("livestream-system"):remove("experience-bonus")
+	player:setStorageValue(14035, -1)
 	return true
 end
 
@@ -330,15 +387,3 @@ function startupEvent.onStartup()
 end
 
 startupEvent:register()
-
-local gainExperience = EventCallback("LivestreamSystemGainExperience")
-
-function gainExperience.playerOnGainExperience(player, target, exp, rawExp)
-	if experienceMultiplier and experienceMultiplier > 1.0 and player:kv():scoped("livestream-system"):get("experience-bonus") then
-		exp = math.floor(exp * experienceMultiplier + 0.5)
-	end
-
-	return exp
-end
-
-gainExperience:register()

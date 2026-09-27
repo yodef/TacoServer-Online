@@ -165,6 +165,33 @@ function createHirelingType(HirelingName)
 			{ itemName = "lasting exercise wand", clientId = 35290, buy = 10000000, subType = 14400 },
 			{ itemName = "lasting exercise shield", clientId = 44067, buy = 10000000, subType = 14400 },
 		},
+		["food"] = {
+			-- Gourmet Dishes (Hireling Cooking)
+			{ itemName = "roasted wyvern wings", clientId = 29408, buy = 90000 },
+			{ itemName = "carrot pie", clientId = 29409, buy = 90000 },
+			{ itemName = "tropical marinated tiger", clientId = 29410, buy = 90000 },
+			{ itemName = "delicatessen salad", clientId = 29411, buy = 90000 },
+			{ itemName = "chilli con carniphila", clientId = 29412, buy = 90000 },
+			{ itemName = "svargrond salmon filet", clientId = 29413, buy = 90000 },
+			{ itemName = "carrion casserole", clientId = 29414, buy = 90000 },
+			{ itemName = "consecrated beef", clientId = 29415, buy = 90000 },
+
+			-- Hot Cuisine Quest Dishes
+			{ itemName = "rotworm stew", clientId = 9079, buy = 90000 },
+			{ itemName = "hydra tongue salad", clientId = 9080, buy = 90000 },
+			{ itemName = "roasted dragon wings", clientId = 9081, buy = 90000 },
+			{ itemName = "tropical fried terrorbird", clientId = 9082, buy = 90000 },
+			{ itemName = "banana chocolate shake", clientId = 9083, buy = 90000 },
+			{ itemName = "veggie casserole", clientId = 9084, buy = 90000 },
+			{ itemName = "filled jalapeno peppers", clientId = 9085, buy = 90000 },
+			{ itemName = "blessed steak", clientId = 9086, buy = 90000 },
+			{ itemName = "carrot cake", clientId = 9087, buy = 90000 },
+			{ itemName = "northern fishburger", clientId = 9088, buy = 90000 },
+			{ itemName = "coconut shrimp bake", clientId = 11584, buy = 90000 },
+			{ itemName = "pot of blackjack", clientId = 11586, buy = 90000 },
+			{ itemName = "demonic candy ball", clientId = 11587, buy = 90000 },
+			{ itemName = "sweet mangonaise elixir", clientId = 11588, buy = 90000 },
+		},
 		["exercise weapons"] = {
 			{ itemName = "exercise axe", clientId = 28553, buy = 347222, subType = 500 },
 			{ itemName = "exercise bow", clientId = 28555, buy = 347222, subType = 500 },
@@ -473,7 +500,7 @@ function createHirelingType(HirelingName)
 			if skills[i] == HIRELING_SKILLS.BANKER[1] then
 				str = str .. "to access your {bank} account" -- TODO: this setence is not official
 			elseif skills[i] == HIRELING_SKILLS.COOKING[1] then
-				str = str .. "to order {food}"
+				str = str .. "to buy {food}"
 			elseif skills[i] == HIRELING_SKILLS.STEWARD[1] then
 				str = str .. "to open your {stash}"
 			end
@@ -639,10 +666,20 @@ function createHirelingType(HirelingName)
 			},
 			["food"] = {
 				skill = HIRELING_SKILLS.COOKING[2],
-				topic = TOPIC.FOOD,
+				topic = TOPIC.SERVICES,
 				action = function()
-					npcHandler:setTopic(playerId, TOPIC.FOOD)
-					npcHandler:say(GREETINGS.FOOD, npc, creature)
+					npc:closeShopWindow(player)
+					npcHandler:say("Here is our fine selection of gourmet dishes and Hot Cuisine delicacies.", npc, creature)
+					npc:openShopWindowTable(player, itemsTable["food"])
+				end,
+			},
+			["dishes"] = {
+				skill = HIRELING_SKILLS.COOKING[2],
+				topic = TOPIC.SERVICES,
+				action = function()
+					npc:closeShopWindow(player)
+					npcHandler:say("Here is our fine selection of gourmet dishes and Hot Cuisine delicacies.", npc, creature)
+					npc:openShopWindowTable(player, itemsTable["food"])
 				end,
 			},
 			["stash"] = {
@@ -661,9 +698,9 @@ function createHirelingType(HirelingName)
 				action = function()
 					local string
 					if not hireling:hasSkill(HIRELING_SKILLS.TRADER[2]) then
-						string = "While I'm not a trader, I still have a collection of {various} items to sell if you like!"
+						string = "While I'm not a trader, I still have a collection of {various} items" .. (hireling:hasSkill(HIRELING_SKILLS.COOKING[2]) and " and {food}" or "") .. " to sell if you like!"
 					else
-						string = "I sell a selection of {various} items, {exercise weapons}, {equipment}, " .. "{distance} weapons, {wands} and {rods}, {potions}, {runes}, " .. "{supplies}, {tools} and {postal} goods. Just ask!"
+						string = "I sell a selection of {various} items, {food}, {exercise weapons}, {equipment}, " .. "{distance} weapons, {wands} and {rods}, {potions}, {runes}, " .. "{supplies}, {tools} and {postal} goods. Just ask!"
 					end
 					npcHandler:setTopic(playerId, TOPIC.GOODS)
 					npcHandler:say(string, npc, creature)
@@ -682,7 +719,26 @@ function createHirelingType(HirelingName)
 			end
 		end
 
-		if hireling:hasSkill(HIRELING_SKILLS.TRADER[2]) then
+		if MsgContains(message, "trade") then
+			if hireling:hasSkill(HIRELING_SKILLS.COOKING[2]) then
+				npc:closeShopWindow(player)
+				npcHandler:say("Here is our fine selection of gourmet dishes and Hot Cuisine delicacies.", npc, creature)
+				npc:openShopWindowTable(player, itemsTable["food"])
+				return true
+			elseif hireling:hasSkill(HIRELING_SKILLS.TRADER[2]) then
+				npc:closeShopWindow(player)
+				npcHandler:say("Here are my wares.", npc, creature)
+				npc:openShopWindowTable(player, itemsTable["various"])
+				return true
+			else
+				npc:closeShopWindow(player)
+				npcHandler:say("Here are some various items I have available.", npc, creature)
+				npc:openShopWindowTable(player, itemsTable["various"])
+				return true
+			end
+		end
+
+		if hireling:hasSkill(HIRELING_SKILLS.TRADER[2]) or (hireling:hasSkill(HIRELING_SKILLS.COOKING[2]) and message:lower() == "food") then
 			local categoryTable = itemsTable[message:lower()]
 			if categoryTable then
 				npc:closeShopWindow(player)
@@ -720,13 +776,14 @@ function createHirelingType(HirelingName)
 				else
 					sendSkillNotLearned(npc, creature, bankerSkillName)
 				end
-			elseif MsgContains(message, "food") then
-				local bankerSkillName = HIRELING_SKILLS.COOKING[2]
-				if hireling:hasSkill(bankerSkillName) then
-					npcHandler:setTopic(playerId, TOPIC.FOOD)
-					npcHandler:say(GREETINGS.FOOD, npc, creature)
+			elseif MsgContains(message, "food") or MsgContains(message, "dishes") then
+				local cookingSkillName = HIRELING_SKILLS.COOKING[2]
+				if hireling:hasSkill(cookingSkillName) or hireling:hasSkill(HIRELING_SKILLS.TRADER[2]) then
+					npc:closeShopWindow(player)
+					npcHandler:say("Here is our fine selection of gourmet dishes and Hot Cuisine delicacies.", npc, creature)
+					npc:openShopWindowTable(player, itemsTable["food"])
 				else
-					sendSkillNotLearned(npc, creature, bankerSkillName)
+					sendSkillNotLearned(npc, creature, cookingSkillName)
 				end
 			elseif MsgContains(message, "stash") then
 				local bankerSkillName = HIRELING_SKILLS.STEWARD[2]
@@ -741,9 +798,9 @@ function createHirelingType(HirelingName)
 			elseif MsgContains(message, "goods") then
 				local string
 				if not hireling:hasSkill(HIRELING_SKILLS.TRADER[2]) then
-					string = "While I'm not a trader, I still have a collection of {various} items to sell if you like!"
+					string = "While I'm not a trader, I still have a collection of {various} items" .. (hireling:hasSkill(HIRELING_SKILLS.COOKING[2]) and " and {food}" or "") .. " to sell if you like!"
 				else
-					string = "I sell a selection of {various} items, {exercise weapons}, {equipment}, " .. "{distance} weapons, {wands} and {rods}, {potions}, {runes}, " .. "{supplies}, {tools} and {postal} goods. Just ask!"
+					string = "I sell a selection of {various} items, {food}, {exercise weapons}, {equipment}, " .. "{distance} weapons, {wands} and {rods}, {potions}, {runes}, " .. "{supplies}, {tools} and {postal} goods. Just ask!"
 				end
 				npcHandler:setTopic(playerId, TOPIC.GOODS)
 				npcHandler:say(string, npc, creature)
@@ -762,7 +819,6 @@ function createHirelingType(HirelingName)
 				hireling:requestOutfitChange()
 				npcHandler:say("As you wish!", npc, creature)
 			end
-			npcHandler:say("Are you sure you want me to go back to my lamp?", npc, creature)
 		elseif npcHandler:getTopic(playerId) == TOPIC.LAMP then
 			if MsgContains(message, "yes") then
 				hireling:returnToLamp(player:getGuid())

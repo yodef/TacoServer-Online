@@ -18,6 +18,7 @@ end
 
 --==Sending==--
 local function openStore(playerId)
+	logger.info("[GameStore] openStore called for playerId={}", playerId)
 	local player = Player(playerId)
 	if not player then
 		return false
@@ -29,7 +30,8 @@ local function openStore(playerId)
 
 	local oldProtocol = player:getClient().version < 1200
 	local msg = NetworkMessage()
-	msg:addByte(GameStore.SendingPackets.S_OpenStore)
+	local openStoreByte = oldProtocol and (GameStore.OldProtocolSendingPackets and GameStore.OldProtocolSendingPackets.S_OpenStore or 0xFA) or GameStore.SendingPackets.S_OpenStore
+	msg:addByte(openStoreByte)
 	if oldProtocol then
 		msg:addByte(0x00)
 	end
@@ -44,7 +46,7 @@ local function openStore(playerId)
 	local addCategory = function(category)
 		msg:addString(category.name, "openStore - category.name")
 		if oldProtocol then
-			msg:addString(category.description, "openStore - category.description")
+			msg:addString(category.description or "", "openStore - category.description")
 		end
 
 		msg:addByte(category.state or GameStore.States.STATE_NONE)
@@ -280,7 +282,8 @@ local function sendShowStoreOffers(playerId, category, redirectId)
 	msg:delete()
 end
 
-local function sendShowStoreOffersOnOldProtocol(playerId, category)
+local function sendShowStoreOffersOnOldProtocol(playerId, category, requestedName)
+	logger.info("[GameStore] sendShowStoreOffersOnOldProtocol for playerId={}, req={}", playerId, requestedName)
 	local player = Player(playerId)
 	if not player then
 		return false
@@ -288,10 +291,26 @@ local function sendShowStoreOffersOnOldProtocol(playerId, category)
 
 	local msg = NetworkMessage()
 	local haveSaleOffer = 0
-	msg:addByte(GameStore.SendingPackets.S_StoreOffers)
-	msg:addString(category.name, "sendShowStoreOffersOnOldProtocol - category.name")
+	local offersByte = GameStore.OldProtocolSendingPackets and GameStore.OldProtocolSendingPackets.S_StoreOffers or 0xFB
+	msg:addByte(offersByte)
+	msg:addString(requestedName or category.name, "sendShowStoreOffersOnOldProtocol - category.name")
 
-	if not category.offers then
+	local offersList = category.offers
+	if (not offersList or #offersList == 0) and category.subclasses then
+		offersList = {}
+		for _, subName in ipairs(category.subclasses) do
+			local subCat = GameStore.getCategoryByName(subName)
+			if subCat and subCat.offers then
+				for _, off in ipairs(subCat.offers) do
+					table.insert(offersList, off)
+					if #offersList >= 30 then break end
+				end
+			end
+			if #offersList >= 30 then break end
+		end
+	end
+
+	if not offersList or #offersList == 0 then
 		msg:addU16(0)
 		msg:sendToPlayer(player)
 		player:sendButtonIndication(haveSaleOffer, 1)
@@ -300,19 +319,16 @@ local function sendShowStoreOffersOnOldProtocol(playerId, category)
 
 	local limit = 30
 	local count = 0
-	for _, offer in ipairs(category.offers) do
+	for _, offer in ipairs(offersList) do
 		if limit > 0 then
-			-- Blocking offers that are not on coin currency. On old protocol we cannot change or validate any currency instead the default (Coin)
-			if not offer.coinType or offer.coinType == GameStore.CoinType.Coin then
-				count = count + 1
-			end
+			count = count + 1
 			limit = limit - 1
 		end
 	end
 
 	msg:addU16(count)
-	for _, offer in ipairs(category.offers) do
-		if count > 0 and offer.coinType == GameStore.CoinType.Coin then
+	for _, offer in ipairs(offersList) do
+		if count > 0 then
 			count = count - 1
 			local name = ""
 			if offer.type == GameStore.OfferTypes.OFFER_TYPE_ITEM and offer.count then
@@ -326,7 +342,7 @@ local function sendShowStoreOffersOnOldProtocol(playerId, category)
 			name = name .. (offer.name or "Something Special")
 			local newPrice = nil
 			if offer.state == GameStore.States.STATE_SALE then
-				local daySub = offer.validUntil - os.sdate("*t").day
+				local daySub = offer.validUntil - os.date("*t").day
 				if daySub < 0 then
 					newPrice = offer.basePrice
 				end
@@ -342,10 +358,10 @@ local function sendShowStoreOffersOnOldProtocol(playerId, category)
 			msg:addU32(offerPrice)
 			if offer.state then
 				if offer.state == GameStore.States.STATE_SALE then
-					local daySub = offer.validUntil - os.sdate("*t").day
+					local daySub = offer.validUntil - os.date("*t").day
 					if daySub >= 0 then
 						msg:addByte(offer.state)
-						msg:addU32(os.stime() + daySub * 86400)
+						msg:addU32(os.time() + daySub * 86400)
 						msg:addU32(offer.basePrice)
 						haveSaleOffer = 1
 					else
@@ -401,7 +417,8 @@ local function sendStoreTransactionHistory(playerId, page, entriesPerPage)
 	local totalPages = math.ceil(totalEntries / entriesPerPage)
 
 	local msg = NetworkMessage()
-	msg:addByte(GameStore.SendingPackets.S_OpenTransactionHistory)
+	local histByte = oldProtocol and (GameStore.OldProtocolSendingPackets and GameStore.OldProtocolSendingPackets.S_OpenTransactionHistory or 0xFC) or GameStore.SendingPackets.S_OpenTransactionHistory
+	msg:addByte(histByte)
 	msg:addU32(totalPages > 0 and page - 1 or 0x0) -- current page
 	msg:addU32(totalPages > 0 and totalPages or 0x0) -- total page
 	msg:addByte(#entries)
@@ -435,7 +452,8 @@ local function sendStorePurchaseSuccessful(playerId, message)
 	local regularCoins = player:getTibiaCoins()
 	local totalCoins = regularCoins + transferableCoins
 	local msg = NetworkMessage()
-	msg:addByte(GameStore.SendingPackets.S_CompletePurchase)
+	local purchByte = oldProtocol and (GameStore.OldProtocolSendingPackets and GameStore.OldProtocolSendingPackets.S_CompletePurchase or 0xFD) or GameStore.SendingPackets.S_CompletePurchase
+	msg:addByte(purchByte)
 	msg:addByte(0x00)
 	msg:addString(message, "sendStorePurchaseSuccessful - message")
 	if oldProtocol then
@@ -454,8 +472,10 @@ local function sendStoreError(playerId, errorType, message)
 		return false
 	end
 
+	local oldProtocol = player:getClient().version < 1200
 	local msg = NetworkMessage()
-	msg:addByte(GameStore.SendingPackets.S_StoreError)
+	local errByte = oldProtocol and (GameStore.OldProtocolSendingPackets and GameStore.OldProtocolSendingPackets.S_StoreError or 0xDF) or GameStore.SendingPackets.S_StoreError
+	msg:addByte(errByte)
 	msg:addByte(errorType)
 	msg:addString(message, "sendStoreError - message")
 	msg:sendToPlayer(player)
@@ -491,7 +511,9 @@ local function sendUpdatedStoreBalances(playerId)
 	msg:addByte(GameStore.SendingPackets.S_CoinBalanceUpdating)
 	msg:addByte(0x01)
 
-	msg:addByte(GameStore.SendingPackets.S_CoinBalance)
+	local oldProtocol = player:getClient().version < 1200
+	local coinByte = oldProtocol and (GameStore.OldProtocolSendingPackets and GameStore.OldProtocolSendingPackets.S_CoinBalance or 0xDE) or GameStore.SendingPackets.S_CoinBalance
+	msg:addByte(coinByte)
 	msg:addByte(0x01)
 
 	-- Send total of coins that can be used in store purchases.

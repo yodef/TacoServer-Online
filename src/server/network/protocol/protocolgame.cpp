@@ -1308,7 +1308,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg) {
 
 	const auto &onlinePlayer = g_game().getPlayerByName(characterName);
 	const auto &foundPlayer = !onlinePlayer ? g_game().getDeadPlayer(characterName) : onlinePlayer;
-	if (foundPlayer && foundPlayer->client && accountDescriptor != "@livestream") {
+	if (foundPlayer && foundPlayer->client && accountDescriptor != "@livestream" && accountDescriptor != "@cast") {
 		if (foundPlayer->isDead()) {
 			disconnectClient("You are already logged in.");
 			return;
@@ -1375,7 +1375,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg) {
 		return;
 	}
 
-	if (accountDescriptor == "@livestream") {
+	if (accountDescriptor == "@livestream" || accountDescriptor == "@cast") {
 		g_dispatcher().addEvent([self = getThis(), characterName, password, operatingSystem] {
 			self->castViewerLogin(characterName, password, operatingSystem);
 		},
@@ -6127,13 +6127,29 @@ void ProtocolGame::sendChannelMessage(const std::string &author, const std::stri
 		if (clientType == cipsoft860TalkNone) {
 			return;
 		}
+	} else if (oldProtocol && type >= TALKTYPE_MONSTER_LAST_OLDPROTOCOL && type != TALKTYPE_CHANNEL_R2) {
+		clientType = TALKTYPE_CHANNEL_O;
 	}
 
 	NetworkMessage msg;
 	msg.addByte(0xAA);
-	msg.add<uint32_t>(0x00);
-	msg.addString(author);
-	msg.add<uint16_t>(0x00);
+
+	static uint32_t statementId = 0;
+	msg.add<uint32_t>(++statementId);
+
+	if (author.empty()) {
+		msg.add<uint32_t>(0x00);
+		if (!oldProtocol && statementId != 0) {
+			msg.addByte(0x00); // Show (Traded)
+		}
+	} else {
+		msg.addString(author);
+		if (!oldProtocol && statementId != 0) {
+			msg.addByte(0x00); // Show (Traded)
+		}
+		msg.add<uint16_t>(0x00);
+	}
+
 	msg.addByte(clientType);
 	msg.add<uint16_t>(channel);
 	msg.addString(text);
@@ -6701,7 +6717,11 @@ void ProtocolGame::sendCoinBalance() {
 	msg.reset();
 
 	// send update
-	msg.addByte(0xDF);
+	if (oldProtocol) {
+		msg.addByte(0xDE);
+	} else {
+		msg.addByte(0xDF);
+	}
 	msg.addByte(0x01);
 
 	msg.add<uint32_t>(player->coinBalance); // Normal Coins

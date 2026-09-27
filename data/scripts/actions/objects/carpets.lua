@@ -159,6 +159,8 @@ local carpetItems = {
 	[42339] = 42338, -- opulent floor intarsia
 	[42340] = 42341,
 	[42341] = 42340, -- opulent carpet
+	[49215] = 49216,
+	[49216] = 49215, -- water floor
 }
 
 local carpets = Action()

@@ -29,7 +29,16 @@ function getChainValue(creature)
 	local targets = 3
 	local player = creature:getPlayer()
 	if player then
-		targets = targets + player:getWheelSpellAdditionalTarget("Chained Penance")
+		local extra = player:getWheelSpellAdditionalTarget("Chained Penance")
+		if not extra or extra == 0 then
+			local grade = player:upgradeSpellsWOD("Chained Penance")
+			if grade >= 2 then
+				extra = 2
+			elseif grade >= 1 then
+				extra = 1
+			end
+		end
+		targets = targets + (extra or 0)
 	end
 	return targets, 3, false
 end

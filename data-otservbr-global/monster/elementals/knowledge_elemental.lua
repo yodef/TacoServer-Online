@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Knowledge Elemental")
 local monster = {}
 
 monster.description = "a knowledge elemental"
-monster.experience = 10603
+monster.experience = 12600
 monster.outfit = {
 	lookType = 1065,
 	lookHead = 0,

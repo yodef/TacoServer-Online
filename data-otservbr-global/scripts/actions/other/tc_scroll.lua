@@ -1,10 +1,11 @@
 local tcScroll = Action()
 
 function tcScroll.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-		db.query("UPDATE `accounts` SET `coins_transferable` = `coins_transferable` + " .. 10000 .. " WHERE `id` = " .. player:getAccountId() .. ";")
-		player:sendCancelMessage("Scroll was used: +10,000 Tibia Coins.")
-		item:remove()
-		player:getPosition():sendMagicEffect(CONST_ME_HEARTS)
+	local count = 1000
+	player:addTransferableCoins(count)
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have added " .. count .. " tibia coins to your balance. Your total is now " .. player:getTransferableCoins() .. ".")
+	player:getPosition():sendMagicEffect(CONST_ME_HEARTS)
+	item:remove(1)
 	return true
 end
 
