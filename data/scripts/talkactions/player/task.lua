@@ -1,5 +1,6 @@
 -- TacoServer Task System - Talkaction (!task / /task in PZ) & Modal Window Interface
-if not TaskSystem or not TaskSystem.Config then
+-- Always ensure task_lib is fresh
+if true then
 	dofile(CORE_DIRECTORY .. "/scripts/lib/task_lib.lua")
 end
 
