@@ -37,7 +37,11 @@ exhaust:setParameter(CONDITION_PARAM_TICKS, (configManager.getNumber(configKeys.
 local function magicshield(player)
 	local condition = Condition(CONDITION_MANASHIELD)
 	condition:setParameter(CONDITION_PARAM_TICKS, 60000)
-	condition:setParameter(CONDITION_PARAM_MANASHIELD, math.min(player:getMaxMana(), 300 + 7.6 * player:getLevel() + 7 * player:getMagicLevel()))
+	local shieldAmount = 300 + 7.6 * player:getLevel() + 7 * player:getMagicLevel()
+	if player:getStorageValue(20002) > os.time() then
+		shieldAmount = math.floor(shieldAmount * 1.20)
+	end
+	condition:setParameter(CONDITION_PARAM_MANASHIELD, math.min(player:getMaxMana(), shieldAmount))
 	exhaust:setParameter(CONDITION_PARAM_TICKS, 500)
 	player:addCondition(condition)
 end
@@ -86,12 +90,29 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 	end
 
 	if potion.health or potion.mana or potion.combat then
+		local minHealth = potion.health and potion.health[1]
+		local maxHealth = potion.health and potion.health[2]
+		local minMana = potion.mana and potion.mana[1]
+		local maxMana = potion.mana and potion.mana[2]
+
+		-- Interdimensional Potion Buff: +20% HP and MP recovery for 1 hour
+		if target:isPlayer() and target:getStorageValue(20002) > os.time() then
+			if minHealth and maxHealth then
+				minHealth = math.floor(minHealth * 1.20)
+				maxHealth = math.floor(maxHealth * 1.20)
+			end
+			if minMana and maxMana then
+				minMana = math.floor(minMana * 1.20)
+				maxMana = math.floor(maxMana * 1.20)
+			end
+		end
+
 		if potion.health then
-			doTargetCombatHealth(player, target, COMBAT_HEALING, potion.health[1], potion.health[2], CONST_ME_MAGIC_BLUE)
+			doTargetCombatHealth(player, target, COMBAT_HEALING, minHealth, maxHealth, CONST_ME_MAGIC_BLUE)
 		end
 
 		if potion.mana then
-			doTargetCombatMana(0, target, potion.mana[1], potion.mana[2], CONST_ME_MAGIC_BLUE)
+			doTargetCombatMana(0, target, minMana, maxMana, CONST_ME_MAGIC_BLUE)
 		end
 
 		if potion.combat then

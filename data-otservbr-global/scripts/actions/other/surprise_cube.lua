@@ -25,7 +25,7 @@ local rewards = {
 	{ id = 23492, name = "blacklight figurine" },
 	{ id = 23493, name = "bloodlight figurine" },
 	{ id = 11372, name = "interdimensional potion" },
-	{ id = 11588, name = "sweet mangonaise elixir" },
+	{ id = 11588, name = "glory elixir" },
 }
 
 

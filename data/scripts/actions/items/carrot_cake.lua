@@ -18,7 +18,7 @@ function carrotCake.onUse(player, item, fromPosition, target, toPosition, isHotk
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You feel more focused.")
 	player:say("Mmmm.", TALKTYPE_MONSTER_SAY)
 	player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
-	player:setExhaustion("special-foods-cooldown", 10 * 60)
+	player:setExhaustion("special-foods-cooldown", 60 * 60)
 	item:remove(1)
 	return true
 end

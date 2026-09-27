@@ -18,7 +18,7 @@ function tropicalFriedTerrorbird.onUse(player, item, fromPosition, target, toPos
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You feel smarter.")
 	player:say("Chomp.", TALKTYPE_MONSTER_SAY)
 	player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
-	player:setExhaustion("special-foods-cooldown", 10 * 60)
+	player:setExhaustion("special-foods-cooldown", 60 * 60)
 	item:remove(1)
 	return true
 end

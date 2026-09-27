@@ -28152,7 +28152,7 @@
 	</item>
 	<item id="11372" article="an" name="interdimensional potion">
 		<attribute key="primarytype" value="liquids"/>
-		<attribute key="description" value="This potion will help you enter the dreams of any lifeform"/>
+		<attribute key="description" value="Imbued with interdimensional energy. Enhances all recovery potions by 20% for 1 hour."/>
 		<attribute key="weight" value="180"/>
 	</item>
 	<item fromid="11373" toid="11377" article="a" name="corrupted plantation"/>
@@ -28569,9 +28569,9 @@
 		<attribute key="description" value="You're never sure what demonic candy balls will do, but they sure taste sweet and exciting"/>
 		<attribute key="weight" value="950"/>
 	</item>
-	<item id="11588" article="a" name="sweet mangonaise elixir">
+	<item id="11588" article="a" name="glory elixir">
 		<attribute key="primarytype" value="liquids"/>
-		<attribute key="description" value="It's said to have incredible effects if you drink it while wearing certain magical rings. So it will not work on every kind of them"/>
+		<attribute key="description" value="Use this elixir to receive an epic Boss War key according to your selected difficulty."/>
 		<attribute key="weight" value="300"/>
 	</item>
 	<item id="11589" article="the" name="dead Glitterscale">

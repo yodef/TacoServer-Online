@@ -61,7 +61,7 @@ function hirelingFoods.onUse(player, item, fromPosition, target, toPosition, isH
 
 	player:say(dish.message, TALKTYPE_MONSTER_SAY)
 	player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
-	player:setExhaustion("special-foods-cooldown", 10 * 60)
+	player:setExhaustion("special-foods-cooldown", 60 * 60)
 
 	item:remove(1)
 	return true

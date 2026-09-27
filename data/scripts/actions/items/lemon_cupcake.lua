@@ -15,7 +15,7 @@ function lemonCupcake.onUse(player, item, fromPosition, target, toPosition, isHo
 	player:addCondition(distanceCondition)
 	player:sendTextMessage(MESSAGE_FAILURE, "You feel more focused.")
 	player:say("Mmmm.", TALKTYPE_MONSTER_SAY)
-	player:setExhaustion("lemon-cupcake-cooldown", 10 * 60)
+	player:setExhaustion("lemon-cupcake-cooldown", 60 * 60)
 	item:remove(1)
 	return true
 end

@@ -36,7 +36,7 @@ lightCondition:setParameter(CONDITION_PARAM_LIGHT_COLOR, 154)
 lightCondition:setTicks(60 * 60 * 1000)
 
 local invisibleCondition = Condition(CONDITION_INVISIBLE)
-invisibleCondition:setParameter(CONDITION_PARAM_TICKS, 10 * 60 * 1000)
+invisibleCondition:setParameter(CONDITION_PARAM_TICKS, 60 * 60 * 1000)
 
 local demonicCandyBall = Action()
 
@@ -69,7 +69,7 @@ function demonicCandyBall.onUse(player, item, fromPosition, target, toPosition, 
 
 	player:say("Smack.", TALKTYPE_MONSTER_SAY)
 	player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
-	player:setExhaustion("special-foods-cooldown", 10 * 60)
+	player:setExhaustion("special-foods-cooldown", 60 * 60)
 	item:remove(1)
 	return true
 end

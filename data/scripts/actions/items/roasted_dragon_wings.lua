@@ -18,7 +18,7 @@ function roastedDragonWings.onUse(player, item, fromPosition, target, toPosition
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You feel less vulnerable.")
 	player:say("Chomp.", TALKTYPE_MONSTER_SAY)
 	player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
-	player:setExhaustion("special-foods-cooldown", 10 * 60)
+	player:setExhaustion("special-foods-cooldown", 60 * 60)
 	item:remove(1)
 	return true
 end

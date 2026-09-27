@@ -190,7 +190,6 @@ function createHirelingType(HirelingName)
 			{ itemName = "coconut shrimp bake", clientId = 11584, buy = 90000 },
 			{ itemName = "pot of blackjack", clientId = 11586, buy = 90000 },
 			{ itemName = "demonic candy ball", clientId = 11587, buy = 90000 },
-			{ itemName = "sweet mangonaise elixir", clientId = 11588, buy = 90000 },
 		},
 		["exercise weapons"] = {
 			{ itemName = "exercise axe", clientId = 28553, buy = 347222, subType = 500 },
