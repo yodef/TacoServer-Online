@@ -87,7 +87,7 @@ function createHirelingType(HirelingName)
 			{ itemName = "knight statue kit", clientId = 2802, buy = 50 },
 			{ itemName = "large amphora kit", clientId = 2805, buy = 50 },
 			{ itemName = "large trunk", clientId = 2794, buy = 10 },
-			{ itemName = "locker kit", clientId = 2791, buy = 30 },
+			{ itemName = "depot locker kit", clientId = 2791, buy = 50000 },
 			{ itemName = "minotaur statue kit", clientId = 2803, buy = 50 },
 			{ itemName = "orange tapestry", clientId = 2653, buy = 25 },
 			{ itemName = "oven kit", clientId = 6371, buy = 80 },

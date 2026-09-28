@@ -4923,22 +4923,34 @@
 	</item>
 	<item id="2449" article="a" name="locker">
 		<attribute key="primarytype" value="furniture"/>
+		<attribute key="type" value="depot"/>
 		<attribute key="containersize" value="6"/>
+		<attribute key="usedbyhouseguests" value="1"/>
+		<attribute key="wrapableto" value="23398"/>
 		<attribute key="rotateto" value="2452"/>
 	</item>
 	<item id="2450" article="a" name="locker">
 		<attribute key="primarytype" value="furniture"/>
+		<attribute key="type" value="depot"/>
 		<attribute key="containersize" value="6"/>
+		<attribute key="usedbyhouseguests" value="1"/>
+		<attribute key="wrapableto" value="23398"/>
 		<attribute key="rotateto" value="2451"/>
 	</item>
 	<item id="2451" article="a" name="locker">
 		<attribute key="primarytype" value="furniture"/>
+		<attribute key="type" value="depot"/>
 		<attribute key="containersize" value="6"/>
+		<attribute key="usedbyhouseguests" value="1"/>
+		<attribute key="wrapableto" value="23398"/>
 		<attribute key="rotateto" value="2449"/>
 	</item>
 	<item id="2452" article="a" name="locker">
 		<attribute key="primarytype" value="furniture"/>
+		<attribute key="type" value="depot"/>
 		<attribute key="containersize" value="6"/>
+		<attribute key="usedbyhouseguests" value="1"/>
+		<attribute key="wrapableto" value="23398"/>
 		<attribute key="rotateto" value="2450"/>
 	</item>
 	<item id="2453" article="a" name="standing mirror">
@@ -5625,7 +5637,7 @@
 	</item>
 	<item id="2791" article="a" name="locker kit">
 		<attribute key="primarytype" value="furniture"/>
-		<attribute key="description" value="Use it in your house to construct a locker"/>
+		<attribute key="description" value="Use it in your house to construct a depot locker"/>
 		<attribute key="weight" value="3000"/>
 	</item>
 	<item id="2792" article="a" name="trough kit">
@@ -10935,11 +10947,37 @@
 	<item fromid="3493" toid="3496" article="a" name="crane">
 		<attribute key="primarytype" value="machines (objects)"/>
 	</item>
-	<item fromid="3497" toid="3500" article="a" name="locker">
+	<item id="3497" article="a" name="locker">
 		<attribute key="primarytype" value="furniture"/>
 		<attribute key="type" value="depot"/>
 		<attribute key="containersize" value="6"/>
 		<attribute key="usedbyhouseguests" value="1"/>
+		<attribute key="wrapableto" value="23398"/>
+		<attribute key="rotateto" value="3498"/>
+	</item>
+	<item id="3498" article="a" name="locker">
+		<attribute key="primarytype" value="furniture"/>
+		<attribute key="type" value="depot"/>
+		<attribute key="containersize" value="6"/>
+		<attribute key="usedbyhouseguests" value="1"/>
+		<attribute key="wrapableto" value="23398"/>
+		<attribute key="rotateto" value="3499"/>
+	</item>
+	<item id="3499" article="a" name="locker">
+		<attribute key="primarytype" value="furniture"/>
+		<attribute key="type" value="depot"/>
+		<attribute key="containersize" value="6"/>
+		<attribute key="usedbyhouseguests" value="1"/>
+		<attribute key="wrapableto" value="23398"/>
+		<attribute key="rotateto" value="3500"/>
+	</item>
+	<item id="3500" article="a" name="locker">
+		<attribute key="primarytype" value="furniture"/>
+		<attribute key="type" value="depot"/>
+		<attribute key="containersize" value="6"/>
+		<attribute key="usedbyhouseguests" value="1"/>
+		<attribute key="wrapableto" value="23398"/>
+		<attribute key="rotateto" value="3497"/>
 	</item>
 	<item id="3501" article="a" name="mailbox">
 		<attribute key="primarytype" value="utilities"/>
@@ -23354,6 +23392,7 @@
 	</item>
 	<item id="8778" article="a" name="jester doll">
 		<attribute key="primarytype" value="dolls and bears"/>
+		<attribute key="description" value="Use it to choose and unlock an outfit with full addons."/>
 		<attribute key="weight" value="1200"/>
 	</item>
 	<item id="8779" article="the" name="head of a jester doll">

@@ -80,7 +80,7 @@ function AddonDoll.onSay(player, words, param, type)
     player:removeItem(8778, 1)
     player:sendTextMessage(MESSAGE_INFO_DESCR, msg.success)
     player:getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
-    player:addOutfitAddon(outfit, 3)
+    player:addOutfit(outfit, 3)
     return true
 end
 
