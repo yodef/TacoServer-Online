@@ -256,6 +256,12 @@ local config = {
 			amount = 1,
 			points = 2000,
 		},
+		[16] = {
+			name = "addon doll",
+			id = 8778,
+			amount = 1,
+			points = 3000,
+		},
 	},
 }
 
@@ -437,6 +443,18 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif MsgContains(message, "have") then
 		local bpVal = (player.getBountyPoints and player:getBountyPoints()) or math.max(0, player:getStorageValue(14020))
 		npcHandler:say("Right now you have " .. player:getTaskHuntingPoints() .. " HTP and " .. bpVal .. " Bounty Points.", npc, creature)
+		npcHandler:setTopic(playerId, 0)
+	elseif MsgContains(message, "addon doll") or (MsgContains(message, "addon") and (MsgContains(message, "doll") or MsgContains(message, "buy"))) then
+		local cost = 3000
+		if player:getTaskHuntingPoints() < cost then
+			npcHandler:say("You need " .. cost .. " Hunting Task Points to buy an addon doll, but you only have " .. player:getTaskHuntingPoints() .. " HTP.", npc, creature)
+		else
+			if player:removeTaskHuntingPoints(cost) then
+				player:addItem(8778, 1)
+				npcHandler:say("Here is your {addon doll}! Use it to choose and unlock any outfit with full addons.", npc, creature)
+				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
+			end
+		end
 		npcHandler:setTopic(playerId, 0)
 	elseif MsgContains(message, "bounty amulet") or (MsgContains(message, "amulet") and (MsgContains(message, "bounty") or MsgContains(message, "buy"))) then
 		local cost = 2000
