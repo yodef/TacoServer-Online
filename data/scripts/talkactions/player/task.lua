@@ -351,14 +351,27 @@ function TaskSystem.openBountyRingWindow(player)
 	local isEquipped = player:hasBountyRingEquipped()
 	local statusStr = isEquipped and "Equipped [BONUSES ACTIVE!]" or "NOT Equipped (Equip Bounty Ring to activate!)"
 
+	local upgradeKeys = { "damage", "critical", "leech", "loot", "bestiary" }
+	local summaryLines = {}
+	for _, key in ipairs(upgradeKeys) do
+		local u = TaskSystem.BountyConfig.upgrades[key]
+		local curLvl = player:getBountyUpgrade(key)
+		local bonusText = "you still need to upgrade"
+		if curLvl > 0 and u.levels[curLvl] then
+			bonusText = string.format("%s (Lvl %d/%d)", u.levels[curLvl].desc, curLvl, u.maxLevel)
+		end
+		table.insert(summaryLines, string.format("• %s: %s", u.name, bonusText))
+	end
+
 	local msg = string.format(
 		"=== BOUNTY RING UPGRADES ===\n\n" ..
 		"- Bounty Points (BP): %d\n" ..
 		"- Bounty Ring: %s\n\n" ..
-		"Upgrades only take effect against your active task monsters while the Bounty Ring (ID 34080) is equipped.\n" ..
+		"You will get the following upgrades once it is equiped and only against your active task monsters:\n" ..
+		"%s\n\n" ..
 		"Exchange HTP for Bounty Points with Walter Jaeger in Thais!\n\n" ..
 		"Select an upgrade to purchase:",
-		bp, statusStr
+		bp, statusStr, table.concat(summaryLines, "\n")
 	)
 
 	local window = ModalWindow({
@@ -425,14 +438,27 @@ function TaskSystem.openBountyAmuletWindow(player)
 	local isEquipped = player:hasBountyAmuletEquipped()
 	local statusStr = isEquipped and "Equipped [WARDS ACTIVE!]" or "NOT Equipped (Equip Bounty Amulet to activate!)"
 
+	local upgradeKeys = { "defense", "elemental", "speed", "paralysis" }
+	local summaryLines = {}
+	for _, key in ipairs(upgradeKeys) do
+		local u = TaskSystem.BountyConfig.amuletUpgrades[key]
+		local curLvl = player:getAmuletUpgrade(key)
+		local bonusText = "you still need to upgrade"
+		if curLvl > 0 and u.levels[curLvl] then
+			bonusText = string.format("%s (Lvl %d/%d)", u.levels[curLvl].desc, curLvl, u.maxLevel)
+		end
+		table.insert(summaryLines, string.format("• %s: %s", u.name, bonusText))
+	end
+
 	local msg = string.format(
 		"=== BOUNTY AMULET UPGRADES ===\n\n" ..
 		"- Bounty Points (BP): %d\n" ..
 		"- Bounty Amulet: %s\n\n" ..
-		"Protective wards only take effect against your active task monsters while the Bounty Amulet (ID 31268) is equipped.\n" ..
+		"You will get the following upgrades once it is equiped and only against your active task monsters:\n" ..
+		"%s\n\n" ..
 		"Exchange HTP for Bounty Points with Walter Jaeger in Thais!\n\n" ..
 		"Select a defensive upgrade to purchase:",
-		bp, statusStr
+		bp, statusStr, table.concat(summaryLines, "\n")
 	)
 
 	local window = ModalWindow({
