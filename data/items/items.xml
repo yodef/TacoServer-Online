@@ -10940,6 +10940,7 @@
 		<attribute key="type" value="depot"/>
 		<attribute key="containersize" value="6"/>
 		<attribute key="usedbyhouseguests" value="1"/>
+		<attribute key="wrapableto" value="2791"/>
 	</item>
 	<item id="3501" article="a" name="mailbox">
 		<attribute key="primarytype" value="utilities"/>
@@ -11950,11 +11951,7 @@
 		<attribute key="weight" value="2000"/>
 	</item>
 	<item id="3997" name="Tibiora's box">
-		<attribute key="primarytype" value="furniture"/>
-		<attribute key="type" value="depot"/>
-		<attribute key="containersize" value="6"/>
-		<attribute key="usedbyhouseguests" value="1"/>
-		<attribute key="description" value="A magical house box that connects directly to your city depot."/>
+		<attribute key="description" value="A magical box that transforms into a House Depot Locker when used inside a house."/>
 		<attribute key="weight" value="4200"/>
 	</item>
 	<item id="3998" article="a" name="dead snake">
