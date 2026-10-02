@@ -360,7 +360,7 @@ function TaskSystem.openBountyRingWindow(player)
 		if curLvl > 0 and u.levels[curLvl] then
 			bonusText = string.format("%s (Lvl %d/%d)", u.levels[curLvl].desc, curLvl, u.maxLevel)
 		end
-		table.insert(summaryLines, string.format("• %s: %s", u.name, bonusText))
+		table.insert(summaryLines, string.format("- %s: %s", u.name, bonusText))
 	end
 
 	local msg = string.format(
@@ -447,7 +447,7 @@ function TaskSystem.openBountyAmuletWindow(player)
 		if curLvl > 0 and u.levels[curLvl] then
 			bonusText = string.format("%s (Lvl %d/%d)", u.levels[curLvl].desc, curLvl, u.maxLevel)
 		end
-		table.insert(summaryLines, string.format("• %s: %s", u.name, bonusText))
+		table.insert(summaryLines, string.format("- %s: %s", u.name, bonusText))
 	end
 
 	local msg = string.format(
