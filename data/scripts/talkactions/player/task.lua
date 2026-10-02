@@ -355,7 +355,7 @@ function TaskSystem.openBountyRingWindow(player)
 	local summaryLines = {}
 	for _, key in ipairs(upgradeKeys) do
 		local u = TaskSystem.BountyConfig.upgrades[key]
-		local curLvl = player:getBountyUpgrade(key)
+		local curLvl = math.min(player:getBountyUpgrade(key), u.maxLevel)
 		local bonusText = "you still need to upgrade"
 		if curLvl > 0 and u.levels[curLvl] then
 			bonusText = string.format("%s (Lvl %d/%d)", u.levels[curLvl].desc, curLvl, u.maxLevel)
@@ -382,7 +382,7 @@ function TaskSystem.openBountyRingWindow(player)
 	local upgradeKeys = { "damage", "critical", "leech", "loot", "bestiary" }
 	for _, key in ipairs(upgradeKeys) do
 		local u = TaskSystem.BountyConfig.upgrades[key]
-		local curLvl = player:getBountyUpgrade(key)
+		local curLvl = math.min(player:getBountyUpgrade(key), u.maxLevel)
 		local maxLvl = u.maxLevel
 		local nextLvl = curLvl + 1
 		local costStr = ""
@@ -442,7 +442,7 @@ function TaskSystem.openBountyAmuletWindow(player)
 	local summaryLines = {}
 	for _, key in ipairs(upgradeKeys) do
 		local u = TaskSystem.BountyConfig.amuletUpgrades[key]
-		local curLvl = player:getAmuletUpgrade(key)
+		local curLvl = math.min(player:getAmuletUpgrade(key), u.maxLevel)
 		local bonusText = "you still need to upgrade"
 		if curLvl > 0 and u.levels[curLvl] then
 			bonusText = string.format("%s (Lvl %d/%d)", u.levels[curLvl].desc, curLvl, u.maxLevel)
@@ -469,7 +469,7 @@ function TaskSystem.openBountyAmuletWindow(player)
 	local upgradeKeys = { "defense", "elemental", "speed", "paralysis" }
 	for _, key in ipairs(upgradeKeys) do
 		local u = TaskSystem.BountyConfig.amuletUpgrades[key]
-		local curLvl = player:getAmuletUpgrade(key)
+		local curLvl = math.min(player:getAmuletUpgrade(key), u.maxLevel)
 		local maxLvl = u.maxLevel
 		local nextLvl = curLvl + 1
 		local costStr = ""

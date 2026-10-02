@@ -1146,7 +1146,12 @@ function Player.getBountyUpgrade(self, upgradeKey)
 	if not u then
 		return 0
 	end
-	return math.max(0, self:getStorageValue(u.storage))
+	local val = math.max(0, self:getStorageValue(u.storage))
+	if u.maxLevel and val > u.maxLevel then
+		self:setStorageValue(u.storage, u.maxLevel)
+		return u.maxLevel
+	end
+	return val
 end
 
 function Player.setBountyUpgrade(self, upgradeKey, level)
@@ -1186,7 +1191,12 @@ function Player.getAmuletUpgrade(self, upgradeKey)
 	if not u then
 		return 0
 	end
-	return math.max(0, self:getStorageValue(u.storage))
+	local val = math.max(0, self:getStorageValue(u.storage))
+	if u.maxLevel and val > u.maxLevel then
+		self:setStorageValue(u.storage, u.maxLevel)
+		return u.maxLevel
+	end
+	return val
 end
 
 function Player.setAmuletUpgrade(self, upgradeKey, level)
