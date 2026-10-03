@@ -4923,22 +4923,34 @@
 	</item>
 	<item id="2449" article="a" name="locker">
 		<attribute key="primarytype" value="furniture"/>
+		<attribute key="type" value="depot"/>
 		<attribute key="containersize" value="6"/>
+		<attribute key="usedbyhouseguests" value="1"/>
+		<attribute key="movable" value="1"/>
 		<attribute key="rotateto" value="2452"/>
 	</item>
 	<item id="2450" article="a" name="locker">
 		<attribute key="primarytype" value="furniture"/>
+		<attribute key="type" value="depot"/>
 		<attribute key="containersize" value="6"/>
+		<attribute key="usedbyhouseguests" value="1"/>
+		<attribute key="movable" value="1"/>
 		<attribute key="rotateto" value="2451"/>
 	</item>
 	<item id="2451" article="a" name="locker">
 		<attribute key="primarytype" value="furniture"/>
+		<attribute key="type" value="depot"/>
 		<attribute key="containersize" value="6"/>
+		<attribute key="usedbyhouseguests" value="1"/>
+		<attribute key="movable" value="1"/>
 		<attribute key="rotateto" value="2449"/>
 	</item>
 	<item id="2452" article="a" name="locker">
 		<attribute key="primarytype" value="furniture"/>
+		<attribute key="type" value="depot"/>
 		<attribute key="containersize" value="6"/>
+		<attribute key="usedbyhouseguests" value="1"/>
+		<attribute key="movable" value="1"/>
 		<attribute key="rotateto" value="2450"/>
 	</item>
 	<item id="2453" article="a" name="standing mirror">
@@ -10940,7 +10952,6 @@
 		<attribute key="type" value="depot"/>
 		<attribute key="containersize" value="6"/>
 		<attribute key="usedbyhouseguests" value="1"/>
-		<attribute key="wrapableto" value="2791"/>
 	</item>
 	<item id="3501" article="a" name="mailbox">
 		<attribute key="primarytype" value="utilities"/>

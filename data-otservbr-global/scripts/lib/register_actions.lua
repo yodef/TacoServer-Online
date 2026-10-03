@@ -860,6 +860,29 @@ function onUseCrowbar(player, item, fromPosition, target, toPosition, isHotkey)
 		return false
 	end
 
+	if target and target.isItem and target:isItem() then
+		local targetId = target:getId()
+		if (targetId >= 2449 and targetId <= 2452) or (targetId >= 3497 and targetId <= 3500) then
+			local tile = target:getTile()
+			if not tile or not tile:getHouse() then
+				player:sendCancelMessage("You can only repack a depot locker inside a house.")
+				return true
+			end
+
+			local house = tile:getHouse()
+			if house:getOwnerGuid() ~= player:getGuid() and not house:canEditAccessList(SUBOWNER_LIST, player) then
+				player:sendCancelMessage("You do not have permission to repack furniture in this house.")
+				return true
+			end
+
+			local pos = target:getPosition()
+			target:transform(2791, 1)
+			pos:sendMagicEffect(CONST_ME_POFF)
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have packed the depot locker back into a locker kit.")
+			return true
+		end
+	end
+
 	if target.uid == 3071 then
 		-- In service of yalahar quest
 		if player:getStorageValue(Storage.Quest.U8_4.InServiceOfYalahar.SewerPipe01) < 0 then
