@@ -94,6 +94,24 @@ local randomBoss = {
 -- Stoic Iks
 {id = 50, name = "Mitmah Vanguard"},
 {id = 51, name = "Ahau"},
+-- Feaster of Souls
+{id = 52, name = "Irgix The Flimsy"},
+{id = 53, name = "Unaz the Mean"},
+{id = 54, name = "Vok the Freakish"},
+-- Liquid Black (Deepling Kings)
+{id = 55, name = "Jaul"},
+{id = 56, name = "Tanjis"},
+{id = 57, name = "Obujos"},
+-- The First Dragon (Ancestral Dragons)
+{id = 58, name = "Gelidrazah the Frozen"},
+{id = 59, name = "Kalyassa"},
+{id = 60, name = "Tazhadur"},
+{id = 61, name = "Zorvorax"},
+-- The Secret Library (The Order)
+{id = 62, name = "Grand Canon Dominus"},
+{id = 63, name = "Grand Chaplain Gaunder"},
+{id = 64, name = "Grand Commander Soeren"},
+{id = 65, name = "Preceptor Lazare"},
 }
 
 local config = {

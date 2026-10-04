@@ -18,6 +18,10 @@ monster.bosstiary = {
 	bossRace = RARITY_ARCHFOE,
 }
 
+monster.events = {
+	"bossWarDeath",
+}
+
 monster.health = 10000
 monster.maxHealth = 10000
 monster.race = "blood"
@@ -91,7 +95,8 @@ monster.loot = {
 	{ name = "frostheart cuirass", chance = 300 },
 	{ name = "frostheart hauberk", chance = 300 },
 	{ name = "frostheart platemail", chance = 300 },
-	{ id = 27456, chance = 300} -- crossbow of destruction}
+	{ id = 27456, chance = 300 } -- crossbow of destruction
+}
 
 monster.attacks = {
 	{ name = "melee", interval = 2000, chance = 100, skill = 112, attack = 85 },

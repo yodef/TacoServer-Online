@@ -91,6 +91,24 @@ local bosses = {
 -- Stoic Iks
 ["mitmah vanguard"] = {points = 50},
 ["ahau"] = {points = 50},
+-- Feaster of Souls
+["irgix the flimsy"] = {points = 40},
+["unaz the mean"] = {points = 40},
+["vok the freakish"] = {points = 40},
+-- Liquid Black
+["jaul"] = {points = 50},
+["tanjis"] = {points = 40},
+["obujos"] = {points = 40},
+-- The First Dragon
+["gelidrazah the frozen"] = {points = 30},
+["kalyassa"] = {points = 30},
+["tazhadur"] = {points = 30},
+["zorvorax"] = {points = 30},
+-- The Secret Library Order
+["grand canon dominus"] = {points = 30},
+["grand chaplain gaunder"] = {points = 30},
+["grand commander soeren"] = {points = 30},
+["preceptor lazare"] = {points = 30},
 }
 
 local bossWarKills = CreatureEvent("bossWarDeath")
