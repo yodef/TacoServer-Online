@@ -32,6 +32,7 @@ monster.changeTarget = {
 }
 
 monster.events = {
+	"bossWarDeath",
 	"GoshnarsHatredBuff",
 	"MegalomaniaDeath",
 }

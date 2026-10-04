@@ -71,17 +71,37 @@ local bosses = {
 ["ragiaz"] = {points = 120},
 ["tarbaz"] = {points = 120},
 ["shulgrax"] = {points = 120},
+-- Soul War
+["goshnar's cruelty"] = {points = 120},
+["goshnar's greed"] = {points = 120},
+["goshnar's hatred"] = {points = 120},
+["goshnar's malice"] = {points = 120},
+["goshnar's spite"] = {points = 120},
+["goshnar's megalomania"] = {points = 180},
+["goshnar's megalomania purple"] = {points = 180},
+-- Rotten Blood
+["bakragore"] = {points = 200},
+["chagorz"] = {points = 150},
+["ichgahal"] = {points = 150},
+["murcion"] = {points = 150},
+["vemiath"] = {points = 150},
+-- Arbaziloth & Rootkraken
+["arbaziloth"] = {points = 150},
+["the rootkraken"] = {points = 150},
+-- Stoic Iks
+["mitmah vanguard"] = {points = 50},
+["ahau"] = {points = 50},
 }
 
 local bossWarKills = CreatureEvent("bossWarDeath")
 function bossWarKills.onDeath(creature)
 	local bossName = creature:getName()
 	local bossConfig = bosses[bossName:lower()]
-	local bossPoints = bossConfig.points
-	local earnPoints = bossPoints * 1.0
 	if not bossConfig then
 		return true
 	end
+	local bossPoints = bossConfig.points
+	local earnPoints = bossPoints * 1.0
 
 	onDeathForDamagingPlayers(creature, function(creature, player)
 		if player:getStorageValue(15053) >= 1 then --CONDITION

@@ -27,6 +27,7 @@ monster.strategiesTarget = {
 }
 
 monster.events = {
+	"bossWarDeath",
 	"GoshnarsHatredBuff",
 }
 

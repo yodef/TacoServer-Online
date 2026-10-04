@@ -23,6 +23,22 @@ local majorBosses = {
 {id = 20, name = "Ragiaz"},
 {id = 21, name = "Tarbaz"},
 {id = 22, name = "Shulgrax"},
+-- Soul War
+{id = 23, name = "Goshnar's Cruelty"},
+{id = 24, name = "Goshnar's Greed"},
+{id = 25, name = "Goshnar's Hatred"},
+{id = 26, name = "Goshnar's Malice"},
+{id = 27, name = "Goshnar's Spite"},
+{id = 28, name = "Goshnar's Megalomania Purple"},
+-- Rotten Blood
+{id = 29, name = "Bakragore"},
+{id = 30, name = "Chagorz"},
+{id = 31, name = "Ichgahal"},
+{id = 32, name = "Murcion"},
+{id = 33, name = "Vemiath"},
+-- Arbaziloth & Rootkraken
+{id = 34, name = "Arbaziloth"},
+{id = 35, name = "The Rootkraken"},
 }
 
 local randomBoss = {
@@ -75,6 +91,9 @@ local randomBoss = {
 {id = 47, name = "Deep Terror"},
 {id = 48, name = "Apocalypse"},
 {id = 49, name = "the baron from below"},
+-- Stoic Iks
+{id = 50, name = "Mitmah Vanguard"},
+{id = 51, name = "Ahau"},
 }
 
 local config = {

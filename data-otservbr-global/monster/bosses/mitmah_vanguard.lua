@@ -19,6 +19,7 @@ monster.bosstiary = {
 }
 
 monster.events = {
+	"bossWarDeath",
 	"iksupanBossesDeath",
 }
 
