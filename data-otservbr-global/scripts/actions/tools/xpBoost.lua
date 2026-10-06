@@ -13,14 +13,14 @@ function expBoost.onUse(player, item, fromPosition, target, toPosition, isHotkey
 		return true
 	end
 
-	local remainingBoost = player:getExpBoostStamina()
+	local remainingBoost = player:getXpBoostTime()
 	if remainingBoost > 0 then -- If player still has an active xp boost, don't let him use another one
 		player:say("You already have an active XP boost.", TALKTYPE_MONSTER_SAY)
 		return true
 	end
 
-	player:setStoreXpBoost(100)
-	player:setExpBoostStamina(remainingBoost + 3600)
+	player:setXpBoostPercent(100)
+	player:setXpBoostTime(3600)
 	playerKV:set(GameStore.Kv.expBoostCount, expBoostCount + 1)
 	item:remove(1)
 	player:say("You will receive +100% bonus XP for 60 minutes.", TALKTYPE_MONSTER_SAY)
