@@ -138,9 +138,21 @@ monster.immunities = {
 local zone = Zone.getByName("boss.goshnar's-malice")
 local zonePositions = zone:getPositions()
 
+local function isInsideBossWarArena(creature)
+	if not creature then
+		return false
+	end
+	local pos = creature:getPosition()
+	return pos.x >= 32135 and pos.x <= 32160 and pos.y >= 32290 and pos.y <= 32315 and pos.z == 7
+end
+
 local accumulatedTime = 0
 local desiredInterval = 40000
 mType.onThink = function(monster, interval)
+	if isInsideBossWarArena(monster) then
+		return
+	end
+
 	accumulatedTime = accumulatedTime + interval
 	-- Execute only after 40 seconds
 	if accumulatedTime >= desiredInterval then

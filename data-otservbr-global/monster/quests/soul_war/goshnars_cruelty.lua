@@ -136,8 +136,19 @@ monster.immunities = {
 	{ type = "bleed", condition = false },
 }
 
+local function isInsideBossWarArena(creature)
+	if not creature then
+		return false
+	end
+	local pos = creature:getPosition()
+	return pos.x >= 32135 and pos.x <= 32160 and pos.y >= 32290 and pos.y <= 32315 and pos.z == 7
+end
+
 local firstTime = 0
 mType.onThink = function(monster, interval)
+	if isInsideBossWarArena(monster) then
+		return
+	end
 	firstTime = firstTime + interval
 	-- Run only 15 seconds before creation
 	if firstTime >= 15000 then

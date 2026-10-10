@@ -29,7 +29,7 @@ local majorBosses = {
 {id = 25, name = "Goshnar's Hatred"},
 {id = 26, name = "Goshnar's Malice"},
 {id = 27, name = "Goshnar's Spite"},
-{id = 28, name = "Goshnar's Megalomania Purple"},
+{id = 28, name = "Goshnar's Megalomania"},
 -- Rotten Blood
 {id = 29, name = "Bakragore"},
 {id = 30, name = "Chagorz"},

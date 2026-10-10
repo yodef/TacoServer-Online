@@ -135,10 +135,22 @@ monster.immunities = {
 	{ type = "bleed", condition = false },
 }
 
+local function isInsideBossWarArena(creature)
+	if not creature then
+		return false
+	end
+	local pos = creature:getPosition()
+	return pos.x >= 32135 and pos.x <= 32160 and pos.y >= 32290 and pos.y <= 32315 and pos.z == 7
+end
+
 local immuneTimeCount = 0
 local isImmune = nil
 local createdSoulSphere = nil
 mType.onThink = function(monsterCallback, interval)
+	if isInsideBossWarArena(monsterCallback) then
+		return
+	end
+
 	if GreedbeastKills >= 5 and isImmune == nil then
 		isImmune = monsterCallback:immune(false)
 		monsterCallback:teleportTo(Position(33741, 31659, 14))
@@ -165,6 +177,11 @@ end
 mType.onSpawn = function(monster)
 	if monster:getType():isRewardBoss() then
 		monster:setReward(true)
+	end
+
+	if isInsideBossWarArena(monster) then
+		monster:immune(false)
+		return
 	end
 
 	isImmune = nil
