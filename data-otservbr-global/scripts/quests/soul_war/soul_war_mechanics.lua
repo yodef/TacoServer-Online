@@ -1067,7 +1067,11 @@ teleportStepRemoveIcon:register()
 local goshnarsCrueltyBuff = CreatureEvent("GoshnarsCrueltyBuff")
 
 function goshnarsCrueltyBuff.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
-	if creature and creature:isMonster() and attacker:isPlayer() and creature:getName() == "Goshnar's Cruelty" then
+	if creature and creature:isMonster() and attacker and attacker:isPlayer() and creature:getName() == "Goshnar's Cruelty" then
+		local pos = creature:getPosition()
+		if pos.x >= 32135 and pos.x <= 32160 and pos.y >= 32290 and pos.y <= 32315 and pos.z == 7 then
+			return primaryDamage, primaryType, secondaryDamage, secondaryType
+		end
 		local newValue = SoulWarQuest.kvSoulWar:get("goshnars-cruelty-defense-drain") or SoulWarQuest.goshnarsCrueltyDefenseChange
 		if newValue ~= 0 then
 			local multiplier = math.max(0, 1 - (newValue / 100))

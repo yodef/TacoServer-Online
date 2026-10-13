@@ -83,10 +83,9 @@ local function greetCallback(npc, creature)
 		if player:getLevel() >= 250 then
 			if player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Questline) < 1 then
 				npcHandler:setMessage(MESSAGE_GREET, "Welcome, |PLAYERNAME|! There is much we have to {discuss}.")
-			elseif player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Questline) >= 3 then
-				npcHandler:setMessage(MESSAGE_GREET, "Hello, stranger! You look suspicious to me. I don't think we have anything to discuss.")
 			else
 				npcHandler:setMessage(MESSAGE_GREET, "Welcome, |PLAYERNAME|! Is there anything to {report}?")
+				npcHandler:setTopic(player:getId(), 2)
 			end
 		else
 			npcHandler:setMessage(MESSAGE_GREET, "Hello, stranger! Sorry, but I never heard about you. I'm looking for more experienced help.")
@@ -140,8 +139,8 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			npcHandler:setTopic(playerId, 2)
 		end
-	elseif MsgContains(message, "report") and npcHandler:getTopic(playerId) == 2 then
-		if player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Stage) < 1 then
+	elseif MsgContains(message, "report") then
+		if player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Stage) < 1 and player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Bosses.KingZelos.Killed) < 1 then
 			if player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Graves.Progress) >= 12 then
 				npcHandler:say("By now the cultists of the Shiron'Fal seem to have abandoned their search. But this is sadly no good news. It seems they gathered enough lich-knights to proceed with their {ultimate} plan.", npc, creature)
 				npcHandler:setTopic(playerId, 3)
@@ -164,7 +163,7 @@ local function creatureSayCallback(npc, creature, type, message)
 					player:setStorageValue(Storage.Quest.U12_20.GraveDanger.Stage, 2)
 					player:setStorageValue(Storage.Quest.U12_20.GraveDanger.Questline, 3)
 					player:setStorageValue(Storage.Quest.U12_20.HandOfTheInquisitionOutfits.Addon1, 1)
-				elseif player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Questline) < 3 and player:getStorageValue(Storage.Quest.U12_20.HandOfTheInquisitionOutfits.Outfits) < 1 then
+				elseif player:getStorageValue(Storage.Quest.U12_20.HandOfTheInquisitionOutfits.Outfits) < 1 or not player:hasOutfit(1243) or not player:hasOutfit(1244) then
 					npcHandler:say("Incredible! You averted a crisis that would have utterly crippled our defences aganist any other threat that is arising. Let me grant you the honor to be one of the hands of the inquisition alongside with the according outfit as a reward.", npc, creature)
 					player:addOutfit(1243, 0)
 					player:addOutfit(1244, 0)

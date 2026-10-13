@@ -46427,7 +46427,8 @@ hands of its owner. Granted by TibiaRoyal.com"/>
 	<item id="23492" article="a" name="blacklight figurine">
 		<attribute key="primarytype" value="light sources"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="skillshield" value="2"/>
+		<attribute key="skillfist" value="1"/>
+		<attribute key="skillshield" value="1"/>
 		<attribute key="description" value="Light casted by this figurine protects your body."/>
 		<attribute key="absorbpercentphysical" value="4"/>
 		<attribute key="absorbpercentdeath" value="3"/>
