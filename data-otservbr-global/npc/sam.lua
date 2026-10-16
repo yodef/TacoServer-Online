@@ -507,6 +507,7 @@ npcConfig.shop = {
 	{ itemName = "tiger eye", clientId = 24961, sell = 350 },
 	{ itemName = "unicorn figurine", clientId = 30054, sell = 50000 },
 	{ itemName = "violet crystal shard", clientId = 16120, sell = 1500 },
+	{ itemName = "raw watermelon tourmaline", clientId = 33778, sell = 10000 },
 	{ itemName = "watermelon tourmaline", clientId = 33780, sell = 230000 },
 	{ itemName = "watermelon touraline slice", clientId = 33779, sell = 30000 },
 	{ itemName = "white silk flower", clientId = 34008, sell = 9000 },
@@ -925,7 +926,7 @@ npcConfig.shop = {
 	{ itemName = "cave devourer legs", clientId = 27601, sell = 350 },
 	{ itemName = "cave devourer maw", clientId = 27600, sell = 600 },
 	{ itemName = "centipede leg", clientId = 10301, sell = 28 },
-	--Chargoz igneous obsidian falta
+	{ itemName = "chagorz igneous obsidian", clientId = 43966, sell = 1100000 },
 	{ itemName = "chasm spawn abdomen", clientId = 27603, sell = 240 },
 	{ itemName = "chasm spawn head", clientId = 27602, sell = 850 },
 	{ itemName = "chasm spawn tail", clientId = 27604, sell = 120 },
@@ -979,7 +980,7 @@ npcConfig.shop = {
 	{ itemName = "dark obsidian splinter", clientId = 43850, sell = 4400 },
 	{ itemName = "dark rosary", clientId = 10303, sell = 48 },
 	{ itemName = "darklight basalt chunk", clientId = 43852, sell = 3800 },
--- darklight figurine falta
+	{ itemName = "darklight figurine", clientId = 43961, sell = 3400000 },
 	{ itemName = "darklight core", clientId = 43853, sell = 4100 },
 	{ itemName = "darklight matter", clientId = 43851, sell = 5500 },
 	{ itemName = "decayed finger bone", clientId = 43846, sell = 5100 },
@@ -1042,6 +1043,7 @@ npcConfig.shop = {
 	{ itemName = "fern", clientId = 3737, sell = 20 },
 	{ itemName = "fiery heart", clientId = 9636, sell = 375 },
 	{ itemName = "fig leaf", clientId = 25742, sell = 200 },
+	{ itemName = "bakragore's amalgamation", clientId = 43968, sell = 2000000 },
 	{ itemName = "figurine of bakragore", clientId = 43963, sell = 5400000 },
 	{ itemName = "figurine of cruelty", clientId = 34019, sell = 3100000 },
 	{ itemName = "figurine of greed", clientId = 34021, sell = 2900000 },
@@ -1287,7 +1289,7 @@ npcConfig.shop = {
 	{ itemName = "protective charm", clientId = 11444, sell = 60 },
 	{ itemName = "purified soul", clientId = 32228, sell = 260 },
 	{ itemName = "purple robe", clientId = 11473, sell = 110 },
---	{ itemName = "putrefactive figurine", clientId = , sell = 3200000 },
+	{ itemName = "putrefactive figurine", clientId = 43962, sell = 3200000 },
 	{ itemName = "quara bone", clientId = 11491, sell = 500 },
 	{ itemName = "quara eye", clientId = 11488, sell = 350 },
 	{ itemName = "quara pincers", clientId = 11490, sell = 410 },
@@ -1315,7 +1317,7 @@ npcConfig.shop = {
 	{ itemName = "rorc feather", clientId = 18993, sell = 70 },
 	{ itemName = "rotten heart", clientId = 31589, sell = 74000 },
 	{ itemName = "rotten piece of cloth", clientId = 10291, sell = 30 },
-	{ itemName = "rotten vermin ichor", clientId = 43849, sell = 4500 },
+	{ itemName = "rotten vermin ichor", clientId = 43847, sell = 4500 },
 	{ itemName = "rotten roots", clientId = 43849, sell = 3800 },
 	{ itemName = "sabretooth", clientId = 10311, sell = 400 },
 	{ itemName = "sabretooth fur", clientId = 39378, sell = 2500 },
@@ -1448,7 +1450,7 @@ npcConfig.shop = {
 	{ itemName = "varnished diremaw brainpan", clientId = 36781, sell = 750 },
 	{ itemName = "varnished diremaw legs", clientId = 36782, sell = 670 },
 	{ itemName = "veal", clientId = 32009, sell = 40 },
---	{ itemName = "vemiath's infused basalt", clientId = , sell = 1000000 },
+	{ itemName = "vemiath's infused basalt", clientId = 43967, sell = 1000000 },
 	{ itemName = "venison", clientId = 18995, sell = 55 },
 	{ itemName = "vexclaw talon", clientId = 22728, sell = 1100 },
 	{ itemName = "vial of hatred", clientId = 33927, sell = 737000 },
@@ -2130,7 +2132,9 @@ npcConfig.shop = {
 	{ itemName = "sun medal", clientId = 31573, sell = 100000 },
 	{ itemName = "sunray emblem", clientId = 31574, sell = 100000 },
 	{ itemName = "golden bijou", clientId = 31575, sell = 100000 },
-	{ itemName = "wood mushroom", clientId = 3727, sell = 15 }
+	{ itemName = "wood mushroom", clientId = 3727, sell = 15 },
+	{ itemName = "bag you covet", clientId = 43895, sell = 3000000 },
+	{ itemName = "bag you desire", clientId = 34109, sell = 2500000 }
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)
