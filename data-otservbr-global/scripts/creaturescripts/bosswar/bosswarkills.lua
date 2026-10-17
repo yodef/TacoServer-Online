@@ -119,18 +119,25 @@ function bossWarKills.onDeath(creature)
 		return true
 	end
 	local bossPoints = bossConfig.points
-	local earnPoints = bossPoints * 1.0
+	local multiplier = 1.0
+	local now = os.time()
+	local eventStart = os.time({year = 2026, month = 10, day = 17, hour = 0, min = 0, sec = 0})
+	local eventEnd = os.time({year = 2026, month = 10, day = 25, hour = 23, min = 59, sec = 59})
+	local isDoubleEvent = (now >= eventStart and now <= eventEnd)
+	if isDoubleEvent then
+		multiplier = 2.0
+	end
+	local earnPoints = math.floor(bossPoints * multiplier)
 
 	onDeathForDamagingPlayers(creature, function(creature, player)
 		if player:getStorageValue(15053) >= 1 then --CONDITION
+			local msg = isDoubleEvent and ("You have slain " .. bossName .. " and received ".. earnPoints .." Boss War points (2x Event)!")
+				or ("You have slain " .. bossName .. " and received ".. earnPoints .." Boss War points.")
 			if player:getStorageValue(15052) < 0 then
 				player:setStorageValue(15052, 0)
-				player:setStorageValue(15052, player:getStorageValue(15052) + earnPoints)
-				player:say("You have slain " .. bossName .. " and received ".. earnPoints .." Boss War points!", TALKTYPE_MONSTER_SAY)
-			else
-				player:setStorageValue(15052, player:getStorageValue(15052) + earnPoints)
-				player:say("You have slain " .. bossName .. " and received ".. earnPoints .." Boss War points.", TALKTYPE_MONSTER_SAY)	
 			end
+			player:setStorageValue(15052, player:getStorageValue(15052) + earnPoints)
+			player:say(msg, TALKTYPE_MONSTER_SAY)
 		end
 	end)
 

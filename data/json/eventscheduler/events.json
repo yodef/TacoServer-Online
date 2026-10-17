@@ -1,6 +1,25 @@
 {
     "events": [
         {
+            "name": "Double Respawn & Skill",
+            "startdate": "10/17/2026",
+            "enddate": "10/25/2026",
+            "ingame": {
+                "spawnrate": 200,
+                "skillrate": 200
+            },
+            "description": "Double monster respawn and double skill rate event (2x)! Bosswar points X2 en arena.",
+            "colors": {
+                "colordark": "#4d2f00",
+                "colorlight": "#6e3e00"
+            },
+            "details": {
+                "displaypriority": 10,
+                "isseasonal": 0,
+                "specialevent": 1
+            }
+        },
+        {
             "name": "Double Exp & Loot",
             "startdate": "10/03/2026",
             "enddate": "10/12/2026",

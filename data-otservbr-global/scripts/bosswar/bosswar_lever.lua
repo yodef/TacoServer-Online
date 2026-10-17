@@ -338,6 +338,11 @@ function bossWar.onUse(player, item, fromPosition, target, toPosition, isHotkey)
                         -- Set player cooldown
                         --creature:setStorageValue(config.storage, os.time() + config.cooldownTimer) -- cooldown timer
 			creature:setStorageValue(15053, 1)
+			local eventStart = os.time({year = 2026, month = 10, day = 17, hour = 0, min = 0, sec = 0})
+			local eventEnd = os.time({year = 2026, month = 10, day = 25, hour = 23, min = 59, sec = 59})
+			if os.time() >= eventStart and os.time() <= eventEnd then
+				creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Boss War Event Active: Bosswar points X2 en arena!")
+			end
                     end
                 end
             end
