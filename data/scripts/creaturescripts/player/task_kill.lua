@@ -33,6 +33,15 @@ function taskKill.onKill(player, target, lastHit)
 		return true
 	end
 
+	-- Dynamic hot-refresh of task library if new tasks added while online
+	if not TaskSystem or not TaskSystem.Tasks or not TaskSystem.Tasks[518] then
+		if fileExists and fileExists(CORE_DIRECTORY .. "/scripts/lib/task_lib.lua") then
+			dofile(CORE_DIRECTORY .. "/scripts/lib/task_lib.lua")
+		elseif fileExists and fileExists("data/scripts/lib/task_lib.lua") then
+			dofile("data/scripts/lib/task_lib.lua")
+		end
+	end
+
 	-- Ignore summons / familiars
 	if target:getMaster() ~= nil then
 		return true
