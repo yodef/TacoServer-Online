@@ -2,6 +2,7 @@
 -- Always ensure task_lib is fresh
 if true then
 	dofile(CORE_DIRECTORY .. "/scripts/lib/task_lib.lua")
+	dofile(CORE_DIRECTORY .. "/scripts/creaturescripts/player/task_kill.lua")
 end
 
 -- =============================================================================

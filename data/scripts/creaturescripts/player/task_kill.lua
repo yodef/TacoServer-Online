@@ -33,15 +33,6 @@ function taskKill.onKill(player, target, lastHit)
 		return true
 	end
 
-	-- Dynamic hot-refresh of task library if new tasks added while online
-	if not TaskSystem or not TaskSystem.Tasks or not TaskSystem.Tasks[518] then
-		if fileExists and fileExists(CORE_DIRECTORY .. "/scripts/lib/task_lib.lua") then
-			dofile(CORE_DIRECTORY .. "/scripts/lib/task_lib.lua")
-		elseif fileExists and fileExists("data/scripts/lib/task_lib.lua") then
-			dofile("data/scripts/lib/task_lib.lua")
-		end
-	end
-
 	-- Ignore summons / familiars
 	if target:getMaster() ~= nil then
 		return true
@@ -94,42 +85,72 @@ function taskKill.onKill(player, target, lastHit)
 			local taskId = p:getStorageValue(slot.task)
 			if taskId and taskId > 0 and TaskSystem.Tasks[taskId] then
 				local task = TaskSystem.Tasks[taskId]
-				local isMatch = false
 				for _, mid in ipairs(matchingTaskIds) do
 					if mid == taskId then
-						isMatch = true
+						matchedAnyTask = true
 						break
 					end
 				end
-
-				if isMatch then
-					matchedAnyTask = true
-					local current = math.max(0, p:getStorageValue(slot.count))
-					if current < task.count then
-						current = current + 1
-						p:setStorageValue(slot.count, current)
-						if current == task.count then
-							p:sendTextMessage(MESSAGE_LOOK, string.format("[Tasks] You have completed your task of %s [%d/%d]! Use !task in a protection zone to claim your reward.", task.name, current, task.count))
-							p:getPosition():sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
-						else
-							p:sendTextMessage(MESSAGE_STATUS, string.format("[Tasks] %s: [%d/%d kills]", task.name, current, task.count))
-						end
-					end
+				if matchedAnyTask then
+					break
 				end
 			end
 		end
 
-		-- Bounty Ring Bestiary boost (double kill credit x2)
-		if matchedAnyTask and p.hasBountyRingEquipped and p:hasBountyRingEquipped() then
-			local bestiaryLevel = p:getBountyUpgrade("bestiary")
-			if bestiaryLevel > 0 then
-				local chances = { [1] = 30, [2] = 60, [3] = 100 }
-				local chance = chances[bestiaryLevel] or 0
-				if math.random(100) <= chance then
-					p:addBestiaryKill(target:getName(), 1)
-					p:sendTextMessage(MESSAGE_STATUS_SMALL, "[Bounty Ring] Bestiary double kill credit (+1)!")
-					p:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
+		if matchedAnyTask then
+			-- Check Bounty Ring double kill upgrade (bestiary key)
+			local doubleKillTriggered = false
+			if p.hasBountyRingEquipped and p:hasBountyRingEquipped() then
+				local bestiaryLevel = p:getBountyUpgrade("bestiary")
+				if bestiaryLevel > 0 then
+					local chances = { [1] = 30, [2] = 60, [3] = 100 }
+					local chance = chances[bestiaryLevel] or 0
+					if math.random(100) <= chance then
+						doubleKillTriggered = true
+					end
 				end
+			end
+
+			local killAmount = doubleKillTriggered and 2 or 1
+
+			for slotId, slot in ipairs(TaskSystem.Storages.slots) do
+				local taskId = p:getStorageValue(slot.task)
+				if taskId and taskId > 0 and TaskSystem.Tasks[taskId] then
+					local task = TaskSystem.Tasks[taskId]
+					local isMatch = false
+					for _, mid in ipairs(matchingTaskIds) do
+						if mid == taskId then
+							isMatch = true
+							break
+						end
+					end
+
+					if isMatch then
+						local current = math.max(0, p:getStorageValue(slot.count))
+						if current < task.count then
+							local added = math.min(killAmount, task.count - current)
+							current = current + added
+							p:setStorageValue(slot.count, current)
+							if current >= task.count then
+								p:sendTextMessage(MESSAGE_LOOK, string.format("[Tasks] You have completed your task of %s [%d/%d]! Use !task in a protection zone to claim your reward.", task.name, current, task.count))
+								p:getPosition():sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
+							else
+								if added > 1 then
+									p:sendTextMessage(MESSAGE_STATUS, string.format("[Tasks] %s: [%d/%d kills] (+2 Double Kill!)", task.name, current, task.count))
+								else
+									p:sendTextMessage(MESSAGE_STATUS, string.format("[Tasks] %s: [%d/%d kills]", task.name, current, task.count))
+								end
+							end
+						end
+					end
+				end
+			end
+
+			-- Bounty Ring Bestiary boost (double kill credit x2)
+			if doubleKillTriggered then
+				p:addBestiaryKill(target:getName(), 1)
+				p:sendTextMessage(MESSAGE_STATUS_SMALL, "[Bounty Ring] Double kill credit (+1 Task & Bestiary)!")
+				p:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 			end
 		end
 	end
