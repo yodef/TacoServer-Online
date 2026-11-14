@@ -28,7 +28,7 @@ local UniqueTable = {
 		crystalPos = { x = 32276, y = 31367, z = 4 },
 		range = 10,
 		newPos = { x = 32076, y = 32402, z = 8 },
-		bossName = "Gelidrazah The Frozen",
+		bossName = "Gelidrazah the Frozen",
 		bossPos = { x = 32078, y = 32400, z = 8 },
 	},
 }
@@ -40,7 +40,10 @@ function entranceTeleport.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	local setting = UniqueTable[item.uid] or UniqueTable[item.actionid]
+	local setting = nil
+	if item then
+		setting = UniqueTable[item.uid] or UniqueTable[item.actionid]
+	end
 	if not setting then
 		for _, v in pairs(UniqueTable) do
 			if v.crystalPos and position.x == v.crystalPos.x and position.y == v.crystalPos.y and position.z == v.crystalPos.z then
@@ -66,7 +69,7 @@ function entranceTeleport.onStepIn(creature, item, position, fromPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:teleportTo(fromPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:say("Someone is fighting against the boss! You need wait a while.", TALKTYPE_MONSTER_SAY)
+		player:say("Someone is fighting against the boss! You need to wait a while.", TALKTYPE_MONSTER_SAY)
 		return true
 	end
 
@@ -80,6 +83,10 @@ function entranceTeleport.onStepIn(creature, item, position, fromPosition)
 
 	local monster = Game.createMonster(setting.bossName, setting.bossPos, true, true)
 	if not monster then
+		logger.warn("[FirstDragon] Failed to spawn {} at {}", setting.bossName, Position(setting.bossPos):toString())
+		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+		player:teleportTo(fromPosition)
+		player:say("The boss could not be summoned right now. Please try again.", TALKTYPE_MONSTER_SAY)
 		return true
 	end
 
@@ -88,14 +95,39 @@ function entranceTeleport.onStepIn(creature, item, position, fromPosition)
 	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	player:say("You have ten minutes to kill and loot this boss. Otherwise you will lose that chance and will be kicked out.", TALKTYPE_MONSTER_SAY)
 	player:setBossCooldown(setting.bossName, os.time() + 2 * 3600)
-	addEvent(clearBossRoom, 60 * 30 * 1000, player.uid, setting.bossPos, false, setting.range, setting.range, fromPosition)
+	addEvent(clearBossRoom, 60 * 10 * 1000, player.uid, setting.bossPos, false, setting.range, setting.range, fromPosition)
 	return true
 end
 
-for index in pairs(UniqueTable) do
-	entranceTeleport:uid(index)
-	entranceTeleport:aid(index)
+-- Register entrance crystals by position
+for _, setting in pairs(UniqueTable) do
+	if setting.crystalPos then
+		entranceTeleport:position(Position(setting.crystalPos))
+	end
 end
-entranceTeleport:id(8646, 8647, 8648, 8649)
-
 entranceTeleport:register()
+
+-- Dedicated hub portal to Zorvorax's crystal room (Tamoril tower roof Z=5)
+local hubZorvoraxPortal = MoveEvent()
+function hubZorvoraxPortal.onStepIn(creature, item, position, fromPosition)
+	local player = creature:getPlayer()
+	if not player then
+		return true
+	end
+
+	-- Clean up broken dest=(0,0,0) teleport item if present on this tile
+	local tile = Tile(Position(32914, 31020, 5))
+	if tile then
+		local tItem = tile:getItemById(25054)
+		if tItem and tItem:getDestination() == Position(0, 0, 0) then
+			tItem:remove()
+		end
+	end
+
+	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+	player:teleportTo(Position(33004, 31593, 11))
+	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+	return true
+end
+hubZorvoraxPortal:position(Position(32914, 31020, 5))
+hubZorvoraxPortal:register()

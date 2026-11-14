@@ -10,22 +10,22 @@ TaskSystem.Config = {
 }
 
 TaskSystem.Storages = {
-	ranking = 14009, -- Total completed tasks
+	ranking = 65409, -- Total completed tasks
 	slots = {
-		[1] = { task = 14010, count = 14011 },
-		[2] = { task = 14012, count = 14013 },
-		[3] = { task = 14014, count = 14015 },
+		[1] = { task = 65410, count = 65411 },
+		[2] = { task = 65412, count = 65413 },
+		[3] = { task = 65414, count = 65415 },
 	},
-	bountyPoints = 14020,
-	bountyDamage = 14021,
-	bountyLeech = 14022,
-	bountyLoot = 14023,
-	bountyBestiary = 14024,
-	bountyCritical = 14025,
-	amuletDefense = 14026,
-	amuletElemental = 14027,
-	amuletSpeed = 14028,
-	amuletParalysis = 14029,
+	bountyPoints = 65420,
+	bountyDamage = 65421,
+	bountyLeech = 65422,
+	bountyLoot = 65423,
+	bountyBestiary = 65424,
+	bountyCritical = 65425,
+	amuletDefense = 65426,
+	amuletElemental = 65427,
+	amuletSpeed = 65428,
+	amuletParalysis = 65429,
 }
 
 TaskSystem.Categories = {
@@ -996,7 +996,7 @@ TaskSystem.BountyConfig = {
 			key = "damage",
 			name = "Task Damage Bonus",
 			description = "Increases all damage dealt against your active task monsters.",
-			storage = 14021,
+			storage = 65421,
 			maxLevel = 5,
 			levels = {
 				[1] = { cost = 100, value = 5, desc = "+5% Damage" },
@@ -1010,7 +1010,7 @@ TaskSystem.BountyConfig = {
 			key = "critical",
 			name = "Task Critical Chance",
 			description = "Chance to deal a critical strike (+50% damage) on your active task monsters.",
-			storage = 14025,
+			storage = 65425,
 			maxLevel = 3,
 			levels = {
 				[1] = { cost = 200, value = 5, desc = "+5% Critical Chance" },
@@ -1022,7 +1022,7 @@ TaskSystem.BountyConfig = {
 			key = "leech",
 			name = "Task Life Leech",
 			description = "Heals you for a percentage of the damage dealt to your active task monsters.",
-			storage = 14022,
+			storage = 65422,
 			maxLevel = 5,
 			levels = {
 				[1] = { cost = 150, value = 3, desc = "+3% Life Leech" },
@@ -1036,7 +1036,7 @@ TaskSystem.BountyConfig = {
 			key = "loot",
 			name = "Task Loot Bonus",
 			description = "Chance for extra loot drop rolls from your active task monsters.",
-			storage = 14023,
+			storage = 65423,
 			maxLevel = 3,
 			levels = {
 				[1] = { cost = 300, value = 5, desc = "+5% Extra Loot" },
@@ -1048,7 +1048,7 @@ TaskSystem.BountyConfig = {
 			key = "bestiary",
 			name = "Task & Bestiary Double Kill",
 			description = "Chance to count 2 kills instead of 1 towards active Task and Bestiary for task monsters.",
-			storage = 14024,
+			storage = 65424,
 			maxLevel = 3,
 			levels = {
 				[1] = { cost = 250, value = 30, desc = "30% Double Kill (Task & Bestiary)" },
@@ -1064,7 +1064,7 @@ TaskSystem.BountyConfig = {
 			key = "defense",
 			name = "Task Physical Ward",
 			description = "Reduces physical damage taken from your active task monsters.",
-			storage = 14026,
+			storage = 65426,
 			maxLevel = 5,
 			levels = {
 				[1] = { cost = 100, value = 4, desc = "+4% Physical Protection" },
@@ -1078,7 +1078,7 @@ TaskSystem.BountyConfig = {
 			key = "elemental",
 			name = "Task Elemental Ward",
 			description = "Reduces all elemental/magical damage taken from your active task monsters.",
-			storage = 14027,
+			storage = 65427,
 			maxLevel = 5,
 			levels = {
 				[1] = { cost = 150, value = 3, desc = "+3% All Elemental Protection" },
@@ -1092,7 +1092,7 @@ TaskSystem.BountyConfig = {
 			key = "speed",
 			name = "Haste Ward",
 			description = "Increases your movement speed while wearing the Bounty Amulet.",
-			storage = 14028,
+			storage = 65428,
 			maxLevel = 5,
 			levels = {
 				[1] = { cost = 100, value = 10, desc = "+10 Speed" },
@@ -1106,10 +1106,20 @@ TaskSystem.BountyConfig = {
 			key = "paralysis",
 			name = "Paralysis Immunity",
 			description = "Grants 100% immunity to paralysis effects while wearing the Bounty Amulet.",
-			storage = 14029,
+			storage = 65429,
 			maxLevel = 1,
 			levels = {
 				[1] = { cost = 1500, value = 100, desc = "100% Immunity to Paralysis" },
+			},
+		},
+		fear = {
+			key = "fear",
+			name = "Fear Immunity",
+			description = "Grants 100% immunity to fear effects while wearing the Bounty Amulet.",
+			storage = 65430,
+			maxLevel = 1,
+			levels = {
+				[1] = { cost = 1500, value = 100, desc = "100% Immunity to Fear" },
 			},
 		},
 	},
@@ -1117,7 +1127,7 @@ TaskSystem.BountyConfig = {
 
 -- Bounty Ring Player Helpers
 function Player.getBountyPoints(self)
-	local storage = (TaskSystem and TaskSystem.Storages and TaskSystem.Storages.bountyPoints) or 14020
+	local storage = (TaskSystem and TaskSystem.Storages and TaskSystem.Storages.bountyPoints) or 65420
 	return math.max(0, self:getStorageValue(storage))
 end
 
@@ -1125,7 +1135,7 @@ function Player.addBountyPoints(self, amount)
 	if amount <= 0 then
 		return false
 	end
-	local storage = (TaskSystem and TaskSystem.Storages and TaskSystem.Storages.bountyPoints) or 14020
+	local storage = (TaskSystem and TaskSystem.Storages and TaskSystem.Storages.bountyPoints) or 65420
 	local current = self:getBountyPoints()
 	self:setStorageValue(storage, current + amount)
 	return true
@@ -1135,7 +1145,7 @@ function Player.removeBountyPoints(self, amount)
 	if amount <= 0 then
 		return false
 	end
-	local storage = (TaskSystem and TaskSystem.Storages and TaskSystem.Storages.bountyPoints) or 14020
+	local storage = (TaskSystem and TaskSystem.Storages and TaskSystem.Storages.bountyPoints) or 65420
 	local current = self:getBountyPoints()
 	if current < amount then
 		return false

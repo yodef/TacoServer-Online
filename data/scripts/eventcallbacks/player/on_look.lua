@@ -38,7 +38,21 @@ local function handleItemDescription(inspectedThing, lookDistance, player)
 			return string.format("You see %s\nIt has %d refillings left.", descriptionText, itemCharges)
 		end
 	else
-		return "You see " .. descriptionText
+		descriptionText = "You see " .. descriptionText
+	end
+
+	if inspectedThing:getId() == ITEM_REWARD_CONTAINER then
+		local dateAttr = inspectedThing:getAttribute(ITEM_ATTRIBUTE_DATE)
+		if dateAttr and dateAttr > 0 then
+			local timestampSec = (dateAttr > 1000000000000) and math.floor(dateAttr / 1000) or dateAttr
+			local expireSec = REWARD_CHEST_EXPIRATION_TIME or (3 * 24 * 60 * 60)
+			local remaining = (timestampSec + expireSec) - os.time()
+			if remaining > 0 then
+				descriptionText = string.format("%s\nThese rewards will expire in %s.", descriptionText, Game.getTimeInWords(remaining))
+			else
+				descriptionText = string.format("%s\nThese rewards have expired.", descriptionText)
+			end
+		end
 	end
 
 	return descriptionText

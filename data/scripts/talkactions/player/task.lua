@@ -439,7 +439,7 @@ function TaskSystem.openBountyAmuletWindow(player)
 	local isEquipped = player:hasBountyAmuletEquipped()
 	local statusStr = isEquipped and "Equipped [WARDS ACTIVE!]" or "NOT Equipped (Equip Bounty Amulet to activate!)"
 
-	local upgradeKeys = { "defense", "elemental", "speed", "paralysis" }
+	local upgradeKeys = { "defense", "elemental", "speed", "paralysis", "fear" }
 	local summaryLines = {}
 	for _, key in ipairs(upgradeKeys) do
 		local u = TaskSystem.BountyConfig.amuletUpgrades[key]
@@ -467,7 +467,7 @@ function TaskSystem.openBountyAmuletWindow(player)
 		message = msg,
 	})
 
-	local upgradeKeys = { "defense", "elemental", "speed", "paralysis" }
+	local upgradeKeys = { "defense", "elemental", "speed", "paralysis", "fear" }
 	for _, key in ipairs(upgradeKeys) do
 		local u = TaskSystem.BountyConfig.amuletUpgrades[key]
 		local curLvl = math.min(player:getAmuletUpgrade(key), u.maxLevel)

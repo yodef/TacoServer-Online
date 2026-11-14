@@ -104,9 +104,15 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getStorageValue(Storage.Quest.U11_02.TheFirstDragon.ChestCounter) < 0 then
 			player:setStorageValue(Storage.Quest.U11_02.TheFirstDragon.ChestCounter, 0)
 		end
-		player:setStorageValue(Storage.Quest.U11_02.TheFirstDragon.DragonCounter, 0)
-		player:setStorageValue(Storage.Quest.U11_02.TheFirstDragon.GelidrazahAccess, 0)
-		player:setStorageValue(Storage.Quest.U11_02.TheFirstDragon.SecretsCounter, 0)
+		if player:getStorageValue(Storage.Quest.U11_02.TheFirstDragon.DragonCounter) < 0 then
+			player:setStorageValue(Storage.Quest.U11_02.TheFirstDragon.DragonCounter, 0)
+		end
+		if player:getStorageValue(Storage.Quest.U11_02.TheFirstDragon.GelidrazahAccess) < 0 then
+			player:setStorageValue(Storage.Quest.U11_02.TheFirstDragon.GelidrazahAccess, 0)
+		end
+		if player:getStorageValue(Storage.Quest.U11_02.TheFirstDragon.SecretsCounter) < 0 then
+			player:setStorageValue(Storage.Quest.U11_02.TheFirstDragon.SecretsCounter, 0)
+		end
 	end
 
 	return true

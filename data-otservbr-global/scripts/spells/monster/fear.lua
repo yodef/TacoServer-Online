@@ -11,6 +11,13 @@ function spell.onCastSpell(creature, var)
 	if not creature then
 		return
 	end
+	local target = (var and var.getNumber and Creature(var:getNumber())) or creature:getTarget()
+	if target and target:isPlayer() and target.hasBountyAmuletEquipped and target:hasBountyAmuletEquipped() then
+		if target.getAmuletUpgrade and target:getAmuletUpgrade("fear") > 0 then
+			target:getPosition():sendMagicEffect(CONST_ME_HOLYDAMAGE)
+			return false
+		end
+	end
 	return combat:execute(creature, var)
 end
 

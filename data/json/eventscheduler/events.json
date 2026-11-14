@@ -1,6 +1,25 @@
 {
     "events": [
         {
+            "name": "Double Exp & Skills",
+            "startdate": "10/31/2026",
+            "enddate": "11/16/2026",
+            "ingame": {
+                "exprate": 200,
+                "skillrate": 200
+            },
+            "description": "Double experience (2x) and double skill rate (2x) event!",
+            "colors": {
+                "colordark": "#002d00",
+                "colorlight": "#004400"
+            },
+            "details": {
+                "displaypriority": 10,
+                "isseasonal": 0,
+                "specialevent": 1
+            }
+        },
+        {
             "name": "Double Respawn & Skill",
             "startdate": "10/17/2026",
             "enddate": "10/25/2026",

@@ -81,13 +81,19 @@ local function checkHouseAccess(hireling)
 	if not house then
 		return false
 	end
+
+	-- Check owner guid first before loading heavy offline player data
+	if house:getOwnerGuid() == hireling:getOwnerId() then
+		return true
+	end
+
 	local player = Player(hireling:getOwnerId())
 	if not player then
 		player = Game.getOfflinePlayer(hireling:getOwnerId())
 	end
 
-	if house:getOwnerGuid() == hireling:getOwnerId() then
-		return true
+	if not player then
+		return false
 	end
 
 	-- Player is not invited anymore, return to lamp
@@ -108,6 +114,7 @@ local function checkHouseAccess(hireling)
 	hireling.active = 0
 	hireling.cid = -1
 	hireling:setPosition({ x = 0, y = 0, z = 0 })
+	return false
 end
 
 local function spawnNPCs()

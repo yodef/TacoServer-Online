@@ -163,6 +163,86 @@ local function removeMonsterFromArea(fromPos, toPos)
     return false
 end
 
+-- Control de sesiones y temporizadores de Boss War Arena.
+-- Cada evento programado queda asociado a una sesión concreta.
+local arenaSessionId = 0
+local activeArena = nil
+
+local function hasPlayersInArena()
+    for x = config.specPos.from.x, config.specPos.to.x do
+        for y = config.specPos.from.y, config.specPos.to.y do
+            for z = config.specPos.from.z, config.specPos.to.z do
+                local tile = Tile(Position(x, y, z))
+                if tile then
+                    local creatures = tile:getCreatures() or {}
+                    for _, creature in ipairs(creatures) do
+                        if creature:isPlayer() then
+                            return true
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return false
+end
+
+local function finishArena(sessionId, message)
+    if not activeArena or activeArena.sessionId ~= sessionId then
+        return false
+    end
+
+    local arena = activeArena
+    -- Invalidar la sesión antes de cancelar/limpiar para bloquear callbacks antiguos.
+    activeArena = nil
+
+    for _, eventId in ipairs(arena.events) do
+        stopEvent(eventId)
+    end
+
+    if arena.lever then
+        arena.lever:transform(8911)
+    end
+
+    removeMonsterFromArea(config.specPos.from, config.specPos.to)
+
+    if message then
+        print('[Boss War] ' .. message)
+    end
+    return true
+end
+
+local function scheduleArenaEvent(sessionId, callback, delay)
+    local eventId = addEvent(function()
+        if not activeArena or activeArena.sessionId ~= sessionId then
+            return
+        end
+        callback()
+    end, delay)
+
+    if activeArena and activeArena.sessionId == sessionId then
+        table.insert(activeArena.events, eventId)
+    else
+        stopEvent(eventId)
+    end
+    return eventId
+end
+
+local function checkArenaPlayers(sessionId)
+    if not activeArena or activeArena.sessionId ~= sessionId then
+        return
+    end
+
+    if not hasPlayersInArena() then
+        finishArena(sessionId, 'Arena finalizada porque no quedan jugadores dentro.')
+        return
+    end
+
+    scheduleArenaEvent(sessionId, function()
+        checkArenaPlayers(sessionId)
+    end, 5000)
+end
+
 -- Part of teleportation of players, entrance
 function isPositionEqual(pos1, pos2)
     return pos1.x == pos2.x and pos1.y == pos2.y and pos1.z == pos2.z
@@ -202,11 +282,21 @@ function bossWar.onUse(player, item, fromPosition, target, toPosition, isHotkey)
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "One of the players on the tiles has cooldown to join the Boss War Arena.")
         return true
     end
-    -- If lever is pressed, and cooldown is active.
+    -- Si la palanca figura activa, comprobar si la sesión anterior sigue ocupada.
     if item.itemid == 8912 then
-        player:say("Cling..", TALKTYPE_MONSTER_SAY)
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This arena is still active. Please wait a few minutes.")
-        return true
+        if activeArena and hasPlayersInArena() then
+            player:say("Cling..", TALKTYPE_MONSTER_SAY)
+            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This arena is still active. Please wait a few minutes.")
+            return true
+        end
+
+        -- No hay jugadores: cerrar y cancelar la sesión anterior antes de reutilizar la arena.
+        if activeArena then
+            finishArena(activeArena.sessionId, 'Sesión anterior cerrada al detectar la arena vacía.')
+        else
+            -- Recuperación por si la palanca quedó activa tras reiniciar/recargar el script.
+            item:transform(8911)
+        end
     end
 	-- PLATININUM TOKEN COST
 	if difficulty <= 0 then --DIFFICULTY EASY
@@ -255,42 +345,55 @@ function bossWar.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local majorbossName2 = majorBosses[math.random(1, #majorBosses)].name
 	local majorbossName3 = majorBosses[math.random(1, #majorBosses)].name
 	
-	--BOSS DELAY
-	local delay = 1 * 60 * 1000  -- 1 min
-	--TIMER
-	addEvent(function() player:say("Arena Event: 5 minutes left...", TALKTYPE_MONSTER_SAY) end, delay * 5)
-	addEvent(function() player:say("Arena Event: 3 minutes left...", TALKTYPE_MONSTER_SAY) end, delay * 7)
-	addEvent(function() player:say("Arena Event: 1 minute left.", TALKTYPE_MONSTER_SAY) end, delay * 9)
-	addEvent(function() player:say("Arena Event: 10 seconds left!", TALKTYPE_MONSTER_SAY) end, (590 * 1000))
-	addEvent(function() player:say("Arena Event: 3 seconds left!", TALKTYPE_MONSTER_SAY) end, (597 * 1000))
-	addEvent(function() player:say("Arena Event: 2 seconds left!", TALKTYPE_MONSTER_SAY) end, (598 * 1000))
-	addEvent(function() player:say("Arena Event: 1 seconds left!", TALKTYPE_MONSTER_SAY) end, (599 * 1000))
-	--BOSS SUMMON
+	-- BOSS DELAY
+	local delay = 1 * 60 * 1000 -- 1 minuto
+	-- BOSS SUMMON
 	local function createBoss(bossName)
-		Game.createMonster(bossName, config.boss.position, 1)					
+		Game.createMonster(bossName, config.boss.position, 1)
 	end
-	
-    -- If lever time is over or reset
+
+    -- Iniciar una sesión nueva solo cuando la palanca está disponible.
     if item.itemid == 8911 then
-        item:transform(8912)		
+        item:transform(8912)
+        arenaSessionId = arenaSessionId + 1
+        local sessionId = arenaSessionId
+        activeArena = {
+            sessionId = sessionId,
+            events = {},
+            lever = item
+        }
+
+        -- Comprobar cada 5 segundos si todavía hay jugadores dentro.
+        scheduleArenaEvent(sessionId, function()
+            checkArenaPlayers(sessionId)
+        end, 5000)
+
+        -- Mensajes de tiempo restante; se cancelan al finalizar anticipadamente.
+        scheduleArenaEvent(sessionId, function() player:say("Arena Event: 5 minutes left...", TALKTYPE_MONSTER_SAY) end, delay * 5)
+        scheduleArenaEvent(sessionId, function() player:say("Arena Event: 3 minutes left...", TALKTYPE_MONSTER_SAY) end, delay * 7)
+        scheduleArenaEvent(sessionId, function() player:say("Arena Event: 1 minute left.", TALKTYPE_MONSTER_SAY) end, delay * 9)
+        scheduleArenaEvent(sessionId, function() player:say("Arena Event: 10 seconds left!", TALKTYPE_MONSTER_SAY) end, 590 * 1000)
+        scheduleArenaEvent(sessionId, function() player:say("Arena Event: 3 seconds left!", TALKTYPE_MONSTER_SAY) end, 597 * 1000)
+        scheduleArenaEvent(sessionId, function() player:say("Arena Event: 2 seconds left!", TALKTYPE_MONSTER_SAY) end, 598 * 1000)
+        scheduleArenaEvent(sessionId, function() player:say("Arena Event: 1 second left!", TALKTYPE_MONSTER_SAY) end, 599 * 1000)		
 		if difficulty <= 0 then --DIFFICULTY EASY
 			Game.createMonster(bossName1, config.boss.position, 1)
-			addEvent(function() createBoss(bossName2) end, delay * 2)
-			addEvent(function() createBoss(bossName3) end, delay * 4)
-			addEvent(function() createBoss(bossName4) end, delay * 6)
+			scheduleArenaEvent(sessionId, function() createBoss(bossName2) end, delay * 2)
+			scheduleArenaEvent(sessionId, function() createBoss(bossName3) end, delay * 4)
+			scheduleArenaEvent(sessionId, function() createBoss(bossName4) end, delay * 6)
 			Broadcast("Boss War Arena A started on EASY difficulty. You have only 10 minutes to fight!")		
 		elseif difficulty == 1 then --DIFFICULTY MEDIUM	
 			Game.createMonster(bossName1, config.boss.position, 1)
-			addEvent(function() createBoss(bossName2) end, delay * 2)
-			addEvent(function() createBoss(bossName3) end, delay * 4)
-			addEvent(function() createBoss(majorbossName1) end, delay * 5)
+			scheduleArenaEvent(sessionId, function() createBoss(bossName2) end, delay * 2)
+			scheduleArenaEvent(sessionId, function() createBoss(bossName3) end, delay * 4)
+			scheduleArenaEvent(sessionId, function() createBoss(majorbossName1) end, delay * 5)
 			Broadcast("Boss War Arena A started on MEDIUM difficulty. You have only 10 minutes to fight!")
 		elseif difficulty == 2 then --DIFFICULTY HARD
 			Game.createMonster(bossName1, config.boss.position, 1)
 			Game.createMonster(bossName2, config.boss.position, 1)
-			addEvent(function() createBoss(bossName3) end, delay * 3)
-			addEvent(function() createBoss(bossName4) end, delay * 3)
-			addEvent(function() createBoss(majorbossName2) end, delay * 3)
+			scheduleArenaEvent(sessionId, function() createBoss(bossName3) end, delay * 3)
+			scheduleArenaEvent(sessionId, function() createBoss(bossName4) end, delay * 3)
+			scheduleArenaEvent(sessionId, function() createBoss(majorbossName2) end, delay * 3)
 			Broadcast("Boss War Arena A started on HARD difficulty. You have only 10 minutes to fight!")
 		elseif difficulty == 3 then --DIFFICULTY INFERNO
 				Game.createMonster(majorbossName1, config.boss.position, 1)
@@ -310,14 +413,14 @@ function bossWar.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				Broadcast("Boss War Arena A started on NIGHTMARE difficulty. You have only 10 minutes to fight!")
 		elseif difficulty >= 5 then --DEATMATCH MODE	
 			Game.createMonster(bossName1, config.boss.position, 1)	
-			addEvent(function() createBoss(bossName2) end, delay * 1)
-			addEvent(function() createBoss(bossName3) end, delay * 1)
-			addEvent(function() createBoss(bossName4) end, delay * 3)
-			addEvent(function() createBoss(bossName5) end, delay * 3)
-			addEvent(function() createBoss(majorbossName1) end, delay * 5)
-			addEvent(function() createBoss(bossName6) end, delay * 7)
-			addEvent(function() createBoss(bossName7) end, delay * 7)
-			addEvent(function() createBoss(bossName8) end, delay * 7)
+			scheduleArenaEvent(sessionId, function() createBoss(bossName2) end, delay * 1)
+			scheduleArenaEvent(sessionId, function() createBoss(bossName3) end, delay * 1)
+			scheduleArenaEvent(sessionId, function() createBoss(bossName4) end, delay * 3)
+			scheduleArenaEvent(sessionId, function() createBoss(bossName5) end, delay * 3)
+			scheduleArenaEvent(sessionId, function() createBoss(majorbossName1) end, delay * 5)
+			scheduleArenaEvent(sessionId, function() createBoss(bossName6) end, delay * 7)
+			scheduleArenaEvent(sessionId, function() createBoss(bossName7) end, delay * 7)
+			scheduleArenaEvent(sessionId, function() createBoss(bossName8) end, delay * 7)
 			Broadcast("Boss War Arena A started on DEATHMATCH mode. Slay the all the bosses you can in 10 minutes!")
 		end		
         -- teleport player(s)
@@ -338,20 +441,13 @@ function bossWar.onUse(player, item, fromPosition, target, toPosition, isHotkey)
                         -- Set player cooldown
                         --creature:setStorageValue(config.storage, os.time() + config.cooldownTimer) -- cooldown timer
 			creature:setStorageValue(15053, 1)
-			local eventStart = os.time({year = 2026, month = 10, day = 17, hour = 0, min = 0, sec = 0})
-			local eventEnd = os.time({year = 2026, month = 10, day = 25, hour = 23, min = 59, sec = 59})
-			if os.time() >= eventStart and os.time() <= eventEnd then
-				creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Boss War Event Active: Bosswar points X2 en arena!")
-			end
                     end
                 end
             end
         end
 
-        addEvent(function() -- Change lever back once time is up
-            item:transform(8911)
-            -- Kick players, remove mobs from radius
-            removeMonsterFromArea(config.specPos.from, config.specPos.to)
+        scheduleArenaEvent(sessionId, function() -- Cierre al cumplirse los 10 minutos
+            finishArena(sessionId, 'Tiempo agotado; la arena ha finalizado.')
             player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Time is up! Event has concluded on Boss War Arena A.")
         end, config.teleportTimer * 1000)
     end

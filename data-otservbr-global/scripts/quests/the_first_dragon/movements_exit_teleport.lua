@@ -28,7 +28,10 @@ function exitTeleport.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	local setting = UniqueTable[item.uid] or UniqueTable[item.actionid]
+	local setting = nil
+	if item then
+		setting = UniqueTable[item.uid] or UniqueTable[item.actionid]
+	end
 	if not setting then
 		for _, v in pairs(UniqueTable) do
 			if v.exitPos and position.x == v.exitPos.x and position.y == v.exitPos.y and position.z == v.exitPos.z then
@@ -47,10 +50,26 @@ function exitTeleport.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-for index in pairs(UniqueTable) do
-	exitTeleport:uid(index)
-	exitTeleport:aid(index)
+-- Register exit crystals by position
+for _, setting in pairs(UniqueTable) do
+	if setting.exitPos then
+		exitTeleport:position(Position(setting.exitPos))
+	end
 end
-exitTeleport:id(8646, 8647, 8648, 8649)
-
 exitTeleport:register()
+
+-- Return teleport from First Dragon Lava Shrine back to Tamoril's Tower
+local shrineReturnPortal = MoveEvent()
+function shrineReturnPortal.onStepIn(creature, item, position, fromPosition)
+	local player = creature:getPlayer()
+	if not player then
+		return true
+	end
+	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+	player:teleportTo(Position(32912, 31017, 5))
+	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+	return true
+end
+-- Step south onto 33047, 32715, 3 to return to Tamoril's Hub
+shrineReturnPortal:position(Position(33047, 32715, 3))
+shrineReturnPortal:register()

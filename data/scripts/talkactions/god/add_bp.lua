@@ -26,7 +26,7 @@ function addBp.onSay(player, words, param)
 		return true
 	end
 
-	local storageKey = 14020
+	local storageKey = (TaskSystem and TaskSystem.Storages and TaskSystem.Storages.bountyPoints) or 65420
 
 	local targetPlayer = Player(targetName)
 	if targetPlayer then

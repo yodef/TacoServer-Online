@@ -38,6 +38,9 @@ function playerLoginGlobal.onLogin(player)
 	player:sendTextMessage(MESSAGE_BOOSTED_CREATURE, string.format("Today's boosted boss: %s.", Game.getBoostedBoss()))
 
 	-- Rewards
+	if player.purgeExpiredRewards then
+		player:purgeExpiredRewards(true)
+	end
 	local rewards = #player:getRewardList()
 	if rewards > 0 then
 		player:sendTextMessage(MESSAGE_LOGIN, string.format("You have %d reward%s in your reward chest.", rewards, rewards > 1 and "s" or ""))

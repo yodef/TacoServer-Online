@@ -441,7 +441,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:say("Prey hunting tasks should reduce the number of certain monsters. And if you fulfil them successfully I will show my appreciation and give you some {rewards} in exchange of hunting task points.", npc, creature)
 		npcHandler:setTopic(playerId, 0)
 	elseif MsgContains(message, "have") then
-		local bpVal = (player.getBountyPoints and player:getBountyPoints()) or math.max(0, player:getStorageValue(14020))
+		local bpVal = (player.getBountyPoints and player:getBountyPoints()) or math.max(0, player:getStorageValue(65420))
 		npcHandler:say("Right now you have " .. player:getTaskHuntingPoints() .. " HTP and " .. bpVal .. " Bounty Points.", npc, creature)
 		npcHandler:setTopic(playerId, 0)
 	elseif MsgContains(message, "addon doll") or (MsgContains(message, "addon") and (MsgContains(message, "doll") or MsgContains(message, "buy"))) then
@@ -485,9 +485,9 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("You need 4,000 Hunting Task Points to buy 1,000 Bounty Points, but you only have " .. player:getTaskHuntingPoints() .. " HTP.", npc, creature)
 		else
 			if player:removeTaskHuntingPoints(4000) then
-				local curBP = (player.getBountyPoints and player:getBountyPoints()) or math.max(0, player:getStorageValue(14020))
+				local curBP = (player.getBountyPoints and player:getBountyPoints()) or math.max(0, player:getStorageValue(65420))
 				local newBP = curBP + 1000
-				player:setStorageValue(14020, newBP)
+				if player.setBountyPoints then player:setBountyPoints(newBP) else player:setStorageValue(65420, newBP) end
 				npcHandler:say("Here you are! 1,000 Bounty Points added. You now have " .. newBP .. " Bounty Points.", npc, creature)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
 			end
@@ -498,9 +498,9 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("You need 2,000 Hunting Task Points to buy 500 Bounty Points, but you only have " .. player:getTaskHuntingPoints() .. " HTP.", npc, creature)
 		else
 			if player:removeTaskHuntingPoints(2000) then
-				local curBP = (player.getBountyPoints and player:getBountyPoints()) or math.max(0, player:getStorageValue(14020))
+				local curBP = (player.getBountyPoints and player:getBountyPoints()) or math.max(0, player:getStorageValue(65420))
 				local newBP = curBP + 500
-				player:setStorageValue(14020, newBP)
+				if player.setBountyPoints then player:setBountyPoints(newBP) else player:setStorageValue(65420, newBP) end
 				npcHandler:say("Here you are! 500 Bounty Points added. You now have " .. newBP .. " Bounty Points.", npc, creature)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
 			end
@@ -511,16 +511,16 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("You need 1,000 Hunting Task Points to buy 250 Bounty Points, but you only have " .. player:getTaskHuntingPoints() .. " HTP.", npc, creature)
 		else
 			if player:removeTaskHuntingPoints(1000) then
-				local curBP = (player.getBountyPoints and player:getBountyPoints()) or math.max(0, player:getStorageValue(14020))
+				local curBP = (player.getBountyPoints and player:getBountyPoints()) or math.max(0, player:getStorageValue(65420))
 				local newBP = curBP + 250
-				player:setStorageValue(14020, newBP)
+				if player.setBountyPoints then player:setBountyPoints(newBP) else player:setStorageValue(65420, newBP) end
 				npcHandler:say("Here you are! 250 Bounty Points added. You now have " .. newBP .. " Bounty Points.", npc, creature)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
 			end
 		end
 		npcHandler:setTopic(playerId, 0)
 	elseif MsgContains(message, "bounty") or MsgContains(message, "bp") then
-		local bpVal = (player.getBountyPoints and player:getBountyPoints()) or math.max(0, player:getStorageValue(14020))
+		local bpVal = (player.getBountyPoints and player:getBountyPoints()) or math.max(0, player:getStorageValue(65420))
 		npcHandler:say({
 			"I can exchange your Hunting Task Points (HTP) for Bounty Points (BP) to upgrade your Bounty Equipment (Ring & Amulet):\n" ..
 			"- {250 bounty points} for 1,000 HTP\n" ..

@@ -16,6 +16,7 @@
 #include "server/network/protocol/transport_codec.hpp"
 #include "game/scheduling/dispatcher.hpp"
 #include "account/account.hpp"
+#include "database/database.hpp"
 #include "creatures/players/livestream/livestream.hpp"
 #include "creatures/players/player.hpp"
 #include "io/iologindata.hpp"
@@ -86,8 +87,30 @@ void ProtocolLogin::getCharacterList(const std::string &accountDescriptor, const
 
 	output->addByte(0x64);
 
+	struct CharWorldEntry {
+		std::string name;
+		uint8_t worldId;
+	};
+	std::vector<CharWorldEntry> charEntries;
+	if (auto res = g_database().storeQuery(fmt::format("SELECT `name`, `world_id` FROM `canary`.`players` WHERE `account_id` = {} AND `deletion` = 0 ORDER BY `name` ASC", account.getID()))) {
+		do {
+			charEntries.push_back({
+				res->getString("name"),
+				static_cast<uint8_t>(res->getNumber<uint32_t>("world_id") == 1 ? 1 : 0)
+			});
+		} while (res->next());
+	} else {
+		for (const auto &[name, deletion] : players) {
+			charEntries.push_back({ name, 0 });
+		}
+	}
+
+	const uint16_t currentGamePort = protocolProfile ? protocol_port_utils::getGamePortForProfile(*protocolProfile) : protocol_port_utils::getModernGamePort();
+	const uint16_t portOffset = (currentGamePort >= 7176) ? (currentGamePort - 7176) : (currentGamePort - 7172);
+	const uint16_t world0Port = 7172 + portOffset;
+	const uint16_t world1Port = 7176 + portOffset;
+
 	if (characterListLayout == AccountCharacterListLayout::LegacyCharacterList) {
-		const auto serverName = g_configManager().getString(SERVER_NAME);
 		const auto configuredWorldIp = g_configManager().getString(IP);
 		const auto worldIp = protocol_port_utils::legacyIpStringToNumber(configuredWorldIp);
 		if (worldIp == 0) {
@@ -96,18 +119,18 @@ void ProtocolLogin::getCharacterList(const std::string &accountDescriptor, const
 			return;
 		}
 
-		uint8_t size = std::min<size_t>(std::numeric_limits<uint8_t>::max(), players.size());
+		uint8_t size = std::min<size_t>(std::numeric_limits<uint8_t>::max(), charEntries.size());
 		output->addByte(size);
 
-		const auto worldPort = protocolProfile ? protocol_port_utils::getGamePortForProfile(*protocolProfile) : protocol_port_utils::getModernGamePort();
 		std::vector<std::string> characterNames;
 		characterNames.reserve(size);
-		for (const auto &[name, deletion] : players) {
-			output->addString(name);
-			output->addString(serverName);
+		for (size_t i = 0; i < size; ++i) {
+			const auto &entry = charEntries[i];
+			output->addString(entry.name);
+			output->addString(entry.worldId == 1 ? "TacoServer Rebirth" : "TacoServer");
 			output->add<uint32_t>(worldIp);
-			output->add<uint16_t>(worldPort);
-			characterNames.emplace_back(name);
+			output->add<uint16_t>(entry.worldId == 1 ? world1Port : world0Port);
+			characterNames.emplace_back(entry.name);
 		}
 
 		output->add<uint16_t>(std::min<uint32_t>(std::numeric_limits<uint16_t>::max(), account.getPremiumRemainingDays()));
@@ -122,24 +145,31 @@ void ProtocolLogin::getCharacterList(const std::string &accountDescriptor, const
 		return;
 	}
 
-	output->addByte(1); // number of worlds
+	output->addByte(2); // number of worlds
 
-	output->addByte(0); // world id
-	output->addString(g_configManager().getString(SERVER_NAME));
+	// World 0: TacoServer
+	output->addByte(0); // world id 0
+	output->addString("TacoServer");
 	output->addString(g_configManager().getString(IP));
-
-	output->add<uint16_t>(protocolProfile ? protocol_port_utils::getGamePortForProfile(*protocolProfile) : protocol_port_utils::getModernGamePort());
-
+	output->add<uint16_t>(world0Port);
 	output->addByte(0);
 
-	uint8_t size = std::min<size_t>(std::numeric_limits<uint8_t>::max(), players.size());
+	// World 1: TacoServer Rebirth
+	output->addByte(1); // world id 1
+	output->addString("TacoServer Rebirth");
+	output->addString(g_configManager().getString(IP));
+	output->add<uint16_t>(world1Port);
+	output->addByte(0);
+
+	uint8_t size = std::min<size_t>(std::numeric_limits<uint8_t>::max(), charEntries.size());
 	output->addByte(size);
 	std::vector<std::string> characterNames;
 	characterNames.reserve(size);
-	for (const auto &[name, deletion] : players) {
-		output->addByte(0);
-		output->addString(name);
-		characterNames.emplace_back(name);
+	for (size_t i = 0; i < size; ++i) {
+		const auto &entry = charEntries[i];
+		output->addByte(entry.worldId);
+		output->addString(entry.name);
+		characterNames.emplace_back(entry.name);
 	}
 
 	// Get premium days, check is premium and get lastday

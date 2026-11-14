@@ -119,15 +119,8 @@ function bossWarKills.onDeath(creature)
 		return true
 	end
 	local bossPoints = bossConfig.points
-	local multiplier = 1.0
-	local now = os.time()
-	local eventStart = os.time({year = 2026, month = 10, day = 17, hour = 0, min = 0, sec = 0})
-	local eventEnd = os.time({year = 2026, month = 10, day = 25, hour = 23, min = 59, sec = 59})
-	local isDoubleEvent = (now >= eventStart and now <= eventEnd)
-	if isDoubleEvent then
-		multiplier = 2.0
-	end
-	local earnPoints = math.floor(bossPoints * multiplier)
+	local isDoubleEvent = false
+	local earnPoints = bossPoints
 
 	onDeathForDamagingPlayers(creature, function(creature, player)
 		if player:getStorageValue(15053) >= 1 then --CONDITION

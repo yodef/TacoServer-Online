@@ -35,11 +35,25 @@ function Creature:onTargetCombat(target)
 		end
 	end
 
-	-- Bounty Amulet paralysis immunity check
+	-- Bounty Amulet paralysis & fear immunity check
 	if target and target:isPlayer() and target.hasBountyAmuletEquipped and target:hasBountyAmuletEquipped() then
 		if target:getAmuletUpgrade("paralysis") > 0 and target:hasCondition(CONDITION_PARALYZE) then
 			target:removeCondition(CONDITION_PARALYZE)
 			target:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
+		end
+		if target:getAmuletUpgrade("fear") > 0 and target:hasCondition(CONDITION_FEARED) then
+			target:removeCondition(CONDITION_FEARED)
+			target:getPosition():sendMagicEffect(CONST_ME_HOLYDAMAGE)
+		end
+	end
+	if self:isPlayer() and self.hasBountyAmuletEquipped and self:hasBountyAmuletEquipped() then
+		if self:getAmuletUpgrade("paralysis") > 0 and self:hasCondition(CONDITION_PARALYZE) then
+			self:removeCondition(CONDITION_PARALYZE)
+			self:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
+		end
+		if self:getAmuletUpgrade("fear") > 0 and self:hasCondition(CONDITION_FEARED) then
+			self:removeCondition(CONDITION_FEARED)
+			self:getPosition():sendMagicEffect(CONST_ME_HOLYDAMAGE)
 		end
 	end
 
@@ -167,6 +181,21 @@ function Creature:onDrainHealth(attacker, typePrimary, damagePrimary, typeSecond
 				if p and p:hasCondition(CONDITION_PARALYZE) and p:hasBountyAmuletEquipped() and p:getAmuletUpgrade("paralysis") > 0 then
 					p:removeCondition(CONDITION_PARALYZE)
 					p:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
+				end
+			end, 50, self:getId())
+		end
+
+		-- 4. Fear Immunity (dispel fear if upgraded)
+		if self:getAmuletUpgrade("fear") > 0 then
+			if self:hasCondition(CONDITION_FEARED) then
+				self:removeCondition(CONDITION_FEARED)
+				self:getPosition():sendMagicEffect(CONST_ME_HOLYDAMAGE)
+			end
+			addEvent(function(pid)
+				local p = Player(pid)
+				if p and p:hasCondition(CONDITION_FEARED) and p:hasBountyAmuletEquipped() and p:getAmuletUpgrade("fear") > 0 then
+					p:removeCondition(CONDITION_FEARED)
+					p:getPosition():sendMagicEffect(CONST_ME_HOLYDAMAGE)
 				end
 			end, 50, self:getId())
 		end

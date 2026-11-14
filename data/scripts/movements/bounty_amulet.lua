@@ -20,6 +20,17 @@ function bountyAmuletEquip.onEquip(player, item, slot, isCheck)
 	if player.updateAmuletSpeedCondition then
 		player:updateAmuletSpeedCondition()
 	end
+
+	-- Dispel fear or paralysis on equip if upgraded
+	if player.getAmuletUpgrade then
+		if player:getAmuletUpgrade("paralysis") > 0 and player:hasCondition(CONDITION_PARALYZE) then
+			player:removeCondition(CONDITION_PARALYZE)
+		end
+		if player:getAmuletUpgrade("fear") > 0 and player:hasCondition(CONDITION_FEARED) then
+			player:removeCondition(CONDITION_FEARED)
+			player:getPosition():sendMagicEffect(CONST_ME_HOLYDAMAGE)
+		end
+	end
 	return true
 end
 

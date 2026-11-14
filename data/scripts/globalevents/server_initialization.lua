@@ -7,7 +7,7 @@ local function cleanupDatabase()
 	db.asyncQuery("DELETE FROM `players` WHERE `deletion` != 0 AND `deletion` < " .. currentTime)
 	db.asyncQuery("DELETE FROM `ip_bans` WHERE `expires_at` != 0 AND `expires_at` <= " .. currentTime)
 	db.asyncQuery("DELETE FROM `market_history` WHERE `inserted` <= " .. (currentTime - configManager.getNumber(configKeys.MARKET_OFFER_DURATION)))
-	db.query("DELETE FROM `player_storage` WHERE `key` IN (" .. Global.Storage.FamiliarSummonEvent10 .. ", " .. Global.Storage.FamiliarSummonEvent60 .. ")")
+	db.query("DELETE FROM `player_storage` WHERE `player_id` IN (SELECT `id` FROM `players`) AND `key` IN (" .. Global.Storage.FamiliarSummonEvent10 .. ", " .. Global.Storage.FamiliarSummonEvent60 .. ")")
 
 	db.query("UPDATE `players` SET `isreward` = " .. DAILY_REWARD_NOTCOLLECTED)
 	-- db.query("UPDATE `player_storage` SET `value` = 0 WHERE `player_storage`.`key` = 51052")
@@ -113,7 +113,7 @@ end
 local function resetAccountSessions()
 	if AUTH_TYPE == "session" then
 		if configManager.getBoolean(configKeys.RESET_SESSIONS_ON_STARTUP) then
-			db.query("TRUNCATE TABLE `account_sessions`")
+			db.query("DELETE FROM `account_sessions`")
 		else
 			db.query("DELETE FROM `account_sessions` WHERE `expires` <= " .. os.time())
 		end

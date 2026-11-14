@@ -107,6 +107,15 @@ function callback.creatureOnCombat(caster, target, damage)
 					targetPlayer:removeCondition(CONDITION_PARALYZE)
 				end
 			end
+
+			-- Global Paralysis & Fear immunity check while wearing Bounty Amulet
+			if targetPlayer:getAmuletUpgrade("paralysis") > 0 and targetPlayer:hasCondition(CONDITION_PARALYZE) then
+				targetPlayer:removeCondition(CONDITION_PARALYZE)
+			end
+			if targetPlayer:getAmuletUpgrade("fear") > 0 and targetPlayer:hasCondition(CONDITION_FEARED) then
+				targetPlayer:removeCondition(CONDITION_FEARED)
+				targetPlayer:getPosition():sendMagicEffect(CONST_ME_HOLYDAMAGE)
+			end
 		end
 	end
 end

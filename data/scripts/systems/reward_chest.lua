@@ -70,6 +70,9 @@ function bossDeath.onDeath(creature, corpse, killer, mostDamageKiller, lastHitUn
 				local reward, stamina, player
 				if con.player then
 					player = con.player
+					if player.purgeExpiredRewards then
+						player:purgeExpiredRewards(false)
+					end
 				else
 					player = Game.getOfflinePlayer(con.guid)
 				end

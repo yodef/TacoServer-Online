@@ -91,22 +91,22 @@ function treasureChest.onUse(player, item, fromPosition, target, toPosition, isH
 		return false
 	end
 
-	local storageValue = player:getStorageValue(item.uid)
+	-- Use clean, non-colliding storage keys (45521..45540)
+	local chestStorage = 45520 + (item.uid - 14000)
+	local storageValue = player:getStorageValue(chestStorage)
 	if storageValue > 0 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The " .. item:getName() .. " is empty.")
 		return true
 	end
 
-	if player:getStorageValue(Storage.Quest.U11_02.TheFirstDragon.ChestCounter) >= 19 then
-		player:addAchievement("Treasure Hunter")
-		player:addItem(setting.name or setting.itemId, setting.count, true)
-		player:setStorageValue(item.uid, 1)
-		player:setStorageValue(Storage.Quest.U11_02.TheFirstDragon.ChestCounter, player:getStorageValue(Storage.Quest.U11_02.TheFirstDragon.ChestCounter) + 1)
-		return true
-	end
+	player:setStorageValue(chestStorage, 1)
 
-	player:setStorageValue(item.uid, 1)
-	player:setStorageValue(Storage.Quest.U11_02.TheFirstDragon.ChestCounter, player:getStorageValue(Storage.Quest.U11_02.TheFirstDragon.ChestCounter) + 1)
+	local currentCount = math.max(0, player:getStorageValue(Storage.Quest.U11_02.TheFirstDragon.ChestCounter)) + 1
+	player:setStorageValue(Storage.Quest.U11_02.TheFirstDragon.ChestCounter, currentCount)
+
+	if currentCount >= 20 then
+		player:addAchievement("Treasure Hunter")
+	end
 
 	if setting.name then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You found " .. setting.count .. " " .. setting.name .. ".")
@@ -118,7 +118,7 @@ function treasureChest.onUse(player, item, fromPosition, target, toPosition, isH
 	return true
 end
 
-for index, value in pairs(UniqueTable) do
+for index, _ in pairs(UniqueTable) do
 	treasureChest:uid(index)
 end
 

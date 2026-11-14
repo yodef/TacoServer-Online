@@ -235,8 +235,12 @@ bool Container::countsToLootAnalyzerBalance() const {
 void Container::updateItemWeight(int32_t diff) {
 	totalWeight += diff;
 	std::shared_ptr<Container> parentContainer = getContainer();
+	size_t depth = 0;
 	while ((parentContainer = parentContainer->getParentContainer()) != nullptr) {
 		parentContainer->totalWeight += diff;
+		if (++depth > 64) {
+			break;
+		}
 	}
 }
 

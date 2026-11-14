@@ -12,10 +12,24 @@ local function executeCombat(cid, var)
 	if not creature then
 		return
 	end
+	local target = (var and var.getNumber and Creature(var:getNumber())) or creature:getTarget()
+	if target and target:isPlayer() and target.hasBountyAmuletEquipped and target:hasBountyAmuletEquipped() then
+		if target.getAmuletUpgrade and target:getAmuletUpgrade("fear") > 0 then
+			target:getPosition():sendMagicEffect(CONST_ME_HOLYDAMAGE)
+			return false
+		end
+	end
 	return combat:execute(creature, var)
 end
 
 function spell.onCastSpell(creature, var)
+	local target = (var and var.getNumber and Creature(var:getNumber())) or creature:getTarget()
+	if target and target:isPlayer() and target.hasBountyAmuletEquipped and target:hasBountyAmuletEquipped() then
+		if target.getAmuletUpgrade and target:getAmuletUpgrade("fear") > 0 then
+			target:getPosition():sendMagicEffect(CONST_ME_HOLYDAMAGE)
+			return false
+		end
+	end
 	creature:getPosition():sendMagicEffect(CONST_ME_GHOST_SMOKE)
 	addEvent(executeCombat, 2000, creature:getId(), var)
 	return true
